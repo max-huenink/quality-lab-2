@@ -13,5 +13,12 @@ namespace Homework1
         {
             return First == null;
         }
+        public void AddToHead(T x)
+        {
+            LinkedListNode<T> temp = new LinkedListNode<T>();
+            temp.Data = x;
+            temp.Next = First;
+            First = temp;
+        }
     }
 }
