@@ -37,5 +37,28 @@ namespace Homework1.Tests
             Assert.AreNotEqual(testList.First, null);
             Assert.AreEqual(testList.First.Data, testInt);
         }
+        [TestMethod]
+        public void FindDoesExistTest()
+        {
+            LinkedList<int> testList = new LinkedList<int>();
+            testList.AddToHead(4);
+            testList.AddToHead(9);
+            testList.AddToHead(5);
+            testList.AddToHead(6);
+            testList.AddToHead(7);
+            Assert.IsTrue(testList.Find(5) == 2);
+        }
+
+        [TestMethod]
+        public void FindDoesNotExistTest()
+        {
+            LinkedList<int> testList = new LinkedList<int>();
+            testList.AddToHead(4);
+            testList.AddToHead(9);
+            testList.AddToHead(5);
+            testList.AddToHead(6);
+            testList.AddToHead(7);
+            Assert.IsTrue(testList.Find(8) == -1);
+        }
     }
 }
