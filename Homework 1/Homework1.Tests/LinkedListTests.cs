@@ -28,5 +28,14 @@ namespace Homework1.Tests
             Assert.AreNotEqual(testList.First, null);
             Assert.AreEqual(testList.First.Data, testInt);
         }
+        [TestMethod]
+        public void AddToTail()
+        {
+            LinkedList<int> testList = new LinkedList<int>();
+            int testInt = 10;
+            testList.AddToTail(testInt);
+            Assert.AreNotEqual(testList.First, null);
+            Assert.AreEqual(testList.First.Data, testInt);
+        }
     }
 }

@@ -20,5 +20,23 @@ namespace Homework1
             temp.Next = First;
             First = temp;
         }
+        public void AddToTail(T x)
+        {
+            LinkedListNode<T> temp = new LinkedListNode<T>();
+            temp.Data = x;
+            if(IsEmpty())
+            {
+                First = temp;
+            }
+            else
+            {
+                LinkedListNode<T> temp2 = First;
+                while(temp2.Next != null)
+                {
+                    temp2 = temp2.Next;
+                }
+                temp2.Next = temp;
+            }
+        }
     }
 }
