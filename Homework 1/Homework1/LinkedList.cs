@@ -9,5 +9,9 @@ namespace Homework1
     {
         public LinkedListNode<T> First { get; set; }
 
+        public bool IsEmpty()
+        {
+            return First == null;
+        }
     }
 }
