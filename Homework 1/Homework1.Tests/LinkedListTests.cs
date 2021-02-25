@@ -60,5 +60,14 @@ namespace Homework1.Tests
             testList.AddToHead(7);
             Assert.IsTrue(testList.Find(8) == -1);
         }
+        [TestMethod]
+
+        public void CreateListTest()
+        {
+            LinkedList<int> testList = new LinkedList<int>();
+            testList.CreateList(5);
+            Assert.AreEqual(testList.First.Data, 5);
+        }
     }
+
 }

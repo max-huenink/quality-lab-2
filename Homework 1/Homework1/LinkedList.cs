@@ -54,5 +54,12 @@ namespace Homework1
             }
             return -1;
         }
+
+        public void CreateList(T data)
+        {
+            LinkedListNode<T> temp = new LinkedListNode<T>();
+            temp.Data = data;
+            First = temp;
+        }
     }
 }
