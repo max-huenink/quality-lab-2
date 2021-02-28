@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GainsProject
 {
-    public partial class Form1 : Form
+    public partial class LeaderboardPage : UserControl
     {
-        public Form1()
+        public LeaderboardPage()
         {
             InitializeComponent();
         }
