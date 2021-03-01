@@ -34,6 +34,9 @@ namespace GainsProject
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Content = new System.Windows.Forms.Panel();
+            this.Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -87,6 +90,26 @@ namespace GainsProject
             this.label5.TabIndex = 4;
             this.label5.Text = "In order to leave the game, click the \"Quit\" button";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Tomato;
+            this.button1.Location = new System.Drawing.Point(44, 248);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(154, 89);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Play an example game!";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Content
+            // 
+            this.Content.Controls.Add(this.button1);
+            this.Content.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Content.Location = new System.Drawing.Point(0, 0);
+            this.Content.Name = "Content";
+            this.Content.Size = new System.Drawing.Size(1063, 681);
+            this.Content.TabIndex = 6;
+            // 
             // TutorialPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -96,8 +119,10 @@ namespace GainsProject
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.Content);
             this.Name = "TutorialPage";
             this.Size = new System.Drawing.Size(1063, 681);
+            this.Content.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,5 +135,7 @@ namespace GainsProject
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel Content;
     }
 }

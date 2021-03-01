@@ -52,6 +52,12 @@
     <Compile Include="BasePage.Designer.cs">
       <DependentUpon>BasePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExampleGame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExampleGame.Designer.cs">
+      <DependentUpon>ExampleGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameSelectPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </Compile>
     <EmbeddedResource Include="BasePage.resx">
       <DependentUpon>BasePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExampleGame.resx">
+      <DependentUpon>ExampleGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GameSelectPage.resx">
       <DependentUpon>GameSelectPage.cs</DependentUpon>

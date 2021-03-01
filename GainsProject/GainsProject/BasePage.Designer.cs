@@ -134,9 +134,6 @@ namespace GainsProject
             // 
             // Content
             // 
-            this.Content.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Content.Location = new System.Drawing.Point(201, 0);
             this.Content.Name = "Content";
             this.Content.Size = new System.Drawing.Size(1063, 681);
