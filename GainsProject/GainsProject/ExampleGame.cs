@@ -1,7 +1,7 @@
 ﻿//---------------------------------------------------------------
 // Name:    Ian Seidler
 // Project: SE 3330 team:Xx_Bigger_Gains_xX
-// Purpose: To run an example game for the user to play
+// Purpose: To display an example game for the user to play
 //---------------------------------------------------------------
 using System;
 using System.Collections.Generic;
@@ -15,40 +15,16 @@ using System.Windows.Forms;
 using System.Diagnostics;
 namespace GainsProject
 {
+    //---------------------------------------------------------------
+    //GUI side of the Example game
+    //---------------------------------------------------------------
     public partial class ExampleGame : UserControl
     {
-        public const int RANDOM_TIME_MIN = 1000;
-        public const int RANDOM_TIME_MAX = 5000;
-        public const int BASE_SCORE_CALCULATION = 200;
-        public const int MAX_SCORE = 1000;
-        //Boolean to keep track of wether or not the game is live
-        private bool canClick = false; 
-        //Stopwatch varuble to measure reaction time
-        private Stopwatch stopwatch = new Stopwatch();  
-        //Long varuble used to calculate reaction time
-        private long time = -1;
+        //Game manager object to to the business logic
+        ExampleGameManager game = new ExampleGameManager();
         public ExampleGame()
         {
             InitializeComponent();
-        }
-        //---------------------------------------------------------------
-        //Calculates the score with a long var as an input
-        //---------------------------------------------------------------
-        public long Score(long time)
-        {
-            if (time < BASE_SCORE_CALCULATION)
-                return MAX_SCORE;
-            long score = BASE_SCORE_CALCULATION + MAX_SCORE - time; 
-            return score;
-        }
-        //---------------------------------------------------------------
-        //Gives a random number of milliseconds from 1000-5000
-        //---------------------------------------------------------------
-        public int randomTime()
-        {
-            Random rnd = new Random();
-            int time = rnd.Next(RANDOM_TIME_MIN, RANDOM_TIME_MAX);
-            return time;
         }
         //---------------------------------------------------------------
         //When the start button is clicked, The screen turns red, then
@@ -57,18 +33,18 @@ namespace GainsProject
         //---------------------------------------------------------------
         private void button1_Click(object sender, EventArgs e)
         {
- 
+            //Change background to red
             this.BackColor = System.Drawing.Color.Red;
             //Clean up leftover form elements
             richTextBox1.Hide();
             Startbutton.Hide();
             //Stay red for a random amount of time
-            System.Threading.Thread.Sleep(randomTime());
+            System.Threading.Thread.Sleep(game.randomTime());
             this.BackColor = System.Drawing.Color.Green;
             //Game is live!
-            canClick = true;
+            game.start();
             //Start the timer
-            stopwatch.Start();
+            game.stopwatch.Start();
         }
         //---------------------------------------------------------------
         //If the screen is clicked durring the game, the stopwatch is 
@@ -78,12 +54,12 @@ namespace GainsProject
         private void ExampleGame_Click(object sender, EventArgs e)
         {
             //If the game is live, then calculate the time
-            if (canClick)
+            if (game.isGameLive())
             {
-                stopwatch.Stop();
-                time = stopwatch.ElapsedMilliseconds;
+                game.stopwatch.Stop();
+                game.rungame();
                 //If the user clicked too early
-                if (time == 0)
+                if (game.getTime() == 0)
                 {
                     MessageBox.Show("Too early!\nScore:-100");
                     label1.Text = ("You clicked too early!");
@@ -91,12 +67,16 @@ namespace GainsProject
                 //If the user did not click too early
                 else
                 {
-                    MessageBox.Show("Nice it took: " + time + " milliseconds\nScore: " + Score(time));
-                    label1.Text = ("Score: " + Score(time));
+                    //calculate the score
+                    game.calculateScore();
+                    MessageBox.Show("Nice it took: " + game.getTime() + " milliseconds\nScore: "
+                        + game.getScore());
+                    //Display the user's score
+                    label1.Text = ("Score: " + game.getScore());
                 }
             }
             //Game over!
-            canClick = false;
+            game.endGame();
         }
     }
 }

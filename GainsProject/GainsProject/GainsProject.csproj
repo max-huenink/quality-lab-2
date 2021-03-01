@@ -52,12 +52,14 @@
     <Compile Include="BasePage.Designer.cs">
       <DependentUpon>BasePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaseGame.cs" />
     <Compile Include="ExampleGame.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ExampleGame.Designer.cs">
       <DependentUpon>ExampleGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExampleGameManager.cs" />
     <Compile Include="GameSelectPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
