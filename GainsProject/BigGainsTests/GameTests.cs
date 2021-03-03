@@ -20,7 +20,7 @@ namespace BigGainsTests
         //Tests the default constructor of the base game class
         //---------------------------------------------------------------
         [TestMethod]
-        public void DefaultConstructort()
+        public void defaultConstructort()
         {
             ExampleGameManager game = new ExampleGameManager();
             //There are three tests to test the default constructor
@@ -32,7 +32,7 @@ namespace BigGainsTests
         //Tests the getter and setter of score in the base game class
         //---------------------------------------------------------------
         [TestMethod]
-        public void Score()
+        public void score()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.setScore(45);
@@ -42,7 +42,7 @@ namespace BigGainsTests
         //Tests the getter and setter of isLive in the base game class
         //---------------------------------------------------------------
         [TestMethod]
-        public void IsLiveTestTrue()
+        public void isLiveTestTrue()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.start();
@@ -52,7 +52,7 @@ namespace BigGainsTests
         //Tests the getter and setter of is live in the base game class
         //---------------------------------------------------------------
         [TestMethod]
-        public void IsLiveTestFalse()
+        public void isLiveTestFalse()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.start();
@@ -63,7 +63,7 @@ namespace BigGainsTests
         //Tests the getter and setter of time in the base game class
         //---------------------------------------------------------------
         [TestMethod]
-        public void TimeTest()
+        public void timeTest()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.setTime(843);
@@ -81,7 +81,7 @@ namespace BigGainsTests
         //Tests the scoring in the example game manager
         //---------------------------------------------------------------
         [TestMethod]
-        public void ScoringValid()
+        public void scoringValid()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.setTime(500);
@@ -92,7 +92,7 @@ namespace BigGainsTests
         //Tests the scoring in the example game manager if time is zero
         //---------------------------------------------------------------
         [TestMethod]
-        public void ScoringTooEarly()
+        public void scoringTooEarly()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.setTime(0);
@@ -103,7 +103,7 @@ namespace BigGainsTests
         //Tests the stopwatch reset in the example game manager
         //---------------------------------------------------------------
         [TestMethod]
-        public void RunGame()
+        public void runGame()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.stopwatch.Start();
