@@ -57,7 +57,7 @@ namespace GainsProject
             if (game.isGameLive())
             {
                 game.stopwatch.Stop();
-                game.rungame();
+                game.runGame();
                 //If the user clicked too early
                 if (game.getTime() == 0)
                 {

@@ -21,10 +21,11 @@ namespace GainsProject
         public const int RANDOM_TIME_MAX = 10000;
         public const int BASE_SCORE_CALCULATION = 200;
         public const int MAX_SCORE = 1000;
+        public const int TOO_EARLY_SCORE = -100;
         //---------------------------------------------------------------
         //Sets the time then resets the stopwatch
         //---------------------------------------------------------------
-        public override void rungame()
+        public override void runGame()
         {
             this.setTime(stopwatch.ElapsedMilliseconds);
             stopwatch.Reset();
@@ -46,7 +47,7 @@ namespace GainsProject
             //Cheating check
             if(this.getTime() == 0)
             {
-                this.setScore(0);
+                this.setScore(TOO_EARLY_SCORE);
                 return;
             }
             //If the user was quicker than the base point
