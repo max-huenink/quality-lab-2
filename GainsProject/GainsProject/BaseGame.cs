@@ -54,7 +54,7 @@ namespace GainsProject
         //---------------------------------------------------------------
         //Method for game-spesific features to be run in*ABSTRACT METHOD*
         //---------------------------------------------------------------
-        public abstract void rungame();
+        public abstract void runGame();
         //---------------------------------------------------------------
         //Calculates the score based on the time *ABSTRACT METHOD*
         //---------------------------------------------------------------
