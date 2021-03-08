@@ -13,7 +13,7 @@ namespace BigGainsTests
     //Test class for the game classes
     //---------------------------------------------------------------
     [TestClass]
-    public class GameTests
+    public class GameTests : ScoreSave
     {
         //---------------------------------------------------------------
         //Tests parts of the base game class
@@ -50,6 +50,17 @@ namespace BigGainsTests
             game.setTime(500);
             game.calculateScore();
             Assert.AreEqual(700,game.getScore() );
+        }
+        //---------------------------------------------------------------
+        //Tests the ScoreSave class 
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void ScoreSaveTest1()
+        {
+            ScoreSave save = new ScoreSave();
+            save.addScore(5, "nickLol");
+            Assert.AreEqual(5, save.getSaveDataList()[0].getScore());
+            save.writeFile();
         }
     }
 }
