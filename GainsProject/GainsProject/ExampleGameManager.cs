@@ -22,6 +22,7 @@ namespace GainsProject
         public const int BASE_SCORE_CALCULATION = 200;
         public const int MAX_SCORE = 1000;
         public const int TOO_EARLY_SCORE = -100;
+        public const int TIME_BUFFER = 20;
         //---------------------------------------------------------------
         //Sets the time then resets the stopwatch
         //---------------------------------------------------------------
@@ -45,7 +46,7 @@ namespace GainsProject
         public override void calculateScore()
         {
             //Cheating check
-            if(this.getTime() == 0)
+            if(this.getTime() < TIME_BUFFER)
             {
                 this.setScore(TOO_EARLY_SCORE);
                 return;
