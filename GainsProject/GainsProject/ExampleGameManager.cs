@@ -60,6 +60,9 @@ namespace GainsProject
             //If the user took longer than 200, subtract it from 1200 to
             //get the score
             long score = BASE_SCORE_CALCULATION + MAX_SCORE - this.getTime();
+            //If the score is negative, set to zero
+            if (score < 0)
+                score = 0;
             this.setScore(score);
         }
     }
