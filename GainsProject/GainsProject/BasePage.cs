@@ -69,5 +69,12 @@ namespace GainsProject
             LeaderboardPage lp = new LeaderboardPage();
             showUserControl(lp);
         }
+        //---------------------------------------------------------------
+        //Closes the application 
+        //---------------------------------------------------------------
+        private void quitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

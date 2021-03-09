@@ -79,6 +79,7 @@ namespace GainsProject
             this.quitButton.TabIndex = 3;
             this.quitButton.Text = "Quit";
             this.quitButton.UseVisualStyleBackColor = true;
+            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
             // 
             // previousResultsButton
             // 
