@@ -33,7 +33,7 @@ namespace GainsProject
             isLive = false;
         }
         //setter for time
-        public void setTime(long time){ this.time = time; }
+        public void setTime(long time) { this.time = time; }
         //setter for score
         public void setScore(long score) { this.score = score; }
         //Sets the isLive attribute to true
