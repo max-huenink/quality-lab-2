@@ -50,7 +50,7 @@ namespace GainsProject
         //---------------------------------------------------------------
         private void playButton_MouseClick(object sender, MouseEventArgs e)
         {
-            GameSelectPage gsp = new GameSelectPage();
+            GameModeSelect gsp = new GameModeSelect ();
             showUserControl(gsp);
         }
         //---------------------------------------------------------------

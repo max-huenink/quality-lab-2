@@ -58,6 +58,12 @@
     <Compile Include="BaseGame.cs" />
     <Compile Include="Application\GameSelectManager.cs" />
     <Compile Include="Domain\GameSelectData.cs" />
+    <Compile Include="GameModeSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GameModeSelect.Designer.cs">
+      <DependentUpon>GameModeSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScoreSave.cs" />
     <Compile Include="ExampleGame.cs">
       <SubType>UserControl</SubType>
@@ -99,6 +105,9 @@
     <EmbeddedResource Include="ExampleGame.resx">
       <DependentUpon>ExampleGame.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameModeSelect.resx">
+      <DependentUpon>GameModeSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GameSelectPage.resx">
       <DependentUpon>GameSelectPage.cs</DependentUpon>
