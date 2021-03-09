@@ -20,6 +20,7 @@ namespace GainsProject
     //---------------------------------------------------------------
     public partial class ExampleGame : UserControl
     {
+        public const int TIME_BUFFER = 20;
         //Game manager object to to the business logic
         ExampleGameManager game = new ExampleGameManager();
         public ExampleGame()
@@ -59,7 +60,7 @@ namespace GainsProject
                 game.stopwatch.Stop();
                 game.runGame();
                 //If the user clicked too early
-                if (game.getTime() == 0)
+                if (game.getTime() < TIME_BUFFER)
                 {
                     MessageBox.Show("Too early!\nScore:-100");
                     label1.Text = ("You clicked too early!");
