@@ -13,6 +13,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using GainsProject.Domain.Interfaces;
+
 namespace GainsProject
 {
     //---------------------------------------------------------------
@@ -23,10 +25,23 @@ namespace GainsProject
         public const int TIME_BUFFER = 20;
         //Game manager object to to the business logic
         ExampleGameManager game = new ExampleGameManager();
+        private bool nextGame;
         public ExampleGame()
         {
             InitializeComponent();
         }
+
+        //---------------------------------------------------------------
+        //Constructor that initializes the next game button, which calls
+        // the NextGame method of ISelectGame when clicked
+        //---------------------------------------------------------------
+        public ExampleGame(ISelectGame selectGame)
+        {
+            InitializeComponent();
+            nextGameBtn.Click += (sender, e) => selectGame.NextGame();
+            nextGame = true;
+        }
+
         //---------------------------------------------------------------
         //When the start button is clicked, The screen turns red, then
         //after a random ammount of time, the screen switched to green.
@@ -75,9 +90,13 @@ namespace GainsProject
                     //Display the user's score
                     label1.Text = ("Score: " + game.getScore());
                 }
+                //Game over!
+                game.endGame();
+                if (nextGame)
+                {
+                    nextGameBtn.Show();
+                }
             }
-            //Game over!
-            game.endGame();
         }
     }
 }
