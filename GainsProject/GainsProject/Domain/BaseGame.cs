@@ -5,7 +5,7 @@
 //---------------------------------------------------------------
 using System.Diagnostics;
 
-namespace GainsProject.Application
+namespace GainsProject.Domain
 {
     //---------------------------------------------------------------
     //Abstract base class for all games

@@ -55,7 +55,7 @@
     <Compile Include="UI\BasePage.Designer.cs">
       <DependentUpon>BasePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Application\BaseGame.cs" />
+    <Compile Include="Domain\BaseGame.cs" />
     <Compile Include="Application\GameSelectManager.cs" />
     <Compile Include="Domain\GameSelectData.cs" />
     <Compile Include="UI\GameModeSelect.cs">

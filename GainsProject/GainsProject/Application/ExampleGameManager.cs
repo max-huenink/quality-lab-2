@@ -4,6 +4,7 @@
 // Purpose: To run the example game and manage the data
 //---------------------------------------------------------------
 using System;
+using GainsProject.Domain;
 
 namespace GainsProject.Application
 {
