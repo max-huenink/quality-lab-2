@@ -50,7 +50,7 @@ namespace GainsProject
         //---------------------------------------------------------------
         private void playButton_MouseClick(object sender, MouseEventArgs e)
         {
-            GameSelectPage gsp = new GameSelectPage();
+            GameModeSelect gsp = new GameModeSelect ();
             showUserControl(gsp);
         }
         //---------------------------------------------------------------
@@ -68,6 +68,13 @@ namespace GainsProject
         {
             LeaderboardPage lp = new LeaderboardPage();
             showUserControl(lp);
+        }
+        //---------------------------------------------------------------
+        //Closes the application 
+        //---------------------------------------------------------------
+        private void quitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
