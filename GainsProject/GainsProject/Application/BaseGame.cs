@@ -3,14 +3,9 @@
 // Project: SE 3330 team:Xx_Bigger_Gains_xX
 // Purpose: To display an example game for the user to play
 //---------------------------------------------------------------
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GainsProject
+namespace GainsProject.Application
 {
     //---------------------------------------------------------------
     //Abstract base class for all games
@@ -41,11 +36,11 @@ namespace GainsProject
         //Stops the game
         public void endGame() { isLive = false; }
         //getter for time
-        public long getTime() { return this.time; }
+        public long getTime() { return time; }
         //getter for score
-        public long getScore() { return this.score; }
+        public long getScore() { return score; }
         //getter for IsLive
-        public bool isGameLive() { return this.isLive; }
+        public bool isGameLive() { return isLive; }
         //---------------------------------------------------------------
         //Gives a random number of milliseconds based on the game
         //*ABSTRACT METHOD*

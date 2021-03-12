@@ -1,10 +1,8 @@
-﻿using System;
+﻿using GainsProject.Domain;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GainsProject
+namespace GainsProject.Application
 {
     //--------------------------------------------------------------------
     //This is a class that will hold all of the data logic for displaying
@@ -30,12 +28,12 @@ namespace GainsProject
         //this is a parameterized constructor
         public ScoreDisplay(ScoreSave scoreSave)
         {
-            this.currDisplay = 0;
-            this.reverseScore = false;
-            this.numGames = scoreSave.getNumGames();
-            this.totalScore = scoreSave.getTotalScore();
-            this.avgGamePoints = scoreSave.getAvgGamePoints();
-            this.timeSorted = scoreSave.getSaveDataList();
+            currDisplay = 0;
+            reverseScore = false;
+            numGames = scoreSave.getNumGames();
+            totalScore = scoreSave.getTotalScore();
+            avgGamePoints = scoreSave.getAvgGamePoints();
+            timeSorted = scoreSave.getSaveDataList();
             tagSort();
             scoreSort();
         }
@@ -44,14 +42,14 @@ namespace GainsProject
         //---------------------------------------------------------------
         private void tagSort()
         {
-            tagSorted = this.timeSorted.ToList();
+            tagSorted = timeSorted.ToList();
             int i, j;
             SaveData key;
-            for(i = 1; i < this.numGames; i++)
+            for (i = 1; i < numGames; i++)
             {
                 key = tagSorted[i];
                 j = i - 1;
-                while(j >= 0 && String.Compare(tagSorted[j].getPlayerTag()
+                while (j >= 0 && string.Compare(tagSorted[j].getPlayerTag()
                     , key.getPlayerTag()) > 0)
                 {
                     tagSorted[j + 1] = tagSorted[j];
@@ -65,14 +63,14 @@ namespace GainsProject
         //---------------------------------------------------------------
         private void scoreSort()
         {
-            scoreSorted = this.timeSorted.ToList();
+            scoreSorted = timeSorted.ToList();
             int i, j;
             SaveData key;
-            for (i = 1; i < this.numGames; i++)
+            for (i = 1; i < numGames; i++)
             {
                 key = scoreSorted[i];
                 j = i - 1;
-                while (j >= 0 && String.Compare(
+                while (j >= 0 && string.Compare(
                     scoreSorted[j].getPlayerTag(), key.getPlayerTag()) > 0)
                 {
                     scoreSorted[j + 1] = scoreSorted[j];
@@ -86,7 +84,7 @@ namespace GainsProject
         //---------------------------------------------------------------
         public void setTimeSorted()
         {
-            if(currDisplay == TIME_DISPLAY)
+            if (currDisplay == TIME_DISPLAY)
             {
                 changeReverseScore();
             }
@@ -131,11 +129,11 @@ namespace GainsProject
         //---------------------------------------------------------------
         public string getTime()
         {
-            if(reverseScore == false)
+            if (reverseScore == false)
             {
-                switch(currDisplay)
+                switch (currDisplay)
                 {
-                    case TIME_DISPLAY: 
+                    case TIME_DISPLAY:
                         return getTimeSortedTimestamp();
                     case TAG_DISPLAY:
                         return getTagSortedTimestamp();
@@ -248,7 +246,7 @@ namespace GainsProject
         private string getTimeSortedTimestamp()
         {
             string returnString = "";
-            for(int i = 0; i < this.numGames; i++)
+            for (int i = 0; i < numGames; i++)
             {
                 returnString += timeSorted[i].getDt().ToString() + "\n";
             }
@@ -260,7 +258,7 @@ namespace GainsProject
         private string getReverseTimeSortedTimestamp()
         {
             string returnString = "";
-            for (int i = this.numGames - 1; i >= 0; i--)
+            for (int i = numGames - 1; i >= 0; i--)
             {
                 returnString += timeSorted[i].getDt().ToString() + "\n";
             }
@@ -272,7 +270,7 @@ namespace GainsProject
         private string getTagSortedTimestamp()
         {
             string returnString = "";
-            for (int i = 0; i < this.numGames; i++)
+            for (int i = 0; i < numGames; i++)
             {
                 returnString += tagSorted[i].getDt().ToString() + "\n";
             }
@@ -284,7 +282,7 @@ namespace GainsProject
         private string getReverseTagSortedTimestamp()
         {
             string returnString = "";
-            for (int i = this.numGames - 1; i >= 0; i--)
+            for (int i = numGames - 1; i >= 0; i--)
             {
                 returnString += tagSorted[i].getDt().ToString() + "\n";
             }
@@ -296,7 +294,7 @@ namespace GainsProject
         private string getScoreSortedTimestamp()
         {
             string returnString = "";
-            for (int i = 0; i < this.numGames; i++)
+            for (int i = 0; i < numGames; i++)
             {
                 returnString += scoreSorted[i].getDt().ToString() + "\n";
             }
@@ -308,7 +306,7 @@ namespace GainsProject
         private string getReverseScoreSortedTimestamp()
         {
             string returnString = "";
-            for (int i = this.numGames - 1; i >= 0; i--)
+            for (int i = numGames - 1; i >= 0; i--)
             {
                 returnString += scoreSorted[i].getDt().ToString() + "\n";
             }
@@ -320,9 +318,9 @@ namespace GainsProject
         private string getTimeSortedTag()
         {
             string returnString = "";
-            for (int i = 0; i < this.numGames; i++)
+            for (int i = 0; i < numGames; i++)
             {
-                returnString += timeSorted[i].getPlayerTag().ToString() 
+                returnString += timeSorted[i].getPlayerTag().ToString()
                     + "\n";
             }
             return returnString;
@@ -333,9 +331,9 @@ namespace GainsProject
         private string getReverseTimeSortedTag()
         {
             string returnString = "";
-            for (int i = this.numGames - 1; i >= 0; i--)
+            for (int i = numGames - 1; i >= 0; i--)
             {
-                returnString += timeSorted[i].getPlayerTag().ToString() 
+                returnString += timeSorted[i].getPlayerTag().ToString()
                     + "\n";
             }
             return returnString;
@@ -346,9 +344,9 @@ namespace GainsProject
         private string getTagSortedTag()
         {
             string returnString = "";
-            for (int i = 0; i < this.numGames; i++)
+            for (int i = 0; i < numGames; i++)
             {
-                returnString += tagSorted[i].getPlayerTag().ToString() 
+                returnString += tagSorted[i].getPlayerTag().ToString()
                     + "\n";
             }
             return returnString;
@@ -359,9 +357,9 @@ namespace GainsProject
         private string getReverseTagSortedTag()
         {
             string returnString = "";
-            for (int i = this.numGames - 1; i >= 0; i--)
+            for (int i = numGames - 1; i >= 0; i--)
             {
-                returnString += tagSorted[i].getPlayerTag().ToString() 
+                returnString += tagSorted[i].getPlayerTag().ToString()
                     + "\n";
             }
             return returnString;
@@ -372,9 +370,9 @@ namespace GainsProject
         private string getScoreSortedTag()
         {
             string returnString = "";
-            for (int i = 0; i < this.numGames; i++)
+            for (int i = 0; i < numGames; i++)
             {
-                returnString += scoreSorted[i].getPlayerTag().ToString() 
+                returnString += scoreSorted[i].getPlayerTag().ToString()
                     + "\n";
             }
             return returnString;
@@ -385,9 +383,9 @@ namespace GainsProject
         private string getReverseScoreSortedTag()
         {
             string returnString = "";
-            for (int i = this.numGames - 1; i >= 0; i--)
+            for (int i = numGames - 1; i >= 0; i--)
             {
-                returnString += scoreSorted[i].getPlayerTag().ToString() 
+                returnString += scoreSorted[i].getPlayerTag().ToString()
                     + "\n";
             }
             return returnString;
@@ -398,7 +396,7 @@ namespace GainsProject
         private string getTimeSortedScore()
         {
             string returnString = "";
-            for (int i = 0; i < this.numGames; i++)
+            for (int i = 0; i < numGames; i++)
             {
                 returnString += timeSorted[i].getScore().ToString() + "\n";
             }
@@ -410,7 +408,7 @@ namespace GainsProject
         private string getReverseTimeSortedScore()
         {
             string returnString = "";
-            for (int i = this.numGames - 1; i >= 0; i--)
+            for (int i = numGames - 1; i >= 0; i--)
             {
                 returnString += timeSorted[i].getScore().ToString() + "\n";
             }
@@ -422,7 +420,7 @@ namespace GainsProject
         private string getTagSortedScore()
         {
             string returnString = "";
-            for (int i = 0; i < this.numGames; i++)
+            for (int i = 0; i < numGames; i++)
             {
                 returnString += tagSorted[i].getScore().ToString() + "\n";
             }
@@ -434,7 +432,7 @@ namespace GainsProject
         private string getReverseTagSortedScore()
         {
             string returnString = "";
-            for (int i = this.numGames - 1; i >= 0; i--)
+            for (int i = numGames - 1; i >= 0; i--)
             {
                 returnString += tagSorted[i].getScore().ToString() + "\n";
             }
@@ -446,7 +444,7 @@ namespace GainsProject
         private string getScoreSortedScore()
         {
             string returnString = "";
-            for (int i = 0; i < this.numGames; i++)
+            for (int i = 0; i < numGames; i++)
             {
                 returnString += scoreSorted[i].getScore().ToString() + "\n";
             }
@@ -458,9 +456,9 @@ namespace GainsProject
         private string getReverseScoreSortedScore()
         {
             string returnString = "";
-            for (int i = this.numGames - 1; i >= 0; i--)
+            for (int i = numGames - 1; i >= 0; i--)
             {
-                returnString += scoreSorted[i].getScore().ToString() 
+                returnString += scoreSorted[i].getScore().ToString()
                     + "\n";
             }
             return returnString;

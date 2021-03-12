@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GainsProject
+namespace GainsProject.Domain
 {
     //--------------------------------------------------------------------
     //this is a struct for holding save data for games
@@ -17,9 +13,9 @@ namespace GainsProject
         //default constructor
         public SaveData(int newScore, DateTime newDt, string newPlayerTag)
         {
-            this.score = newScore;
-            this.dt = newDt;
-            this.playerTag = newPlayerTag;
+            score = newScore;
+            dt = newDt;
+            playerTag = newPlayerTag;
         }
         //getter for score
         public int getScore()

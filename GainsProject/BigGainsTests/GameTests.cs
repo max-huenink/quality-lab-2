@@ -5,7 +5,8 @@
 //---------------------------------------------------------------
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GainsProject;
+using GainsProject.Application;
+
 namespace BigGainsTests
 {
     //---------------------------------------------------------------

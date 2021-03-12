@@ -4,19 +4,11 @@
 // Purpose: To display a list of games to play, switches between
 //           games after a game has been selected
 //---------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using GainsProject.Application;
 using GainsProject.Domain.Interfaces;
+using System.Windows.Forms;
 
-namespace GainsProject
+namespace GainsProject.UI
 {
     //---------------------------------------------------------------
     //Displayes a list of games to play, switching between games

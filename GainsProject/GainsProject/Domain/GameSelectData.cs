@@ -3,11 +3,7 @@
 // Project: SE 3330 team:Xx_Bigger_Gains_xX
 // Purpose: To contain data for game selection
 //---------------------------------------------------------------
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GainsProject.Domain

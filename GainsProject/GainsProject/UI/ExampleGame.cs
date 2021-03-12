@@ -3,19 +3,12 @@
 // Project: SE 3330 team:Xx_Bigger_Gains_xX
 // Purpose: To display an example game for the user to play
 //---------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Diagnostics;
+using GainsProject.Application;
 using GainsProject.Domain.Interfaces;
+using System;
+using System.Windows.Forms;
 
-namespace GainsProject
+namespace GainsProject.UI
 {
     //---------------------------------------------------------------
     //GUI side of the Example game

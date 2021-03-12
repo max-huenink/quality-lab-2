@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GainsProject.Application;
+using System;
 using System.Windows.Forms;
 
-namespace GainsProject
+namespace GainsProject.UI
 {
     //--------------------------------------------------------------------
     //this is a windows form class that will display previous scores

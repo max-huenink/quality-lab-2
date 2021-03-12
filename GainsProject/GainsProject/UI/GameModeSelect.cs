@@ -4,15 +4,9 @@
 // Purpose: To allow the user to select game modes
 //---------------------------------------------------------------
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-namespace GainsProject
+
+namespace GainsProject.UI
 {
     //---------------------------------------------------------------
     //UI for the GameModeSelect screen

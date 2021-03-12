@@ -1,5 +1,5 @@
 ﻿
-namespace GainsProject
+namespace GainsProject.UI
 {
     partial class GameSelectPage
     {

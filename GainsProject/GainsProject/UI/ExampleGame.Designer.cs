@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace GainsProject
+namespace GainsProject.UI
 {
     partial class ExampleGame
     {

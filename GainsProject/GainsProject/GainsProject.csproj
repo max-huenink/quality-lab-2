@@ -49,73 +49,75 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasePage.cs">
+    <Compile Include="UI\BasePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BasePage.Designer.cs">
+    <Compile Include="UI\BasePage.Designer.cs">
       <DependentUpon>BasePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="BaseGame.cs" />
+    <Compile Include="Application\BaseGame.cs" />
     <Compile Include="Application\GameSelectManager.cs" />
     <Compile Include="Domain\GameSelectData.cs" />
-    <Compile Include="GameModeSelect.cs">
+    <Compile Include="UI\GameModeSelect.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GameModeSelect.Designer.cs">
+    <Compile Include="UI\GameModeSelect.Designer.cs">
       <DependentUpon>GameModeSelect.cs</DependentUpon>
     </Compile>
-    <Compile Include="ScoreSave.cs" />
-    <Compile Include="ExampleGame.cs">
+    <Compile Include="Domain\SaveData.cs" />
+    <Compile Include="Application\ScoreDisplay.cs" />
+    <Compile Include="Application\ScoreSave.cs" />
+    <Compile Include="UI\ExampleGame.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ExampleGame.Designer.cs">
+    <Compile Include="UI\ExampleGame.Designer.cs">
       <DependentUpon>ExampleGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExampleGameManager.cs" />
-    <Compile Include="GameSelectPage.cs">
+    <Compile Include="Application\ExampleGameManager.cs" />
+    <Compile Include="UI\GameSelectPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GameSelectPage.Designer.cs">
+    <Compile Include="UI\GameSelectPage.Designer.cs">
       <DependentUpon>GameSelectPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\Interfaces\ISelectGame.cs" />
-    <Compile Include="LeaderboardPage.cs">
+    <Compile Include="UI\LeaderboardPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LeaderboardPage.Designer.cs">
+    <Compile Include="UI\LeaderboardPage.Designer.cs">
       <DependentUpon>LeaderboardPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="PreviousScoresPage.cs">
+    <Compile Include="UI\PreviousScoresPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PreviousScoresPage.Designer.cs">
+    <Compile Include="UI\PreviousScoresPage.Designer.cs">
       <DependentUpon>PreviousScoresPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TutorialPage.cs">
+    <Compile Include="UI\TutorialPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TutorialPage.Designer.cs">
+    <Compile Include="UI\TutorialPage.Designer.cs">
       <DependentUpon>TutorialPage.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BasePage.resx">
+    <EmbeddedResource Include="UI\BasePage.resx">
       <DependentUpon>BasePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExampleGame.resx">
+    <EmbeddedResource Include="UI\ExampleGame.resx">
       <DependentUpon>ExampleGame.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="GameModeSelect.resx">
+    <EmbeddedResource Include="UI\GameModeSelect.resx">
       <DependentUpon>GameModeSelect.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GameSelectPage.resx">
+    <EmbeddedResource Include="UI\GameSelectPage.resx">
       <DependentUpon>GameSelectPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LeaderboardPage.resx">
+    <EmbeddedResource Include="UI\LeaderboardPage.resx">
       <DependentUpon>LeaderboardPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreviousScoresPage.resx">
+    <EmbeddedResource Include="UI\PreviousScoresPage.resx">
       <DependentUpon>PreviousScoresPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -127,7 +129,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TutorialPage.resx">
+    <EmbeddedResource Include="UI\TutorialPage.resx">
       <DependentUpon>TutorialPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -144,8 +146,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="UI\" />
+    <EmbeddedResource Include="GameScore.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

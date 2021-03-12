@@ -4,12 +4,8 @@
 // Purpose: To run the example game and manage the data
 //---------------------------------------------------------------
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GainsProject
+namespace GainsProject.Application
 {
     //---------------------------------------------------------------
     //Runs the Example game and manages the data
@@ -28,7 +24,7 @@ namespace GainsProject
         //---------------------------------------------------------------
         public override void runGame()
         {
-            this.setTime(stopwatch.ElapsedMilliseconds);
+            setTime(stopwatch.ElapsedMilliseconds);
             stopwatch.Reset();
         }
         //---------------------------------------------------------------
@@ -46,25 +42,25 @@ namespace GainsProject
         public override void calculateScore()
         {
             //Cheating check
-            if(this.getTime() < TIME_BUFFER)
+            if (getTime() < TIME_BUFFER)
             {
-                this.setScore(TOO_EARLY_SCORE);
+                setScore(TOO_EARLY_SCORE);
                 return;
             }
             //If the user was quicker than the base point
-            if (this.getTime() < BASE_SCORE_CALCULATION)
+            if (getTime() < BASE_SCORE_CALCULATION)
             {
                 //Set to full points
-                this.setScore(MAX_SCORE);
+                setScore(MAX_SCORE);
                 return;
             }
             //If the user took longer than 200, subtract it from 1200 to
             //get the score
-            long score = BASE_SCORE_CALCULATION + MAX_SCORE - this.getTime();
+            long score = BASE_SCORE_CALCULATION + MAX_SCORE - getTime();
             //If the score is negative, set to zero
             if (score < 0)
                 score = 0;
-            this.setScore(score);
+            setScore(score);
         }
     }
 }
