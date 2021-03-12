@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="GameTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveDataTests.cs" />
+    <Compile Include="ScoreSaveTests.cs" />
     <Compile Include="SelectGameManagerTest.cs" />
   </ItemGroup>
   <ItemGroup>

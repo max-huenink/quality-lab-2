@@ -1,4 +1,9 @@
-﻿using GainsProject.Application;
+﻿//---------------------------------------------------------------
+// Name:    Nick Hefel
+// Project: SE 3330 team:Xx_Bigger_Gains_xX
+// Purpose: UI page for displaying scores
+//---------------------------------------------------------------
+using GainsProject.Application;
 using System;
 using System.Windows.Forms;
 

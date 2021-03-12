@@ -1,4 +1,10 @@
-﻿using GainsProject.Domain;
+﻿//---------------------------------------------------------------
+// Name:    Nick Hefel
+// Project: SE 3330 team:Xx_Bigger_Gains_xX
+// Purpose: To hold all of the data and logic for displaying
+// scores
+//---------------------------------------------------------------
+using GainsProject.Domain;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,14 +16,14 @@ namespace GainsProject.Application
     //--------------------------------------------------------------------
     class ScoreDisplay
     {
-        const int TIME_DISPLAY = 0;
-        const int TAG_DISPLAY = 1;
-        const int SCORE_DISPLAY = 2;
-        const string SOMETHING_BROKE = "SOMETHING BROKE";   //this is fine because it 
+        private const int TIME_DISPLAY = 0;
+        private const int TAG_DISPLAY = 1;
+        private const int SCORE_DISPLAY = 2;
+        private const string SOMETHING_BROKE = "SOMETHING BROKE";   //this is fine because it 
                                                             //will never get used
         private int numGames;
         private int currDisplay; //0-time, 1-tag, 2-score
-        bool reverseScore; //if the score is in reverse order or not
+        private bool reverseScore; //if the score is in reverse order or not
         private int totalScore;
         private double avgGamePoints;
         //save a list for each right away so it does not have to be 
