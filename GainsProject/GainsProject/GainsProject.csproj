@@ -56,6 +56,8 @@
       <DependentUpon>BasePage.cs</DependentUpon>
     </Compile>
     <Compile Include="BaseGame.cs" />
+    <Compile Include="SaveData.cs" />
+    <Compile Include="ScoreDisplay.cs" />
     <Compile Include="ScoreSave.cs" />
     <Compile Include="ExampleGame.cs">
       <SubType>UserControl</SubType>
