@@ -33,7 +33,7 @@ namespace GainsProject
             isLive = false;
         }
         //setter for time
-        public void setTime(long time){ this.time = time; }
+        public void setTime(long time) { this.time = time; }
         //setter for score
         public void setScore(long score) { this.score = score; }
         //Sets the isLive attribute to true
@@ -54,7 +54,7 @@ namespace GainsProject
         //---------------------------------------------------------------
         //Method for game-spesific features to be run in*ABSTRACT METHOD*
         //---------------------------------------------------------------
-        public abstract void rungame();
+        public abstract void runGame();
         //---------------------------------------------------------------
         //Calculates the score based on the time *ABSTRACT METHOD*
         //---------------------------------------------------------------
