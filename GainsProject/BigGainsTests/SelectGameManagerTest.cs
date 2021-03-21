@@ -3,10 +3,11 @@
 // Project: SE 3330 team:Xx_Bigger_Gains_xX
 // Purpose: To test the game manager class
 //---------------------------------------------------------------
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Windows.Forms;
 using GainsProject.Application;
+using GainsProject.Domain.Interfaces;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using System.Windows.Forms;
 
 namespace BigGainsTests
 {
@@ -16,6 +17,37 @@ namespace BigGainsTests
     [TestClass]
     public class SelectGameManagerTest
     {
+        //---------------------------------------------------------------
+        //Tests that the static create and populate method creates a
+        // not empty list of games
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void CreateAndPopulateGameManager()
+        {
+            var manager = GameSelectManager.CreateAndPopulateManager();
+            var gameList = manager.GetListOfGames();
+            Assert.IsNotNull(gameList);
+            // List should not be empty because it was populated
+            //  with list of games
+            Assert.AreNotEqual(0, gameList.Count);
+        }
+
+        //---------------------------------------------------------------
+        //Tests that the static create and populate method, with a mocked
+        // IGamePlaylist, creates a not empty list of games
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void CreateAndPopulateGameManagerWithIGamePlaylist()
+        {
+            Mock<IGamePlaylist> mock = new Mock<IGamePlaylist>();
+            var manager = GameSelectManager.CreateAndPopulateManager(mock.Object);
+            var gameList = manager.GetListOfGames();
+            Assert.IsNotNull(gameList);
+            // List should not be empty because it was populated
+            //  with list of games
+            Assert.AreNotEqual(0, gameList.Count);
+        }
+
         //---------------------------------------------------------------
         //Tests that the list of games is not null and is empty
         // when the class is created

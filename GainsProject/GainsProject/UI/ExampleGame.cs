@@ -28,10 +28,11 @@ namespace GainsProject.UI
         //Constructor that initializes the next game button, which calls
         // the NextGame method of ISelectGame when clicked
         //---------------------------------------------------------------
-        public ExampleGame(ISelectGame selectGame)
+        public ExampleGame(IGamePlaylist selectGame)
         {
             InitializeComponent();
             nextGameBtn.Click += (sender, e) => selectGame.NextGame();
+            exitGameBtn.Click += (sender, e) => selectGame.Exit();
             nextGame = true;
         }
 
@@ -88,6 +89,7 @@ namespace GainsProject.UI
                 if (nextGame)
                 {
                     nextGameBtn.Show();
+                    exitGameBtn.Show();
                 }
             }
         }

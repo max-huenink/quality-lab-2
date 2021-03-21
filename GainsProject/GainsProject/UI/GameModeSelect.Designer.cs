@@ -55,6 +55,7 @@
             this.RandomGames.TabIndex = 1;
             this.RandomGames.Text = "Random Games";
             this.RandomGames.UseVisualStyleBackColor = true;
+            this.RandomGames.Click += new System.EventHandler(this.RandomGame_Click);
             // 
             // Playlist
             // 
