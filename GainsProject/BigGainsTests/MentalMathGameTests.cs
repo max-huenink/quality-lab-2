@@ -19,11 +19,33 @@ namespace BigGainsTests
             Assert.AreEqual(64, game.getScore());
         }
         //---------------------------------------------------------------
+        //Tests the low boundry scoring in the mental math game manager
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void boundryLowScoringValid()
+        {
+            MentalMathGameManager game = new MentalMathGameManager();
+            game.setTime(6000);
+            game.calculateScore();
+            Assert.AreEqual(0, game.getScore());
+        }
+        //---------------------------------------------------------------
+        //Tests the upper boundry scoring in the mental math game manager
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void boundryUpperScoringValid()
+        {
+            MentalMathGameManager game = new MentalMathGameManager();
+            game.setTime(400);
+            game.calculateScore();
+            Assert.AreEqual(100, game.getScore());
+        }
+        //---------------------------------------------------------------
         //Tests the scoring in the mental math game manager for wrong 
         //answers
         //---------------------------------------------------------------
         [TestMethod]
-        public void scoring()
+        public void scoringWrongAnswer()
         {
             MentalMathGameManager game = new MentalMathGameManager();
             game.setTime(-1);
@@ -36,7 +58,11 @@ namespace BigGainsTests
         [TestMethod]
         public void runGame()
         {
-
+            MentalMathGameManager game = new MentalMathGameManager();
+            game.stopwatch.Start();
+            game.stopwatch.Stop();
+            game.runGame();
+            Assert.AreEqual(0, game.stopwatch.ElapsedMilliseconds);
         }
     }
 }

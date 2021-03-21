@@ -10,11 +10,13 @@ namespace GainsProject.Application
         public const int MAX_SCORE_TIME = 500;
         public const int ZERO_SCORE_TIME = 4500;
         public const int SCORE_DIVISOR = -39;
-        public const int RANDOM_TIME_MAX = 0;
-        public const int RANDOM_TIME_MIN = 0;
+        public const int RANDOM_TIME_MAX = 100;
+        public const int RANDOM_TIME_MIN = 2;
+        Random rnd = new Random();
         public override void runGame()
         {
-            throw new NotImplementedException();
+            setTime(stopwatch.ElapsedMilliseconds);
+            stopwatch.Reset();
         }
 
         public override void calculateScore()
@@ -35,10 +37,9 @@ namespace GainsProject.Application
             long inverse = time - ZERO_SCORE_TIME;
             setScore(inverse / SCORE_DIVISOR);
         }
-
+        //Used for random numbers rather than a time
         public override int randomTime()
         {
-            Random rnd = new Random();
             int time = rnd.Next(RANDOM_TIME_MIN, RANDOM_TIME_MAX);
             return time;
         }

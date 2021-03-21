@@ -37,7 +37,7 @@ namespace GainsProject.UI
         private void PopulateGameList()
         {
             manager.AddGameToList("Example Game", new ExampleGame(this));
-            manager.AddGameToList("Example Game 2", new ExampleGame(this));
+            manager.AddGameToList("Mental Math Game", new MentalMathGame(this));
             manager.AddGameToList("Example Game 3", new ExampleGame(this));
         }
 

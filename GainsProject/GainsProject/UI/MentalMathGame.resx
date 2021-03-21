@@ -117,4 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Mental Math: In this game ten simple calculations will appear on the screen one after another.
+You must answer them as quickly as possible to obtain a higher score. Enter your answer
+then hit the enter key to submit your answer. Be careful, as
+an incorrect answer will cause a score of -50 for that problem. Good luck!
+
+ </value>
+  </data>
 </root>

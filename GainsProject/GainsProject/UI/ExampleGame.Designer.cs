@@ -42,7 +42,7 @@ namespace GainsProject.UI
             this.richTextBox1.BackColor = System.Drawing.Color.Peru;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(124, 59);
+            this.richTextBox1.Location = new System.Drawing.Point(129, 68);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(816, 109);
