@@ -1,4 +1,10 @@
-﻿using GainsProject.Domain;
+﻿//---------------------------------------------------------------
+// Name:    Nick Hefel
+// Project: SE 3330 team:Xx_Bigger_Gains_xX
+// Purpose: To hold score data for a game, save it, and add more 
+// scores
+//---------------------------------------------------------------
+using GainsProject.Domain;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +20,7 @@ namespace GainsProject.Application
     {
         //placeholder until we have multiple games and their 
         //name will be passed in the constructor
-        const string fileName = "GameScore.txt";
+        const string FILE_NAME = "GameScore.txt";
         private int numGames;
         private int totalScore; //this exists to make avgGamePoints faster to
                                 //calculate
@@ -37,9 +43,9 @@ namespace GainsProject.Application
         private void readFile()
         {
             //if the file exists read it in
-            if (File.Exists(fileName))
+            if (File.Exists(FILE_NAME))
             {
-                StreamReader sr = new StreamReader(fileName);
+                StreamReader sr = new StreamReader(FILE_NAME);
                 numGames = Convert.ToInt32(sr.ReadLine());
                 totalScore = Convert.ToInt32(sr.ReadLine());
                 avgGamePoints = Convert.ToDouble(sr.ReadLine());
@@ -70,7 +76,7 @@ namespace GainsProject.Application
         //---------------------------------------------------------------
         private void writeFile()
         {
-            File.WriteAllText(fileName, getTextString());
+            File.WriteAllText(FILE_NAME, getTextString());
         }
         //---------------------------------------------------------------
         //add relevant data into SaveData node and add it tothe list

@@ -1,4 +1,9 @@
-﻿using System;
+﻿//---------------------------------------------------------------
+// Name:    Nick Hefel
+// Project: SE 3330 team:Xx_Bigger_Gains_xX
+// Purpose: Hold info for scores grouped together
+//---------------------------------------------------------------
+using System;
 
 namespace GainsProject.Domain
 {
