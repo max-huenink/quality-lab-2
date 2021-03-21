@@ -5,7 +5,7 @@ using GainsProject.Application;
 namespace BigGainsTests
 {
     [TestClass]
-    public class UnitTest1
+    public class MentalMathGameTests
     {
         //---------------------------------------------------------------
         //Tests the scoring in the mental math game manager
@@ -14,9 +14,9 @@ namespace BigGainsTests
         public void scoringValid()
         {
             MentalMathGameManager game = new MentalMathGameManager();
-            game.setTime(5000);
+            game.setTime(2000);
             game.calculateScore();
-            Assert.AreEqual(70, game.getScore());
+            Assert.AreEqual(64, game.getScore());
         }
         //---------------------------------------------------------------
         //Tests the scoring in the mental math game manager for wrong 
