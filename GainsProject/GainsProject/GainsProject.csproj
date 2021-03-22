@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\MentalMathGameManager.cs" />
+    <Compile Include="Domain\Interfaces\IGame.cs" />
     <Compile Include="UI\BasePage.cs">
       <SubType>Form</SubType>
     </Compile>

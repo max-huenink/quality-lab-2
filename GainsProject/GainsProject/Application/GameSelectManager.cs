@@ -83,7 +83,7 @@ namespace GainsProject.Application
         {
             var manager = new GameSelectManager();
             manager.AddGameToList("Example Game", new ExampleGame());
-            manager.AddGameToList("Example Game 2", new ExampleGame());
+            manager.AddGameToList("Mental Math Game", new MentalMathGame());
             manager.AddGameToList("Example Game 3", new ExampleGame());
             return manager;
         }
@@ -96,7 +96,7 @@ namespace GainsProject.Application
         {
             var manager = new GameSelectManager();
             manager.AddGameToList("Example Game", new ExampleGame(playlist));
-            manager.AddGameToList("Example Game 2", new ExampleGame(playlist));
+            manager.AddGameToList("Mental Math Ganme", new MentalMathGame (playlist));
             manager.AddGameToList("Example Game 3", new ExampleGame(playlist));
             return manager;
         }

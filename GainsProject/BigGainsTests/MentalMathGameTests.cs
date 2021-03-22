@@ -16,7 +16,7 @@ namespace BigGainsTests
             MentalMathGameManager game = new MentalMathGameManager();
             game.setTime(2000);
             game.calculateScore();
-            Assert.AreEqual(64, game.getScore());
+            Assert.AreEqual(88, game.getScore());
         }
         //---------------------------------------------------------------
         //Tests the low boundry scoring in the mental math game manager
@@ -25,7 +25,7 @@ namespace BigGainsTests
         public void boundryLowScoringValid()
         {
             MentalMathGameManager game = new MentalMathGameManager();
-            game.setTime(6000);
+            game.setTime(60000);
             game.calculateScore();
             Assert.AreEqual(0, game.getScore());
         }
@@ -50,7 +50,7 @@ namespace BigGainsTests
             MentalMathGameManager game = new MentalMathGameManager();
             game.setTime(-1);
             game.calculateScore();
-            Assert.AreEqual(-50, game.getScore());
+            Assert.AreEqual(-10, game.getScore());
         }
         //---------------------------------------------------------------
         //

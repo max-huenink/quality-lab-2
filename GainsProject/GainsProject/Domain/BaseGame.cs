@@ -10,7 +10,7 @@ namespace GainsProject.Domain
     //---------------------------------------------------------------
     //Abstract base class for all games
     //---------------------------------------------------------------
-    public abstract class BaseGame
+    public abstract class BaseGame : GainsProject.Domain.Interfaces.IGame
     {
         //Long varuble used to calculate reaction time
         private long time;
