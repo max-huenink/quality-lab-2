@@ -4,6 +4,8 @@
 // Purpose: To manage game selection
 //---------------------------------------------------------------
 using GainsProject.Domain;
+using GainsProject.Domain.Interfaces;
+using GainsProject.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,6 +69,36 @@ namespace GainsProject.Application
                 game = games[indx].GameControl;
             }
             return game;
+        }
+
+        //TODO: Find out how to not duplicate (or later, triplicate, this list creation)
+        // factory?
+
+
+        //---------------------------------------------------------------
+        //Creates and returns a new game select manager with games
+        // already populated
+        //---------------------------------------------------------------
+        public static GameSelectManager CreateAndPopulateManager()
+        {
+            var manager = new GameSelectManager();
+            manager.AddGameToList("Example Game", new ExampleGame());
+            manager.AddGameToList("Example Game 2", new ExampleGame());
+            manager.AddGameToList("Example Game 3", new ExampleGame());
+            return manager;
+        }
+
+        //---------------------------------------------------------------
+        //Creates and returns a new game select manager with games
+        // already populated, with an IGamePlaylist
+        //---------------------------------------------------------------
+        public static GameSelectManager CreateAndPopulateManager(IGamePlaylist playlist)
+        {
+            var manager = new GameSelectManager();
+            manager.AddGameToList("Example Game", new ExampleGame(playlist));
+            manager.AddGameToList("Example Game 2", new ExampleGame(playlist));
+            manager.AddGameToList("Example Game 3", new ExampleGame(playlist));
+            return manager;
         }
     }
 }

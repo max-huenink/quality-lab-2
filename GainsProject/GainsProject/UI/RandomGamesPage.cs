@@ -1,11 +1,11 @@
 ﻿//---------------------------------------------------------------
 // Name:    Maxwell Huenink
 // Project: SE 3330 team:Xx_Bigger_Gains_xX
-// Purpose: To display a list of games to play, switches between
-//           games after a game has been selected
+// Purpose: To play available games in a random order
 //---------------------------------------------------------------
 using GainsProject.Application;
 using GainsProject.Domain.Interfaces;
+using System;
 using System.Windows.Forms;
 
 namespace GainsProject.UI
@@ -14,7 +14,7 @@ namespace GainsProject.UI
     //Displayes a list of games to play, switching between games
     // after a game has been selected by implementing ISelectGame
     //---------------------------------------------------------------
-    public partial class GameSelectPage : UserControl, ISelectGame
+    public partial class RandomGamesPage : UserControl, IGamePlaylist
     {
         private readonly GameSelectManager manager;
 
@@ -22,42 +22,12 @@ namespace GainsProject.UI
         //Default constructor that initializes components,
         // GameSelectManager, and game select buttons
         //---------------------------------------------------------------
-        public GameSelectPage()
+        public RandomGamesPage()
         {
             InitializeComponent();
 
-            manager = new GameSelectManager();
-            PopulateGameList();
-            CreateGameButtons();
-        }
-
-        //---------------------------------------------------------------
-        //Populates the list of games in the game select manager
-        //---------------------------------------------------------------
-        private void PopulateGameList()
-        {
-            manager.AddGameToList("Example Game", new ExampleGame(this));
-            manager.AddGameToList("Mental Math Game", new MentalMathGame(this));
-            manager.AddGameToList("Example Game 3", new ExampleGame(this));
-        }
-
-        //---------------------------------------------------------------
-        //Creates buttons for each game in the games list
-        //---------------------------------------------------------------
-        private void CreateGameButtons()
-        {
-            foreach (var game in manager.GetListOfGames())
-            {
-                Button gameBtn = new Button
-                {
-                    Name = game.Name,
-                    Text = game.Name,
-                    Anchor = AnchorStyles.None,
-                    AutoSize = true,
-                };
-                gameBtn.Click += (sender, e) => PlayGame(game.GameControl);
-                GameSelector.Controls.Add(gameBtn);
-            }
+            manager = GameSelectManager.CreateAndPopulateManager(this);
+            NextGame();
         }
 
         //---------------------------------------------------------------
@@ -67,7 +37,16 @@ namespace GainsProject.UI
         public void NextGame()
         {
             var game = manager.GetRandomUnplayedGame();
+            // If all games have been played, recreate the game manager
             PlayGame(game);
+        }
+
+        //---------------------------------------------------------------
+        //Stops going through the random playlist, goes to a blank screen
+        //---------------------------------------------------------------
+        public void Exit()
+        {
+            PlayGame(null);
         }
 
         //---------------------------------------------------------------
@@ -78,11 +57,14 @@ namespace GainsProject.UI
         {
             Content.Controls.Clear();
 
-            control.Dock = DockStyle.Fill;
-            control.BringToFront();
-            control.Focus();
+            if (control != null)
+            {
+                control.Dock = DockStyle.Fill;
+                control.BringToFront();
+                control.Focus();
 
-            Content.Controls.Add(control);
+                Content.Controls.Add(control);
+            }
         }
 
         //---------------------------------------------------------------
@@ -96,12 +78,8 @@ namespace GainsProject.UI
             if (gameControl != null)
             {
                 manager.PlayedGame(gameControl);
-                showUserControl(gameControl);
             }
-            else
-            {
-                showUserControl(new GameSelectPage());
-            }
+            showUserControl(gameControl);
         }
     }
 }

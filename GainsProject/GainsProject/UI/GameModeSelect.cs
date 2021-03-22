@@ -41,14 +41,26 @@ namespace GainsProject.UI
 
             Content.Controls.Add(control);
         }
+
         //---------------------------------------------------------------
-        //Allows the user to go to the game select page for signle games
+        //Allows the user to go to the game select page for single games
         //---------------------------------------------------------------
         private void SingleGame_Click(object sender, EventArgs e)
         {
             //Hides the current elements
             HidePage();
-            GameSelectPage gameSelect = new GameSelectPage();
+            SingleGamePage gameSelect = new SingleGamePage();
+            showUserControl(gameSelect);
+        }
+
+        //---------------------------------------------------------------
+        //Allows the user to play games in a random order
+        //---------------------------------------------------------------
+        private void RandomGame_Click(object sender, EventArgs e)
+        {
+            //Hides the current elements
+            HidePage();
+            var gameSelect = new RandomGamesPage();
             showUserControl(gameSelect);
         }
     }
