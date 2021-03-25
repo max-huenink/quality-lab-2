@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\MentalMathGameManager.cs" />
+    <Compile Include="Application\PictureDrawingManager.cs" />
     <Compile Include="Domain\Interfaces\IGame.cs" />
     <Compile Include="UI\BasePage.cs">
       <SubType>Form</SubType>
@@ -76,6 +77,12 @@
       <DependentUpon>ExampleGame.cs</DependentUpon>
     </Compile>
     <Compile Include="Application\ExampleGameManager.cs" />
+    <Compile Include="UI\PictureDrawing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\PictureDrawing.Designer.cs">
+      <DependentUpon>PictureDrawing.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\RandomGamesPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -124,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\GameModeSelect.resx">
       <DependentUpon>GameModeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PictureDrawing.resx">
+      <DependentUpon>PictureDrawing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RandomGamesPage.resx">
       <DependentUpon>RandomGamesPage.cs</DependentUpon>
