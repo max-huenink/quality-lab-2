@@ -52,6 +52,12 @@
     <Compile Include="Application\MentalMathGameManager.cs" />
     <Compile Include="Application\PictureDrawingManager.cs" />
     <Compile Include="Domain\Interfaces\IGame.cs" />
+    <Compile Include="UI\ArrowKeyGame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ArrowKeyGame.Designer.cs">
+      <DependentUpon>ArrowKeyGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\BasePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     <Compile Include="UI\TutorialPage.Designer.cs">
       <DependentUpon>TutorialPage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\ArrowKeyGame.resx">
+      <DependentUpon>ArrowKeyGame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\BasePage.resx">
       <DependentUpon>BasePage.cs</DependentUpon>
     </EmbeddedResource>
