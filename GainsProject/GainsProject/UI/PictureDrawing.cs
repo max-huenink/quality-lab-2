@@ -6,8 +6,7 @@ namespace GainsProject.UI
 {
     public partial class PictureDrawing : UserControl
     {
-        static PictureDrawing pd = new PictureDrawing();
-        private DateTime temp = DateTime.Now;
+        static PictureDrawingManager pd = new PictureDrawingManager();
         public PictureDrawing()
         {
             InitializeComponent();
@@ -24,19 +23,10 @@ namespace GainsProject.UI
             exitGameBtn.Click += (sender, e) => selectGame.Exit();
             nextGame = true;
         }
-        public string getElapsedTime(DateTime startTime)
-        {
-            string timeString = "";
-            TimeSpan elapsedTime = DateTime.Now - startTime;
-            timeString += elapsedTime.Hours.ToString("00") + ": " +
-                elapsedTime.Minutes.ToString("00") + ": " +
-                elapsedTime.Seconds.ToString("00");
-            return timeString;
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timerLabel.Text = pd.getElapsedTime(temp);
+            timerLabel.Text = pd.getElapsedTime();
         }
         private void checkScoreButton_MouseEnter(object sender, EventArgs e)
         {
@@ -46,6 +36,78 @@ namespace GainsProject.UI
         private void checkScoreButton_MouseLeave(object sender, EventArgs e)
         {
             checkScoreButton.BackColor = System.Drawing.Color.Tomato;
+        }
+
+        private void checkScoreButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(!pd.isGameLive())
+            {
+                checkScoreButton.Text = "Check Score";
+                checkScoreButton.BackColor = System.Drawing.Color.LimeGreen;
+                pd.runGame();
+                timer1.Enabled = true;
+            }
+            else
+            {
+                if(pd.checkPainting())
+                {
+                    timer1.Enabled = false;
+                    checkScoreButton.Text = "PLAY AGAIN";
+                    checkScoreButton.BackColor = System.Drawing.Color.Tomato;
+                }
+            }
+        }
+
+        private void drawingPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            pd.setPanelInfo(e.X, e.Y, drawingPanel.Width / 8);
+            drawingPanel.Paint += new PaintEventHandler(pd.colorSquare);
+            drawingPanel.Refresh();
+        }
+
+        private void paintWhite_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void paintYellow_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void paintOrange_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void paintRed_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void paintPurple_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void paintBlue_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void paintGreen_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void paintBrown_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void paintBlack_MouseClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }
