@@ -35,28 +35,28 @@ namespace GainsProject.UI
             this.picturePanel = new System.Windows.Forms.Panel();
             this.drawingPanel = new System.Windows.Forms.Panel();
             this.paintBlack = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.paintBrown = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.paintGreen = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.paintBlue = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.paintPurple = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.paintRed = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.paintOrange = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.paintYellow = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.paintWhite = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.dashedTimerLabel = new System.Windows.Forms.Label();
             this.timerLabel = new System.Windows.Forms.Label();
             this.dashedLineLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.checkScoreButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.paintBlack.SuspendLayout();
             this.paintBrown.SuspendLayout();
             this.paintGreen.SuspendLayout();
@@ -112,6 +112,16 @@ namespace GainsProject.UI
             this.paintBlack.Size = new System.Drawing.Size(80, 80);
             this.paintBlack.TabIndex = 0;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(64, 67);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(13, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "9";
+            // 
             // paintBrown
             // 
             this.paintBrown.BackColor = System.Drawing.Color.SaddleBrown;
@@ -120,6 +130,15 @@ namespace GainsProject.UI
             this.paintBrown.Name = "paintBrown";
             this.paintBrown.Size = new System.Drawing.Size(80, 80);
             this.paintBrown.TabIndex = 10;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(64, 67);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(13, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "8";
             // 
             // paintGreen
             // 
@@ -130,6 +149,15 @@ namespace GainsProject.UI
             this.paintGreen.Size = new System.Drawing.Size(80, 80);
             this.paintGreen.TabIndex = 11;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(67, 67);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(13, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "7";
+            // 
             // paintBlue
             // 
             this.paintBlue.BackColor = System.Drawing.Color.Blue;
@@ -138,6 +166,15 @@ namespace GainsProject.UI
             this.paintBlue.Name = "paintBlue";
             this.paintBlue.Size = new System.Drawing.Size(80, 80);
             this.paintBlue.TabIndex = 12;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(64, 67);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(13, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "6";
             // 
             // paintPurple
             // 
@@ -148,6 +185,15 @@ namespace GainsProject.UI
             this.paintPurple.Size = new System.Drawing.Size(80, 80);
             this.paintPurple.TabIndex = 13;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(67, 67);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(13, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "5";
+            // 
             // paintRed
             // 
             this.paintRed.BackColor = System.Drawing.Color.Red;
@@ -156,6 +202,15 @@ namespace GainsProject.UI
             this.paintRed.Name = "paintRed";
             this.paintRed.Size = new System.Drawing.Size(80, 80);
             this.paintRed.TabIndex = 14;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(67, 67);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(13, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "4";
             // 
             // paintOrange
             // 
@@ -166,6 +221,15 @@ namespace GainsProject.UI
             this.paintOrange.Size = new System.Drawing.Size(80, 80);
             this.paintOrange.TabIndex = 15;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(64, 67);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(13, 13);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "3";
+            // 
             // paintYellow
             // 
             this.paintYellow.BackColor = System.Drawing.Color.Yellow;
@@ -175,6 +239,15 @@ namespace GainsProject.UI
             this.paintYellow.Size = new System.Drawing.Size(80, 80);
             this.paintYellow.TabIndex = 16;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(64, 67);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(13, 13);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "2";
+            // 
             // paintWhite
             // 
             this.paintWhite.BackColor = System.Drawing.Color.White;
@@ -183,6 +256,15 @@ namespace GainsProject.UI
             this.paintWhite.Name = "paintWhite";
             this.paintWhite.Size = new System.Drawing.Size(80, 80);
             this.paintWhite.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(64, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(13, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "1";
             // 
             // dashedTimerLabel
             // 
@@ -231,88 +313,8 @@ namespace GainsProject.UI
             this.checkScoreButton.TabIndex = 21;
             this.checkScoreButton.Text = "Check Score";
             this.checkScoreButton.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(13, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "1";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(64, 67);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 13);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "2";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(64, 67);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(13, 13);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "3";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(67, 67);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(13, 13);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "4";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(67, 67);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(13, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "5";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(64, 67);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(13, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "6";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(67, 67);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(13, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "7";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(64, 67);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(13, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "8";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(64, 67);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(13, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "9";
+            this.checkScoreButton.MouseEnter += new System.EventHandler(this.checkScoreButton_MouseEnter);
+            this.checkScoreButton.MouseLeave += new System.EventHandler(this.checkScoreButton_MouseLeave);
             // 
             // PictureDrawing
             // 

@@ -38,5 +38,14 @@ namespace GainsProject.UI
         {
             timerLabel.Text = pd.getElapsedTime(temp);
         }
+        private void checkScoreButton_MouseEnter(object sender, EventArgs e)
+        {
+            checkScoreButton.BackColor = System.Drawing.Color.LimeGreen;
+        }
+
+        private void checkScoreButton_MouseLeave(object sender, EventArgs e)
+        {
+            checkScoreButton.BackColor = System.Drawing.Color.Tomato;
+        }
     }
 }
