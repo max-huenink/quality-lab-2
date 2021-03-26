@@ -49,8 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\ArrowKeyGameManager.cs" />
     <Compile Include="Application\MentalMathGameManager.cs" />
     <Compile Include="Application\PictureDrawingManager.cs" />
+    <Compile Include="Domain\Enums\Difficulties.cs" />
     <Compile Include="Domain\Interfaces\IGame.cs" />
     <Compile Include="UI\ArrowKeyGame.cs">
       <SubType>UserControl</SubType>

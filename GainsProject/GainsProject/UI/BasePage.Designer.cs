@@ -148,6 +148,7 @@ namespace GainsProject.UI
             this.Controls.Add(this.Content);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.Name = "BasePage";
             this.Text = "Reaction Games";
             this.panel1.ResumeLayout(false);

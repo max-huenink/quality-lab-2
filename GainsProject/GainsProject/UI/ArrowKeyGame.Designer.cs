@@ -40,6 +40,8 @@ namespace GainsProject.UI
             this.UpArrowLbl = new System.Windows.Forms.Label();
             this.RightArrowLbl = new System.Windows.Forms.Label();
             this.DownArrowLbl = new System.Windows.Forms.Label();
+            this.ScoreLbl = new System.Windows.Forms.Label();
+            this.TotalScoreLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // exitGameBtn
@@ -85,6 +87,7 @@ namespace GainsProject.UI
             this.EasyDifficultyBtn.TabIndex = 7;
             this.EasyDifficultyBtn.Text = "Easy";
             this.EasyDifficultyBtn.UseVisualStyleBackColor = false;
+            this.EasyDifficultyBtn.Click += new System.EventHandler(this.EasyDifficultyBtn_Click);
             // 
             // MediumDifficultyBtn
             // 
@@ -97,6 +100,7 @@ namespace GainsProject.UI
             this.MediumDifficultyBtn.TabIndex = 11;
             this.MediumDifficultyBtn.Text = "Medium";
             this.MediumDifficultyBtn.UseVisualStyleBackColor = false;
+            this.MediumDifficultyBtn.Click += new System.EventHandler(this.MediumDifficultyBtn_Click);
             // 
             // HardDifficultBtn
             // 
@@ -109,13 +113,14 @@ namespace GainsProject.UI
             this.HardDifficultBtn.TabIndex = 12;
             this.HardDifficultBtn.Text = "Hard";
             this.HardDifficultBtn.UseVisualStyleBackColor = false;
+            this.HardDifficultBtn.Click += new System.EventHandler(this.HardDifficultBtn_Click);
             // 
             // LeftArrowLbl
             // 
             this.LeftArrowLbl.AutoSize = true;
             this.LeftArrowLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LeftArrowLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LeftArrowLbl.Location = new System.Drawing.Point(270, 22);
+            this.LeftArrowLbl.Location = new System.Drawing.Point(270, 43);
             this.LeftArrowLbl.Name = "LeftArrowLbl";
             this.LeftArrowLbl.Size = new System.Drawing.Size(116, 108);
             this.LeftArrowLbl.TabIndex = 13;
@@ -126,7 +131,7 @@ namespace GainsProject.UI
             // 
             this.UpArrowLbl.AutoSize = true;
             this.UpArrowLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpArrowLbl.Location = new System.Drawing.Point(392, 22);
+            this.UpArrowLbl.Location = new System.Drawing.Point(392, 43);
             this.UpArrowLbl.Name = "UpArrowLbl";
             this.UpArrowLbl.Size = new System.Drawing.Size(116, 108);
             this.UpArrowLbl.TabIndex = 14;
@@ -137,7 +142,7 @@ namespace GainsProject.UI
             // 
             this.RightArrowLbl.AutoSize = true;
             this.RightArrowLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RightArrowLbl.Location = new System.Drawing.Point(514, 22);
+            this.RightArrowLbl.Location = new System.Drawing.Point(636, 43);
             this.RightArrowLbl.Name = "RightArrowLbl";
             this.RightArrowLbl.Size = new System.Drawing.Size(116, 108);
             this.RightArrowLbl.TabIndex = 15;
@@ -148,18 +153,42 @@ namespace GainsProject.UI
             // 
             this.DownArrowLbl.AutoSize = true;
             this.DownArrowLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DownArrowLbl.Location = new System.Drawing.Point(636, 22);
+            this.DownArrowLbl.Location = new System.Drawing.Point(514, 43);
             this.DownArrowLbl.Name = "DownArrowLbl";
             this.DownArrowLbl.Size = new System.Drawing.Size(116, 108);
             this.DownArrowLbl.TabIndex = 16;
             this.DownArrowLbl.Text = "🡇";
             this.DownArrowLbl.Visible = false;
             // 
+            // ScoreLbl
+            // 
+            this.ScoreLbl.AutoSize = true;
+            this.ScoreLbl.Font = new System.Drawing.Font("Rockwell", 14.25F);
+            this.ScoreLbl.Location = new System.Drawing.Point(482, 22);
+            this.ScoreLbl.Name = "ScoreLbl";
+            this.ScoreLbl.Size = new System.Drawing.Size(53, 21);
+            this.ScoreLbl.TabIndex = 17;
+            this.ScoreLbl.Text = "+000";
+            this.ScoreLbl.Visible = false;
+            // 
+            // TotalScoreLbl
+            // 
+            this.TotalScoreLbl.AutoSize = true;
+            this.TotalScoreLbl.Font = new System.Drawing.Font("Rockwell", 14.25F);
+            this.TotalScoreLbl.Location = new System.Drawing.Point(930, 22);
+            this.TotalScoreLbl.Name = "TotalScoreLbl";
+            this.TotalScoreLbl.Size = new System.Drawing.Size(100, 21);
+            this.TotalScoreLbl.TabIndex = 18;
+            this.TotalScoreLbl.Text = "000000000";
+            this.TotalScoreLbl.Visible = false;
+            // 
             // ArrowKeyGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
+            this.Controls.Add(this.TotalScoreLbl);
+            this.Controls.Add(this.ScoreLbl);
             this.Controls.Add(this.DownArrowLbl);
             this.Controls.Add(this.RightArrowLbl);
             this.Controls.Add(this.UpArrowLbl);
@@ -172,6 +201,7 @@ namespace GainsProject.UI
             this.Controls.Add(this.EasyDifficultyBtn);
             this.Name = "ArrowKeyGame";
             this.Size = new System.Drawing.Size(1060, 686);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ArrowKeyGame_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,5 +219,7 @@ namespace GainsProject.UI
         private System.Windows.Forms.Label UpArrowLbl;
         private System.Windows.Forms.Label RightArrowLbl;
         private System.Windows.Forms.Label DownArrowLbl;
+        private System.Windows.Forms.Label ScoreLbl;
+        private System.Windows.Forms.Label TotalScoreLbl;
     }
 }
