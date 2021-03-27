@@ -11,7 +11,7 @@ namespace BigGainsTests
         //Tests the scoring in the mental math game manager
         //---------------------------------------------------------------
         [TestMethod]
-        public void scoringValid()
+        public void ScoringValid()
         {
             MentalMathGameManager game = new MentalMathGameManager();
             game.setTime(2000);
@@ -22,7 +22,7 @@ namespace BigGainsTests
         //Tests the low boundry scoring in the mental math game manager
         //---------------------------------------------------------------
         [TestMethod]
-        public void boundryLowScoringValid()
+        public void BoundryLowScoringValid()
         {
             MentalMathGameManager game = new MentalMathGameManager();
             game.setTime(60000);
@@ -33,7 +33,7 @@ namespace BigGainsTests
         //Tests the upper boundry scoring in the mental math game manager
         //---------------------------------------------------------------
         [TestMethod]
-        public void boundryUpperScoringValid()
+        public void BoundryUpperScoringValid()
         {
             MentalMathGameManager game = new MentalMathGameManager();
             game.setTime(400);
@@ -45,7 +45,7 @@ namespace BigGainsTests
         //answers
         //---------------------------------------------------------------
         [TestMethod]
-        public void scoringWrongAnswer()
+        public void ScoringWrongAnswer()
         {
             MentalMathGameManager game = new MentalMathGameManager();
             game.setTime(-1);
@@ -56,7 +56,7 @@ namespace BigGainsTests
         //
         //---------------------------------------------------------------
         [TestMethod]
-        public void runGame()
+        public void RunGame()
         {
             MentalMathGameManager game = new MentalMathGameManager();
             game.stopwatch.Start();
