@@ -73,7 +73,7 @@
     <Compile Include="ScoreSaveTests.cs" />
     <Compile Include="SelectGameManagerTest.cs" />
     <Compile Include="MentalMathGameTests.cs" />
-    <Compile Include="ChaseTheArrow.cs" />
+    <Compile Include="ChaseTheButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

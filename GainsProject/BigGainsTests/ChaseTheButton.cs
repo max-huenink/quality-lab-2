@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GainsProject.Application;
+
 namespace BigGainsTests
 {
     [TestClass]
@@ -9,7 +10,7 @@ namespace BigGainsTests
         [TestMethod]
         public void ScoringValid()
         {
-            MentalMathGameManager game = new MentalMathGameManager();
+            ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
             game.setTime(2000);
             game.calculateScore();
             Assert.AreEqual(900, game.getScore());
@@ -17,7 +18,7 @@ namespace BigGainsTests
         [TestMethod]
         public void LowerScoreTest()
         {
-            MentalMathGameManager game = new MentalMathGameManager();
+            ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
             game.setTime(20000);
             game.calculateScore();
             Assert.AreEqual(0, game.getScore());
@@ -25,7 +26,7 @@ namespace BigGainsTests
         [TestMethod]
         public void UpperScoreTest()
         {
-            MentalMathGameManager game = new MentalMathGameManager();
+            ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
             game.setTime(1000);
             game.calculateScore();
             Assert.AreEqual(1000, game.getScore());
@@ -33,7 +34,7 @@ namespace BigGainsTests
         [TestMethod]
         public void runGame()
         {
-            MentalMathGameManager game = new MentalMathGameManager();
+            ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
             game.stopwatch.Start();
             game.stopwatch.Stop();
             game.runGame();
