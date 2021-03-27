@@ -85,6 +85,7 @@ namespace GainsProject.Application
             manager.AddGameToList("Example Game", new ExampleGame());
             manager.AddGameToList("Mental Math Game", new MentalMathGame());
             manager.AddGameToList("Picture Drawing", new PictureDrawing());
+            manager.AddGameToList("Chase the button", new ChaseTheButton());
             return manager;
         }
 
@@ -98,6 +99,7 @@ namespace GainsProject.Application
             manager.AddGameToList("Example Game", new ExampleGame(playlist));
             manager.AddGameToList("Mental Math Game", new MentalMathGame (playlist));
             manager.AddGameToList("Picture Drawing Game", new PictureDrawing(playlist));
+            manager.AddGameToList("Chase the button", new ChaseTheButton());
             return manager;
         }
     }
