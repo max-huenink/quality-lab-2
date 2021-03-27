@@ -5,13 +5,9 @@
 //---------------------------------------------------------------
 using System;
 using System.Drawing;
-using GainsProject.Application;
-using GainsProject.Domain.Interfaces;
 using System.Windows.Forms;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using GainsProject.Domain;
 
 namespace GainsProject.Application
@@ -28,16 +24,20 @@ namespace GainsProject.Application
         int xCoord = 0;
         int yCoord = 0;
         int boxSize = 0;
+        int incorrectPictures = 0;
 
         public override void runGame()
         {
+            incorrectPictures = 0;
             startTime = DateTime.Now;
             start();
         }
 
         public override void calculateScore()
         {
-            throw new NotImplementedException();
+            TimeSpan elapsedTime = DateTime.Now - startTime;
+            long scoreSubtracter = Convert.ToInt64(elapsedTime.TotalSeconds) * 2;
+            setScore(1000 - scoreSubtracter - (incorrectPictures * 100));
         }
 
         public override int randomTime()
@@ -57,8 +57,12 @@ namespace GainsProject.Application
 
         public void incorrectAnswer()
         {
-            long score = getScore();
-            setScore(score - 100);
+            ++incorrectPictures;
+        }
+
+        public string getIncorrectPictures()
+        {
+            return "" + incorrectPictures;
         }
 
         public bool checkPainting()
@@ -75,6 +79,7 @@ namespace GainsProject.Application
                     }
                 }
             }
+            calculateScore();
             endGame();
             return isMatch;
         }
@@ -84,9 +89,57 @@ namespace GainsProject.Application
             int xPos = xCoord / boxSize;
             int yPos = yCoord / boxSize;
             drawingArray[xPos, yPos] = color;
-            Rectangle rect = new Rectangle(xPos * boxSize, yPos * boxSize, boxSize, boxSize);
-            SolidBrush blueBrush = new SolidBrush(Color.Blue);
-            e.Graphics.FillRectangle(blueBrush, rect);
+            for(int i = 0; i < UPPER_PICTURE_LIMIT; i++)
+            {
+                for(int j = 0; j < UPPER_PICTURE_LIMIT; j++)
+                {
+                    Rectangle rect = new Rectangle(i * boxSize, j * boxSize, boxSize, boxSize);
+                    e.Graphics.FillRectangle(coloredBrush(drawingArray[i,j]), rect);
+                }
+            }
+        }
+
+        private SolidBrush coloredBrush(int color)
+        {
+            
+            SolidBrush brush = new SolidBrush(Color.White);
+            if(color == 0)
+            {
+                brush = new SolidBrush(Color.White);
+            }
+            else if (color == 1)
+            {
+                brush = new SolidBrush(Color.Yellow);
+            }
+            else if (color == 2)
+            {
+                brush = new SolidBrush(Color.Orange);
+            }
+            else if (color == 3)
+            {
+                brush = new SolidBrush(Color.Red);
+            }
+            else if (color == 4)
+            {
+                brush = new SolidBrush(Color.Purple);
+            }
+            else if (color == 5)
+            {
+                brush = new SolidBrush(Color.Blue);
+            }
+            else if (color == 6)
+            {
+                brush = new SolidBrush(Color.Green);
+            }
+            else if (color == 7)
+            {
+                brush = new SolidBrush(Color.SaddleBrown);
+            }
+            else if (color == 8)
+            {
+                brush = new SolidBrush(Color.Black);
+            }
+            return brush;
         }
 
         public void setColor(int color)
@@ -104,6 +157,26 @@ namespace GainsProject.Application
             xCoord = x;
             yCoord = y;
             this.boxSize = boxSize;
+        }
+
+        public void fillPicturePanel(object sender, PaintEventArgs e)
+        {
+            boxSize = 30;
+            int xPos = xCoord / boxSize;
+            int yPos = yCoord / boxSize;
+            drawingArray[xPos, yPos] = color;
+            for (int i = 0; i < UPPER_PICTURE_LIMIT; i++)
+            {
+                for (int j = 0; j < UPPER_PICTURE_LIMIT; j++)
+                {
+                    Rectangle rect = new Rectangle(i * boxSize, j * boxSize, boxSize, boxSize);
+                    e.Graphics.FillRectangle(coloredBrush(pictureArray[i, j]), rect);
+                }
+            }
+        }
+        public void loadPicturePanel()
+        {
+            //Stream
         }
     }
 }

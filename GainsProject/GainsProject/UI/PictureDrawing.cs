@@ -42,10 +42,17 @@ namespace GainsProject.UI
         {
             if(!pd.isGameLive())
             {
-                checkScoreButton.Text = "Check Score";
+                dashedTimerLabel.Visible = true;
+                timerLabel.Visible = true;
+                dashedLineLabel.Visible = true;
+                endTimeLabel.Visible = false;
+                incorrectPictureLabel.Visible = false;
+                scoreLabel.Visible = false;
+                checkScoreButton.Text = "Check Picture";
                 checkScoreButton.BackColor = System.Drawing.Color.LimeGreen;
                 pd.runGame();
                 timer1.Enabled = true;
+                
             }
             else
             {
@@ -54,60 +61,76 @@ namespace GainsProject.UI
                     timer1.Enabled = false;
                     checkScoreButton.Text = "PLAY AGAIN";
                     checkScoreButton.BackColor = System.Drawing.Color.Tomato;
+
+                    endTimeLabel.Text = "Time: " + pd.getElapsedTime();
+                    incorrectPictureLabel.Text = "Bad Pictures: " + pd.getIncorrectPictures();
+                    scoreLabel.Text = "Score: " + pd.getScore();
+
+                    dashedTimerLabel.Visible = false;
+                    timerLabel.Visible = false;
+                    dashedLineLabel.Visible = false;
+                    endTimeLabel.Visible = true;
+                    incorrectPictureLabel.Visible = true;
+                    scoreLabel.Visible = true;
                 }
+                else
+                    pd.incorrectAnswer();
             }
         }
 
         private void drawingPanel_MouseClick(object sender, MouseEventArgs e)
         {
-            pd.setPanelInfo(e.X, e.Y, drawingPanel.Width / 8);
-            drawingPanel.Paint += new PaintEventHandler(pd.colorSquare);
-            drawingPanel.Refresh();
+            if (pd.isGameLive())
+            {
+                pd.setPanelInfo(e.X, e.Y, drawingPanel.Width / 8);
+                drawingPanel.Paint += new PaintEventHandler(pd.colorSquare);
+                drawingPanel.Refresh();
+            }
         }
 
         private void paintWhite_MouseClick(object sender, MouseEventArgs e)
         {
-
+            pd.setColor(0);
         }
 
         private void paintYellow_MouseClick(object sender, MouseEventArgs e)
         {
-
+            pd.setColor(1);
         }
 
         private void paintOrange_MouseClick(object sender, MouseEventArgs e)
         {
-
+            pd.setColor(2);
         }
 
         private void paintRed_MouseClick(object sender, MouseEventArgs e)
         {
-
+            pd.setColor(3);
         }
 
         private void paintPurple_MouseClick(object sender, MouseEventArgs e)
         {
-
+            pd.setColor(4);
         }
 
         private void paintBlue_MouseClick(object sender, MouseEventArgs e)
         {
-
+            pd.setColor(5);
         }
 
         private void paintGreen_MouseClick(object sender, MouseEventArgs e)
         {
-
+            pd.setColor(6);
         }
 
         private void paintBrown_MouseClick(object sender, MouseEventArgs e)
         {
-
+            pd.setColor(7);
         }
 
         private void paintBlack_MouseClick(object sender, MouseEventArgs e)
         {
-
+            pd.setColor(8);
         }
     }
 }

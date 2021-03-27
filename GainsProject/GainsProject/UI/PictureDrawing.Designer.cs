@@ -57,6 +57,9 @@ namespace GainsProject.UI
             this.dashedLineLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.checkScoreButton = new System.Windows.Forms.Button();
+            this.scoreLabel = new System.Windows.Forms.Label();
+            this.incorrectPictureLabel = new System.Windows.Forms.Label();
+            this.endTimeLabel = new System.Windows.Forms.Label();
             this.paintBlack.SuspendLayout();
             this.paintBrown.SuspendLayout();
             this.paintGreen.SuspendLayout();
@@ -89,7 +92,7 @@ namespace GainsProject.UI
             // 
             // picturePanel
             // 
-            this.picturePanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.picturePanel.BackColor = System.Drawing.Color.White;
             this.picturePanel.Location = new System.Drawing.Point(33, 157);
             this.picturePanel.Name = "picturePanel";
             this.picturePanel.Size = new System.Drawing.Size(240, 240);
@@ -97,7 +100,7 @@ namespace GainsProject.UI
             // 
             // drawingPanel
             // 
-            this.drawingPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.drawingPanel.BackColor = System.Drawing.Color.White;
             this.drawingPanel.Location = new System.Drawing.Point(350, 100);
             this.drawingPanel.Name = "drawingPanel";
             this.drawingPanel.Size = new System.Drawing.Size(360, 360);
@@ -326,11 +329,47 @@ namespace GainsProject.UI
             this.checkScoreButton.MouseEnter += new System.EventHandler(this.checkScoreButton_MouseEnter);
             this.checkScoreButton.MouseLeave += new System.EventHandler(this.checkScoreButton_MouseLeave);
             // 
+            // scoreLabel
+            // 
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreLabel.Location = new System.Drawing.Point(813, 157);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(80, 25);
+            this.scoreLabel.TabIndex = 22;
+            this.scoreLabel.Text = "Score: ";
+            this.scoreLabel.Visible = false;
+            // 
+            // incorrectPictureLabel
+            // 
+            this.incorrectPictureLabel.AutoSize = true;
+            this.incorrectPictureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incorrectPictureLabel.Location = new System.Drawing.Point(813, 132);
+            this.incorrectPictureLabel.Name = "incorrectPictureLabel";
+            this.incorrectPictureLabel.Size = new System.Drawing.Size(146, 25);
+            this.incorrectPictureLabel.TabIndex = 23;
+            this.incorrectPictureLabel.Text = "Bad Pictures: ";
+            this.incorrectPictureLabel.Visible = false;
+            // 
+            // endTimeLabel
+            // 
+            this.endTimeLabel.AutoSize = true;
+            this.endTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endTimeLabel.Location = new System.Drawing.Point(813, 107);
+            this.endTimeLabel.Name = "endTimeLabel";
+            this.endTimeLabel.Size = new System.Drawing.Size(71, 25);
+            this.endTimeLabel.TabIndex = 24;
+            this.endTimeLabel.Text = "Time: ";
+            this.endTimeLabel.Visible = false;
+            // 
             // PictureDrawing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
+            this.Controls.Add(this.endTimeLabel);
+            this.Controls.Add(this.incorrectPictureLabel);
+            this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.checkScoreButton);
             this.Controls.Add(this.timerLabel);
             this.Controls.Add(this.dashedTimerLabel);
@@ -402,5 +441,8 @@ namespace GainsProject.UI
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label scoreLabel;
+        private System.Windows.Forms.Label incorrectPictureLabel;
+        private System.Windows.Forms.Label endTimeLabel;
     }
 }
