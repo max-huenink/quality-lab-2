@@ -68,6 +68,12 @@
     <Compile Include="Domain\BaseGame.cs" />
     <Compile Include="Application\GameSelectManager.cs" />
     <Compile Include="Domain\GameSelectData.cs" />
+    <Compile Include="UI\ChaseTheButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ChaseTheButton.Designer.cs">
+      <DependentUpon>ChaseTheButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\GameModeSelect.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\BasePage.resx">
       <DependentUpon>BasePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ChaseTheButton.resx">
+      <DependentUpon>ChaseTheButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ExampleGame.resx">
       <DependentUpon>ExampleGame.cs</DependentUpon>

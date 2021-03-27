@@ -1,18 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GainsProject.Domain
+using GainsProject.Domain;
+namespace GainsProject.Application
 {
-    class ChaseTheButtonGameManager : BaseGame
+    public class ChaseTheButtonGameManager : BaseGame
     {
         //Constants
         public const int MIN_RANDOM = 20;
         public const int MAX_RANDOM = 1000;
         public const int BASE_SCORE_CALCULATION = 200;
         public const int MAX_SCORE = 1000;
+        public const int MAX_SCORE_TIME = 1000;
+        public const int ZERO_SCORE_TIME = 10000;
+        public const int SCORE_DIVISOR = -9;
 
         //---------------------------------------------------------------
         //Sets the time then resets the stopwatch
@@ -36,6 +35,18 @@ namespace GainsProject.Domain
         //---------------------------------------------------------------
         public override void calculateScore()
         {
+            long time = this.getTime();
+            if (time <= MAX_SCORE_TIME)
+            {
+                this.setScore(MAX_SCORE);
+                return;
+            }
+            else if (time > ZERO_SCORE_TIME)
+            {
+                this.setScore(0);
+                return;
+            }
+            this.setScore((time - ZERO_SCORE_TIME) / SCORE_DIVISOR);
 
         }
     }

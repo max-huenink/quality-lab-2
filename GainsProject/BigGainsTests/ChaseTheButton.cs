@@ -5,7 +5,7 @@ using GainsProject.Application;
 namespace BigGainsTests
 {
     [TestClass]
-    public class ChaseTheArrowTests
+    public class ChaseTheButtonTests
     {
         [TestMethod]
         public void ScoringValid()
@@ -13,7 +13,7 @@ namespace BigGainsTests
             ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
             game.setTime(2000);
             game.calculateScore();
-            Assert.AreEqual(900, game.getScore());
+            Assert.AreEqual(888, game.getScore());
         }
         [TestMethod]
         public void LowerScoreTest()
