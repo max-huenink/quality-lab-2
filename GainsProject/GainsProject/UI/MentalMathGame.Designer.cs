@@ -53,7 +53,7 @@
             this.Content.Controls.Add(this.ansBox);
             this.Content.Location = new System.Drawing.Point(0, 0);
             this.Content.Name = "Content";
-            this.Content.Size = new System.Drawing.Size(1063, 666);
+            this.Content.Size = new System.Drawing.Size(1063, 686);
             this.Content.TabIndex = 0;
             // 
             // ScoreLabel
@@ -67,7 +67,7 @@
             // 
             // exitGameBtn
             // 
-            this.exitGameBtn.Location = new System.Drawing.Point(890, 631);
+            this.exitGameBtn.Location = new System.Drawing.Point(982, 643);
             this.exitGameBtn.Name = "exitGameBtn";
             this.exitGameBtn.Size = new System.Drawing.Size(75, 23);
             this.exitGameBtn.TabIndex = 6;
@@ -96,7 +96,7 @@
             // 
             // nextGameBtn
             // 
-            this.nextGameBtn.Location = new System.Drawing.Point(971, 631);
+            this.nextGameBtn.Location = new System.Drawing.Point(901, 643);
             this.nextGameBtn.Name = "nextGameBtn";
             this.nextGameBtn.Size = new System.Drawing.Size(75, 23);
             this.nextGameBtn.TabIndex = 2;

@@ -1,9 +1,17 @@
-﻿using System;
+﻿//---------------------------------------------------------------
+// Name:    Ian Seidler
+// Project: SE 3330 team:Xx_Bigger_Gains_xX
+// Purpose: To test the Mental Math game manager
+//---------------------------------------------------------------
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GainsProject.Application;
 
 namespace BigGainsTests
 {
+    //---------------------------------------------------------------
+    // Test the Mental Math game manager
+    //---------------------------------------------------------------
     [TestClass]
     public class MentalMathGameTests
     {
@@ -53,7 +61,7 @@ namespace BigGainsTests
             Assert.AreEqual(-10, game.getScore());
         }
         //---------------------------------------------------------------
-        //
+        //Tests that the run game method works as intended
         //---------------------------------------------------------------
         [TestMethod]
         public void RunGame()

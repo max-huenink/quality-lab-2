@@ -99,7 +99,7 @@ namespace GainsProject.Application
             manager.AddGameToList("Example Game", new ExampleGame(playlist));
             manager.AddGameToList("Mental Math Game", new MentalMathGame (playlist));
             manager.AddGameToList("Picture Drawing Game", new PictureDrawing(playlist));
-            manager.AddGameToList("Chase the button", new ChaseTheButton());
+            manager.AddGameToList("Chase the button", new ChaseTheButton(playlist));
             return manager;
         }
     }

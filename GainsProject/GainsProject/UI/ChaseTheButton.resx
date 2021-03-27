@@ -117,4 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Chase the button: In this game. once you click start a button will appear on the screen.
+You must then click the button, then another button will appear and so on.
+After you have clicked 5 buttons, your score will appear on the screen.
+Clicking on the background will add 100ms to your total time and will lower your score,
+So be careful!
+ </value>
+  </data>
 </root>

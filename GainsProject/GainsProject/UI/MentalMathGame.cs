@@ -16,13 +16,13 @@ namespace GainsProject.UI
     public partial class MentalMathGame : UserControl
     {
         //Mental math game manager object
-        static MentalMathGameManager mmgame = new MentalMathGameManager();
+        private static MentalMathGameManager mmgame = new MentalMathGameManager();
         //question counter
-        int questionNumber = 0;
-        int random1 = mmgame.randomTime();
-        int random2 = mmgame.randomTime();
+        private int questionNumber = 0;
+        private int random1 = mmgame.randomTime();
+        private int random2 = mmgame.randomTime();
         //correct answer
-        int ans = 0;
+        private int ans = 0;
         public MentalMathGame()
         {
             InitializeComponent();
