@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GainsProject.Application;
 
@@ -65,6 +66,31 @@ namespace BigGainsTests
             game.stopwatch.Stop();
             game.runGame();
             Assert.AreEqual(0, game.stopwatch.ElapsedMilliseconds);
+        }
+        [TestMethod]
+        public void incrementIncorrectAnswer()
+        {
+            PictureDrawingManager game = new PictureDrawingManager();
+            game.incorrectAnswer();
+            Assert.AreEqual("1", game.getIncorrectPictures());
+        }
+        [TestMethod]
+        public void checkPaintingsSame()
+        {
+            PictureDrawingManager game = new PictureDrawingManager();
+            game.runGame();
+
+            Assert.AreEqual(true, game.checkPainting());
+        }
+
+        [TestMethod]
+        public void useKeyToChangeColor()
+        {
+            PictureDrawingManager game = new PictureDrawingManager();
+            game.runGame();
+            game.setColorWithKey(System.Windows.Forms.Keys.D1);
+            
+            Assert.AreEqual(0, game.getColor());
         }
     }
 }

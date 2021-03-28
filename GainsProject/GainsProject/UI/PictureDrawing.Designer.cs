@@ -89,6 +89,7 @@ namespace GainsProject.UI
             this.exitGameBtn.TabIndex = 7;
             this.exitGameBtn.Text = "Exit";
             this.exitGameBtn.UseVisualStyleBackColor = true;
+            this.exitGameBtn.Click += new System.EventHandler(this.exitGameBtn_Click);
             // 
             // picturePanel
             // 
@@ -325,6 +326,7 @@ namespace GainsProject.UI
             this.checkScoreButton.TabIndex = 21;
             this.checkScoreButton.Text = "START";
             this.checkScoreButton.UseVisualStyleBackColor = false;
+            this.checkScoreButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.checkScoreButton_KeyDown);
             this.checkScoreButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.checkScoreButton_MouseClick);
             this.checkScoreButton.MouseEnter += new System.EventHandler(this.checkScoreButton_MouseEnter);
             this.checkScoreButton.MouseLeave += new System.EventHandler(this.checkScoreButton_MouseLeave);
