@@ -94,11 +94,12 @@ namespace GainsProject.UI
             this.selectGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectGame.FormattingEnabled = true;
             this.selectGame.Location = new System.Drawing.Point(17, 25);
-            this.selectGame.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.selectGame.Margin = new System.Windows.Forms.Padding(2);
             this.selectGame.Name = "selectGame";
-            this.selectGame.Size = new System.Drawing.Size(161, 33);
+            this.selectGame.Size = new System.Drawing.Size(233, 33);
             this.selectGame.TabIndex = 5;
             this.selectGame.Text = "defaultGame";
+            this.selectGame.SelectedIndexChanged += new System.EventHandler(this.selectGame_SelectedIndexChanged);
             // 
             // timeStampHere
             // 

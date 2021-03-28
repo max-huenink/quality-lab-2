@@ -6,6 +6,8 @@
 using GainsProject.Application;
 using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GainsProject.UI
 {
@@ -14,36 +16,56 @@ namespace GainsProject.UI
     //--------------------------------------------------------------------
     public partial class PreviousScoresPage : UserControl
     {
-        ScoreDisplay scoreDisplay;
+        List<ScoreDisplay> scoreDisplayList;
+        ScoreDisplay currScoreDisplay;
         ScoreSave scoreSave;
+        private const int NUM_TEST_GAMES = 1;
         public PreviousScoresPage()
         {
             InitializeComponent();
-            //score save object will not be created here and is
-            //only here for testing/demoing
-            scoreSave = new ScoreSave("GameScore.txt");
-            //score display contains all of the logic for displaying
-            scoreDisplay = new ScoreDisplay(scoreSave);
+            scoreDisplayList = new List<ScoreDisplay>();
             //Load all of the score relevant data onto the screen
-            this.totalGamesHere.Text = scoreDisplay.getNumGames().ToString();
-            this.avgScoreHere.Text = scoreDisplay.getAvgGamePoints().ToString();
-            updateScorePage();
+            scorePageStart();
         }
-        //---------------------------------------------------------------
-        //get the strings to put in the labels for displaying scores
-        //---------------------------------------------------------------
         private void updateScorePage()
         {
-            this.timeStampHere.Text = scoreDisplay.getTime();
-            this.tagHere.Text = scoreDisplay.getTag();
-            this.scoreHere.Text = scoreDisplay.getScore();
+            this.timeStampHere.Text = currScoreDisplay.getTime();
+            this.tagHere.Text = currScoreDisplay.getTag();
+            this.scoreHere.Text = currScoreDisplay.getScore();
+            this.totalGamesHere.Text = currScoreDisplay.getNumGames().ToString();
+            this.avgScoreHere.Text = currScoreDisplay.getAvgGamePoints().ToString();
+        }
+        //---------------------------------------------------------------
+        //fill the combobox, fill the list of scoreDisplays
+        //---------------------------------------------------------------
+        private void scorePageStart()
+        {
+            string[] gameList = ScoreSaveManager.getGameNames();
+            ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
+            for(int i = NUM_TEST_GAMES; i < gameList.Length; i++)
+            {
+                string rawName = gameList[i];
+                rawName = rawName.Substring(0, rawName.Length - 4);
+                rawName = string.Concat(rawName.Select(x => Char.IsUpper(x) ? " " 
+                + x : x.ToString())).TrimStart(' ');
+                if(i == NUM_TEST_GAMES)
+                {
+                    this.selectGame.Text = rawName;
+                }
+                this.selectGame.Items.Add(rawName);
+                ScoreDisplay temp = new ScoreDisplay(scoreSaveManager
+                    .getScoreSave(gameList[i]));
+                scoreDisplayList.Add(temp);
+            }
+            currScoreDisplay = scoreDisplayList[0];
+            updateScorePage();
         }
         //---------------------------------------------------------------
         //let the scoreDisplay know what label was clicked
         //---------------------------------------------------------------
         private void TimeStamp_Click(object sender, EventArgs e)
         {
-            scoreDisplay.setTimeSorted();
+            currScoreDisplay.setTimeSorted();
             updateScorePage();
         }
         //---------------------------------------------------------------
@@ -51,7 +73,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         private void Tag_Click(object sender, EventArgs e)
         {
-            scoreDisplay.setTagSorted();
+            currScoreDisplay.setTagSorted();
             updateScorePage();
         }
         //---------------------------------------------------------------
@@ -59,7 +81,13 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         private void Score_Click(object sender, EventArgs e)
         {
-            scoreDisplay.setScoreSorted();
+            currScoreDisplay.setScoreSorted();
+            updateScorePage();
+        }
+
+        private void selectGame_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currScoreDisplay = scoreDisplayList[this.selectGame.SelectedIndex];
             updateScorePage();
         }
     }

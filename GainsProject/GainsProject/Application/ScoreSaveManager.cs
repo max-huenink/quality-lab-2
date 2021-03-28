@@ -23,8 +23,8 @@ namespace GainsProject.Application
         private static ScoreSaveManager scoreSaveManager;
         private List<ScoreSave> scoreSaveList;
         private static readonly string[] gameNames = { "testGame1.txt", 
-            "testGame2.txt", "spotTheScenery.txt", 
-            "dizzyButtons.txt", "ChaseTheButton.txt", "ExampleGame.txt",
+            "SpotTheScenery.txt", 
+            "DizzyButtons.txt", "ChaseTheButton.txt", "ExampleGame.txt",
             "MentalMathGame.txt", "ArrowKeyGame.txt"};
         //private default constructor
         private ScoreSaveManager()
@@ -67,7 +67,6 @@ namespace GainsProject.Application
         }
         //--------------------------------------------------------------------
         //This is a getter for game names.
-        //It only exists so the test case can stay up to date
         //--------------------------------------------------------------------
         public static string[] getGameNames()
         {
