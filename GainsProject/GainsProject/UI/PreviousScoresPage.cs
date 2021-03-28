@@ -21,7 +21,7 @@ namespace GainsProject.UI
             InitializeComponent();
             //score save object will not be created here and is
             //only here for testing/demoing
-            scoreSave = new ScoreSave();
+            scoreSave = new ScoreSave("GameScore.txt");
             //score display contains all of the logic for displaying
             scoreDisplay = new ScoreDisplay(scoreSave);
             //Load all of the score relevant data onto the screen
