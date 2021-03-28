@@ -20,7 +20,8 @@ namespace GainsProject.Application
     {
         //placeholder until we have multiple games and their 
         //name will be passed in the constructor
-        const string FILE_NAME = "GameScore.txt";
+
+        string fileName;
         private int numGames;
         private int totalScore; //this exists to make avgGamePoints faster to
                                 //calculate
@@ -28,8 +29,15 @@ namespace GainsProject.Application
         //a list of SaveData nodes
         private List<SaveData> saveDataList;
         //default constructor
-        public ScoreSave()
+        //public ScoreSave()
+        //{
+        //    saveDataList = new List<SaveData>();
+        //    readFile();
+        //}
+        //parameterized constructor
+        public ScoreSave(string fileName)
         {
+            this.fileName = fileName;
             saveDataList = new List<SaveData>();
             readFile();
         }
@@ -43,9 +51,9 @@ namespace GainsProject.Application
         private void readFile()
         {
             //if the file exists read it in
-            if (File.Exists(FILE_NAME))
+            if (File.Exists(fileName))
             {
-                StreamReader sr = new StreamReader(FILE_NAME);
+                StreamReader sr = new StreamReader(fileName);
                 numGames = Convert.ToInt32(sr.ReadLine());
                 totalScore = Convert.ToInt32(sr.ReadLine());
                 avgGamePoints = Convert.ToDouble(sr.ReadLine());
@@ -76,7 +84,7 @@ namespace GainsProject.Application
         //---------------------------------------------------------------
         private void writeFile()
         {
-            File.WriteAllText(FILE_NAME, getTextString());
+            File.WriteAllText(fileName, getTextString());
         }
         //---------------------------------------------------------------
         //add relevant data into SaveData node and add it tothe list

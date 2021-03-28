@@ -13,7 +13,7 @@ namespace BigGainsTests
         [TestMethod]
         public void scoringValid()
         {
-            MentalMathGameManager game = new MentalMathGameManager();
+            PictureDrawingManager game = new PictureDrawingManager();
             game.setTime(2000);
             game.calculateScore();
             Assert.AreEqual(88, game.getScore());
@@ -25,7 +25,7 @@ namespace BigGainsTests
         [TestMethod]
         public void boundryLowScoringValid()
         {
-            MentalMathGameManager game = new MentalMathGameManager();
+            PictureDrawingManager game = new PictureDrawingManager();
             game.setTime(60000);
             game.calculateScore();
             Assert.AreEqual(0, game.getScore());
@@ -37,7 +37,7 @@ namespace BigGainsTests
         [TestMethod]
         public void boundryUpperScoringValid()
         {
-            MentalMathGameManager game = new MentalMathGameManager();
+            PictureDrawingManager game = new PictureDrawingManager();
             game.setTime(400);
             game.calculateScore();
             Assert.AreEqual(100, game.getScore());
@@ -49,7 +49,7 @@ namespace BigGainsTests
         [TestMethod]
         public void scoringWrongAnswer()
         {
-            MentalMathGameManager game = new MentalMathGameManager();
+            PictureDrawingManager game = new PictureDrawingManager();
             game.setTime(-1);
             game.calculateScore();
             Assert.AreEqual(-10, game.getScore());
@@ -60,7 +60,7 @@ namespace BigGainsTests
         [TestMethod]
         public void runGame()
         {
-            MentalMathGameManager game = new MentalMathGameManager();
+            PictureDrawingManager game = new PictureDrawingManager();
             game.stopwatch.Start();
             game.stopwatch.Stop();
             game.runGame();

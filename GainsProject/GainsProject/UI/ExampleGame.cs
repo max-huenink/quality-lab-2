@@ -17,7 +17,7 @@ namespace GainsProject.UI
     {
         public const int TIME_BUFFER = 20;
         //Game manager object to to the business logic
-        ExampleGameManager game = new ExampleGameManager();
+        private ExampleGameManager game = new ExampleGameManager();
         private bool nextGame;
         public ExampleGame()
         {

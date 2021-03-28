@@ -57,6 +57,9 @@ namespace GainsProject.UI
             this.dashedLineLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.checkScoreButton = new System.Windows.Forms.Button();
+            this.scoreLabel = new System.Windows.Forms.Label();
+            this.incorrectPictureLabel = new System.Windows.Forms.Label();
+            this.endTimeLabel = new System.Windows.Forms.Label();
             this.paintBlack.SuspendLayout();
             this.paintBrown.SuspendLayout();
             this.paintGreen.SuspendLayout();
@@ -89,7 +92,7 @@ namespace GainsProject.UI
             // 
             // picturePanel
             // 
-            this.picturePanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.picturePanel.BackColor = System.Drawing.Color.White;
             this.picturePanel.Location = new System.Drawing.Point(33, 157);
             this.picturePanel.Name = "picturePanel";
             this.picturePanel.Size = new System.Drawing.Size(240, 240);
@@ -97,11 +100,12 @@ namespace GainsProject.UI
             // 
             // drawingPanel
             // 
-            this.drawingPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.drawingPanel.BackColor = System.Drawing.Color.White;
             this.drawingPanel.Location = new System.Drawing.Point(350, 100);
             this.drawingPanel.Name = "drawingPanel";
             this.drawingPanel.Size = new System.Drawing.Size(360, 360);
             this.drawingPanel.TabIndex = 9;
+            this.drawingPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.drawingPanel_MouseClick);
             // 
             // paintBlack
             // 
@@ -111,6 +115,7 @@ namespace GainsProject.UI
             this.paintBlack.Name = "paintBlack";
             this.paintBlack.Size = new System.Drawing.Size(80, 80);
             this.paintBlack.TabIndex = 0;
+            this.paintBlack.MouseClick += new System.Windows.Forms.MouseEventHandler(this.paintBlack_MouseClick);
             // 
             // label11
             // 
@@ -130,6 +135,7 @@ namespace GainsProject.UI
             this.paintBrown.Name = "paintBrown";
             this.paintBrown.Size = new System.Drawing.Size(80, 80);
             this.paintBrown.TabIndex = 10;
+            this.paintBrown.MouseClick += new System.Windows.Forms.MouseEventHandler(this.paintBrown_MouseClick);
             // 
             // label10
             // 
@@ -148,6 +154,7 @@ namespace GainsProject.UI
             this.paintGreen.Name = "paintGreen";
             this.paintGreen.Size = new System.Drawing.Size(80, 80);
             this.paintGreen.TabIndex = 11;
+            this.paintGreen.MouseClick += new System.Windows.Forms.MouseEventHandler(this.paintGreen_MouseClick);
             // 
             // label9
             // 
@@ -166,6 +173,7 @@ namespace GainsProject.UI
             this.paintBlue.Name = "paintBlue";
             this.paintBlue.Size = new System.Drawing.Size(80, 80);
             this.paintBlue.TabIndex = 12;
+            this.paintBlue.MouseClick += new System.Windows.Forms.MouseEventHandler(this.paintBlue_MouseClick);
             // 
             // label8
             // 
@@ -184,6 +192,7 @@ namespace GainsProject.UI
             this.paintPurple.Name = "paintPurple";
             this.paintPurple.Size = new System.Drawing.Size(80, 80);
             this.paintPurple.TabIndex = 13;
+            this.paintPurple.MouseClick += new System.Windows.Forms.MouseEventHandler(this.paintPurple_MouseClick);
             // 
             // label7
             // 
@@ -202,6 +211,7 @@ namespace GainsProject.UI
             this.paintRed.Name = "paintRed";
             this.paintRed.Size = new System.Drawing.Size(80, 80);
             this.paintRed.TabIndex = 14;
+            this.paintRed.MouseClick += new System.Windows.Forms.MouseEventHandler(this.paintRed_MouseClick);
             // 
             // label6
             // 
@@ -220,6 +230,7 @@ namespace GainsProject.UI
             this.paintOrange.Name = "paintOrange";
             this.paintOrange.Size = new System.Drawing.Size(80, 80);
             this.paintOrange.TabIndex = 15;
+            this.paintOrange.MouseClick += new System.Windows.Forms.MouseEventHandler(this.paintOrange_MouseClick);
             // 
             // label5
             // 
@@ -238,6 +249,7 @@ namespace GainsProject.UI
             this.paintYellow.Name = "paintYellow";
             this.paintYellow.Size = new System.Drawing.Size(80, 80);
             this.paintYellow.TabIndex = 16;
+            this.paintYellow.MouseClick += new System.Windows.Forms.MouseEventHandler(this.paintYellow_MouseClick);
             // 
             // label4
             // 
@@ -256,6 +268,7 @@ namespace GainsProject.UI
             this.paintWhite.Name = "paintWhite";
             this.paintWhite.Size = new System.Drawing.Size(80, 80);
             this.paintWhite.TabIndex = 17;
+            this.paintWhite.MouseClick += new System.Windows.Forms.MouseEventHandler(this.paintWhite_MouseClick);
             // 
             // label2
             // 
@@ -282,9 +295,9 @@ namespace GainsProject.UI
             this.timerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timerLabel.Location = new System.Drawing.Point(857, 63);
             this.timerLabel.Name = "timerLabel";
-            this.timerLabel.Size = new System.Drawing.Size(70, 25);
+            this.timerLabel.Size = new System.Drawing.Size(108, 25);
             this.timerLabel.TabIndex = 19;
-            this.timerLabel.Text = "label2";
+            this.timerLabel.Text = "00: 00: 00";
             // 
             // dashedLineLabel
             // 
@@ -298,7 +311,6 @@ namespace GainsProject.UI
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // checkScoreButton
@@ -311,16 +323,53 @@ namespace GainsProject.UI
             this.checkScoreButton.Name = "checkScoreButton";
             this.checkScoreButton.Size = new System.Drawing.Size(186, 122);
             this.checkScoreButton.TabIndex = 21;
-            this.checkScoreButton.Text = "Check Score";
+            this.checkScoreButton.Text = "START";
             this.checkScoreButton.UseVisualStyleBackColor = false;
+            this.checkScoreButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.checkScoreButton_MouseClick);
             this.checkScoreButton.MouseEnter += new System.EventHandler(this.checkScoreButton_MouseEnter);
             this.checkScoreButton.MouseLeave += new System.EventHandler(this.checkScoreButton_MouseLeave);
+            // 
+            // scoreLabel
+            // 
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreLabel.Location = new System.Drawing.Point(813, 157);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(80, 25);
+            this.scoreLabel.TabIndex = 22;
+            this.scoreLabel.Text = "Score: ";
+            this.scoreLabel.Visible = false;
+            // 
+            // incorrectPictureLabel
+            // 
+            this.incorrectPictureLabel.AutoSize = true;
+            this.incorrectPictureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.incorrectPictureLabel.Location = new System.Drawing.Point(813, 132);
+            this.incorrectPictureLabel.Name = "incorrectPictureLabel";
+            this.incorrectPictureLabel.Size = new System.Drawing.Size(146, 25);
+            this.incorrectPictureLabel.TabIndex = 23;
+            this.incorrectPictureLabel.Text = "Bad Pictures: ";
+            this.incorrectPictureLabel.Visible = false;
+            // 
+            // endTimeLabel
+            // 
+            this.endTimeLabel.AutoSize = true;
+            this.endTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endTimeLabel.Location = new System.Drawing.Point(813, 107);
+            this.endTimeLabel.Name = "endTimeLabel";
+            this.endTimeLabel.Size = new System.Drawing.Size(71, 25);
+            this.endTimeLabel.TabIndex = 24;
+            this.endTimeLabel.Text = "Time: ";
+            this.endTimeLabel.Visible = false;
             // 
             // PictureDrawing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
+            this.Controls.Add(this.endTimeLabel);
+            this.Controls.Add(this.incorrectPictureLabel);
+            this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.checkScoreButton);
             this.Controls.Add(this.timerLabel);
             this.Controls.Add(this.dashedTimerLabel);
@@ -392,5 +441,8 @@ namespace GainsProject.UI
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label scoreLabel;
+        private System.Windows.Forms.Label incorrectPictureLabel;
+        private System.Windows.Forms.Label endTimeLabel;
     }
 }

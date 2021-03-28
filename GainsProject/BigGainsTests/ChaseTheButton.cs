@@ -1,7 +1,7 @@
 ﻿//---------------------------------------------------------------
 // Name:    Ian Seidler
 // Project: SE 3330 team:Xx_Bigger_Gains_xX
-// Purpose: To test the Mental Math game manager
+// Purpose: To test the Chase the button game manager
 //---------------------------------------------------------------
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -10,10 +10,10 @@ using GainsProject.Application;
 namespace BigGainsTests
 {
     //---------------------------------------------------------------
-    // Test the Mental Math game manager
+    // Test the Chase the button game manager
     //---------------------------------------------------------------
     [TestClass]
-    public class MentalMathGameTests
+    public class ChaseTheButtonTests
     {
         //---------------------------------------------------------------
         //Tests the scoring in the mental math game manager
@@ -21,52 +21,40 @@ namespace BigGainsTests
         [TestMethod]
         public void ScoringValid()
         {
-            MentalMathGameManager game = new MentalMathGameManager();
+            ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
             game.setTime(2000);
             game.calculateScore();
-            Assert.AreEqual(88, game.getScore());
+            Assert.AreEqual(888, game.getScore());
         }
         //---------------------------------------------------------------
-        //Tests the low boundry scoring in the mental math game manager
+        //Tests the lower bound scoring in the mental math game manager
         //---------------------------------------------------------------
         [TestMethod]
-        public void BoundryLowScoringValid()
+        public void LowerScoreTest()
         {
-            MentalMathGameManager game = new MentalMathGameManager();
-            game.setTime(60000);
+            ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
+            game.setTime(20000);
             game.calculateScore();
             Assert.AreEqual(0, game.getScore());
         }
         //---------------------------------------------------------------
-        //Tests the upper boundry scoring in the mental math game manager
+        //Tests the upper bound scoring in the mental math game manager
         //---------------------------------------------------------------
         [TestMethod]
-        public void BoundryUpperScoringValid()
+        public void UpperScoreTest()
         {
-            MentalMathGameManager game = new MentalMathGameManager();
-            game.setTime(400);
+            ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
+            game.setTime(1000);
             game.calculateScore();
-            Assert.AreEqual(100, game.getScore());
-        }
-        //---------------------------------------------------------------
-        //Tests the scoring in the mental math game manager for wrong 
-        //answers
-        //---------------------------------------------------------------
-        [TestMethod]
-        public void ScoringWrongAnswer()
-        {
-            MentalMathGameManager game = new MentalMathGameManager();
-            game.setTime(-1);
-            game.calculateScore();
-            Assert.AreEqual(-10, game.getScore());
+            Assert.AreEqual(1000, game.getScore());
         }
         //---------------------------------------------------------------
         //Tests that the run game method works as intended
         //---------------------------------------------------------------
         [TestMethod]
-        public void RunGame()
+        public void runGame()
         {
-            MentalMathGameManager game = new MentalMathGameManager();
+            ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
             game.stopwatch.Start();
             game.stopwatch.Stop();
             game.runGame();

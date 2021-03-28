@@ -21,6 +21,7 @@ namespace GainsProject.Application
         public const int SCORE_DIVISOR = -90;
         public const int RANDOM_TIME_MAX = 10;
         public const int RANDOM_TIME_MIN = 2;
+        public const int LOWEST_SCORE = -100;
         //Seeded random
         Random rnd = new Random();
         //---------------------------------------------------------------
@@ -43,6 +44,8 @@ namespace GainsProject.Application
             if (time <= 0)
             {
                 setScore(WRONG_ANSWER + getScore());
+                if (getScore() < LOWEST_SCORE)
+                    setScore(LOWEST_SCORE);
                 return;
             }
             //Lower than the max score time
@@ -56,7 +59,7 @@ namespace GainsProject.Application
                 return;
             //If the time was not worth 100, or 0 points, invert the time
             long inverse = time - ZERO_SCORE_TIME;
-            setScore((inverse / SCORE_DIVISOR) + getScore()); ;
+            setScore((inverse / SCORE_DIVISOR) + getScore()); 
         }
         //---------------------------------------------------------------
         //Gives a random number for the math problems from 2-9

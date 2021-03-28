@@ -86,6 +86,7 @@ namespace GainsProject.Application
             manager.AddGameToList("Arrow Key Game", new ArrowKeyGame());
             manager.AddGameToList("Mental Math Game", new MentalMathGame());
             manager.AddGameToList("Picture Drawing", new PictureDrawing());
+            manager.AddGameToList("Chase the button", new ChaseTheButton());
             return manager;
         }
 
@@ -100,6 +101,7 @@ namespace GainsProject.Application
             manager.AddGameToList("Arrow Key Game", new ArrowKeyGame(playlist));
             manager.AddGameToList("Mental Math Game", new MentalMathGame (playlist));
             manager.AddGameToList("Picture Drawing Game", new PictureDrawing(playlist));
+            manager.AddGameToList("Chase the button", new ChaseTheButton(playlist));
             return manager;
         }
     }
