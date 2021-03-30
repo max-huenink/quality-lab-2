@@ -82,6 +82,10 @@ namespace GainsProject.UI
                 picturePanel.Paint += new PaintEventHandler(pd.fillPicturePanel);
                 picturePanel.Refresh();
                 timer1.Enabled = true;
+                label1.Visible = false;
+                label3.Visible = false;
+                label12.Visible = false;
+                label13.Visible = false;
                 
             }
             else //ends a game
@@ -207,5 +211,6 @@ namespace GainsProject.UI
         {
             pd.setColorWithKey(e.KeyCode);
         }
+
     }
 }

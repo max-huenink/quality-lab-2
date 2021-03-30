@@ -60,6 +60,10 @@ namespace GainsProject.UI
             this.scoreLabel = new System.Windows.Forms.Label();
             this.incorrectPictureLabel = new System.Windows.Forms.Label();
             this.endTimeLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.paintBlack.SuspendLayout();
             this.paintBrown.SuspendLayout();
             this.paintGreen.SuspendLayout();
@@ -364,11 +368,61 @@ namespace GainsProject.UI
             this.endTimeLabel.Text = "Time: ";
             this.endTimeLabel.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(772, 346);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(250, 100);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Press the START button \nabove to start the game. \nPress it again to check \nyour p" +
+    "icture";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(345, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(376, 75);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "This is the drawing panel that you will \ndraw your picture in. It will reset \nits" +
+    "elf before each game starts.";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(28, 54);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(258, 100);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "This is the panel where a \npicture will appear. Your \njob is to copy it onto the " +
+    "\nlarger panel";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label13.Location = new System.Drawing.Point(141, 463);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(805, 50);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "These are the paint colors that you can select to draw your picture. You can sele" +
+    "ct \nthem by clicking on the colors or pressing the numbers.";
+            // 
             // PictureDrawing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.endTimeLabel);
             this.Controls.Add(this.incorrectPictureLabel);
             this.Controls.Add(this.scoreLabel);
@@ -446,5 +500,9 @@ namespace GainsProject.UI
         private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Label incorrectPictureLabel;
         private System.Windows.Forms.Label endTimeLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }
