@@ -25,6 +25,9 @@ namespace GainsProject.UI
         private int backgroundClicks = 0;
         //Chase the button game manager object -> Application layer connection
         private ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
+        //Game name and the score save manager to save scores
+        private const string GAME_NAME = "ChaseTheButton.txt";
+        ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
         public ChaseTheButton()
         {
             InitializeComponent();
@@ -111,6 +114,10 @@ namespace GainsProject.UI
             game.stopwatch.Stop();
             game.setTime(game.stopwatch.ElapsedMilliseconds + backgroundClicks * MAX_BACKGROUND_CLICKS);
             game.calculateScore();
+            //Store the score and collect the user's name
+
+            ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
+            scoreSave.addScore((int)game.getScore(), "TEST");
             //End the game.
             game.endGame();
             ChaseButton.Hide();

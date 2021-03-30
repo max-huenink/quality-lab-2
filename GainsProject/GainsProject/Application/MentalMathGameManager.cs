@@ -5,6 +5,7 @@
 //---------------------------------------------------------------
 using System;
 using GainsProject.Domain;
+using GainsProject.Application;
 
 namespace GainsProject.Application
 {

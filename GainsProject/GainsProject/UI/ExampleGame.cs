@@ -18,6 +18,9 @@ namespace GainsProject.UI
         public const int TIME_BUFFER = 20;
         //Game manager object to to the business logic
         private ExampleGameManager game = new ExampleGameManager();
+        //Game name and the score save manager to save scores
+        private const string GAME_NAME = "ExampleGame.txt";
+        ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
         private bool nextGame;
         public ExampleGame()
         {
@@ -83,6 +86,10 @@ namespace GainsProject.UI
                         + game.getScore());
                     //Display the user's score
                     label1.Text = ("Score: " + game.getScore());
+                    //Prompt for the user's name then save the score
+
+                    ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
+                    scoreSave.addScore((int)game.getScore(), "TEST");
                 }
                 //Game over!
                 game.endGame();

@@ -19,6 +19,9 @@ namespace GainsProject.UI
         private static MentalMathGameManager mmgame = new MentalMathGameManager();
         //question counter
         private int questionNumber = 0;
+        //Game name and the score save manager to save scores
+        private const string GAME_NAME = "MentalMathGame.txt";
+        ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
         private int random1 = mmgame.randomTime();
         private int random2 = mmgame.randomTime();
         //correct answer
@@ -113,6 +116,12 @@ namespace GainsProject.UI
             //All done!
             else
             {
+                //Get the user's name
+                string name;
+
+                //Score save to save the score
+                ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
+                scoreSave.addScore((int)mmgame.getScore(), "TEST");
                 //End the game
                 mmgame.endGame();
                 //Show buttons
