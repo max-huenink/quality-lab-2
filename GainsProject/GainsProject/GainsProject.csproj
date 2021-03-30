@@ -215,6 +215,21 @@
     <Content Include="bin\Debug\PictureDrawingFolder\pineapple.txt" />
     <Content Include="bin\Debug\PictureDrawingFolder\smilieFace.txt" />
     <Content Include="bin\Debug\PictureDrawingFolder\weirdMario.txt" />
+    <Content Include="PictureDrawingFolder\bluePikmen.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PictureDrawingFolder\personRunning.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PictureDrawingFolder\pineapple.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PictureDrawingFolder\smilieFace.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PictureDrawingFolder\weirdMario.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GameScore.txt">
