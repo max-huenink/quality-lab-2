@@ -209,7 +209,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\Debug\PictureDrawingFolder\bluePikmen.txt" />
+    <Content Include="bin\Debug\PictureDrawingFolder\personRunning.txt" />
+    <Content Include="bin\Debug\PictureDrawingFolder\pineapple.txt" />
+    <Content Include="bin\Debug\PictureDrawingFolder\smilieFace.txt" />
+    <Content Include="bin\Debug\PictureDrawingFolder\weirdMario.txt" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GameScore.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
