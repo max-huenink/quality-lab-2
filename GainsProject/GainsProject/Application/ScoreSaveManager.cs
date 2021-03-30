@@ -23,7 +23,7 @@ namespace GainsProject.Application
         private static ScoreSaveManager scoreSaveManager;
         private List<ScoreSave> scoreSaveList;
         private static readonly string[] gameNames = { "testGame1.txt", 
-            "SpotTheScenery.txt", 
+            "SpotTheScenery.txt", "PictureDrawing.txt",
             "DizzyButtons.txt", "ChaseTheButton.txt", "ExampleGame.txt",
             "MentalMathGame.txt", "ArrowKeyGame.txt"};
         //private default constructor

@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Application\ChaseTheButtonGameManager.cs" />
     <Compile Include="Application\ArrowKeyGameManager.cs" />
+    <Compile Include="Application\DizzyButtonsGameManager.cs" />
     <Compile Include="Application\MentalMathGameManager.cs" />
     <Compile Include="Application\PictureDrawingManager.cs" />
     <Compile Include="Application\ScoreSaveManager.cs" />
@@ -76,6 +77,12 @@
     </Compile>
     <Compile Include="UI\ChaseTheButton.Designer.cs">
       <DependentUpon>ChaseTheButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DizzyButtonsGame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\DizzyButtonsGame.Designer.cs">
+      <DependentUpon>DizzyButtonsGame.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\GameModeSelect.cs">
       <SubType>UserControl</SubType>
@@ -146,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ChaseTheButton.resx">
       <DependentUpon>ChaseTheButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DizzyButtonsGame.resx">
+      <DependentUpon>DizzyButtonsGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ExampleGame.resx">
       <DependentUpon>ExampleGame.cs</DependentUpon>
