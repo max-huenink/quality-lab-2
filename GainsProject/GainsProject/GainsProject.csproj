@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Application\ChaseTheButtonGameManager.cs" />
     <Compile Include="Application\ArrowKeyGameManager.cs" />
+    <Compile Include="Application\DizzyButtonsGameManager.cs" />
     <Compile Include="Application\MentalMathGameManager.cs" />
     <Compile Include="Application\PictureDrawingManager.cs" />
     <Compile Include="Application\ScoreSaveManager.cs" />
@@ -76,6 +77,12 @@
     </Compile>
     <Compile Include="UI\ChaseTheButton.Designer.cs">
       <DependentUpon>ChaseTheButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DizzyButtonsGame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\DizzyButtonsGame.Designer.cs">
+      <DependentUpon>DizzyButtonsGame.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\GameModeSelect.cs">
       <SubType>UserControl</SubType>
@@ -147,6 +154,9 @@
     <EmbeddedResource Include="UI\ChaseTheButton.resx">
       <DependentUpon>ChaseTheButton.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\DizzyButtonsGame.resx">
+      <DependentUpon>DizzyButtonsGame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ExampleGame.resx">
       <DependentUpon>ExampleGame.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -199,7 +209,28 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\Debug\PictureDrawingFolder\bluePikmen.txt" />
+    <Content Include="bin\Debug\PictureDrawingFolder\personRunning.txt" />
+    <Content Include="bin\Debug\PictureDrawingFolder\pineapple.txt" />
+    <Content Include="bin\Debug\PictureDrawingFolder\smilieFace.txt" />
+    <Content Include="bin\Debug\PictureDrawingFolder\weirdMario.txt" />
+    <Content Include="PictureDrawingFolder\bluePikmen.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PictureDrawingFolder\personRunning.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PictureDrawingFolder\pineapple.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PictureDrawingFolder\smilieFace.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PictureDrawingFolder\weirdMario.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GameScore.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
