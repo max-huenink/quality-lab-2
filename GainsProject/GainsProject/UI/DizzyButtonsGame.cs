@@ -22,8 +22,8 @@ namespace GainsProject.UI
         private const string NO_SPECIAL_CHARS = "NO SPECIAL CHARACTERS!";
         private const string SCORE_SUBMITTED = "SUBMITTED SCORE";
         private bool scoreSubmitted;
-        DizzyButtonsGameManager dbGameManager;
-        bool nextGame;
+        private DizzyButtonsGameManager dbGameManager;
+        private bool nextGame;
         //---------------------------------------------------------------
         // default constructor
         //---------------------------------------------------------------
