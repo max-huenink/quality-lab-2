@@ -24,7 +24,7 @@ namespace BigGainsTests
             ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
             game.setTime(2000);
             game.calculateScore();
-            Assert.AreEqual(888, game.getScore());
+            Assert.AreEqual(916, game.getScore());
         }
         //---------------------------------------------------------------
         //Tests the lower bound scoring in the mental math game manager

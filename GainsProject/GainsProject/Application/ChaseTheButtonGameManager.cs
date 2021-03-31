@@ -5,6 +5,7 @@
 //---------------------------------------------------------------
 using System;
 using GainsProject.Domain;
+using GainsProject.Application;
 namespace GainsProject.Application
 {
     //---------------------------------------------------------------
@@ -24,7 +25,6 @@ namespace GainsProject.Application
         public const int SCORE_DIVISOR = -6;
         //Seed the random number generator
         private Random rnd = new Random();
-
         //---------------------------------------------------------------
         //Sets the time then resets the stopwatch
         //---------------------------------------------------------------

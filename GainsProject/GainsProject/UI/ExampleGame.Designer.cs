@@ -36,6 +36,8 @@ namespace GainsProject.UI
             this.label1 = new System.Windows.Forms.Label();
             this.nextGameBtn = new System.Windows.Forms.Button();
             this.exitGameBtn = new System.Windows.Forms.Button();
+            this.NameEnter = new System.Windows.Forms.TextBox();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -54,7 +56,7 @@ namespace GainsProject.UI
             // 
             this.Startbutton.BackColor = System.Drawing.Color.Coral;
             this.Startbutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Startbutton.Location = new System.Drawing.Point(365, 375);
+            this.Startbutton.Location = new System.Drawing.Point(348, 375);
             this.Startbutton.Name = "Startbutton";
             this.Startbutton.Size = new System.Drawing.Size(335, 121);
             this.Startbutton.TabIndex = 1;
@@ -91,11 +93,33 @@ namespace GainsProject.UI
             this.exitGameBtn.UseVisualStyleBackColor = true;
             this.exitGameBtn.Visible = false;
             // 
+            // NameEnter
+            // 
+            this.NameEnter.Location = new System.Drawing.Point(371, 321);
+            this.NameEnter.Name = "NameEnter";
+            this.NameEnter.Size = new System.Drawing.Size(270, 20);
+            this.NameEnter.TabIndex = 14;
+            this.NameEnter.Text = "Enter your name here!";
+            this.NameEnter.Visible = false;
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.Location = new System.Drawing.Point(468, 346);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.TabIndex = 15;
+            this.SaveButton.Text = "Save score";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Visible = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
             // ExampleGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
+            this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.NameEnter);
             this.Controls.Add(this.exitGameBtn);
             this.Controls.Add(this.nextGameBtn);
             this.Controls.Add(this.label1);
@@ -116,5 +140,7 @@ namespace GainsProject.UI
         private Label label1;
         private Button nextGameBtn;
         private Button exitGameBtn;
+        private TextBox NameEnter;
+        private Button SaveButton;
     }
 }

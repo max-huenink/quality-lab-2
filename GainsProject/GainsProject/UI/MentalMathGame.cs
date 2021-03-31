@@ -7,7 +7,7 @@ using GainsProject.Application;
 using GainsProject.Domain.Interfaces;
 using System;
 using System.Windows.Forms;
-
+using System.Linq;
 namespace GainsProject.UI
 {
     //---------------------------------------------------------------
@@ -19,6 +19,11 @@ namespace GainsProject.UI
         private static MentalMathGameManager mmgame = new MentalMathGameManager();
         //question counter
         private int questionNumber = 0;
+        //Game name and the score save manager to save scores
+        private const string GAME_NAME = "MentalMathGame.txt";
+        ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
+        //Bool to see if the game has been saved
+        private bool gameSaved = false;
         private int random1 = mmgame.randomTime();
         private int random2 = mmgame.randomTime();
         //correct answer
@@ -26,6 +31,7 @@ namespace GainsProject.UI
         public MentalMathGame()
         {
             InitializeComponent();
+            gameSaved = false;
         }
         private bool nextGame;
         //---------------------------------------------------------------
@@ -113,6 +119,9 @@ namespace GainsProject.UI
             //All done!
             else
             {
+                //Score save to save the score
+                ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
+                scoreSave.addScore((int)mmgame.getScore(), "TEST");
                 //End the game
                 mmgame.endGame();
                 //Show buttons
@@ -121,6 +130,38 @@ namespace GainsProject.UI
                 //Change labels
                 ScoreLabel.Text = "All done! Score: " + mmgame.getScore();
                 label1.Hide();
+                SaveButton.Show();
+                NameEnter.Show();
+            }
+        }
+
+        //When the save game button is clicked
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            if (!gameSaved)
+            {
+                string specialChar = " \\|!#$%&/()=?»«@£§€{}.-;'<>_,";
+                string compareString = NameEnter.Text;
+                bool hasSpecial = false;
+                foreach (char character in specialChar)
+                {
+                    if (compareString.Contains(character))
+                    {
+                        hasSpecial = true;
+                    }
+                }
+                if (hasSpecial)
+                {
+                    NameEnter.Text = "No Special chars";
+                }
+                else
+                {
+                    ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
+                    scoreSave.addScore((int)mmgame.getScore(), NameEnter.Text);
+                    NameEnter.Hide();
+                    SaveButton.Hide();
+                }
+
             }
         }
 
