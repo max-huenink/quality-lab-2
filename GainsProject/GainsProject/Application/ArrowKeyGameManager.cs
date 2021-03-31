@@ -32,7 +32,7 @@ namespace GainsProject.Application
 
         private const int WRONG_BUTTON_SCORE = -50;
 
-        private const int MAX_CLICKS = 25;
+        private const int MAX_CLICKS = 10;
 
         #endregion
 
