@@ -28,16 +28,16 @@ namespace GainsProject.Application
         public const int COLOR_BROWN = 7;
         public const int COLOR_BLACK = 8;
         //Seeded random
-        Random random;
-        DateTime startTime;
-        int[,] pictureArray;
-        int[,] drawingArray;
-        int color;
-        int xCoord;
-        int yCoord;
-        int boxSize;
-        int incorrectPictures;
-        int lastNum;
+        private Random random;
+        private DateTime startTime;
+        private int[,] pictureArray;
+        private int[,] drawingArray;
+        private int color;
+        private int xCoord;
+        private int yCoord;
+        private int boxSize;
+        private int incorrectPictures;
+        private int lastNum;
         
         public PictureDrawingManager()
         {
