@@ -11,7 +11,7 @@ namespace GainsProject.UI
 {
     public partial class PictureDrawing : UserControl
     {
-        static PictureDrawingManager pd = new PictureDrawingManager();
+        private static PictureDrawingManager pd = new PictureDrawingManager();
         public const int COLOR_WHITE = 0;
         public const int COLOR_YELLOW = 1;
         public const int COLOR_ORANGE = 2;
