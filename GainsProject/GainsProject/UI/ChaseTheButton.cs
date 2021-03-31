@@ -8,6 +8,7 @@ using GainsProject.Application;
 using GainsProject.Domain.Interfaces;
 using System;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace GainsProject.UI
 {
@@ -28,9 +29,12 @@ namespace GainsProject.UI
         //Game name and the score save manager to save scores
         private const string GAME_NAME = "ChaseTheButton.txt";
         ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
+        //Bool to see if the game has been saved
+        private bool gameSaved = false;
         public ChaseTheButton()
         {
             InitializeComponent();
+            gameSaved = false;
         }
         private bool nextGame;
         //---------------------------------------------------------------
@@ -124,6 +128,38 @@ namespace GainsProject.UI
             nextGameBtn.Show();
             ScoreShow.Text = ("Score: " + game.getScore());
             ScoreShow.Show();
+            SaveButton.Show();
+            NameEnter.Show();
+        }
+
+        //When the save game button is clicked
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            if (!gameSaved)
+            {
+                string specialChar = " \\|!#$%&/()=?»«@£§€{}.-;'<>_,";
+                string compareString = NameEnter.Text;
+                bool hasSpecial = false;
+                foreach (char character in specialChar)
+                {
+                    if (compareString.Contains(character))
+                    {
+                        hasSpecial = true;
+                    }
+                }
+                if (hasSpecial)
+                {
+                    NameEnter.Text = "No Special chars";
+                }
+                else
+                {
+                    ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
+                    scoreSave.addScore((int)game.getScore(), NameEnter.Text);
+                    NameEnter.Hide();
+                    SaveButton.Hide();
+                }
+
+            }
         }
     }
 }

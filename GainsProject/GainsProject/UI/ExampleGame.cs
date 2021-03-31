@@ -7,6 +7,7 @@ using GainsProject.Application;
 using GainsProject.Domain.Interfaces;
 using System;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace GainsProject.UI
 {
@@ -22,9 +23,12 @@ namespace GainsProject.UI
         private const string GAME_NAME = "ExampleGame.txt";
         ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
         private bool nextGame;
+        //Bool to see if the game has been saved
+        private bool gameSaved = false;
         public ExampleGame()
         {
             InitializeComponent();
+            gameSaved = false;
         }
 
         //---------------------------------------------------------------
@@ -86,10 +90,8 @@ namespace GainsProject.UI
                         + game.getScore());
                     //Display the user's score
                     label1.Text = ("Score: " + game.getScore());
-                    //Prompt for the user's name then save the score
-
-                    ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
-                    scoreSave.addScore((int)game.getScore(), "TEST");
+                    SaveButton.Show();
+                    NameEnter.Show();
                 }
                 //Game over!
                 game.endGame();
@@ -98,6 +100,35 @@ namespace GainsProject.UI
                     nextGameBtn.Show();
                     exitGameBtn.Show();
                 }
+            }
+        }
+        //When the save game button is clicked
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            if(!gameSaved)
+            {
+                string specialChar = " \\|!#$%&/()=?»«@£§€{}.-;'<>_,";
+                string compareString = NameEnter.Text;
+                bool hasSpecial = false;
+                foreach (char character in specialChar)
+                {
+                    if (compareString.Contains(character))
+                    {
+                        hasSpecial = true;
+                    }
+                }
+                if (hasSpecial)
+                {
+                    NameEnter.Text = "No Special chars";
+                }
+                else
+                {
+                    ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
+                    scoreSave.addScore((int)game.getScore(), NameEnter.Text);
+                    NameEnter.Hide();
+                    SaveButton.Hide();
+                }
+
             }
         }
     }
