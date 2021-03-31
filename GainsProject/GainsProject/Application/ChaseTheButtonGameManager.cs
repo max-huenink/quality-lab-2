@@ -14,15 +14,15 @@ namespace GainsProject.Application
     public class ChaseTheButtonGameManager : BaseGame
     {
         //Constants
-        public const int MIN_RANDOM_X = 10;
-        public const int MAX_RANDOM_X = 900;
-        public const int MIN_RANDOM_Y = 10;
-        public const int MAX_RANDOM_Y = 610;
-        public const int BASE_SCORE_CALCULATION = 200;
-        public const int MAX_SCORE = 1000;
-        public const int MAX_SCORE_TIME = 1500;
-        public const int ZERO_SCORE_TIME = 7500;
-        public const int SCORE_DIVISOR = -6;
+        private const int MIN_RANDOM_X = 10;
+        private const int MAX_RANDOM_X = 900;
+        private const int MIN_RANDOM_Y = 10;
+        private const int MAX_RANDOM_Y = 610;
+        private const int BASE_SCORE_CALCULATION = 200;
+        private const int MAX_SCORE = 1000;
+        private const int MAX_SCORE_TIME = 1500;
+        private const int ZERO_SCORE_TIME = 7500;
+        private const int SCORE_DIVISOR = -6;
         //Seed the random number generator
         private Random rnd = new Random();
         //---------------------------------------------------------------

@@ -15,14 +15,14 @@ namespace GainsProject.Application
     public class MentalMathGameManager : BaseGame
     {
         //Constants
-        public const int WRONG_ANSWER = -10;
-        public const int MAX_SCORE = 100;
-        public const int MAX_SCORE_TIME = 1000;
-        public const int ZERO_SCORE_TIME = 10000;
-        public const int SCORE_DIVISOR = -90;
-        public const int RANDOM_TIME_MAX = 10;
-        public const int RANDOM_TIME_MIN = 2;
-        public const int LOWEST_SCORE = -100;
+        private const int WRONG_ANSWER = -10;
+        private const int MAX_SCORE = 100;
+        private const int MAX_SCORE_TIME = 1000;
+        private const int ZERO_SCORE_TIME = 10000;
+        private const int SCORE_DIVISOR = -90;
+        private const int RANDOM_TIME_MAX = 10;
+        private const int RANDOM_TIME_MIN = 2;
+        private const int LOWEST_SCORE = -100;
         //Seeded random
         Random rnd = new Random();
         //---------------------------------------------------------------

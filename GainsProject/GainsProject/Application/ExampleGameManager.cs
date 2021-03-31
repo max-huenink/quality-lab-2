@@ -14,12 +14,12 @@ namespace GainsProject.Application
     public class ExampleGameManager : BaseGame
     {
         //Constants
-        public const int RANDOM_TIME_MIN = 1000;
-        public const int RANDOM_TIME_MAX = 10000;
-        public const int BASE_SCORE_CALCULATION = 200;
-        public const int MAX_SCORE = 1000;
-        public const int TOO_EARLY_SCORE = -100;
-        public const int TIME_BUFFER = 20;
+        private const int RANDOM_TIME_MIN = 1000;
+        private const int RANDOM_TIME_MAX = 10000;
+        private const int BASE_SCORE_CALCULATION = 200;
+        private const int MAX_SCORE = 1000;
+        private const int TOO_EARLY_SCORE = -100;
+        private const int TIME_BUFFER = 20;
         //---------------------------------------------------------------
         //Sets the time then resets the stopwatch
         //---------------------------------------------------------------

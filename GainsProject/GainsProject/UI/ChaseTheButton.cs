@@ -18,10 +18,10 @@ namespace GainsProject.UI
     public partial class ChaseTheButton : UserControl
     {
         //Constants
-        public const int Y_CORD_DIVISOR = 3;
-        public const int Y_CORD_MULTIPLIER = 2;
-        public const int NUMBER_OF_BUTTONS = 5;
-        public const int MAX_BACKGROUND_CLICKS = 100;
+        private const int Y_CORD_DIVISOR = 3;
+        private const int Y_CORD_MULTIPLIER = 2;
+        private const int NUMBER_OF_BUTTONS = 5;
+        private const int MAX_BACKGROUND_CLICKS = 100;
         private int buttonNumber = 0;
         private int backgroundClicks = 0;
         //Chase the button game manager object -> Application layer connection
