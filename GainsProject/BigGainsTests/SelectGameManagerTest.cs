@@ -7,6 +7,7 @@ using GainsProject.Application;
 using GainsProject.Domain.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System;
 using System.Windows.Forms;
 
 namespace BigGainsTests
@@ -69,9 +70,9 @@ namespace BigGainsTests
         {
             var manager = new GameSelectManager();
             // Items to add
-            (string, Control) test0 = ("TestGame0", new Control());
-            (string, Control) test1 = ("TestGame1", new Control());
-            (string, Control) test2 = ("TestGame2", new Control());
+            (string, Func<Control>) test0 = ("TestGame0", () => new Control());
+            (string, Func<Control>) test1 = ("TestGame1", () => new Control());
+            (string, Func<Control>) test2 = ("TestGame2", () => new Control());
             // Add items
             manager.AddGameToList(test0.Item1, test0.Item2);
             manager.AddGameToList(test1.Item1, test1.Item2);
@@ -107,11 +108,11 @@ namespace BigGainsTests
         {
             var manager = new GameSelectManager();
             // Controls to add to game list
-            var test0 = new Control()
+            Func<Control> test0 = () => new Control()
             {
                 Name = "test0"
             };
-            var test1 = new Control()
+            Func<Control> test1 = () => new Control()
             {
                 Name = "test1"
             };
@@ -136,9 +137,9 @@ namespace BigGainsTests
         {
             var manager = new GameSelectManager();
             // Controls to add
-            var test0 = new Control();
-            var test1 = new Control();
-            var test2 = new Control();
+            Func<Control> test0 = () => new Control();
+            Func<Control> test1 = () => new Control();
+            Func<Control> test2 = () => new Control();
             // Adds controls
             manager.AddGameToList("TestGame0", test0);
             manager.AddGameToList("TestGame1", test1);

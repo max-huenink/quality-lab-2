@@ -18,7 +18,7 @@ namespace GainsProject.UI
     public partial class SingleGamePage : UserControl, IGamePlaylist
     {
         private readonly GameSelectManager manager;
-        private Control selectedGame;
+        private Func<Control> selectedGame;
 
         //---------------------------------------------------------------
         //Default constructor that initializes components,
@@ -46,7 +46,11 @@ namespace GainsProject.UI
                     Anchor = AnchorStyles.None,
                     AutoSize = true,
                 };
-                gameBtn.Click += (sender, e) => { selectedGame = game.GameControl; PlayGame(); };
+                gameBtn.Click += (sender, e) =>
+                {
+                    selectedGame = game.GameControlCreator;
+                    PlayGame();
+                };
                 GameSelector.Controls.Add(gameBtn);
             }
         }
@@ -65,7 +69,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         public void Exit()
         {
-            selectedGame = new SingleGamePage();
+            selectedGame = () => new SingleGamePage();
             PlayGame();
         }
 
@@ -89,7 +93,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         private void PlayGame()
         {
-            showUserControl(selectedGame);
+            showUserControl(selectedGame?.Invoke());
         }
     }
 }

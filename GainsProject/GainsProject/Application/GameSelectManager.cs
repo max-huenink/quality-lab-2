@@ -31,7 +31,7 @@ namespace GainsProject.Application
         }
 
         // Getter for game list
-        public List<(string Name, Control GameControl)> GetListOfGames()
+        public List<(string Name, Func<Control> GameControlCreator)> GetListOfGames()
         {
             return data.GetListOfGames();
         }
@@ -39,36 +39,43 @@ namespace GainsProject.Application
         //---------------------------------------------------------------
         //Adds a game to the list of games
         // Params: string name - the name of the game
-        //         Control gameControl - the control for the game
+        //         Func<Control> gameControlCreator - A function that
+        //          creates the game control
         //---------------------------------------------------------------
-        public void AddGameToList(string name, Control gameControl)
+        public void AddGameToList(string name, Func<Control> gameControlCreator)
         {
-            data.AddGameToList(name, gameControl);
+            data.AddGameToList(name, gameControlCreator);
         }
 
         //---------------------------------------------------------------
-        //Adds a game to the list of games played this session
-        // Params: Control game - the control for the game
+        //Adds a game creator to the list of game creators used
+        // in this session
+        // Params: Func<Control> gameCreator - A function that creates
+        //          the game control
         //---------------------------------------------------------------
-        public void PlayedGame(Control game)
+        public void PlayedGame(Func<Control> gameCreator)
         {
-            data.PlayedGame(game);
+            data.PlayedGame(gameCreator);
         }
 
         //---------------------------------------------------------------
         //Gets a random game that hasn't been played yet
-        // Returns a Control
+        // Returns a Func<Control>
         //---------------------------------------------------------------
-        public Control GetRandomUnplayedGame()
+        public Func<Control> GetRandomUnplayedGame()
         {
-            Control game = null;
-            var games = data.GetListOfGames().Where(g => !data.GetGamesPlayed().Contains(g.GameControl)).ToArray();
+            Func<Control> gameCreator = null;
+            var games = data.GetListOfGames()
+                .Where(g =>
+                    !data.GetGamesPlayed()
+                    .Contains(g.GameControlCreator))
+                .ToArray();
             if (games.Length > 0)
             {
                 var indx = rnd.Next(0, games.Length);
-                game = games[indx].GameControl;
+                gameCreator = games[indx].GameControlCreator;
             }
-            return game;
+            return gameCreator;
         }
 
         //TODO: Find out how to not duplicate (or later, triplicate, this list creation)
@@ -82,12 +89,12 @@ namespace GainsProject.Application
         public static GameSelectManager CreateAndPopulateManager()
         {
             var manager = new GameSelectManager();
-            manager.AddGameToList("Example Game", new ExampleGame());
-            manager.AddGameToList("Arrow Key Game", new ArrowKeyGame());
-            manager.AddGameToList("Mental Math Game", new MentalMathGame());
-            manager.AddGameToList("Picture Drawing", new PictureDrawing());
-            manager.AddGameToList("Chase the button", new ChaseTheButton());
-            manager.AddGameToList("Dizzy Buttons", new DizzyButtonsGame());
+            manager.AddGameToList("Example Game", () => new ExampleGame());
+            manager.AddGameToList("Arrow Key Game", () => new ArrowKeyGame());
+            manager.AddGameToList("Mental Math Game", () => new MentalMathGame());
+            manager.AddGameToList("Picture Drawing", () => new PictureDrawing());
+            manager.AddGameToList("Chase the button", () => new ChaseTheButton());
+            manager.AddGameToList("Dizzy Buttons", () => new DizzyButtonsGame());
             return manager;
         }
 
@@ -98,12 +105,12 @@ namespace GainsProject.Application
         public static GameSelectManager CreateAndPopulateManager(IGamePlaylist playlist)
         {
             var manager = new GameSelectManager();
-            manager.AddGameToList("Example Game", new ExampleGame(playlist));
-            manager.AddGameToList("Arrow Key Game", new ArrowKeyGame(playlist));
-            manager.AddGameToList("Mental Math Game", new MentalMathGame (playlist));
-            manager.AddGameToList("Picture Drawing Game", new PictureDrawing(playlist));
-            manager.AddGameToList("Chase the button", new ChaseTheButton(playlist));
-            manager.AddGameToList("Dizzy Buttons", new DizzyButtonsGame(playlist));
+            manager.AddGameToList("Example Game", () => new ExampleGame(playlist));
+            manager.AddGameToList("Arrow Key Game", () => new ArrowKeyGame(playlist));
+            manager.AddGameToList("Mental Math Game", () => new MentalMathGame (playlist));
+            manager.AddGameToList("Picture Drawing Game", () => new PictureDrawing(playlist));
+            manager.AddGameToList("Chase the button", () => new ChaseTheButton(playlist));
+            manager.AddGameToList("Dizzy Buttons", () => new DizzyButtonsGame(playlist));
             return manager;
         }
     }

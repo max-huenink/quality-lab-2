@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace GainsProject.UI
 {
     //---------------------------------------------------------------
-    //Displayes a list of games to play, switching between games
+    //Displays a list of games to play, switching between games
     // after a game has been selected by implementing ISelectGame
     //---------------------------------------------------------------
     public partial class RandomGamesPage : UserControl, IGamePlaylist
@@ -46,7 +46,8 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         public void Exit()
         {
-            PlayGame(null);
+            Func<Control> gameModeSelectCreator = () => new GameModeSelect();
+            PlayGame(gameModeSelectCreator);
         }
 
         //---------------------------------------------------------------
@@ -71,15 +72,23 @@ namespace GainsProject.UI
         //Plays the specified game, adding to the game select manager's
         // played game list, and showing the list of games if there are
         // no games left.
-        // Params: Control gameControl - the control to play
+        //         Func<Control> gameControlCreator - A function that
+        //          creates the game control
         //---------------------------------------------------------------
-        private void PlayGame(Control gameControl)
+        private void PlayGame(Func<Control> gameControlCreator)
         {
-            if (gameControl != null)
+            if (gameControlCreator == null)
             {
-                manager.PlayedGame(gameControl);
+                // End of playlist prompt
+                gameControlCreator = () => new PlayAgainPage();
             }
-            showUserControl(gameControl);
+            else
+            {
+                // There is a game to play, mark it as played
+                manager.PlayedGame(gameControlCreator);
+            }
+
+            showUserControl(gameControlCreator?.Invoke());
         }
     }
 }
