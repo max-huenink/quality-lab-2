@@ -69,6 +69,7 @@ namespace GainsProject.UI
             this.leaderboardButton.TabIndex = 4;
             this.leaderboardButton.Text = "Leaderboards";
             this.leaderboardButton.UseVisualStyleBackColor = true;
+            this.leaderboardButton.Visible = false;
             this.leaderboardButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.leaderboardButton_MouseClick);
             // 
             // quitButton
@@ -97,6 +98,7 @@ namespace GainsProject.UI
             this.previousResultsButton.TabIndex = 2;
             this.previousResultsButton.Text = "Previous Results";
             this.previousResultsButton.UseVisualStyleBackColor = true;
+            this.previousResultsButton.Visible = false;
             this.previousResultsButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.previousResultsButton_MouseClick);
             // 
             // tutorialButton
@@ -111,6 +113,7 @@ namespace GainsProject.UI
             this.tutorialButton.TabIndex = 0;
             this.tutorialButton.Text = "Tutorial";
             this.tutorialButton.UseVisualStyleBackColor = true;
+            this.tutorialButton.Visible = false;
             this.tutorialButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tutorialButton_MouseClick);
             // 
             // playButton
@@ -126,6 +129,7 @@ namespace GainsProject.UI
             this.playButton.TabIndex = 1;
             this.playButton.Text = "Play";
             this.playButton.UseVisualStyleBackColor = false;
+            this.playButton.Visible = false;
             this.playButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.playButton_MouseClick);
             // 
             // label1

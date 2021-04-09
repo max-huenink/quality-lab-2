@@ -1,5 +1,5 @@
 ﻿//---------------------------------------------------------------
-// Name:    Ben Hefel
+// Names:    Ben Hefel,Ian Seidler
 // Project: SE 3330 team:Xx_Bigger_Gains_xX
 // Purpose: To have the sidebar and to move between differnt pages
 //---------------------------------------------------------------
@@ -43,6 +43,17 @@ namespace GainsProject.UI
             Content.Controls.Add(control);
         }
         //---------------------------------------------------------------
+        //Shows the navigation buttons once the user has entered their
+        //  name
+        //---------------------------------------------------------------
+        public void ShowSideButtons()
+        {
+            playButton.Show();
+            tutorialButton.Show();
+            previousResultsButton.Show();
+            leaderboardButton.Show();
+        }
+        //---------------------------------------------------------------
         //Takes the user to the game selection of the program
         //---------------------------------------------------------------
         private void playButton_MouseClick(object sender, MouseEventArgs e)
@@ -73,7 +84,9 @@ namespace GainsProject.UI
         {
             this.Close();
         }
-
+        //---------------------------------------------------------------
+        //Method to save the user's name once a button is clicked
+        //---------------------------------------------------------------
         private void EnterButton_Click(object sender, EventArgs e)
         {
             string specialChar = " \\|!#$%&/()=?»«@£§€{}.-;'<>_,";
@@ -99,8 +112,10 @@ namespace GainsProject.UI
             else 
             {
                 nameStorage.setName(NameBox.Text);
-                WelcomeLabel.Text = "Welcome " + nameStorage.getName();
+                WelcomeLabel.Text = "Welcome " + nameStorage.getName() + "\n Click on one of the side buttons to begin!";
+                NameBox.Hide();
                 EnterButton.Hide();
+                ShowSideButtons();
             }
         }
     }
