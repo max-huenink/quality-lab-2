@@ -37,7 +37,11 @@ namespace GainsProject.UI
             this.playButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Content = new System.Windows.Forms.Panel();
+            this.EnterButton = new System.Windows.Forms.Button();
+            this.NameBox = new System.Windows.Forms.TextBox();
+            this.WelcomeLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -135,10 +139,46 @@ namespace GainsProject.UI
             // 
             // Content
             // 
+            this.Content.BackColor = System.Drawing.Color.Beige;
+            this.Content.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Content.Controls.Add(this.EnterButton);
+            this.Content.Controls.Add(this.NameBox);
+            this.Content.Controls.Add(this.WelcomeLabel);
+            this.Content.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Content.Location = new System.Drawing.Point(201, 0);
             this.Content.Name = "Content";
             this.Content.Size = new System.Drawing.Size(1063, 681);
             this.Content.TabIndex = 5;
+            // 
+            // EnterButton
+            // 
+            this.EnterButton.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.EnterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.EnterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnterButton.Location = new System.Drawing.Point(384, 418);
+            this.EnterButton.Name = "EnterButton";
+            this.EnterButton.Size = new System.Drawing.Size(328, 103);
+            this.EnterButton.TabIndex = 2;
+            this.EnterButton.Text = "Enter";
+            this.EnterButton.UseVisualStyleBackColor = false;
+            this.EnterButton.Click += new System.EventHandler(this.EnterButton_Click);
+            // 
+            // NameBox
+            // 
+            this.NameBox.Location = new System.Drawing.Point(399, 344);
+            this.NameBox.Name = "NameBox";
+            this.NameBox.Size = new System.Drawing.Size(292, 20);
+            this.NameBox.TabIndex = 1;
+            // 
+            // WelcomeLabel
+            // 
+            this.WelcomeLabel.Font = new System.Drawing.Font("Rockwell", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WelcomeLabel.Location = new System.Drawing.Point(182, 9);
+            this.WelcomeLabel.Name = "WelcomeLabel";
+            this.WelcomeLabel.Size = new System.Drawing.Size(746, 288);
+            this.WelcomeLabel.TabIndex = 0;
+            this.WelcomeLabel.Text = "Welcome to the \r\nXxBigger_GainsxX \r\nRecation game!\r\nPlease enter your name.";
+            this.WelcomeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BasePage
             // 
@@ -152,6 +192,8 @@ namespace GainsProject.UI
             this.Name = "BasePage";
             this.Text = "Reaction Games";
             this.panel1.ResumeLayout(false);
+            this.Content.ResumeLayout(false);
+            this.Content.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,6 +209,9 @@ namespace GainsProject.UI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button leaderboardButton;
         private System.Windows.Forms.Panel Content;
+        private System.Windows.Forms.Label WelcomeLabel;
+        private System.Windows.Forms.Button EnterButton;
+        private System.Windows.Forms.TextBox NameBox;
     }
 }
 

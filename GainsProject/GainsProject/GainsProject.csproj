@@ -53,6 +53,7 @@
     <Compile Include="Application\ArrowKeyGameManager.cs" />
     <Compile Include="Application\DizzyButtonsGameManager.cs" />
     <Compile Include="Application\MentalMathGameManager.cs" />
+    <Compile Include="Application\NameClass.cs" />
     <Compile Include="Application\PictureDrawingManager.cs" />
     <Compile Include="Application\ScoreSaveManager.cs" />
     <Compile Include="Domain\Enums\Difficulties.cs" />

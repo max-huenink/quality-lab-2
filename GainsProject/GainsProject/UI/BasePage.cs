@@ -4,7 +4,9 @@
 // Purpose: To have the sidebar and to move between differnt pages
 //---------------------------------------------------------------
 using System;
+using System.Linq;
 using System.Windows.Forms;
+using GainsProject.Application;
 
 namespace GainsProject.UI
 {
@@ -13,6 +15,8 @@ namespace GainsProject.UI
     //---------------------------------------------------------------
     public partial class BasePage : Form
     {
+        //Name object to store the name
+        NameClass nameStorage = new NameClass();
         public BasePage()
         {
             InitializeComponent();
@@ -68,6 +72,36 @@ namespace GainsProject.UI
         private void quitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void EnterButton_Click(object sender, EventArgs e)
+        {
+            string specialChar = " \\|!#$%&/()=?»«@£§€{}.-;'<>_,";
+            bool hasSpecial = false;
+            string compareString = NameBox.Text;
+            if (compareString == "")
+            {
+                WelcomeLabel.Text = "Enter your name";
+                return;
+            }
+            foreach (char character in specialChar)
+            {
+                if (compareString.Contains(character))
+                {
+                    hasSpecial = true;
+                }
+            }
+            if (hasSpecial)
+            {
+                WelcomeLabel.Text = "No Special Chars";
+                return;
+            }
+            else 
+            {
+                nameStorage.setName(NameBox.Text);
+                WelcomeLabel.Text = "Welcome " + nameStorage.getName();
+                EnterButton.Hide();
+            }
         }
     }
 }
