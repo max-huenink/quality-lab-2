@@ -28,6 +28,11 @@ namespace GainsProject.UI
         private const int MIN_Y_ARROW = 43;
         private const int MAX_Y_ARROW = 531;
         private const int MIN_Y_DIST = 108;
+        //Game name and the score save manager to save scores
+        private const string GAME_NAME = "ArrowKeyGame.txt";
+        ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
+        //Name object
+        NameClass name = new NameClass();
         private readonly bool InPlaylist;
         private readonly Random rnd;
         private readonly ArrowKeyGameManager game;
@@ -191,6 +196,8 @@ namespace GainsProject.UI
                 arrow.ForeColor = Color.Black;
                 ShuffleArrowPositions();
             }
+            ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
+            scoreSave.addScore((int)game.getTotalScore(), name.getName());
 
             if (InPlaylist)
             {

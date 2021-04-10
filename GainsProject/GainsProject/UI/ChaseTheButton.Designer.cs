@@ -36,16 +36,12 @@
             this.StartButton = new System.Windows.Forms.Button();
             this.nextGameBtn = new System.Windows.Forms.Button();
             this.exitGameBtn = new System.Windows.Forms.Button();
-            this.NameEnter = new System.Windows.Forms.TextBox();
-            this.SaveButton = new System.Windows.Forms.Button();
             this.Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // Content
             // 
             this.Content.BackColor = System.Drawing.Color.Moccasin;
-            this.Content.Controls.Add(this.SaveButton);
-            this.Content.Controls.Add(this.NameEnter);
             this.Content.Controls.Add(this.ScoreShow);
             this.Content.Controls.Add(this.ChaseButton);
             this.Content.Controls.Add(this.richTextBox1);
@@ -127,26 +123,6 @@
             this.exitGameBtn.Text = "Exit";
             this.exitGameBtn.UseVisualStyleBackColor = true;
             // 
-            // NameEnter
-            // 
-            this.NameEnter.Location = new System.Drawing.Point(395, 289);
-            this.NameEnter.Name = "NameEnter";
-            this.NameEnter.Size = new System.Drawing.Size(270, 20);
-            this.NameEnter.TabIndex = 13;
-            this.NameEnter.Text = "Enter your name here!";
-            this.NameEnter.Visible = false;
-            // 
-            // SaveButton
-            // 
-            this.SaveButton.Location = new System.Drawing.Point(486, 315);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(75, 23);
-            this.SaveButton.TabIndex = 14;
-            this.SaveButton.Text = "Save score";
-            this.SaveButton.UseVisualStyleBackColor = true;
-            this.SaveButton.Visible = false;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
             // ChaseTheButton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,7 +145,5 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button ChaseButton;
         private System.Windows.Forms.Label ScoreShow;
-        private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.TextBox NameEnter;
     }
 }

@@ -38,15 +38,11 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.StartButton = new System.Windows.Forms.Button();
             this.ansBox = new System.Windows.Forms.TextBox();
-            this.NameEnter = new System.Windows.Forms.TextBox();
-            this.SaveButton = new System.Windows.Forms.Button();
             this.Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // Content
             // 
-            this.Content.Controls.Add(this.SaveButton);
-            this.Content.Controls.Add(this.NameEnter);
             this.Content.Controls.Add(this.ScoreLabel);
             this.Content.Controls.Add(this.exitGameBtn);
             this.Content.Controls.Add(this.SubmitButton);
@@ -141,25 +137,6 @@
             this.ansBox.TabIndex = 4;
             this.ansBox.Visible = false;
             // 
-            // NameEnter
-            // 
-            this.NameEnter.Location = new System.Drawing.Point(396, 333);
-            this.NameEnter.Name = "NameEnter";
-            this.NameEnter.Size = new System.Drawing.Size(270, 20);
-            this.NameEnter.TabIndex = 14;
-            this.NameEnter.Text = "Enter your name here!";
-            this.NameEnter.Visible = false;
-            // 
-            // SaveButton
-            // 
-            this.SaveButton.Location = new System.Drawing.Point(498, 370);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(75, 23);
-            this.SaveButton.TabIndex = 15;
-            this.SaveButton.Text = "Save score";
-            this.SaveButton.UseVisualStyleBackColor = true;
-            this.SaveButton.Visible = false;
-            // 
             // MentalMathGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,7 +162,5 @@
         private System.Windows.Forms.Button SubmitButton;
         private System.Windows.Forms.Button exitGameBtn;
         private System.Windows.Forms.Label ScoreLabel;
-        private System.Windows.Forms.TextBox NameEnter;
-        private System.Windows.Forms.Button SaveButton;
     }
 }

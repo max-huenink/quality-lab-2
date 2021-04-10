@@ -23,6 +23,9 @@ namespace GainsProject.UI
         private const string SCORE_SUBMITTED = "SUBMITTED SCORE";
         private bool scoreSubmitted;
         private DizzyButtonsGameManager dbGameManager;
+        private const string GAME_NAME = "DizzyButtons.txt";
+        ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
+        NameClass name = new NameClass();
         private bool nextGame;
         //---------------------------------------------------------------
         // default constructor
@@ -75,8 +78,8 @@ namespace GainsProject.UI
                 gameOverLabel.Visible = true;
                 finalScoreLabel.Text = dbGameManager.getScore().ToString();
                 finalScoreLabel.Visible = true;
-                saveNameButton.Visible = true;
-                PlayerNameHere.Visible = true;
+                ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
+                scoreSave.addScore((int)dbGameManager.getScore(), name.getName());
             }
             for (int i = 0; i < dbGameManager.getToAdd().Count; i++)
             {
@@ -98,36 +101,6 @@ namespace GainsProject.UI
         private void DizzyButtonsGame_MouseClick(object sender, MouseEventArgs e)
         {
             dbGameManager.minusScore();
-        }
-        //---------------------------------------------------------------
-        // handles logic for submitting score at the end
-        //---------------------------------------------------------------
-        private void saveNameButton_Click(object sender, EventArgs e)
-        {
-            if(!scoreSubmitted)
-            {
-                string specialChar = " \\|!#$%&/()=?»«@£§€{}.-;'<>_,";
-                string compareString = PlayerNameHere.Text;
-                bool hasSpecial = false;
-                foreach(char character in specialChar)
-                {
-                    if(compareString.Contains(character))
-                    {
-                        hasSpecial = true;
-                    }
-                }
-                if(hasSpecial)
-                {
-                    PlayerNameHere.Text = NO_SPECIAL_CHARS;
-                }
-                else
-                {
-                    dbGameManager.AddScore(compareString);
-                    PlayerNameHere.Text = SCORE_SUBMITTED;
-                    scoreSubmitted = true;
-                }
-            }
-
         }
     }
 }

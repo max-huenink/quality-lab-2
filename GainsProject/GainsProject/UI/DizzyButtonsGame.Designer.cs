@@ -38,8 +38,6 @@ namespace GainsProject.UI
             this.scoreHere = new System.Windows.Forms.Label();
             this.gameOverLabel = new System.Windows.Forms.Label();
             this.finalScoreLabel = new System.Windows.Forms.Label();
-            this.PlayerNameHere = new System.Windows.Forms.MaskedTextBox();
-            this.saveNameButton = new System.Windows.Forms.Button();
             this.instructionsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -116,26 +114,6 @@ namespace GainsProject.UI
             this.finalScoreLabel.Text = "0";
             this.finalScoreLabel.Visible = false;
             // 
-            // PlayerNameHere
-            // 
-            this.PlayerNameHere.Location = new System.Drawing.Point(438, 332);
-            this.PlayerNameHere.Name = "PlayerNameHere";
-            this.PlayerNameHere.Size = new System.Drawing.Size(172, 20);
-            this.PlayerNameHere.TabIndex = 8;
-            this.PlayerNameHere.Text = "Enter Name Here";
-            this.PlayerNameHere.Visible = false;
-            // 
-            // saveNameButton
-            // 
-            this.saveNameButton.Location = new System.Drawing.Point(461, 376);
-            this.saveNameButton.Name = "saveNameButton";
-            this.saveNameButton.Size = new System.Drawing.Size(107, 23);
-            this.saveNameButton.TabIndex = 9;
-            this.saveNameButton.Text = "Submit Score";
-            this.saveNameButton.UseVisualStyleBackColor = true;
-            this.saveNameButton.Visible = false;
-            this.saveNameButton.Click += new System.EventHandler(this.saveNameButton_Click);
-            // 
             // instructionsLabel
             // 
             this.instructionsLabel.AutoSize = true;
@@ -153,8 +131,6 @@ namespace GainsProject.UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Salmon;
             this.Controls.Add(this.instructionsLabel);
-            this.Controls.Add(this.saveNameButton);
-            this.Controls.Add(this.PlayerNameHere);
             this.Controls.Add(this.finalScoreLabel);
             this.Controls.Add(this.gameOverLabel);
             this.Controls.Add(this.scoreHere);
@@ -179,8 +155,6 @@ namespace GainsProject.UI
         private System.Windows.Forms.Label gameOverLabel;
         private System.Windows.Forms.Label finalScoreLabel;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.MaskedTextBox PlayerNameHere;
-        private System.Windows.Forms.Button saveNameButton;
         private System.Windows.Forms.Label instructionsLabel;
     }
 }

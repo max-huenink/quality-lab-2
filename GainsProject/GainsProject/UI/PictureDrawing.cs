@@ -11,6 +11,10 @@ namespace GainsProject.UI
 {
     public partial class PictureDrawing : UserControl
     {
+        //Game name and the score save manager to save scores
+        private const string GAME_NAME = "PictureDrawing.txt";
+        ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
+        NameClass name = new NameClass();
         private static PictureDrawingManager pd = new PictureDrawingManager();
         public const int COLOR_WHITE = 0;
         public const int COLOR_YELLOW = 1;
@@ -99,7 +103,8 @@ namespace GainsProject.UI
                     endTimeLabel.Text = "Time: " + pd.getElapsedTime();
                     incorrectPictureLabel.Text = "Bad Pictures: " + pd.getIncorrectPictures();
                     scoreLabel.Text = "Score: " + pd.getScore();
-
+                    ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
+                    scoreSave.addScore((int)pd.getScore(), name.getName());
                     dashedTimerLabel.Visible = false;
                     timerLabel.Visible = false;
                     dashedLineLabel.Visible = false;
