@@ -76,9 +76,9 @@
             // 
             // SubmitButton
             // 
-            this.SubmitButton.Location = new System.Drawing.Point(498, 525);
+            this.SubmitButton.Location = new System.Drawing.Point(365, 342);
             this.SubmitButton.Name = "SubmitButton";
-            this.SubmitButton.Size = new System.Drawing.Size(75, 23);
+            this.SubmitButton.Size = new System.Drawing.Size(346, 115);
             this.SubmitButton.TabIndex = 5;
             this.SubmitButton.Text = "Submit";
             this.SubmitButton.UseVisualStyleBackColor = true;
@@ -88,11 +88,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(454, 97);
+            this.label1.Font = new System.Drawing.Font("Rockwell", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(409, 143);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 54);
+            this.label1.Size = new System.Drawing.Size(0, 106);
             this.label1.TabIndex = 3;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // nextGameBtn
             // 
@@ -131,9 +132,9 @@
             // 
             // ansBox
             // 
-            this.ansBox.Location = new System.Drawing.Point(514, 499);
+            this.ansBox.Location = new System.Drawing.Point(427, 319);
             this.ansBox.Name = "ansBox";
-            this.ansBox.Size = new System.Drawing.Size(42, 20);
+            this.ansBox.Size = new System.Drawing.Size(228, 20);
             this.ansBox.TabIndex = 4;
             this.ansBox.Visible = false;
             // 
