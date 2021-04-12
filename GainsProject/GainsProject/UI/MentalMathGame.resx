@@ -120,8 +120,8 @@
   <data name="richTextBox1.Text" xml:space="preserve">
     <value>Mental Math: In this game ten simple calculations will appear on the screen one after another.
 You must answer them as quickly as possible to obtain a higher score. Enter your answer
-then click on the salmon background. Be careful, as
-an incorrect answer will cause a score of -50 for that problem. Good luck!
+then click on the submit button. Be careful, as an incorrect answer will cause a score of -50 for that problem. 
+                                                                           Good luck!
 
  </value>
   </data>

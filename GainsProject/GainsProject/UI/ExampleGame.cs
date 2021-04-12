@@ -80,7 +80,6 @@ namespace GainsProject.UI
                 //If the user clicked too early
                 if (game.getTime() < TIME_BUFFER)
                 {
-                    MessageBox.Show("Too early!\nScore:-100");
                     label1.Text = ("You clicked too early!");
                 }
                 //If the user did not click too early
@@ -88,10 +87,9 @@ namespace GainsProject.UI
                 {
                     //calculate the score
                     game.calculateScore();
-                    MessageBox.Show("Nice it took: " + game.getTime() + " milliseconds\nScore: "
-                        + game.getScore());
                     //Display the user's score
                     label1.Text = ("Score: " + game.getScore());
+                    //Store the score into a file
                     ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
                     scoreSave.addScore((int)game.getScore(), nameClass.getName());
                 }

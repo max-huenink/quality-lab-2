@@ -19,7 +19,7 @@ namespace GainsProject.Application
         private const int RANDOM_TIME_MIN = 500;
         private const int RANDOM_TIME_MAX = 2000;
 
-        private const int PERFECT_SCORE_TIME = 200;
+        private const int PERFECT_SCORE_TIME = 350;
         private const int BEFORE_CLICK_TIME = 100;
         private const int AFTER_CLICK_TIME = 10;
 
@@ -124,7 +124,7 @@ namespace GainsProject.Application
             if (buttonClicks <= MAX_CLICKS)
             {
                 var clickedAt = getTime();
-                var score = scoreCalculator(clickedAt - timeUntilClick);
+                var score = scoreCalculator(clickedAt -timeUntilClick);
                 updateTotalScore(score);
                 setScore(score);
 

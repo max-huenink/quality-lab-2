@@ -58,6 +58,7 @@ namespace GainsProject.UI
             nextGameBtn.Hide();
             ansBox.Show();
             SubmitButton.Show();
+            ScoreBox.Show();
             //Move control to the textbox
             this.ActiveControl = ansBox;
         }
@@ -115,6 +116,7 @@ namespace GainsProject.UI
                 ansBox.Clear();
                 //start time
                 mmgame.stopwatch.Start();
+                ScoreBox.Text = "Score: " + mmgame.getScore();
                 //Move control to the textbox
                 this.ActiveControl = ansBox;
             }
@@ -132,6 +134,9 @@ namespace GainsProject.UI
                 //Change labels
                 ScoreLabel.Text = "All done! Score: " + mmgame.getScore();
                 label1.Hide();
+                ansBox.Hide();
+                SubmitButton.Hide();
+                ScoreBox.Hide();
             }
         }
 

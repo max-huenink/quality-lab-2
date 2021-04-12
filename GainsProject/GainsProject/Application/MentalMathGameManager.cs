@@ -15,7 +15,7 @@ namespace GainsProject.Application
     public class MentalMathGameManager : BaseGame
     {
         //Constants
-        private const int WRONG_ANSWER = -10;
+        private const int WRONG_ANSWER = -50;
         private const int MAX_SCORE = 100;
         private const int MAX_SCORE_TIME = 1000;
         private const int ZERO_SCORE_TIME = 10000;

@@ -18,10 +18,9 @@ namespace GainsProject.Application
         private const int MAX_RANDOM_X = 900;
         private const int MIN_RANDOM_Y = 10;
         private const int MAX_RANDOM_Y = 610;
-        private const int BASE_SCORE_CALCULATION = 200;
         private const int MAX_SCORE = 1000;
-        private const int MAX_SCORE_TIME = 1500;
-        private const int ZERO_SCORE_TIME = 7500;
+        private const int MAX_SCORE_TIME = 2000;
+        private const int ZERO_SCORE_TIME = 8000;
         private const int SCORE_DIVISOR = -6;
         //Seed the random number generator
         private Random rnd = new Random();

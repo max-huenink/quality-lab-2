@@ -25,7 +25,7 @@ namespace GainsProject.Application
         private const int PAGE_WIDTH = 1060;
         private const int BUTTON_WIDTH = 88;
         private const int BUTTON_HEIGHT = 40;
-        private const int SCORE = 10;
+        private const int SCORE = 75;
         private const int MINUS_SCORE = 5;
         private const string DEFAULT_TEXT = "Don't Click Me";
         private const string IS_IT_TEXT = "CLICK ME!";
@@ -133,6 +133,8 @@ namespace GainsProject.Application
             if (clickedButton.BackColor == IS_IT_BACK_COLOR)
             {
                 score += SCORE;
+                if (score > 1000)
+                    this.setScore(1000);
                 int index = getButtonIndex(clickedButton);
                 if(index != -1)
                 {

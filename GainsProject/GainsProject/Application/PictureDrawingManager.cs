@@ -27,6 +27,7 @@ namespace GainsProject.Application
         public const int COLOR_GREEN = 6;
         public const int COLOR_BROWN = 7;
         public const int COLOR_BLACK = 8;
+        public const int SCORE_SUB_MULTIPLIER = 5;
         //Seeded random
         private Random random;
         private DateTime startTime;
@@ -69,7 +70,7 @@ namespace GainsProject.Application
         public override void calculateScore()
         {
             TimeSpan elapsedTime = DateTime.Now - startTime;
-            long scoreSubtracter = Convert.ToInt64(elapsedTime.TotalSeconds) * 2;
+            long scoreSubtracter = Convert.ToInt64(elapsedTime.TotalSeconds) * SCORE_SUB_MULTIPLIER;
             setScore(1000 - scoreSubtracter - (incorrectPictures * 100));
         }
         //---------------------------------------------------------------
