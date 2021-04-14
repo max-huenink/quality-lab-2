@@ -23,7 +23,7 @@ namespace GainsProject.UI
         }
 
         //---------------------------------------------------------------
-        //Passes control from the game select page to the selected game
+        //Passes control from the play again page to the selected game
         // Params: Control control - the control to show
         //---------------------------------------------------------------
         private void showUserControl(Control control)

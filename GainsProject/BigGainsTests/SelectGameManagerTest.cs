@@ -19,28 +19,13 @@ namespace BigGainsTests
     public class SelectGameManagerTest
     {
         //---------------------------------------------------------------
-        //Tests that the static create and populate method creates a
-        // not empty list of games
+        //Tests that the static create and populate method, with a mocked
+        // IGameEnd, creates a not empty list of games
         //---------------------------------------------------------------
         [TestMethod]
         public void CreateAndPopulateGameManager()
         {
-            var manager = GameSelectManager.CreateAndPopulateManager();
-            var gameList = manager.GetListOfGames();
-            Assert.IsNotNull(gameList);
-            // List should not be empty because it was populated
-            //  with list of games
-            Assert.AreNotEqual(0, gameList.Count);
-        }
-
-        //---------------------------------------------------------------
-        //Tests that the static create and populate method, with a mocked
-        // IGamePlaylist, creates a not empty list of games
-        //---------------------------------------------------------------
-        [TestMethod]
-        public void CreateAndPopulateGameManagerWithIGamePlaylist()
-        {
-            Mock<IGamePlaylist> mock = new Mock<IGamePlaylist>();
+            Mock<IGameEnd> mock = new Mock<IGameEnd>();
             var manager = GameSelectManager.CreateAndPopulateManager(mock.Object);
             var gameList = manager.GetListOfGames();
             Assert.IsNotNull(gameList);

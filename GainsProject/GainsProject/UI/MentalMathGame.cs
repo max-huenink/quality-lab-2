@@ -30,22 +30,15 @@ namespace GainsProject.UI
         private int random2 = mmgame.randomTime();
         //correct answer
         private int ans = 0;
-        public MentalMathGame()
+        private readonly IGameEnd gameEnd;
+        //---------------------------------------------------------------
+        //Constructor that initializes gameEnd which shows the game end
+        // screen when the game finishes
+        //---------------------------------------------------------------
+        public MentalMathGame(IGameEnd gameEnd)
         {
             InitializeComponent();
-            gameSaved = false;
-        }
-        private bool nextGame;
-        //---------------------------------------------------------------
-        //Constructor that initializes the next game button, which calls
-        // the NextGame method of ISelectGame when clicked
-        //---------------------------------------------------------------
-        public MentalMathGame(IGamePlaylist selectGame)
-        {
-            InitializeComponent();
-            nextGameBtn.Click += (sender, e) => selectGame.NextGame();
-            exitGameBtn.Click += (sender, e) => selectGame.Exit();
-            nextGame = true;
+            this.gameEnd = gameEnd;
         }
         //---------------------------------------------------------------
         //GUI element logic when the start button is clicked
@@ -55,7 +48,6 @@ namespace GainsProject.UI
             //Hide and show GUI elements
             StartButton.Hide();
             richTextBox1.Hide();
-            nextGameBtn.Hide();
             ansBox.Show();
             SubmitButton.Show();
             ScoreBox.Show();
@@ -130,15 +122,14 @@ namespace GainsProject.UI
                 scoreSave.addScore((int)mmgame.getScore(), name.getName());
                 //End the game
                 mmgame.endGame();
-                //Show buttons
-                nextGameBtn.Show();
-                exitGameBtn.Show();
                 //Change labels
                 ScoreLabel.Text = "All done! Score: " + mmgame.getScore();
                 label1.Hide();
                 ansBox.Hide();
                 SubmitButton.Hide();
                 ScoreBox.Hide();
+
+                gameEnd?.GameFinished(name.getName(), (int)mmgame.getScore());
             }
         }
 

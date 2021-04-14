@@ -34,8 +34,6 @@ namespace GainsProject.UI
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.Startbutton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.nextGameBtn = new System.Windows.Forms.Button();
-            this.exitGameBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -71,33 +69,11 @@ namespace GainsProject.UI
             this.label1.Size = new System.Drawing.Size(0, 39);
             this.label1.TabIndex = 2;
             // 
-            // nextGameBtn
-            // 
-            this.nextGameBtn.Location = new System.Drawing.Point(916, 622);
-            this.nextGameBtn.Name = "nextGameBtn";
-            this.nextGameBtn.Size = new System.Drawing.Size(75, 23);
-            this.nextGameBtn.TabIndex = 3;
-            this.nextGameBtn.Text = "Next Game";
-            this.nextGameBtn.UseVisualStyleBackColor = true;
-            this.nextGameBtn.Visible = false;
-            // 
-            // exitGameBtn
-            // 
-            this.exitGameBtn.Location = new System.Drawing.Point(835, 622);
-            this.exitGameBtn.Name = "exitGameBtn";
-            this.exitGameBtn.Size = new System.Drawing.Size(75, 23);
-            this.exitGameBtn.TabIndex = 4;
-            this.exitGameBtn.Text = "Exit";
-            this.exitGameBtn.UseVisualStyleBackColor = true;
-            this.exitGameBtn.Visible = false;
-            // 
             // ExampleGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Peru;
-            this.Controls.Add(this.exitGameBtn);
-            this.Controls.Add(this.nextGameBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Startbutton);
             this.Controls.Add(this.richTextBox1);
@@ -114,7 +90,5 @@ namespace GainsProject.UI
         private System.Windows.Forms.RichTextBox richTextBox1;
         private Button Startbutton;
         private Label label1;
-        private Button nextGameBtn;
-        private Button exitGameBtn;
     }
 }

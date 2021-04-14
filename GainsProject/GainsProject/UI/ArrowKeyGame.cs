@@ -33,33 +33,24 @@ namespace GainsProject.UI
         ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
         //Name object
         NameClass name = new NameClass();
-        private readonly bool InPlaylist;
         private readonly Random rnd;
         private readonly ArrowKeyGameManager game;
         private CancellationTokenSource cts;
         private Difficulties difficulty;
+        private readonly IGameEnd gameEnd;
 
-        public ArrowKeyGame() : this(null)
-        {
-        }
 
         //---------------------------------------------------------------
-        //Constructor that initializes the next and exit game buttons
-        // which call NextGame and Exit methods of ISelectGame
-        // respectively
+        //Constructor that initializes gameEnd which shows the game end
+        // screen when the game finishes
         //---------------------------------------------------------------
-        public ArrowKeyGame(IGamePlaylist gamePlaylist)
+        public ArrowKeyGame(IGameEnd gameEnd)
         {
             InitializeComponent();
             rnd = new Random();
             cts = new CancellationTokenSource();
             game = new ArrowKeyGameManager();
-            if (gamePlaylist != null)
-            {
-                InPlaylist = true;
-                exitGameBtn.Click += (sender, e) => gamePlaylist.Exit();
-                nextGameBtn.Click += (sender, e) => gamePlaylist.NextGame();
-            }
+            this.gameEnd = gameEnd;
         }
 
         #region Show Hide UI Controls
@@ -110,24 +101,6 @@ namespace GainsProject.UI
             DownArrowLbl.Show();
             ScoreLbl.Show();
             TotalScoreLbl.Show();
-        }
-
-        //---------------------------------------------------------------
-        //Hides the playlist buttons
-        //---------------------------------------------------------------
-        private void HidePlaylistBtns()
-        {
-            exitGameBtn.Hide();
-            nextGameBtn.Hide();
-        }
-
-        //---------------------------------------------------------------
-        //Shows the playlist buttons
-        //---------------------------------------------------------------
-        private void ShowPlaylistBtns()
-        {
-            exitGameBtn.Show();
-            nextGameBtn.Show();
         }
 
         #endregion
@@ -199,10 +172,7 @@ namespace GainsProject.UI
             ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
             scoreSave.addScore((int)game.getTotalScore(), name.getName());
 
-            if (InPlaylist)
-            {
-                ShowPlaylistBtns();
-            }
+            gameEnd?.GameFinished(name.getName(), (int)game.getTotalScore());
         }
 
         //---------------------------------------------------------------

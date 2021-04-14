@@ -14,7 +14,7 @@ namespace GainsProject.UI
     //Displays a list of games to play, switching between games
     // after a game has been selected by implementing ISelectGame
     //---------------------------------------------------------------
-    public partial class RandomGamesPage : UserControl, IGamePlaylist
+    public partial class RandomGamesPage : UserControl, IGamePlaylist, IGameEnd
     {
         private readonly GameSelectManager manager;
 
@@ -28,6 +28,17 @@ namespace GainsProject.UI
 
             manager = GameSelectManager.CreateAndPopulateManager(this);
             NextGame();
+        }
+
+        //---------------------------------------------------------------
+        //Displays the game end screen with the player's name and score
+        //---------------------------------------------------------------
+        public void GameFinished(string name, int score)
+        {
+            var gep = new GameEndPage(this);
+            gep.setPlayerName(name);
+            gep.setPlayerScore(score);
+            showUserControl(gep);
         }
 
         //---------------------------------------------------------------

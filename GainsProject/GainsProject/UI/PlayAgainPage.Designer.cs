@@ -30,15 +30,17 @@ namespace GainsProject.UI
         private void InitializeComponent()
         {
             this.Content = new System.Windows.Forms.Panel();
-            this.playAgainLbl = new System.Windows.Forms.Label();
-            this.yesBtn = new System.Windows.Forms.Button();
             this.noBtn = new System.Windows.Forms.Button();
+            this.yesBtn = new System.Windows.Forms.Button();
+            this.playAgainLbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // Content
             // 
             this.Content.BackColor = System.Drawing.Color.Salmon;
+            this.Content.Controls.Add(this.label1);
             this.Content.Controls.Add(this.noBtn);
             this.Content.Controls.Add(this.yesBtn);
             this.Content.Controls.Add(this.playAgainLbl);
@@ -48,15 +50,16 @@ namespace GainsProject.UI
             this.Content.Size = new System.Drawing.Size(1063, 681);
             this.Content.TabIndex = 0;
             // 
-            // playAgainLbl
+            // noBtn
             // 
-            this.playAgainLbl.AutoSize = true;
-            this.playAgainLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 50.25F);
-            this.playAgainLbl.Location = new System.Drawing.Point(70, 219);
-            this.playAgainLbl.Name = "playAgainLbl";
-            this.playAgainLbl.Size = new System.Drawing.Size(895, 76);
-            this.playAgainLbl.TabIndex = 0;
-            this.playAgainLbl.Text = "Would you like to play again?";
+            this.noBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F);
+            this.noBtn.Location = new System.Drawing.Point(600, 375);
+            this.noBtn.Name = "noBtn";
+            this.noBtn.Size = new System.Drawing.Size(213, 96);
+            this.noBtn.TabIndex = 2;
+            this.noBtn.Text = "No";
+            this.noBtn.UseVisualStyleBackColor = true;
+            this.noBtn.Click += new System.EventHandler(this.noBtn_Click);
             // 
             // yesBtn
             // 
@@ -69,16 +72,25 @@ namespace GainsProject.UI
             this.yesBtn.UseVisualStyleBackColor = true;
             this.yesBtn.Click += new System.EventHandler(this.yesBtn_Click);
             // 
-            // noBtn
+            // playAgainLbl
             // 
-            this.noBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F);
-            this.noBtn.Location = new System.Drawing.Point(600, 375);
-            this.noBtn.Name = "noBtn";
-            this.noBtn.Size = new System.Drawing.Size(213, 96);
-            this.noBtn.TabIndex = 2;
-            this.noBtn.Text = "No";
-            this.noBtn.UseVisualStyleBackColor = true;
-            this.noBtn.Click += new System.EventHandler(this.noBtn_Click);
+            this.playAgainLbl.AutoSize = true;
+            this.playAgainLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 50.25F);
+            this.playAgainLbl.Location = new System.Drawing.Point(70, 219);
+            this.playAgainLbl.Name = "playAgainLbl";
+            this.playAgainLbl.Size = new System.Drawing.Size(895, 76);
+            this.playAgainLbl.TabIndex = 0;
+            this.playAgainLbl.Text = "Would you like to play again?";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 50.25F);
+            this.label1.Location = new System.Drawing.Point(322, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(411, 76);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Playlist over.";
             // 
             // PlayAgainPage
             // 
@@ -99,5 +111,6 @@ namespace GainsProject.UI
         private System.Windows.Forms.Button noBtn;
         private System.Windows.Forms.Button yesBtn;
         private System.Windows.Forms.Label playAgainLbl;
+        private System.Windows.Forms.Label label1;
     }
 }

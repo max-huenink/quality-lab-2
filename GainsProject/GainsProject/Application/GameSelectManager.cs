@@ -78,39 +78,19 @@ namespace GainsProject.Application
             return gameCreator;
         }
 
-        //TODO: Find out how to not duplicate (or later, triplicate, this list creation)
-        // factory?
-
-
-        //---------------------------------------------------------------
-        //Creates and returns a new game select manager with games
-        // already populated
-        //---------------------------------------------------------------
-        public static GameSelectManager CreateAndPopulateManager()
-        {
-            var manager = new GameSelectManager();
-            manager.AddGameToList("Example Game", () => new ExampleGame());
-            manager.AddGameToList("Arrow Key Game", () => new ArrowKeyGame());
-            manager.AddGameToList("Mental Math Game", () => new MentalMathGame());
-            manager.AddGameToList("Picture Drawing", () => new PictureDrawing());
-            manager.AddGameToList("Chase the button", () => new ChaseTheButton());
-            manager.AddGameToList("Dizzy Buttons", () => new DizzyButtonsGame());
-            return manager;
-        }
-
         //---------------------------------------------------------------
         //Creates and returns a new game select manager with games
         // already populated, with an IGamePlaylist
         //---------------------------------------------------------------
-        public static GameSelectManager CreateAndPopulateManager(IGamePlaylist playlist)
+        public static GameSelectManager CreateAndPopulateManager(IGameEnd gameEnd)
         {
             var manager = new GameSelectManager();
-            manager.AddGameToList("Example Game", () => new ExampleGame(playlist));
-            manager.AddGameToList("Arrow Key Game", () => new ArrowKeyGame(playlist));
-            manager.AddGameToList("Mental Math Game", () => new MentalMathGame (playlist));
-            manager.AddGameToList("Picture Drawing Game", () => new PictureDrawing(playlist));
-            manager.AddGameToList("Chase the button", () => new ChaseTheButton(playlist));
-            manager.AddGameToList("Dizzy Buttons", () => new DizzyButtonsGame(playlist));
+            manager.AddGameToList("Example Game", () => new ExampleGame(gameEnd));
+            manager.AddGameToList("Arrow Key Game", () => new ArrowKeyGame(gameEnd));
+            manager.AddGameToList("Mental Math Game", () => new MentalMathGame (gameEnd));
+            manager.AddGameToList("Picture Drawing Game", () => new PictureDrawing(gameEnd));
+            manager.AddGameToList("Chase the button", () => new ChaseTheButton(gameEnd));
+            manager.AddGameToList("Dizzy Buttons", () => new DizzyButtonsGame(gameEnd));
             return manager;
         }
     }

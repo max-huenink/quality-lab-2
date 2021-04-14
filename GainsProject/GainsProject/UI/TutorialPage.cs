@@ -46,7 +46,7 @@ namespace GainsProject.UI
         private void button1_Click(object sender, EventArgs e)
         {
             HideElements();
-            ExampleGame ex = new ExampleGame();
+            ExampleGame ex = new ExampleGame(null);
             showUserControl(ex);
         }
     }

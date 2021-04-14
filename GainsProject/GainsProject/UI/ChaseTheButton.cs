@@ -32,23 +32,18 @@ namespace GainsProject.UI
         NameClass name = new NameClass(); 
         //Bool to see if the game has been saved
         private bool gameSaved = false;
-        public ChaseTheButton()
+        private readonly IGameEnd gameEnd;
+
+        //---------------------------------------------------------------
+        //Constructor that initializes gameEnd which shows the game end
+        // screen when the game finishes
+        //---------------------------------------------------------------
+        public ChaseTheButton(IGameEnd gameEnd)
         {
             InitializeComponent();
-            gameSaved = false;
+            this.gameEnd = gameEnd;
         }
-        private bool nextGame;
-        //---------------------------------------------------------------
-        //Constructor that initializes the next game button, which calls
-        // the NextGame method of ISelectGame when clicked
-        //---------------------------------------------------------------
-        public ChaseTheButton(IGamePlaylist selectGame)
-        {
-            InitializeComponent();
-            nextGameBtn.Click += (sender, e) => selectGame.NextGame();
-            exitGameBtn.Click += (sender, e) => selectGame.Exit();
-            nextGame = true;
-        }
+
         //---------------------------------------------------------------
         //GUI element logic when the start button is clicked
         //---------------------------------------------------------------
@@ -57,7 +52,6 @@ namespace GainsProject.UI
             //Hide and show GUI elements
             StartButton.Hide();
             richTextBox1.Hide();
-            nextGameBtn.Hide();
         }
 
         //---------------------------------------------------------------
@@ -125,8 +119,10 @@ namespace GainsProject.UI
             scoreSave.addScore((int)game.getScore(), name.getName());
             //End the game.
             game.endGame();
+
+            gameEnd?.GameFinished(name.getName(), (int)game.getScore());
+
             ChaseButton.Hide();
-            nextGameBtn.Show();
             ScoreShow.Text = ("Score: " + game.getScore());
             ScoreShow.Show();
         }

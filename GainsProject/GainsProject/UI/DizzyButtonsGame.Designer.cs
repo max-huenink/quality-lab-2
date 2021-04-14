@@ -32,8 +32,6 @@ namespace GainsProject.UI
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.startButton = new System.Windows.Forms.Button();
-            this.nextGameBtn = new System.Windows.Forms.Button();
-            this.exitGameBtn = new System.Windows.Forms.Button();
             this.scoreLabel = new System.Windows.Forms.Label();
             this.scoreHere = new System.Windows.Forms.Label();
             this.gameOverLabel = new System.Windows.Forms.Label();
@@ -55,24 +53,6 @@ namespace GainsProject.UI
             this.startButton.Text = "Start Game";
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
-            // 
-            // nextGameBtn
-            // 
-            this.nextGameBtn.Location = new System.Drawing.Point(903, 656);
-            this.nextGameBtn.Name = "nextGameBtn";
-            this.nextGameBtn.Size = new System.Drawing.Size(75, 23);
-            this.nextGameBtn.TabIndex = 1;
-            this.nextGameBtn.Text = "Next Game";
-            this.nextGameBtn.UseVisualStyleBackColor = true;
-            // 
-            // exitGameBtn
-            // 
-            this.exitGameBtn.Location = new System.Drawing.Point(984, 657);
-            this.exitGameBtn.Name = "exitGameBtn";
-            this.exitGameBtn.Size = new System.Drawing.Size(73, 21);
-            this.exitGameBtn.TabIndex = 2;
-            this.exitGameBtn.Text = "Exit Game";
-            this.exitGameBtn.UseVisualStyleBackColor = true;
             // 
             // scoreLabel
             // 
@@ -135,8 +115,6 @@ namespace GainsProject.UI
             this.Controls.Add(this.gameOverLabel);
             this.Controls.Add(this.scoreHere);
             this.Controls.Add(this.scoreLabel);
-            this.Controls.Add(this.exitGameBtn);
-            this.Controls.Add(this.nextGameBtn);
             this.Controls.Add(this.startButton);
             this.Name = "DizzyButtonsGame";
             this.Size = new System.Drawing.Size(1060, 686);
@@ -148,8 +126,6 @@ namespace GainsProject.UI
 
         #endregion
         private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.Button nextGameBtn;
-        private System.Windows.Forms.Button exitGameBtn;
         private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Label scoreHere;
         private System.Windows.Forms.Label gameOverLabel;

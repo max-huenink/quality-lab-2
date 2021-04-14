@@ -30,8 +30,6 @@ namespace GainsProject.UI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.nextGameBtn = new System.Windows.Forms.Button();
-            this.exitGameBtn = new System.Windows.Forms.Button();
             this.picturePanel = new System.Windows.Forms.Panel();
             this.drawingPanel = new System.Windows.Forms.Panel();
             this.paintBlack = new System.Windows.Forms.Panel();
@@ -74,26 +72,6 @@ namespace GainsProject.UI
             this.paintYellow.SuspendLayout();
             this.paintWhite.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // nextGameBtn
-            // 
-            this.nextGameBtn.Location = new System.Drawing.Point(971, 631);
-            this.nextGameBtn.Name = "nextGameBtn";
-            this.nextGameBtn.Size = new System.Drawing.Size(75, 23);
-            this.nextGameBtn.TabIndex = 3;
-            this.nextGameBtn.Text = "NextGame";
-            this.nextGameBtn.UseVisualStyleBackColor = true;
-            this.nextGameBtn.Visible = false;
-            // 
-            // exitGameBtn
-            // 
-            this.exitGameBtn.Location = new System.Drawing.Point(890, 631);
-            this.exitGameBtn.Name = "exitGameBtn";
-            this.exitGameBtn.Size = new System.Drawing.Size(75, 23);
-            this.exitGameBtn.TabIndex = 7;
-            this.exitGameBtn.Text = "Exit";
-            this.exitGameBtn.UseVisualStyleBackColor = true;
-            this.exitGameBtn.Click += new System.EventHandler(this.exitGameBtn_Click);
             // 
             // picturePanel
             // 
@@ -440,8 +418,6 @@ namespace GainsProject.UI
             this.Controls.Add(this.paintBlack);
             this.Controls.Add(this.drawingPanel);
             this.Controls.Add(this.picturePanel);
-            this.Controls.Add(this.exitGameBtn);
-            this.Controls.Add(this.nextGameBtn);
             this.Controls.Add(this.dashedLineLabel);
             this.Name = "PictureDrawing";
             this.Size = new System.Drawing.Size(1060, 686);
@@ -469,9 +445,6 @@ namespace GainsProject.UI
         }
 
         #endregion
-
-        private System.Windows.Forms.Button nextGameBtn;
-        private System.Windows.Forms.Button exitGameBtn;
         private System.Windows.Forms.Panel picturePanel;
         private System.Windows.Forms.Panel drawingPanel;
         private System.Windows.Forms.Panel paintBlack;

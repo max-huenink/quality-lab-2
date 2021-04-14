@@ -26,29 +26,19 @@ namespace GainsProject.UI
         private const string GAME_NAME = "DizzyButtons.txt";
         ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
         NameClass name = new NameClass();
-        private bool nextGame;
-        //---------------------------------------------------------------
-        // default constructor
-        //---------------------------------------------------------------
-        public DizzyButtonsGame()
-        {
-            InitializeComponent();
-            initialization();
-        }
+        private readonly IGameEnd gameEnd;
         //---------------------------------------------------------------
         // parameterized constructor for if the game is made with
         // a playlist
         //---------------------------------------------------------------
-        public DizzyButtonsGame(IGamePlaylist selectGame)
+        public DizzyButtonsGame(IGameEnd gameEnd)
         {
             InitializeComponent();
-            nextGameBtn.Click += (sender, e) => selectGame.NextGame();
-            exitGameBtn.Click += (sender, e) => selectGame.Exit();
-            nextGame = true;
             initialization();
+            this.gameEnd = gameEnd;
         }
         //---------------------------------------------------------------
-        // initializes varaibles that are used in both constructors
+        // initializes varaibles that are used in the constructor
         //---------------------------------------------------------------
         private void initialization()
         {
@@ -80,6 +70,8 @@ namespace GainsProject.UI
                 finalScoreLabel.Visible = true;
                 ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
                 scoreSave.addScore((int)dbGameManager.getScore(), name.getName());
+
+                gameEnd?.GameFinished(name.getName(), (int)dbGameManager.getScore());
             }
             for (int i = 0; i < dbGameManager.getToAdd().Count; i++)
             {

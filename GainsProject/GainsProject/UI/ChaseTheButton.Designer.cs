@@ -34,8 +34,6 @@
             this.ChaseButton = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.StartButton = new System.Windows.Forms.Button();
-            this.nextGameBtn = new System.Windows.Forms.Button();
-            this.exitGameBtn = new System.Windows.Forms.Button();
             this.Content.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,8 +44,6 @@
             this.Content.Controls.Add(this.ChaseButton);
             this.Content.Controls.Add(this.richTextBox1);
             this.Content.Controls.Add(this.StartButton);
-            this.Content.Controls.Add(this.nextGameBtn);
-            this.Content.Controls.Add(this.exitGameBtn);
             this.Content.Location = new System.Drawing.Point(0, 0);
             this.Content.Name = "Content";
             this.Content.Size = new System.Drawing.Size(1060, 686);
@@ -104,25 +100,6 @@
             this.StartButton.UseVisualStyleBackColor = false;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
-            // nextGameBtn
-            // 
-            this.nextGameBtn.Location = new System.Drawing.Point(891, 651);
-            this.nextGameBtn.Name = "nextGameBtn";
-            this.nextGameBtn.Size = new System.Drawing.Size(75, 23);
-            this.nextGameBtn.TabIndex = 8;
-            this.nextGameBtn.Text = "NextGame";
-            this.nextGameBtn.UseVisualStyleBackColor = true;
-            this.nextGameBtn.Visible = false;
-            // 
-            // exitGameBtn
-            // 
-            this.exitGameBtn.Location = new System.Drawing.Point(972, 651);
-            this.exitGameBtn.Name = "exitGameBtn";
-            this.exitGameBtn.Size = new System.Drawing.Size(75, 23);
-            this.exitGameBtn.TabIndex = 7;
-            this.exitGameBtn.Text = "Exit";
-            this.exitGameBtn.UseVisualStyleBackColor = true;
-            // 
             // ChaseTheButton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,8 +116,6 @@
         #endregion
 
         private System.Windows.Forms.Panel Content;
-        private System.Windows.Forms.Button exitGameBtn;
-        private System.Windows.Forms.Button nextGameBtn;
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button ChaseButton;

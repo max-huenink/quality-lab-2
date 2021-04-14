@@ -15,7 +15,7 @@ namespace GainsProject.UI
     //Displayes a list of games to play, switching between games
     // after a game has been selected by implementing ISelectGame
     //---------------------------------------------------------------
-    public partial class SingleGamePage : UserControl, IGamePlaylist
+    public partial class SingleGamePage : UserControl, IGamePlaylist, IGameEnd
     {
         private readonly GameSelectManager manager;
         private Func<Control> selectedGame;
@@ -53,6 +53,18 @@ namespace GainsProject.UI
                 };
                 GameSelector.Controls.Add(gameBtn);
             }
+        }
+
+        //---------------------------------------------------------------
+        //Displays the game end screen with the player's name and score
+        //---------------------------------------------------------------
+        public void GameFinished(string name, int score)
+        {
+            var gep = new GameEndPage(this)
+                .setPlayerName(name)
+                .setPlayerScore(score)
+                .setSingleGameMode();
+            showUserControl(gep);
         }
 
         //---------------------------------------------------------------

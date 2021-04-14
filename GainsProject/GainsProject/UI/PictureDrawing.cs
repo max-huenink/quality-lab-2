@@ -29,17 +29,15 @@ namespace GainsProject.UI
         {
             InitializeComponent();
         }
-        private bool nextGame;
+        private readonly IGameEnd gameEnd;
         //---------------------------------------------------------------
-        //Constructor that initializes the next game button, which calls
-        // the NextGame method of ISelectGame when clicked
+        //Constructor that initializes gameEnd which shows the game end
+        // screen when the game finishes
         //---------------------------------------------------------------
-        public PictureDrawing(IGamePlaylist selectGame)
+        public PictureDrawing(IGameEnd gameEnd)
         {
             InitializeComponent();
-            nextGameBtn.Click += (sender, e) => selectGame.NextGame();
-            exitGameBtn.Click += (sender, e) => selectGame.Exit();
-            nextGame = true;
+            this.gameEnd = gameEnd;
         }
         //---------------------------------------------------------------
         //updates the timer
@@ -115,6 +113,9 @@ namespace GainsProject.UI
                 else //subtracts points for wrong picture
                     pd.incorrectAnswer();
             }
+
+            //TODO Put this call somewhere, maybe a "next" button?
+            //gameEnd?.GameFinished(name.getName(), (int)pd.getScore());
         }
         //---------------------------------------------------------------
         //colors one square in the picture.

@@ -30,15 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MentalMathGame));
             this.Content = new System.Windows.Forms.Panel();
+            this.ScoreBox = new System.Windows.Forms.Label();
             this.ScoreLabel = new System.Windows.Forms.Label();
-            this.exitGameBtn = new System.Windows.Forms.Button();
             this.SubmitButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.nextGameBtn = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.StartButton = new System.Windows.Forms.Button();
             this.ansBox = new System.Windows.Forms.TextBox();
-            this.ScoreBox = new System.Windows.Forms.Label();
             this.Content.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,10 +44,8 @@
             // 
             this.Content.Controls.Add(this.ScoreBox);
             this.Content.Controls.Add(this.ScoreLabel);
-            this.Content.Controls.Add(this.exitGameBtn);
             this.Content.Controls.Add(this.SubmitButton);
             this.Content.Controls.Add(this.label1);
-            this.Content.Controls.Add(this.nextGameBtn);
             this.Content.Controls.Add(this.richTextBox1);
             this.Content.Controls.Add(this.StartButton);
             this.Content.Controls.Add(this.ansBox);
@@ -57,6 +53,17 @@
             this.Content.Name = "Content";
             this.Content.Size = new System.Drawing.Size(1063, 686);
             this.Content.TabIndex = 0;
+            // 
+            // ScoreBox
+            // 
+            this.ScoreBox.AutoSize = true;
+            this.ScoreBox.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScoreBox.Location = new System.Drawing.Point(857, 19);
+            this.ScoreBox.Name = "ScoreBox";
+            this.ScoreBox.Size = new System.Drawing.Size(83, 27);
+            this.ScoreBox.TabIndex = 8;
+            this.ScoreBox.Text = "Score:";
+            this.ScoreBox.Visible = false;
             // 
             // ScoreLabel
             // 
@@ -66,15 +73,6 @@
             this.ScoreLabel.Name = "ScoreLabel";
             this.ScoreLabel.Size = new System.Drawing.Size(0, 72);
             this.ScoreLabel.TabIndex = 7;
-            // 
-            // exitGameBtn
-            // 
-            this.exitGameBtn.Location = new System.Drawing.Point(982, 643);
-            this.exitGameBtn.Name = "exitGameBtn";
-            this.exitGameBtn.Size = new System.Drawing.Size(75, 23);
-            this.exitGameBtn.TabIndex = 6;
-            this.exitGameBtn.Text = "Exit";
-            this.exitGameBtn.UseVisualStyleBackColor = true;
             // 
             // SubmitButton
             // 
@@ -96,16 +94,6 @@
             this.label1.Size = new System.Drawing.Size(0, 106);
             this.label1.TabIndex = 3;
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // nextGameBtn
-            // 
-            this.nextGameBtn.Location = new System.Drawing.Point(901, 643);
-            this.nextGameBtn.Name = "nextGameBtn";
-            this.nextGameBtn.Size = new System.Drawing.Size(75, 23);
-            this.nextGameBtn.TabIndex = 2;
-            this.nextGameBtn.Text = "NextGame";
-            this.nextGameBtn.UseVisualStyleBackColor = true;
-            this.nextGameBtn.Visible = false;
             // 
             // richTextBox1
             // 
@@ -140,17 +128,6 @@
             this.ansBox.TabIndex = 4;
             this.ansBox.Visible = false;
             // 
-            // ScoreBox
-            // 
-            this.ScoreBox.AutoSize = true;
-            this.ScoreBox.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScoreBox.Location = new System.Drawing.Point(857, 19);
-            this.ScoreBox.Name = "ScoreBox";
-            this.ScoreBox.Size = new System.Drawing.Size(83, 27);
-            this.ScoreBox.TabIndex = 8;
-            this.ScoreBox.Text = "Score:";
-            this.ScoreBox.Visible = false;
-            // 
             // MentalMathGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,11 +147,9 @@
         private System.Windows.Forms.Panel Content;
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button nextGameBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox ansBox;
         private System.Windows.Forms.Button SubmitButton;
-        private System.Windows.Forms.Button exitGameBtn;
         private System.Windows.Forms.Label ScoreLabel;
         private System.Windows.Forms.Label ScoreBox;
     }

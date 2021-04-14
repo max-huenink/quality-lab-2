@@ -30,8 +30,6 @@ namespace GainsProject.UI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArrowKeyGame));
-            this.exitGameBtn = new System.Windows.Forms.Button();
-            this.nextGameBtn = new System.Windows.Forms.Button();
             this.InstructionsLbl = new System.Windows.Forms.RichTextBox();
             this.EasyDifficultyBtn = new System.Windows.Forms.Button();
             this.MediumDifficultyBtn = new System.Windows.Forms.Button();
@@ -43,26 +41,6 @@ namespace GainsProject.UI
             this.ScoreLbl = new System.Windows.Forms.Label();
             this.TotalScoreLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // exitGameBtn
-            // 
-            this.exitGameBtn.Location = new System.Drawing.Point(874, 641);
-            this.exitGameBtn.Name = "exitGameBtn";
-            this.exitGameBtn.Size = new System.Drawing.Size(75, 23);
-            this.exitGameBtn.TabIndex = 10;
-            this.exitGameBtn.Text = "Exit";
-            this.exitGameBtn.UseVisualStyleBackColor = true;
-            this.exitGameBtn.Visible = false;
-            // 
-            // nextGameBtn
-            // 
-            this.nextGameBtn.Location = new System.Drawing.Point(955, 641);
-            this.nextGameBtn.Name = "nextGameBtn";
-            this.nextGameBtn.Size = new System.Drawing.Size(75, 23);
-            this.nextGameBtn.TabIndex = 9;
-            this.nextGameBtn.Text = "NextGame";
-            this.nextGameBtn.UseVisualStyleBackColor = true;
-            this.nextGameBtn.Visible = false;
             // 
             // InstructionsLbl
             // 
@@ -195,8 +173,6 @@ namespace GainsProject.UI
             this.Controls.Add(this.LeftArrowLbl);
             this.Controls.Add(this.HardDifficultBtn);
             this.Controls.Add(this.MediumDifficultyBtn);
-            this.Controls.Add(this.exitGameBtn);
-            this.Controls.Add(this.nextGameBtn);
             this.Controls.Add(this.InstructionsLbl);
             this.Controls.Add(this.EasyDifficultyBtn);
             this.Name = "ArrowKeyGame";
@@ -208,9 +184,6 @@ namespace GainsProject.UI
         }
 
         #endregion
-
-        private System.Windows.Forms.Button exitGameBtn;
-        private System.Windows.Forms.Button nextGameBtn;
         private System.Windows.Forms.RichTextBox InstructionsLbl;
         private System.Windows.Forms.Button EasyDifficultyBtn;
         private System.Windows.Forms.Button MediumDifficultyBtn;

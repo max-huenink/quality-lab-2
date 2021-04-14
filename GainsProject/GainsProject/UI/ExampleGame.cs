@@ -24,25 +24,19 @@ namespace GainsProject.UI
         //Game name and the score save manager to save scores
         private const string GAME_NAME = "ExampleGame.txt";
         ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
-        private bool nextGame;
         //Bool to see if the game has been saved
         private bool gameSaved = false;
-        public ExampleGame()
-        {
-            InitializeComponent();
-            gameSaved = false;
-        }
+
+        private readonly IGameEnd gameEnd;
 
         //---------------------------------------------------------------
-        //Constructor that initializes the next game button, which calls
-        // the NextGame method of ISelectGame when clicked
+        //Constructor that initializes gameEnd which shows the game end
+        // screen when the game finishes
         //---------------------------------------------------------------
-        public ExampleGame(IGamePlaylist selectGame)
+        public ExampleGame(IGameEnd gameEnd)
         {
             InitializeComponent();
-            nextGameBtn.Click += (sender, e) => selectGame.NextGame();
-            exitGameBtn.Click += (sender, e) => selectGame.Exit();
-            nextGame = true;
+            this.gameEnd = gameEnd;
         }
 
         //---------------------------------------------------------------
@@ -95,11 +89,7 @@ namespace GainsProject.UI
                 }
                 //Game over!
                 game.endGame();
-                if (nextGame)
-                {
-                    nextGameBtn.Show();
-                    exitGameBtn.Show();
-                }
+                gameEnd?.GameFinished(nameClass.getName(), (int)game.getScore());
             }
         }
     }
