@@ -26,7 +26,7 @@ namespace GainsProject.Application
         private const int BUTTON_WIDTH = 88;
         private const int BUTTON_HEIGHT = 40;
         private const int SCORE = 75;
-        private const int MINUS_SCORE = 5;
+        private const int MINUS_SCORE = 25;
         private const string DEFAULT_TEXT = "Don't Click Me";
         private const string IS_IT_TEXT = "CLICK ME!";
         private bool isFinished;

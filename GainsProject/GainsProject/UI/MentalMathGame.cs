@@ -67,6 +67,8 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         private void StartButton_Click(object sender, EventArgs e)
         {
+            //clear out prev score
+            mmgame.setScore(0);
             SwitchToGameState();
             //start the game!
             mmgame.start();
