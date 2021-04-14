@@ -58,6 +58,7 @@
     <Compile Include="Application\ScoreSaveManager.cs" />
     <Compile Include="Domain\Enums\Difficulties.cs" />
     <Compile Include="Domain\Interfaces\IGame.cs" />
+    <Compile Include="Domain\BaseName.cs" />
     <Compile Include="UI\ArrowKeyGame.cs">
       <SubType>UserControl</SubType>
     </Compile>
