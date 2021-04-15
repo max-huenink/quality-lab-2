@@ -51,6 +51,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         private void startButton_Click(object sender, EventArgs e)
         {
+            dbGameManager.start();
             this.timer1.Enabled = true;
             startButton.Visible = false;
             startButton.Enabled = false;
@@ -64,6 +65,7 @@ namespace GainsProject.UI
         {
             if(dbGameManager.getIsFinished())
             {
+                dbGameManager.endGame();
                 timer1.Enabled = false;
                 gameOverLabel.Visible = true;
                 finalScoreLabel.Text = dbGameManager.getScore().ToString();
@@ -71,7 +73,7 @@ namespace GainsProject.UI
                 ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
                 scoreSave.addScore((int)dbGameManager.getScore(), name.getName());
 
-                gameEnd?.GameFinished(name.getName(), (int)dbGameManager.getScore());
+                gameEnd?.GameFinished(name.getName(), dbGameManager.getScore(), dbGameManager.getGameRunTime());
             }
             for (int i = 0; i < dbGameManager.getToAdd().Count; i++)
             {

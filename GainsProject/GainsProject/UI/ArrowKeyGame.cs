@@ -172,7 +172,7 @@ namespace GainsProject.UI
             ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
             scoreSave.addScore((int)game.getTotalScore(), name.getName());
 
-            gameEnd?.GameFinished(name.getName(), (int)game.getTotalScore());
+            gameEnd?.GameFinished(name.getName(), game.getTotalScore(), game.getGameRunTime());
         }
 
         //---------------------------------------------------------------

@@ -129,7 +129,7 @@ namespace GainsProject.UI
                 SubmitButton.Hide();
                 ScoreBox.Hide();
 
-                gameEnd?.GameFinished(name.getName(), (int)mmgame.getScore());
+                gameEnd?.GameFinished(name.getName(), mmgame.getScore(), mmgame.getGameRunTime());
             }
         }
 

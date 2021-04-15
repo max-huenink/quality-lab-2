@@ -3,6 +3,7 @@
 // Project: SE 3330 team:Xx_Bigger_Gains_xX
 // Purpose: To display an example game for the user to play
 //---------------------------------------------------------------
+using System;
 using System.Diagnostics;
 
 namespace GainsProject.Domain
@@ -20,6 +21,7 @@ namespace GainsProject.Domain
         private bool isLive;
         //Stopwatch varuble to measure reaction time
         public Stopwatch stopwatch = new Stopwatch();
+        public Stopwatch totalRunTime = new Stopwatch();
         //Dafault constructor
         public BaseGame()
         {
@@ -32,15 +34,33 @@ namespace GainsProject.Domain
         //setter for score
         public void setScore(long score) { this.score = score; }
         //Sets the isLive attribute to true
-        public void start() { isLive = true; }
+        public void start()
+        {
+            isLive = true;
+            totalRunTime.Restart();
+        }
         //Stops the game
-        public void endGame() { isLive = false; }
+        public void endGame()
+        {
+            isLive = false;
+            totalRunTime.Stop();
+        }
         //getter for time
         public long getTime() { return time; }
         //getter for score
         public long getScore() { return score; }
         //getter for IsLive
         public bool isGameLive() { return isLive; }
+        //getter for total run time stopwatch
+        public Stopwatch getTotalRunTimeStopwatch()
+        {
+            return totalRunTime;
+        }
+        //getter for total game run time
+        public TimeSpan getGameRunTime()
+        {
+            return totalRunTime.Elapsed;
+        }
         //---------------------------------------------------------------
         //Gives a random number of milliseconds based on the game
         //*ABSTRACT METHOD*

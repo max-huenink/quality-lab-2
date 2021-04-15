@@ -6,6 +6,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GainsProject.Application;
+using System.Threading.Tasks;
 
 namespace BigGainsTests
 {
@@ -69,6 +70,19 @@ namespace BigGainsTests
             ExampleGameManager game = new ExampleGameManager();
             game.setTime(843);
             Assert.AreEqual(843, game.getTime());
+        }
+        //---------------------------------------------------------------
+        //Tests total runtime of the game
+        //---------------------------------------------------------------
+        [TestMethod]
+        public async Task TotalTimeTest()
+        {
+            ExampleGameManager game = new ExampleGameManager();
+            game.start();
+            await Task.Delay(1000);
+            game.endGame();
+            var sw = game.getTotalRunTimeStopwatch();
+            Assert.AreEqual(sw.Elapsed, game.getGameRunTime());
         }
 
     }

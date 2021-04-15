@@ -4,6 +4,8 @@
 // Purpose: To indicate when the current game is over
 //---------------------------------------------------------------
 
+using System;
+
 namespace GainsProject.Domain.Interfaces
 {
     //---------------------------------------------------------------
@@ -12,9 +14,9 @@ namespace GainsProject.Domain.Interfaces
     public interface IGameEnd
     {
         //---------------------------------------------------------------
-        //Indicates the game played by {name} is over with a score of
-        // {score}
+        //Indicates the game played by name is over with a score of
+        // score and a time of timeSpan
         //---------------------------------------------------------------
-        void GameFinished(string name, int score);
+        void GameFinished(string name, long score, TimeSpan timeSpan);
     }
 }

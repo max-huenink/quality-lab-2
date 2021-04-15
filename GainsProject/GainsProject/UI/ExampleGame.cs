@@ -89,7 +89,7 @@ namespace GainsProject.UI
                 }
                 //Game over!
                 game.endGame();
-                gameEnd?.GameFinished(nameClass.getName(), (int)game.getScore());
+                gameEnd?.GameFinished(nameClass.getName(), game.getScore(), game.getGameRunTime());
             }
         }
     }

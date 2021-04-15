@@ -120,7 +120,7 @@ namespace GainsProject.UI
             //End the game.
             game.endGame();
 
-            gameEnd?.GameFinished(name.getName(), (int)game.getScore());
+            gameEnd?.GameFinished(name.getName(), game.getScore(), game.getGameRunTime());
 
             ChaseButton.Hide();
             ScoreShow.Text = ("Score: " + game.getScore());

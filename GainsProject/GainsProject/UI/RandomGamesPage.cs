@@ -33,11 +33,12 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Displays the game end screen with the player's name and score
         //---------------------------------------------------------------
-        public void GameFinished(string name, int score)
+        public void GameFinished(string name, long score, TimeSpan timeSpan)
         {
             var gep = new GameEndPage(this);
             gep.setPlayerName(name);
             gep.setPlayerScore(score);
+            gep.setGameTime(timeSpan);
             showUserControl(gep);
         }
 

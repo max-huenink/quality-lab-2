@@ -115,7 +115,7 @@ namespace GainsProject.UI
             }
 
             //TODO Put this call somewhere, maybe a "next" button?
-            //gameEnd?.GameFinished(name.getName(), (int)pd.getScore());
+            //gameEnd?.GameFinished(name.getName(), pd.getScore(), pd.getGameRunTime());
         }
         //---------------------------------------------------------------
         //colors one square in the picture.
