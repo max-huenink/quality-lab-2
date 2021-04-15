@@ -181,7 +181,7 @@ namespace GainsProject.UI
             this.WelcomeLabel.Name = "WelcomeLabel";
             this.WelcomeLabel.Size = new System.Drawing.Size(746, 288);
             this.WelcomeLabel.TabIndex = 0;
-            this.WelcomeLabel.Text = "Welcome to the \r\nXxBigger_GainsxX \r\nRecation game!\r\nPlease enter your name.";
+            this.WelcomeLabel.Text = "Welcome to the \r\nXxBigger_GainsxX \r\nReaction game!\r\nPlease enter your name.";
             this.WelcomeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BasePage
