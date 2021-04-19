@@ -63,5 +63,13 @@ namespace GainsProject.UI
             var gameSelect = new RandomGamesPage();
             showUserControl(gameSelect);
         }
+
+        private void Playlist_Click(object sender, EventArgs e)
+        {
+            //Hides the current elements
+            HidePage();
+            var makePlaylist = new MakePlaylistPage();
+            showUserControl(makePlaylist);
+        }
     }
 }

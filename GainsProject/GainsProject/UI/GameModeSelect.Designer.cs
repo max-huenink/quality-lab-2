@@ -66,6 +66,7 @@
             this.Playlist.TabIndex = 2;
             this.Playlist.Text = "Playlist";
             this.Playlist.UseVisualStyleBackColor = true;
+            this.Playlist.Click += new System.EventHandler(this.Playlist_Click);
             // 
             // textBox1
             // 
