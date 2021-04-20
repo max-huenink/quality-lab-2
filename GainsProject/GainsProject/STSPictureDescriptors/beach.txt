@@ -1,0 +1,3 @@
+﻿sand
+water
+trees
