@@ -58,7 +58,7 @@ namespace BigGainsTests
             MentalMathGameManager game = new MentalMathGameManager();
             game.setTime(-1);
             game.calculateScore();
-            Assert.AreEqual(-10, game.getScore());
+            Assert.AreEqual(-50, game.getScore());
         }
         //---------------------------------------------------------------
         //Tests that the run game method works as intended
