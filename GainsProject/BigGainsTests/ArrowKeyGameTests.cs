@@ -173,7 +173,7 @@ namespace BigGainsTests
             game.setTime(1201);
             game.setClickedButton(Keys.Left);
             game.calculateScore();
-            Assert.AreEqual(99, game.getScore());
+            Assert.AreEqual(100, game.getScore());
         }
 
         //---------------------------------------------------------------
@@ -191,7 +191,7 @@ namespace BigGainsTests
             game.setTime(1210);
             game.setClickedButton(Keys.Left);
             game.calculateScore();
-            Assert.AreEqual(99, game.getScore());
+            Assert.AreEqual(100, game.getScore());
         }
 
         //---------------------------------------------------------------
@@ -209,7 +209,7 @@ namespace BigGainsTests
             game.setTime(1700);
             game.setClickedButton(Keys.Left);
             game.calculateScore();
-            Assert.AreEqual(50, game.getScore());
+            Assert.AreEqual(65, game.getScore());
         }
 
         //---------------------------------------------------------------
@@ -227,7 +227,7 @@ namespace BigGainsTests
             game.setTime(2190);
             game.setClickedButton(Keys.Left);
             game.calculateScore();
-            Assert.AreEqual(1, game.getScore());
+            Assert.AreEqual(16, game.getScore());
         }
 
         //---------------------------------------------------------------
@@ -245,7 +245,7 @@ namespace BigGainsTests
             game.setTime(2191);
             game.setClickedButton(Keys.Left);
             game.calculateScore();
-            Assert.AreEqual(0, game.getScore());
+            Assert.AreEqual(15, game.getScore());
         }
 
         #endregion
@@ -346,13 +346,13 @@ namespace BigGainsTests
             game.calculateScore();
             Assert.AreEqual(100, game.getScore());
 
-            // 1ms after perfect, score is 99
+            // 1ms after perfect, score is 100
             game.setTime(1201);
             game.calculateScore();
-            Assert.AreEqual(99, game.getScore());
+            Assert.AreEqual(100, game.getScore());
 
-            // Total score is 100 + 99
-            Assert.AreEqual(199, game.getTotalScore());
+            // Total score is 100 + 100
+            Assert.AreEqual(200, game.getTotalScore());
         }
 
         #endregion
