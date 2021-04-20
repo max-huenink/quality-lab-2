@@ -11,20 +11,27 @@ namespace GainsProject.Application
     {
 
         private List<(string Name, Func<Control> GameControlCreator)> playlist;
+        private List<(string Name, Func<Control> GameControlCreator)> startPlaylist;
 
         public MakePlaylistPageManager()
         {
             playlist = new List<(string Name, Func<Control> GameControlCreator)>();
+            startPlaylist = new List<(string Name, Func<Control> GameControlCreator)>();
         }
 
-        public bool contains((string Name, Func<Control> GameControlCreator) game) 
+        public bool contains(string g) 
         { 
-            return playlist.Contains(game); 
+            foreach(var game in playlist)
+            {
+                if (game.Name == g)
+                    return true;
+            }
+            return false; 
         }
 
         public bool isEmpty()
         {
-            return playlist.Count < 1;
+            return playlist.Count == 0;
         }
 
         public void add((string Name, Func<Control> GameControlCreator) game) 
@@ -32,7 +39,7 @@ namespace GainsProject.Application
             playlist.Add(game); 
         }
 
-        public void remove(Func<Control> GameControlCreator game)
+        public void remove((string Name, Func<Control> GameControlCreator) game)
         {
             playlist.Remove(game);
         }
@@ -41,5 +48,19 @@ namespace GainsProject.Application
         {
             return playlist[0];
         }
+
+        public void validatePlaylist()
+        {
+            foreach(var game in playlist)
+            {
+                startPlaylist.Add(game);
+            }
+        }
+
+        public List<(string Name, Func<Control> GameControlCreator)> getPlaylist()
+        {
+            return startPlaylist;
+        }
+
     }
 }

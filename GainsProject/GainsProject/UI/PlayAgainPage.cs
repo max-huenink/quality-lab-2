@@ -14,14 +14,24 @@ namespace GainsProject.UI
     //---------------------------------------------------------------
     public partial class PlayAgainPage : UserControl
     {
+        bool isPlaylist;
+        int counter;
         //---------------------------------------------------------------
         //Default constructor that initializes the buttons
         //---------------------------------------------------------------
         public PlayAgainPage()
         {
             InitializeComponent();
+            isPlaylist = false;
         }
-
+        System.Collections.Generic.List<(string Name, Func<Control> GameControlCreator)> playlist;
+        public PlayAgainPage(System.Collections.Generic.List<(string Name, Func<Control> GameControlCreator)> list, int count)
+        {
+            InitializeComponent();
+            playlist = list;
+            isPlaylist = true;
+            counter = count;
+        }
         //---------------------------------------------------------------
         //Passes control from the play again page to the selected game
         // Params: Control control - the control to show
@@ -42,7 +52,10 @@ namespace GainsProject.UI
 
         private void yesBtn_Click(object sender, EventArgs e)
         {
-            showUserControl(new RandomGamesPage());
+            if (isPlaylist == false)
+                showUserControl(new RandomGamesPage());
+            else
+                showUserControl(new MakePlaylistPage(playlist, counter));
         }
 
         private void noBtn_Click(object sender, EventArgs e)

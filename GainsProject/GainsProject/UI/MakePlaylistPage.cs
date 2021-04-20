@@ -8,19 +8,45 @@ namespace GainsProject.UI
     public partial class MakePlaylistPage : UserControl, IGamePlaylist, IGameEnd
     {
         MakePlaylistPageManager playlistManager;
+        bool listOver;
+        int round;
         public MakePlaylistPage()
         {
             InitializeComponent();
 
             manager = GameSelectManager.CreateAndPopulateManager(this);
-            CreateGameButtons();
             playlistManager = new MakePlaylistPageManager();
             pManager = new GameSelectManager();
+            listOver = false;
+            CreateGameButtons();
+            round = 1;
+            Content.BackColor = System.Drawing.Color.Salmon;
+        }
+        public MakePlaylistPage(System.Collections.Generic.List<(string Name, Func<Control> GameControlCreator)> list, int count)
+        {
+            InitializeComponent();
+            round = count;
+            manager = GameSelectManager.CreateAndPopulateManager(this);
+            playlistManager = new MakePlaylistPageManager();
+            pManager = new GameSelectManager();
+            listOver = false;
+            foreach (var g in list)
+            {
+                pManager.AddGameToList(g.Name, g.GameControlCreator);
+                playlistManager.add(g);
+
+            }
+            if (!playlistManager.isEmpty())
+                selectedGame = playlistManager.getFirstGame();
+            CreateGameButtons();
+            label2.Text = "Current\nPlaylist: ";
+            startButton.Text = "Start Round: " + round;
+            Content.BackColor = System.Drawing.Color.Salmon;
         }
 
         private readonly GameSelectManager manager;
         private readonly GameSelectManager pManager;
-        private Func<Control> selectedGame;
+        private (string Name, Func<Control> GameControlCreator) selectedGame;
         //---------------------------------------------------------------
         //Creates buttons for each game in the games list
         //---------------------------------------------------------------
@@ -34,6 +60,7 @@ namespace GainsProject.UI
                     Text = game.Name,
                     Anchor = AnchorStyles.None,
                     AutoSize = true,
+                    BackColor = System.Drawing.SystemColors.Control,
                 };
                 gameBtn.Click += (sender, e) =>
                 {
@@ -41,7 +68,7 @@ namespace GainsProject.UI
                     {
                         GamePlaylist.Controls.Add(gameBtn);
                         if(playlistManager.isEmpty())
-                            selectedGame = game.GameControlCreator;
+                            selectedGame = game;
                         playlistManager.add(game);
                         pManager.AddGameToList(game.Name, game.GameControlCreator);
                     }
@@ -50,21 +77,24 @@ namespace GainsProject.UI
                         GameSelector.Controls.Add(gameBtn);
                         playlistManager.remove(game);
                         pManager.RemoveGameFromList(game.Name, game.GameControlCreator);
-                        if(playlistManager.isEmpty() && selectedGame == game.GameControlCreator)
+                        if(!playlistManager.isEmpty() && selectedGame == game)
                         {
                             (string Name, Func<Control> GameControlCreator) temp = playlistManager.getFirstGame();
                             foreach(var g in pManager.GetListOfGames())
                             {
                                 if(temp == g)
                                 {
-                                    selectedGame = g.GameControlCreator;
+                                    selectedGame = g;
                                 }
                             }
                         }
                     }
                     //PlayGame();
                 };
-                GameSelector.Controls.Add(gameBtn);
+                    GameSelector.Controls.Add(gameBtn);
+                if (playlistManager.contains(game.Name))
+                    GamePlaylist.Controls.Add(gameBtn);
+                //GameSelector.Controls.Add(gameBtn);
             }
         }
 
@@ -77,7 +107,6 @@ namespace GainsProject.UI
             gep.setPlayerName(name);
             gep.setPlayerScore(score);
             gep.setGameTime(timeSpan);
-            gep.setSingleGameMode();
             showUserControl(gep);
         }
 
@@ -86,7 +115,14 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         public void NextGame()
         {
-
+            playlistManager.remove(selectedGame);
+            pManager.RemoveGameFromList(selectedGame.Name, selectedGame.GameControlCreator);
+            if(!playlistManager.isEmpty())
+                selectedGame = playlistManager.getFirstGame();
+            else
+            {
+                listOver = true;
+            }
             PlayGame();
         }
 
@@ -96,7 +132,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         public void Exit()
         {
-            selectedGame = () => new MakePlaylistPage();
+            selectedGame.GameControlCreator = () => new MakePlaylistPage();
             PlayGame();
         }
 
@@ -120,12 +156,20 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         private void PlayGame()
         {
-            showUserControl(selectedGame?.Invoke());
-            playlistManager.remove(selectedGame);
+            //pManager.PlayedGame(selectedGame.GameControlCreator);
+            if (listOver)
+                selectedGame.GameControlCreator = () => new PlayAgainPage(playlistManager.getPlaylist(), ++ round);
+            else
+            {
+                selectedGame = playlistManager.getFirstGame();
+            }
+            showUserControl(selectedGame.GameControlCreator?.Invoke());
         }
+
 
         private void startButton_Click(object sender, EventArgs e)
         {
+            playlistManager.validatePlaylist();
             PlayGame();
         }
     }

@@ -27,6 +27,7 @@ namespace GainsProject.UI
             setupClickEvents(playlist);
         }
 
+
         //---------------------------------------------------------------
         //Initializes click events for next game and exit to go to the
         // proper screen
