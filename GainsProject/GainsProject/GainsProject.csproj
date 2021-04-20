@@ -52,6 +52,7 @@
     <Compile Include="Application\ChaseTheButtonGameManager.cs" />
     <Compile Include="Application\ArrowKeyGameManager.cs" />
     <Compile Include="Application\DizzyButtonsGameManager.cs" />
+    <Compile Include="Application\MakePlaylistPageManager.cs" />
     <Compile Include="Application\MentalMathGameManager.cs" />
     <Compile Include="Application\NameClass.cs" />
     <Compile Include="Application\PictureDrawingManager.cs" />
@@ -105,6 +106,12 @@
       <DependentUpon>ExampleGame.cs</DependentUpon>
     </Compile>
     <Compile Include="Application\ExampleGameManager.cs" />
+    <Compile Include="UI\MakePlaylistPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\MakePlaylistPage.Designer.cs">
+      <DependentUpon>MakePlaylistPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\PictureDrawing.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -187,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\GameModeSelect.resx">
       <DependentUpon>GameModeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MakePlaylistPage.resx">
+      <DependentUpon>MakePlaylistPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PictureDrawing.resx">
       <DependentUpon>PictureDrawing.cs</DependentUpon>

@@ -22,9 +22,9 @@ namespace BigGainsTests
         public void ScoringValid()
         {
             ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
-            game.setTime(2000);
+            game.setTime(3000);
             game.calculateScore();
-            Assert.AreEqual(916, game.getScore());
+            Assert.AreEqual(833, game.getScore());
         }
         //---------------------------------------------------------------
         //Tests the lower bound scoring in the mental math game manager

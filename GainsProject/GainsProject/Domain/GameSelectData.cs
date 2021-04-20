@@ -50,6 +50,17 @@ namespace GainsProject.Domain
         }
 
         //---------------------------------------------------------------
+        //Removes a game from the list of games
+        // Params: string name - the name of the game
+        //         Func<Control> gameControlCreator - A function that
+        //          creates the game control
+        //---------------------------------------------------------------
+        public void RemoveGameFromList(string name, Func<Control> gameControlCreator)
+        {
+            gameList.Remove((name, gameControlCreator));
+        }
+
+        //---------------------------------------------------------------
         //Adds a game creator to the list of game creators used
         // in this session
         //         Func<Control> gameCreator - A function that creates
