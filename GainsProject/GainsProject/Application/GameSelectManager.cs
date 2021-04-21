@@ -132,6 +132,7 @@ namespace GainsProject.Application
             manager.AddGameToList("Picture Drawing Game", () => new PictureDrawing(gameEnd));
             manager.AddGameToList("Chase the button", () => new ChaseTheButton(gameEnd));
             manager.AddGameToList("Dizzy Buttons", () => new DizzyButtonsGame(gameEnd));
+            manager.AddGameToList("Spot The Scenery", () => new SpotTheSceneryGame(gameEnd));
             return manager;
         }
     }

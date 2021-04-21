@@ -57,10 +57,12 @@
     <Compile Include="Application\NameClass.cs" />
     <Compile Include="Application\PictureDrawingManager.cs" />
     <Compile Include="Application\ScoreSaveManager.cs" />
+    <Compile Include="Application\SpotTheSceneryGameManager.cs" />
     <Compile Include="Domain\Enums\Difficulties.cs" />
     <Compile Include="Domain\Interfaces\IGame.cs" />
     <Compile Include="Domain\BaseName.cs" />
     <Compile Include="Domain\Interfaces\IGameEnd.cs" />
+    <Compile Include="Domain\SpotTheSceneryPictureDescriptor.cs" />
     <Compile Include="UI\ArrowKeyGame.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -167,6 +169,12 @@
     <Compile Include="UI\TutorialPage.Designer.cs">
       <DependentUpon>TutorialPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\SpotTheSceneryGame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SpotTheSceneryGame.Designer.cs">
+      <DependentUpon>SpotTheSceneryGame.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UI\ArrowKeyGame.resx">
       <DependentUpon>ArrowKeyGame.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +235,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\SpotTheSceneryGame.resx">
+      <DependentUpon>SpotTheSceneryGame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\TutorialPage.resx">
       <DependentUpon>TutorialPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,11 +271,36 @@
     <Content Include="PictureDrawingFolder\weirdMario.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SpotTheSceneryFolder\artic_bear.jpg" />
+    <Content Include="SpotTheSceneryFolder\beach.jpg" />
+    <Content Include="SpotTheSceneryFolder\big_house.jpg" />
+    <Content Include="SpotTheSceneryFolder\city.jpg" />
+    <Content Include="SpotTheSceneryFolder\desert.jpg" />
+    <Content Include="SpotTheSceneryFolder\forest.jpg" />
+    <Content Include="SpotTheSceneryFolder\grasslands.jpg" />
+    <Content Include="SpotTheSceneryFolder\minecraft.jpg" />
+    <Content Include="SpotTheSceneryFolder\mountain.jpg" />
+    <Content Include="SpotTheSceneryFolder\ocean.jpg" />
+    <Content Include="SpotTheSceneryFolder\rocky.jpg" />
+    <Content Include="SpotTheSceneryFolder\winter.jpg" />
+    <Content Include="STSPictureDescriptors\artic_bear.txt" />
+    <Content Include="STSPictureDescriptors\beach.txt" />
+    <Content Include="STSPictureDescriptors\big_house.txt" />
+    <Content Include="STSPictureDescriptors\city.txt" />
+    <Content Include="STSPictureDescriptors\desert.txt" />
+    <Content Include="STSPictureDescriptors\forest.txt" />
+    <Content Include="STSPictureDescriptors\grasslands.txt" />
+    <Content Include="STSPictureDescriptors\minecraft.txt" />
+    <Content Include="STSPictureDescriptors\mountain.txt" />
+    <Content Include="STSPictureDescriptors\ocean.txt" />
+    <Content Include="STSPictureDescriptors\rocky.txt" />
+    <Content Include="STSPictureDescriptors\winter.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GameScore.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

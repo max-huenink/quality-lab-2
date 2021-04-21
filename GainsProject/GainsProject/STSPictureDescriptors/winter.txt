@@ -1,0 +1,4 @@
+﻿snow
+trees
+grass
+a house
