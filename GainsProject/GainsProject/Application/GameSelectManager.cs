@@ -30,6 +30,16 @@ namespace GainsProject.Application
             data = new GameSelectData();
         }
 
+        public GameSelectManager(List<(string Name, Func<Control> GameControlCreator)> gamelist)
+        {
+            rnd = new Random();
+            data = new GameSelectData();
+            foreach(var g in gamelist)
+            {
+                data.AddGameToList(g.Name, g.GameControlCreator);
+            }
+        }
+
         // Getter for game list
         public List<(string Name, Func<Control> GameControlCreator)> GetListOfGames()
         {
@@ -56,6 +66,11 @@ namespace GainsProject.Application
         public void RemoveGameFromList(string name, Func<Control> gameControlCreator)
         {
             data.RemoveGameFromList(name, gameControlCreator);
+        }
+
+        public void RefreshGamesPlayed()
+        {
+            data.refreshPlayedGames();
         }
 
         //---------------------------------------------------------------
@@ -85,6 +100,21 @@ namespace GainsProject.Application
             {
                 var indx = rnd.Next(0, games.Length);
                 gameCreator = games[indx].GameControlCreator;
+            }
+            return gameCreator;
+        }
+
+        public Func<Control> GetFirstUnplayedGame()
+        {
+            var games = data.GetListOfGames()
+                .Where(g =>
+                !data.GetGamesPlayed()
+                .Contains(g.GameControlCreator))
+                .ToArray();
+            Func<Control> gameCreator = null;
+            if (games.Length > 0)
+            {
+                gameCreator = games[0].GameControlCreator;
             }
             return gameCreator;
         }
