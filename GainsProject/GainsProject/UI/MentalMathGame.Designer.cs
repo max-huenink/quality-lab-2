@@ -76,7 +76,7 @@
             // 
             // SubmitButton
             // 
-            this.SubmitButton.Location = new System.Drawing.Point(365, 342);
+            this.SubmitButton.Location = new System.Drawing.Point(365, 481);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(346, 115);
             this.SubmitButton.TabIndex = 5;
@@ -122,11 +122,13 @@
             // 
             // ansBox
             // 
+            this.ansBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ansBox.Location = new System.Drawing.Point(427, 319);
             this.ansBox.Name = "ansBox";
-            this.ansBox.Size = new System.Drawing.Size(228, 20);
+            this.ansBox.Size = new System.Drawing.Size(228, 80);
             this.ansBox.TabIndex = 4;
             this.ansBox.Visible = false;
+            this.ansBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ansBox_KeyUp);
             // 
             // MentalMathGame
             // 

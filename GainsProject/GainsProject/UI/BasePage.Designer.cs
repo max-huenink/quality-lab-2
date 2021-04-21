@@ -159,7 +159,7 @@ namespace GainsProject.UI
             this.EnterButton.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.EnterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.EnterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EnterButton.Location = new System.Drawing.Point(384, 418);
+            this.EnterButton.Location = new System.Drawing.Point(399, 474);
             this.EnterButton.Name = "EnterButton";
             this.EnterButton.Size = new System.Drawing.Size(328, 103);
             this.EnterButton.TabIndex = 2;
@@ -169,9 +169,10 @@ namespace GainsProject.UI
             // 
             // NameBox
             // 
-            this.NameBox.Location = new System.Drawing.Point(399, 344);
+            this.NameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameBox.Location = new System.Drawing.Point(399, 363);
             this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(292, 20);
+            this.NameBox.Size = new System.Drawing.Size(328, 62);
             this.NameBox.TabIndex = 1;
             // 
             // WelcomeLabel
