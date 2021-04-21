@@ -32,7 +32,7 @@ namespace GainsProject.Application
         private int numWrong = 0;
         private List<Image> currPictures = new List<Image>();
         private List<string> currPicturesNames = new List<string>();
-        SpotTheSceneryPictureDescriptor stspd = new SpotTheSceneryPictureDescriptor();
+        private SpotTheSceneryPictureDescriptor stspd = new SpotTheSceneryPictureDescriptor();
         //---------------------------------------------------------------
         // this method calcualtes the score for the performance taking
         // into account how long it took and how many were correct
@@ -79,18 +79,23 @@ namespace GainsProject.Application
             List<Image> tempList = stspd.getPictureList();
             while (numPictures < 4)
             {
+                //get a random number
                 int rand = random.Next(tempList.Count - 1);
                 Image tempImage = tempList[rand];
                 string tempImageName = stspd.getPictureNamesList()[rand];
+                //check if the image is in the currPictures
                 if (!currPictures.Contains(tempImage))
                 {
+                    //check if currPictures is big enough for the first go through
                     if(numPictures >= currPictures.Count)
                     {
+                        //add new element
                         currPictures.Add(tempImage);
                         currPicturesNames.Add(tempImageName);
                     }
                     else
                     {
+                        //write over other element
                         currPictures[numPictures] = tempImage;
                         currPicturesNames[numPictures] = tempImageName;
                     }
