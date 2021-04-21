@@ -53,6 +53,9 @@ namespace GainsProject.UI
             }
         }
 
+        //---------------------------------------------------------------
+        //Shows the user control for the playlist/random to replay it
+        //---------------------------------------------------------------
         private void yesBtn_Click(object sender, EventArgs e)
         {
             if (isPlaylist == false)
@@ -61,6 +64,9 @@ namespace GainsProject.UI
                 showUserControl(new MakePlaylistPage(playlist, counter));
         }
 
+        //---------------------------------------------------------------
+        //Shows a blank screen
+        //---------------------------------------------------------------
         private void noBtn_Click(object sender, EventArgs e)
         {
             showUserControl(null);
