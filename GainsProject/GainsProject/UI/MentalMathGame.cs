@@ -132,6 +132,73 @@ namespace GainsProject.UI
                 gameEnd?.GameFinished(name.getName(), mmgame.getScore(), mmgame.getGameRunTime());
             }
         }
+        //---------------------------------------------------------------
+        //When the enter button is clicked, calculate answer, and score
+        //accordingly
+        //---------------------------------------------------------------
+        private void ansBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            //Make sure the game is live
+            if (!(mmgame.isGameLive()))
+            {
+                return;
+            }
+            Keys key = e.KeyCode;
+            //see if the enter button was pressed
+            if (!(key.HasFlag(Keys.Enter)))
+            {
+                return;
+            }
+            //If the game is live, stop time
+            mmgame.stopwatch.Stop();
+            //store the time and reset the stopwatch
+            mmgame.runGame();
+            //Is the answer correct?
+            if (ans.ToString() == ansBox.Text)
+            {
+                mmgame.calculateScore();
+            }
+            else
+            //Wrong answer!
+            {
+                mmgame.setTime(-1);
+                mmgame.calculateScore();
+            }
+            //Question complete
+            questionNumber++;
+            //If not the final question
+            if (questionNumber != 10)
+            {
+                //New numbers, and new text for the label
+                random1 = mmgame.randomTime();
+                random2 = mmgame.randomTime();
+                label1.Text = (random1 + " + " + random2);
+                ans = random1 + random2;
+                //Clear the answer box
+                ansBox.Clear();
+                //start time
+                mmgame.stopwatch.Start();
+                ScoreBox.Text = "Score: " + mmgame.getScore();
+                //Move control to the textbox
+                this.ActiveControl = ansBox;
+            }
+            //All done!
+            else
+            {
+                //Score save to save the score
+                ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
+                scoreSave.addScore((int)mmgame.getScore(), name.getName());
+                //End the game
+                mmgame.endGame();
+                //Change labels
+                ScoreLabel.Text = "All done! Score: " + mmgame.getScore();
+                label1.Hide();
+                ansBox.Hide();
+                SubmitButton.Hide();
+                ScoreBox.Hide();
 
+                gameEnd?.GameFinished(name.getName(), mmgame.getScore(), mmgame.getGameRunTime());
+            }
+        }
     }
 }
