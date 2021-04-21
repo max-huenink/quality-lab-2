@@ -20,6 +20,8 @@ namespace GainsProject.Application
     {
         //Lists to hold the games
         private List<(string Name, Func<Control> GameControlCreator)> playlist;
+        List<string> startPlaylist;
+
         private List<(string Name, Func<Control> GameControlCreator)> startPlaylist;
         //--------------------------------------------------------------------
         //Default constructor
@@ -27,7 +29,7 @@ namespace GainsProject.Application
         public MakePlaylistPageManager()
         {
             playlist = new List<(string Name, Func<Control> GameControlCreator)>();
-            startPlaylist = new List<(string Name, Func<Control> GameControlCreator)>();
+            startPlaylist = new List<string>();
         }
         //--------------------------------------------------------------------
         //Checks if the playlist contains a string
@@ -60,6 +62,11 @@ namespace GainsProject.Application
         //--------------------------------------------------------------------
         public void remove((string Name, Func<Control> GameControlCreator) game)
         {
+            //foreach (var g in playlist)
+            //{
+             //   if (g.Name == game.Name)
+            //        playlist.Remove(g);
+            //}
             playlist.Remove(game);
         }
         //--------------------------------------------------------------------
@@ -69,20 +76,24 @@ namespace GainsProject.Application
         {
             return playlist[0];
         }
-        //--------------------------------------------------------------------
-        //Start the platlist
-        //--------------------------------------------------------------------
-        public void validatePlaylist()
+
+        /*public void validatePlaylist()
         {
             foreach(var game in playlist)
             {
                 startPlaylist.Add(game);
             }
+        } */
+
+        public void validatePlaylist(GameSelectManager gamelist)
+        {
+            foreach(var g in gamelist.GetListOfGames())
+            {
+                startPlaylist.Add(g.Name);
+            }
         }
-        //--------------------------------------------------------------------
-        //Get the playlist.
-        //--------------------------------------------------------------------
-        public List<(string Name, Func<Control> GameControlCreator)> getPlaylist()
+
+        public List<string> getPlaylist()
         {
             return startPlaylist;
         }

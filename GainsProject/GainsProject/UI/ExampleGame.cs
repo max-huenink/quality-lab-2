@@ -8,6 +8,8 @@ using GainsProject.Domain.Interfaces;
 using System;
 using System.Windows.Forms;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace GainsProject.UI
 {
@@ -26,6 +28,7 @@ namespace GainsProject.UI
         ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
         //Bool to see if the game has been saved
         private bool gameSaved = false;
+        private CancellationTokenSource cts;
 
         private readonly IGameEnd gameEnd;
 
@@ -44,18 +47,19 @@ namespace GainsProject.UI
         //after a random ammount of time, the screen switched to green.
         //Once the screen turns green, the stopwatch starts.
         //---------------------------------------------------------------
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
+            cts = new CancellationTokenSource();
             //Change background to red
             this.BackColor = System.Drawing.Color.Red;
             //Clean up leftover form elements
             richTextBox1.Hide();
             Startbutton.Hide();
-            //Stay red for a random amount of time
-            System.Threading.Thread.Sleep(game.randomTime());
-            this.BackColor = System.Drawing.Color.Green;
             //Game is live!
             game.start();
+            //Stay red for a random amount of time
+            await Task.Run(async () => await Task.Delay(game.randomTime()), cts.Token);
+            this.BackColor = System.Drawing.Color.Green;
             //Start the timer
             game.stopwatch.Start();
         }
@@ -69,6 +73,7 @@ namespace GainsProject.UI
             //If the game is live, then calculate the time
             if (game.isGameLive())
             {
+                cts.Cancel();
                 game.stopwatch.Stop();
                 game.runGame();
                 //If the user clicked too early

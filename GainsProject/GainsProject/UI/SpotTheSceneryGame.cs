@@ -23,10 +23,10 @@ namespace GainsProject.UI
     //---------------------------------------------------------------
     public partial class SpotTheSceneryGame : UserControl
     {
-        SpotTheSceneryGameManager stsgManager = new SpotTheSceneryGameManager();
+        private SpotTheSceneryGameManager stsgManager = new SpotTheSceneryGameManager();
         private const string GAME_NAME = "SpotTheScenery.txt";
-        ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
-        NameClass name = new NameClass();
+        private ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
+        private NameClass name = new NameClass();
         private readonly IGameEnd gameEnd;
         //---------------------------------------------------------------
         // default constructor

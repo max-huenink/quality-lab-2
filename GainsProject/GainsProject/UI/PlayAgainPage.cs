@@ -4,7 +4,9 @@
 // Purpose: To prompt the user to replay available games in a
 //          different random order
 //---------------------------------------------------------------
+using GainsProject.Application;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace GainsProject.UI
@@ -24,8 +26,9 @@ namespace GainsProject.UI
             InitializeComponent();
             isPlaylist = false;
         }
-        System.Collections.Generic.List<(string Name, Func<Control> GameControlCreator)> playlist;
-        public PlayAgainPage(System.Collections.Generic.List<(string Name, Func<Control> GameControlCreator)> list, int count)
+        //System.Collections.Generic.List<(string Name, Func<Control> GameControlCreator)> playlist;
+        List<string> playlist;
+        public PlayAgainPage(List<string> list, int count)
         {
             InitializeComponent();
             playlist = list;
@@ -50,6 +53,9 @@ namespace GainsProject.UI
             }
         }
 
+        //---------------------------------------------------------------
+        //Shows the user control for the playlist/random to replay it
+        //---------------------------------------------------------------
         private void yesBtn_Click(object sender, EventArgs e)
         {
             if (isPlaylist == false)
@@ -58,6 +64,9 @@ namespace GainsProject.UI
                 showUserControl(new MakePlaylistPage(playlist, counter));
         }
 
+        //---------------------------------------------------------------
+        //Shows a blank screen
+        //---------------------------------------------------------------
         private void noBtn_Click(object sender, EventArgs e)
         {
             showUserControl(null);

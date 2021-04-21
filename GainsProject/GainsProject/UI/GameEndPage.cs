@@ -66,6 +66,15 @@ namespace GainsProject.UI
         }
 
         //---------------------------------------------------------------
+        //Changes the next game button text to reflect replaying a single
+        // game
+        //---------------------------------------------------------------
+        public void setSingleGameMode()
+        {
+            nextGameBtn.Text = "Replay game";
+        }
+
+        //---------------------------------------------------------------
         //Centers the label on the screen
         //---------------------------------------------------------------
         private void CenterLabelHorizontally(Label lbl)
@@ -83,16 +92,6 @@ namespace GainsProject.UI
         {
             var pageWidth = Size.Width;
             return (pageWidth - itemWidth) / 2;
-        }
-
-        //---------------------------------------------------------------
-        //Changes the next game button text to reflect replaying a single
-        // game
-        //---------------------------------------------------------------
-        public GameEndPage setSingleGameMode()
-        {
-            nextGameBtn.Text = "Replay game";
-            return this;
         }
     }
 }
