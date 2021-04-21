@@ -1,10 +1,18 @@
-﻿using GainsProject.Application;
+﻿//---------------------------------------------------------------
+// Name:    Ben Hefel
+// Project: SE 3330 team:Xx_Bigger_Gains_xX
+// Purpose: The UI to create a playlist of games
+//---------------------------------------------------------------
+using GainsProject.Application;
 using GainsProject.Domain.Interfaces;
 using System;
 using System.Windows.Forms;
 
 namespace GainsProject.UI
 {
+    //---------------------------------------------------------------
+    //The UI to allow the user to create a playlist
+    //---------------------------------------------------------------
     public partial class MakePlaylistPage : UserControl, IGamePlaylist, IGameEnd
     {
         MakePlaylistPageManager playlistManager;
@@ -22,6 +30,9 @@ namespace GainsProject.UI
             round = 1;
             Content.BackColor = System.Drawing.Color.Salmon;
         }
+        //---------------------------------------------------------------
+        //Creates the playlist page
+        //---------------------------------------------------------------
         public MakePlaylistPage(System.Collections.Generic.List<(string Name, Func<Control> GameControlCreator)> list, int count)
         {
             InitializeComponent();
@@ -165,8 +176,9 @@ namespace GainsProject.UI
             }
             showUserControl(selectedGame.GameControlCreator?.Invoke());
         }
-
-
+        //---------------------------------------------------------------
+        //Method for when the start button is clicked
+        //---------------------------------------------------------------
         private void startButton_Click(object sender, EventArgs e)
         {
             playlistManager.validatePlaylist();

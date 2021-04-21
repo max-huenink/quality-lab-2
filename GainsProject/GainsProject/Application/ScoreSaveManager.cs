@@ -22,6 +22,7 @@ namespace GainsProject.Application
         //This object is static so everytime a class want it, it will be the same
         private static ScoreSaveManager scoreSaveManager;
         private List<ScoreSave> scoreSaveList;
+        // game names
         private static readonly string[] gameNames = { "testGame1.txt", 
             "SpotTheScenery.txt", "PictureDrawing.txt",
             "DizzyButtons.txt", "ChaseTheButton.txt", "ExampleGame.txt",
