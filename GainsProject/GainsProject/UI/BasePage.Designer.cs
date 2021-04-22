@@ -29,24 +29,27 @@ namespace GainsProject.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BasePage));
             this.panel1 = new System.Windows.Forms.Panel();
             this.leaderboardButton = new System.Windows.Forms.Button();
             this.quitButton = new System.Windows.Forms.Button();
             this.previousResultsButton = new System.Windows.Forms.Button();
             this.tutorialButton = new System.Windows.Forms.Button();
             this.playButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.Content = new System.Windows.Forms.Panel();
             this.EnterButton = new System.Windows.Forms.Button();
             this.NameBox = new System.Windows.Forms.TextBox();
             this.WelcomeLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.Content.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Tomato;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.leaderboardButton);
             this.panel1.Controls.Add(this.quitButton);
             this.panel1.Controls.Add(this.previousResultsButton);
@@ -132,15 +135,6 @@ namespace GainsProject.UI
             this.playButton.Visible = false;
             this.playButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.playButton_MouseClick);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 26);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Put logo or picture of our team \n name with cool font here";
-            // 
             // Content
             // 
             this.Content.BackColor = System.Drawing.Color.Beige;
@@ -185,13 +179,24 @@ namespace GainsProject.UI
             this.WelcomeLabel.Text = "Welcome to the \r\nXxBigger_GainsxX \r\nReaction game!\r\nPlease enter your name.";
             this.WelcomeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(196, 97);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.WaitOnLoad = true;
+            // 
             // BasePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.Content);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.KeyPreview = true;
             this.Name = "BasePage";
@@ -199,8 +204,8 @@ namespace GainsProject.UI
             this.panel1.ResumeLayout(false);
             this.Content.ResumeLayout(false);
             this.Content.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -211,12 +216,12 @@ namespace GainsProject.UI
         private System.Windows.Forms.Button previousResultsButton;
         private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.Button tutorialButton;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button leaderboardButton;
         private System.Windows.Forms.Panel Content;
         private System.Windows.Forms.Label WelcomeLabel;
         private System.Windows.Forms.Button EnterButton;
         private System.Windows.Forms.TextBox NameBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

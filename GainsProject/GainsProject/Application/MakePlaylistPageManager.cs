@@ -16,7 +16,7 @@ namespace GainsProject.Application
     //--------------------------------------------------------------------
     //Makes the new playlist
     //--------------------------------------------------------------------
-    class MakePlaylistPageManager
+    public class MakePlaylistPageManager
     {
         //Lists to hold the games
         private List<(string Name, Func<Control> GameControlCreator)> playlist;
@@ -61,11 +61,6 @@ namespace GainsProject.Application
         //--------------------------------------------------------------------
         public void remove((string Name, Func<Control> GameControlCreator) game)
         {
-            //foreach (var g in playlist)
-            //{
-             //   if (g.Name == game.Name)
-            //        playlist.Remove(g);
-            //}
             playlist.Remove(game);
         }
         //--------------------------------------------------------------------

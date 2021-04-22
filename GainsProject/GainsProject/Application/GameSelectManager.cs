@@ -29,7 +29,14 @@ namespace GainsProject.Application
             rnd = new Random();
             data = new GameSelectData();
         }
-
+        //---------------------------------------------------------------
+        //Parameterized contructor, takes a list of the games list to 
+        //initialize the GameSelectManager to one that was already used.
+        //        // Params: a list that contains
+        //          string name - the name of the game
+        //         Func<Control> gameControlCreator - A function that
+        //          creates the game control
+        //---------------------------------------------------------------
         public GameSelectManager(List<(string Name, Func<Control> GameControlCreator)> gamelist)
         {
             rnd = new Random();
@@ -67,7 +74,9 @@ namespace GainsProject.Application
         {
             data.RemoveGameFromList(name, gameControlCreator);
         }
-
+        //---------------------------------------------------------------
+        // Resets the list for games that have been played
+        //---------------------------------------------------------------
         public void RefreshGamesPlayed()
         {
             data.refreshPlayedGames();
@@ -104,6 +113,10 @@ namespace GainsProject.Application
             return gameCreator;
         }
 
+        //---------------------------------------------------------------
+        // Gets the first index of the list that has not been played
+        //Returns a Func<Control>
+        //---------------------------------------------------------------
         public Func<Control> GetFirstUnplayedGame()
         {
             var games = data.GetListOfGames()
