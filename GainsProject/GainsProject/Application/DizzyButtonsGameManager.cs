@@ -133,8 +133,8 @@ namespace GainsProject.Application
             if (clickedButton.BackColor == IS_IT_BACK_COLOR)
             {
                 score += SCORE;
-                if (score > 1000)
-                    this.setScore(1000);
+                if (score > GAME_LENGTH)
+                    score = GAME_LENGTH;
                 int index = getButtonIndex(clickedButton);
                 if(index != -1)
                 {
