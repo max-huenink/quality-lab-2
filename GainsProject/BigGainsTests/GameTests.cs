@@ -6,6 +6,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GainsProject.Application;
+using GainsProject.Domain;
 using System.Threading.Tasks;
 
 namespace BigGainsTests
@@ -104,6 +105,17 @@ namespace BigGainsTests
             Assert.AreEqual(700, game.getScore());
         }
         //---------------------------------------------------------------
+        //Tests the scoring in the example game manager if taken too long
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void ScoringZeroPoints()
+        {
+            ExampleGameManager game = new ExampleGameManager();
+            game.setTime(50000);
+            game.calculateScore();
+            Assert.AreEqual(0, game.getScore());
+        }
+        //---------------------------------------------------------------
         //Tests the scoring in the example game manager if time is zero
         //---------------------------------------------------------------
         [TestMethod]
@@ -125,6 +137,26 @@ namespace BigGainsTests
             game.stopwatch.Stop();
             game.runGame();
             Assert.AreEqual(0, game.stopwatch.ElapsedMilliseconds);
+        }
+        //---------------------------------------------------------------
+        //Tests the random method returning a value
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void RandomTimeValueReturn()
+        {
+            ExampleGameManager game = new ExampleGameManager();
+            Assert.AreNotEqual(null, game.randomTime());
+        }
+        //---------------------------------------------------------------
+        //Tests the random method returning a value inbetween the range
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void RandomTimeRange()
+        {
+            ExampleGameManager game = new ExampleGameManager();
+            long test = game.randomTime();
+            bool range = (test >= 1000 || test <= 10000);
+            Assert.IsTrue(range);
         }
     }
 }

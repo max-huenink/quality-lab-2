@@ -60,5 +60,45 @@ namespace BigGainsTests
             game.runGame();
             Assert.AreEqual(0, game.stopwatch.ElapsedMilliseconds);
         }
+        //---------------------------------------------------------------
+        //Tests the random x cord method returning a value
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void RandomXValueReturn()
+        {
+            ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
+            Assert.AreNotEqual(null, game.randomTime());
+        }
+        //---------------------------------------------------------------
+        //Tests the random x method returning a value inbetween the range
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void RandomXRange()
+        {
+            ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
+            long test = game.randomTime();
+            bool range = (test >= 10 || test <= 900);
+            Assert.IsTrue(range);
+        }
+        //---------------------------------------------------------------
+        //Tests the random y cord method returning a value
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void RandomYValueReturn()
+        {
+            ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
+            Assert.AreNotEqual(null, game.randomY());
+        }
+        //---------------------------------------------------------------
+        //Tests the random y method returning a value inbetween the range
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void RandomYRange()
+        {
+            ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
+            long test = game.randomY();
+            bool range = (test >= 10 || test <= 610);
+            Assert.IsTrue(range);
+        }
     }
 }
