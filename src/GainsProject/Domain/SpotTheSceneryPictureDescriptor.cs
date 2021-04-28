@@ -30,8 +30,9 @@ namespace GainsProject.Domain
         {
             string diName = "STSPictureDescriptors";
             //string diName = "PictureDrawingFolder";
-            string directory = System.IO.Directory.GetParent(System.IO.Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString();
-            directory += "/" + diName;
+            string directory = System.IO.Directory.GetParent(System.IO.Directory.GetParent(
+                System.IO.Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+            directory += "/" + "GainsProject" + "/" + diName;
             DirectoryInfo di = new DirectoryInfo(directory);
             FileInfo[] dirFiles = di.GetFiles();
             for(int i = 0; i < dirFiles.Length; i++)
@@ -55,8 +56,9 @@ namespace GainsProject.Domain
         public void fillPictureList()
         {
             string diName = "SpotTheSceneryFolder";
-            string directory = System.IO.Directory.GetParent(System.IO.Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString();
-            directory += "/" + diName;
+            string directory = System.IO.Directory.GetParent(System.IO.Directory.GetParent(
+                System.IO.Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+            directory += "/" + "GainsProject" + "/" + diName;
             DirectoryInfo di = new DirectoryInfo(directory);
             FileInfo[] dirFiles = di.GetFiles();
             for(int i = 0; i < dirFiles.Length; i++)

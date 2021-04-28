@@ -22,7 +22,7 @@ namespace GainsProject.Domain
         //Stopwatch varuble to measure reaction time
         public Stopwatch stopwatch = new Stopwatch();
         public Stopwatch totalRunTime = new Stopwatch();
-        //Dafault constructor
+        //Dafault constructor, covered in unit test
         public BaseGame()
         {
             time = -1;

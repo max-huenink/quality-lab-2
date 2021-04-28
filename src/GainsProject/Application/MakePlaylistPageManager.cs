@@ -16,7 +16,7 @@ namespace GainsProject.Application
     //--------------------------------------------------------------------
     //Makes the new playlist
     //--------------------------------------------------------------------
-    class MakePlaylistPageManager
+    public class MakePlaylistPageManager
     {
         //Lists to hold the games
         private List<(string Name, Func<Control> GameControlCreator)> playlist;
@@ -61,11 +61,6 @@ namespace GainsProject.Application
         //--------------------------------------------------------------------
         public void remove((string Name, Func<Control> GameControlCreator) game)
         {
-            //foreach (var g in playlist)
-            //{
-             //   if (g.Name == game.Name)
-            //        playlist.Remove(g);
-            //}
             playlist.Remove(game);
         }
         //--------------------------------------------------------------------
@@ -75,15 +70,9 @@ namespace GainsProject.Application
         {
             return playlist[0];
         }
-
-        /*public void validatePlaylist()
-        {
-            foreach(var game in playlist)
-            {
-                startPlaylist.Add(game);
-            }
-        } */
-
+        //--------------------------------------------------------------------
+        //saves the list after the start button was pressed
+        //--------------------------------------------------------------------
         public void validatePlaylist(GameSelectManager gamelist)
         {
             foreach(var g in gamelist.GetListOfGames())
@@ -91,7 +80,9 @@ namespace GainsProject.Application
                 startPlaylist.Add(g.Name);
             }
         }
-
+        //--------------------------------------------------------------------
+        //returns a list of names that were in the playlist
+        //--------------------------------------------------------------------
         public List<string> getPlaylist()
         {
             return startPlaylist;

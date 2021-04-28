@@ -31,6 +31,9 @@ namespace GainsProject.UI
             round = 1;
             Content.BackColor = System.Drawing.Color.Salmon;
         }
+        //---------------------------------------------------------------
+        //parameterized constructor for when the list gets replayed
+        //---------------------------------------------------------------
         public MakePlaylistPage(List<string> list, int count)
         {
             InitializeComponent();
@@ -103,12 +106,10 @@ namespace GainsProject.UI
                             }
                         }
                     }
-                    //PlayGame();
                 };
                     GameSelector.Controls.Add(gameBtn);
                 if (playlistManager.contains(game.Name))
                     GamePlaylist.Controls.Add(gameBtn);
-                //GameSelector.Controls.Add(gameBtn);
             }
         }
 
@@ -129,14 +130,6 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         public void NextGame()
         {
-            //playlistManager.remove(selectedGame);
-            //pManager.RemoveGameFromList(selectedGame.Name, selectedGame.GameControlCreator);
-            //if(!playlistManager.isEmpty())
-                //selectedGame = playlistManager.getFirstGame();
-            //else
-            //{
-                //listOver = true;
-           // }
             PlayGame();
         }
 
@@ -146,9 +139,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         public void Exit()
         {
-            //sg = () => new MakePlaylistPage();
             showUserControl(new MakePlaylistPage());
-            //PlayGame();
         }
 
         //---------------------------------------------------------------
@@ -178,7 +169,6 @@ namespace GainsProject.UI
             else
             {
                 pManager.PlayedGame(sg);
-                //selectedGame = playlistManager.getFirstGame();
             }
             showUserControl(sg?.Invoke());
         }

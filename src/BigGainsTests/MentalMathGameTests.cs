@@ -72,5 +72,25 @@ namespace BigGainsTests
             game.runGame();
             Assert.AreEqual(0, game.stopwatch.ElapsedMilliseconds);
         }
+        //---------------------------------------------------------------
+        //Tests the random method returning a value
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void RandomTimeValueReturn()
+        {
+            MentalMathGameManager game = new MentalMathGameManager();
+            Assert.AreNotEqual(null, game.randomTime());
+        }
+        //---------------------------------------------------------------
+        //Tests the random method returning a value inbetween the range
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void RandomTimeRange()
+        {
+            MentalMathGameManager game = new MentalMathGameManager();
+            long test = game.randomTime();
+            bool range = (test >= 2 || test <= 10);
+            Assert.IsTrue(range);
+        }
     }
 }

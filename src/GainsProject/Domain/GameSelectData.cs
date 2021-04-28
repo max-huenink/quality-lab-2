@@ -38,6 +38,10 @@ namespace GainsProject.Domain
             return gameCreatorsUsedThisSession;
         }
 
+
+        //---------------------------------------------------------------
+        // Resets the list for games that have been played
+        //---------------------------------------------------------------
         public void refreshPlayedGames()
         {
             gameCreatorsUsedThisSession = new List<Func<Control>>();
@@ -62,11 +66,6 @@ namespace GainsProject.Domain
         //---------------------------------------------------------------
         public void RemoveGameFromList(string name, Func<Control> gameControlCreator)
         {
-            //foreach(var g in gameList)
-            //{
-             //   if (name == g.Name)
-             //       gameList.Remove(g);
-            //}
             gameList.Remove((name, gameControlCreator));
         }
 

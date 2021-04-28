@@ -23,10 +23,10 @@ namespace BigGainsTests
             Assert.AreEqual("IAN", nameTest.getName());
         }
         //---------------------------------------------------------------
-        //second Method to test setter and getter
+        //Method to test setter and getter
         //---------------------------------------------------------------
         [TestMethod]
-        public void NameTest2()
+        public void SwitchNameTest()
         {
             NameClass nameTest = new NameClass();
             nameTest.setName("IAN");
