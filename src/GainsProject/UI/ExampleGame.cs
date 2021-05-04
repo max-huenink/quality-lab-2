@@ -88,11 +88,11 @@ namespace GainsProject.UI
                     game.calculateScore();
                     //Display the user's score
                     label1.Text = ("Score: " + game.getScore());
-                    //Store the score into a file
-                    ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
-                    scoreSave.addScore((int)game.getScore(), nameClass.getName());
                 }
                 //Game over!
+                //Store the score into a file
+                ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
+                scoreSave.addScore((int)game.getScore(), nameClass.getName());
                 game.endGame();
                 gameEnd?.GameFinished(nameClass.getName(), game.getScore(), game.getGameRunTime());
             }
