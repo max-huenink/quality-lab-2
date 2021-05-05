@@ -25,10 +25,12 @@ namespace GainsProject.UI
         private int buttonNumber = 0;
         private int backgroundClicks = 0;
         //Chase the button game manager object -> Application layer connection
-        private ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
+        private ChaseTheButtonGameManager game =
+            new ChaseTheButtonGameManager();
         //Game name and the score save manager to save scores
         private const string GAME_NAME = "ChaseTheButton.txt";
-        ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
+        ScoreSaveManager scoreSaveManager =
+            ScoreSaveManager.getScoreSaveManager();
         NameClass name = new NameClass(); 
         //Bool to see if the game has been saved
         private bool gameSaved = false;
@@ -111,7 +113,8 @@ namespace GainsProject.UI
             }
             //Stop time, add penalties, calculate score then display the score
             game.stopwatch.Stop();
-            game.setTime(game.stopwatch.ElapsedMilliseconds + backgroundClicks * MAX_BACKGROUND_CLICKS);
+            game.setTime(game.stopwatch.ElapsedMilliseconds + backgroundClicks * 
+                MAX_BACKGROUND_CLICKS);
             game.calculateScore();
             //Store the score and collect the user's name
 
@@ -120,7 +123,8 @@ namespace GainsProject.UI
             //End the game.
             game.endGame();
 
-            gameEnd?.GameFinished(name.getName(), game.getScore(), game.getGameRunTime());
+            gameEnd?.GameFinished(name.getName(), game.getScore(),
+                game.getGameRunTime());
 
             ChaseButton.Hide();
             ScoreShow.Text = ("Score: " + game.getScore());

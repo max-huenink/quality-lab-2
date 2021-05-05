@@ -64,7 +64,8 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Takes user to the page that shows previous scores in games
         //---------------------------------------------------------------
-        private void previousResultsButton_MouseClick(object sender, MouseEventArgs e)
+        private void previousResultsButton_MouseClick(object sender, 
+            MouseEventArgs e)
         {
             PreviousScoresPage psp = new PreviousScoresPage();
             showUserControl(psp);
@@ -72,7 +73,8 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Takes user to the page that shows the top scores in each game
         //---------------------------------------------------------------
-        private void leaderboardButton_MouseClick(object sender, MouseEventArgs e)
+        private void leaderboardButton_MouseClick(object sender, 
+            MouseEventArgs e)
         {
             LeaderboardPage lp = new LeaderboardPage();
             showUserControl(lp);
@@ -112,7 +114,8 @@ namespace GainsProject.UI
             else 
             {
                 nameStorage.setName(NameBox.Text);
-                WelcomeLabel.Text = "Welcome " + nameStorage.getName() + "\n Click on one of the side buttons to begin!";
+                WelcomeLabel.Text = "Welcome " + nameStorage.getName() + 
+                    "\n Click on one of the side buttons to begin!";
                 NameBox.Hide();
                 EnterButton.Hide();
                 ShowSideButtons();

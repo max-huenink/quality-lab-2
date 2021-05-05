@@ -16,12 +16,14 @@ namespace GainsProject.UI
     public partial class MentalMathGame : UserControl
     {
         //Mental math game manager object
-        private static MentalMathGameManager mmgame = new MentalMathGameManager();
+        private static MentalMathGameManager mmgame = 
+            new MentalMathGameManager();
         //question counter
         private int questionNumber = 0;
         //Game name and the score save manager to save scores
         private const string GAME_NAME = "MentalMathGame.txt";
-        ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
+        ScoreSaveManager scoreSaveManager = 
+            ScoreSaveManager.getScoreSaveManager();
         //Name object
         NameClass name = new NameClass();
         //Bool to see if the game has been saved
@@ -124,7 +126,8 @@ namespace GainsProject.UI
                 SubmitButton.Hide();
                 ScoreBox.Hide();
 
-                gameEnd?.GameFinished(name.getName(), mmgame.getScore(), mmgame.getGameRunTime());
+                gameEnd?.GameFinished(name.getName(), mmgame.getScore(),
+                    mmgame.getGameRunTime());
             }
         }
         //---------------------------------------------------------------
