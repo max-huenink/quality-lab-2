@@ -22,12 +22,14 @@ namespace GainsProject.Domain
         //---------------------------------------------------------------
         public GameSelectData()
         {
-            gameList = new List<(string Name, Func<Control> GameControlCreator)>();
+            gameList = new List<(string Name,
+                                 Func<Control> GameControlCreator)>();
             gameCreatorsUsedThisSession = new List<Func<Control>>();
         }
 
         // Getter for game list
-        public List<(string Name, Func<Control> GameControlCreator)> GetListOfGames()
+        public List<(string Name, Func<Control> GameControlCreator)>
+            GetListOfGames()
         {
             return gameList;
         }
@@ -64,7 +66,8 @@ namespace GainsProject.Domain
         //         Func<Control> gameControlCreator - A function that
         //          creates the game control
         //---------------------------------------------------------------
-        public void RemoveGameFromList(string name, Func<Control> gameControlCreator)
+        public void RemoveGameFromList(string name,
+                                       Func<Control> gameControlCreator)
         {
             gameList.Remove((name, gameControlCreator));
         }

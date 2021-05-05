@@ -37,18 +37,21 @@ namespace GainsProject.Application
         //         Func<Control> gameControlCreator - A function that
         //          creates the game control
         //---------------------------------------------------------------
-        public GameSelectManager(List<(string Name, Func<Control> GameControlCreator)> gamelist)
+        public GameSelectManager(List<(string Name,
+                                       Func<Control> GameControlCreator)
+                                     > gamelist)
         {
             rnd = new Random();
             data = new GameSelectData();
-            foreach(var g in gamelist)
+            foreach (var g in gamelist)
             {
                 data.AddGameToList(g.Name, g.GameControlCreator);
             }
         }
 
         // Getter for game list
-        public List<(string Name, Func<Control> GameControlCreator)> GetListOfGames()
+        public List<(string Name, Func<Control> GameControlCreator)>
+            GetListOfGames()
         {
             return data.GetListOfGames();
         }
@@ -70,7 +73,8 @@ namespace GainsProject.Application
         //         Func<Control> gameControlCreator - A function that
         //          creates the game control
         //---------------------------------------------------------------
-        public void RemoveGameFromList(string name, Func<Control> gameControlCreator)
+        public void RemoveGameFromList(string name,
+                                       Func<Control> gameControlCreator)
         {
             data.RemoveGameFromList(name, gameControlCreator);
         }
@@ -100,15 +104,11 @@ namespace GainsProject.Application
         public Func<Control> GetRandomUnplayedGame()
         {
             Func<Control> gameCreator = null;
-            var games = data.GetListOfGames()
-                .Where(g =>
-                    !data.GetGamesPlayed()
-                    .Contains(g.GameControlCreator))
-                .ToArray();
-            if (games.Length > 0)
+            var unplayedGames = getUnplayedGameControls();
+            if (unplayedGames.Length > 0)
             {
-                var indx = rnd.Next(0, games.Length);
-                gameCreator = games[indx].GameControlCreator;
+                var indx = rnd.Next(0, unplayedGames.Length);
+                gameCreator = unplayedGames[indx];
             }
             return gameCreator;
         }
@@ -119,17 +119,25 @@ namespace GainsProject.Application
         //---------------------------------------------------------------
         public Func<Control> GetFirstUnplayedGame()
         {
-            var games = data.GetListOfGames()
-                .Where(g =>
-                !data.GetGamesPlayed()
-                .Contains(g.GameControlCreator))
-                .ToArray();
+            var unplayedGames = getUnplayedGameControls();
             Func<Control> gameCreator = null;
-            if (games.Length > 0)
+            if (unplayedGames.Length > 0)
             {
-                gameCreator = games[0].GameControlCreator;
+                gameCreator = unplayedGames[0];
             }
             return gameCreator;
+        }
+
+        //---------------------------------------------------------------
+        //Gets the Func<Control> for all unplayed games
+        //---------------------------------------------------------------
+        private Func<Control>[] getUnplayedGameControls()
+        {
+            return data
+                .GetListOfGames()
+                .Select(g => g.GameControlCreator)
+                .Where(c => !data.GetGamesPlayed().Contains(c))
+                .ToArray();
         }
 
         //---------------------------------------------------------------
@@ -139,13 +147,20 @@ namespace GainsProject.Application
         public static GameSelectManager CreateAndPopulateManager(IGameEnd gameEnd)
         {
             var manager = new GameSelectManager();
-            manager.AddGameToList("Example Game", () => new ExampleGame(gameEnd));
-            manager.AddGameToList("Arrow Key Game", () => new ArrowKeyGame(gameEnd));
-            manager.AddGameToList("Mental Math Game", () => new MentalMathGame (gameEnd));
-            manager.AddGameToList("Picture Drawing Game", () => new PictureDrawing(gameEnd));
-            manager.AddGameToList("Chase the button", () => new ChaseTheButton(gameEnd));
-            manager.AddGameToList("Dizzy Buttons", () => new DizzyButtonsGame(gameEnd));
-            manager.AddGameToList("Spot The Scenery", () => new SpotTheSceneryGame(gameEnd));
+            manager.AddGameToList("Example Game",
+                                  () => new ExampleGame(gameEnd));
+            manager.AddGameToList("Arrow Key Game",
+                                  () => new ArrowKeyGame(gameEnd));
+            manager.AddGameToList("Mental Math Game",
+                                  () => new MentalMathGame(gameEnd));
+            manager.AddGameToList("Picture Drawing Game",
+                                  () => new PictureDrawing(gameEnd));
+            manager.AddGameToList("Chase the button",
+                                  () => new ChaseTheButton(gameEnd));
+            manager.AddGameToList("Dizzy Buttons",
+                                  () => new DizzyButtonsGame(gameEnd));
+            manager.AddGameToList("Spot The Scenery",
+                                  () => new SpotTheSceneryGame(gameEnd));
             return manager;
         }
     }

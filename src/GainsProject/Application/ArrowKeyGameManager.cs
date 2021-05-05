@@ -20,8 +20,8 @@ namespace GainsProject.Application
         private const int RANDOM_TIME_MAX = 2000;
 
         private const int PERFECT_SCORE_TIME = 350;
-        private const int BEFORE_CLICK_TIME = 100;
-        private const int AFTER_CLICK_TIME = 10;
+        private const double BEFORE_CLICK_TIME = 100.0;
+        private const double AFTER_CLICK_TIME = 10.0;
 
         private const int MAX_TIME_TO_CLICK = 1200;
         private const int MIN_TIME_TO_CLICK = -300;
@@ -141,32 +141,43 @@ namespace GainsProject.Application
         //---------------------------------------------------------------
         private long scoreCalculator(long timeClickDelta)
         {
+            long score = 0;
             if (!buttonToClick.HasFlag(clickedButton))
             {
-                return WRONG_BUTTON_SCORE;
+                score = WRONG_BUTTON_SCORE;
             }
-            else if (timeClickDelta >= 0 && timeClickDelta <= PERFECT_SCORE_TIME)
+            else if (timeClickDelta >= 0
+                     && timeClickDelta <= PERFECT_SCORE_TIME)
             {
-                return MAX_SCORE_PER_CLICK;
+                score = MAX_SCORE_PER_CLICK;
             }
-            else if (timeClickDelta >= 0 && timeClickDelta <= MAX_TIME_TO_CLICK)
+            else if (timeClickDelta >= 0
+                     && timeClickDelta <= MAX_TIME_TO_CLICK)
             {
-                // We know timeCLickDelta is at least PERFECT_SCORE_TIME, subtract it to make calculation easier
+                // We know timeCLickDelta is at least PERFECT_SCORE_TIME,
+                //  subtract it to make calculation easier
                 timeClickDelta -= PERFECT_SCORE_TIME;
-                var numberOfIntervals = Math.Ceiling(timeClickDelta / (double)AFTER_CLICK_TIME);
-                return MAX_SCORE_PER_CLICK + AFTER_CLICK_MODIFIER * (long)numberOfIntervals;
+                var numberOfIntervals = Math.Ceiling(timeClickDelta
+                                                     / AFTER_CLICK_TIME);
+
+                score = MAX_SCORE_PER_CLICK
+                        + AFTER_CLICK_MODIFIER
+                        * (long)numberOfIntervals;
             }
-            else if (timeClickDelta < 0 && MIN_TIME_TO_CLICK <= timeClickDelta)
+            else if (timeClickDelta < 0
+                     && MIN_TIME_TO_CLICK <= timeClickDelta)
             {
-                // We know timeClickDelta is negative, make it positive for easier calculation
+                // We know timeClickDelta is negative,
+                //  make it positive for easier calculation
                 timeClickDelta *= -1;
-                var numberOfIntervals = Math.Ceiling(timeClickDelta / (double)BEFORE_CLICK_TIME);
-                return MAX_SCORE_PER_CLICK + BEFORE_CLICK_MODIFIER * (long)numberOfIntervals;
+                var numberOfIntervals = Math.Ceiling(timeClickDelta
+                                                     / BEFORE_CLICK_TIME);
+
+                score = MAX_SCORE_PER_CLICK
+                        + BEFORE_CLICK_MODIFIER
+                        * (long)numberOfIntervals;
             }
-            else
-            {
-                return 0;
-            }
+            return score;
         }
     }
 }

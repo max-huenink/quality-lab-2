@@ -61,7 +61,8 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         public void setGameTime(TimeSpan time)
         {
-            gameTimeLbl.Text = string.Format(gameTimeLbl.Text, $@"{time:mm\:ss\.fff}");
+            gameTimeLbl.Text = string.Format(gameTimeLbl.Text,
+                                             $@"{time:mm\:ss\.fff}");
             CenterLabelHorizontally(gameTimeLbl);
         }
 

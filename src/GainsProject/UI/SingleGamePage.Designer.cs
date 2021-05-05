@@ -36,6 +36,7 @@ namespace GainsProject.UI
             // 
             // Content
             // 
+            this.Content.BackColor = System.Drawing.Color.Salmon;
             this.Content.Controls.Add(this.GameSelector);
             this.Content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Content.Location = new System.Drawing.Point(0, 0);
@@ -50,21 +51,22 @@ namespace GainsProject.UI
             this.GameSelector.ColumnCount = 1;
             this.GameSelector.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.GameSelector.Location = new System.Drawing.Point(483, 327);
+            this.GameSelector.Margin = new System.Windows.Forms.Padding(0);
             this.GameSelector.Name = "GameSelector";
             this.GameSelector.RowCount = 1;
             this.GameSelector.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.GameSelector.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.GameSelector.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.GameSelector.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.GameSelector.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.GameSelector.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.GameSelector.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.GameSelector.Size = new System.Drawing.Size(64, 44);
             this.GameSelector.TabIndex = 0;
             // 
-            // GameSelectPage
+            // SingleGamePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Content);
-            this.Name = "GameSelectPage";
+            this.Name = "SingleGamePage";
             this.Size = new System.Drawing.Size(1063, 681);
             this.Content.ResumeLayout(false);
             this.Content.PerformLayout();

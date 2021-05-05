@@ -30,9 +30,9 @@ namespace GainsProject.UI
         private const int MIN_Y_DIST = 108;
         //Game name and the score save manager to save scores
         private const string GAME_NAME = "ArrowKeyGame.txt";
-        ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
+        ScoreSaveManager scoreSaveManager;
         //Name object
-        NameClass name = new NameClass();
+        NameClass name;
         private readonly Random rnd;
         private readonly ArrowKeyGameManager game;
         private CancellationTokenSource cts;
@@ -50,6 +50,8 @@ namespace GainsProject.UI
             rnd = new Random();
             cts = new CancellationTokenSource();
             game = new ArrowKeyGameManager();
+            scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
+            name = new NameClass();
             this.gameEnd = gameEnd;
         }
 
@@ -172,7 +174,10 @@ namespace GainsProject.UI
             ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
             scoreSave.addScore((int)game.getTotalScore(), name.getName());
 
-            gameEnd?.GameFinished(name.getName(), game.getTotalScore(), game.getGameRunTime());
+            // Call gameFinished if gameEnd is not null
+            gameEnd?.GameFinished(name.getName(),
+                                  game.getTotalScore(),
+                                  game.getGameRunTime());
         }
 
         //---------------------------------------------------------------
@@ -229,7 +234,11 @@ namespace GainsProject.UI
                 {
                     var x = rnd.Next(MIN_X_ARROW, MAX_X_ARROW);
                     var y = rnd.Next(MIN_Y_ARROW, MAX_Y_ARROW);
-                    while (arrowLocations.Any(p => Math.Abs(p.X - x) <= MIN_X_DIST && Math.Abs(p.Y - y) <= MIN_Y_DIST))
+                    // Try new random x,y if the arrow is
+                    //  overlapping any existing arrows
+                    while (arrowLocations.Any(p =>
+                        Math.Abs(p.X - x) <= MIN_X_DIST
+                        && Math.Abs(p.Y - y) <= MIN_Y_DIST))
                     {
                         x = rnd.Next(MIN_X_ARROW, MAX_X_ARROW);
                         y = rnd.Next(MIN_Y_ARROW, MAX_Y_ARROW);

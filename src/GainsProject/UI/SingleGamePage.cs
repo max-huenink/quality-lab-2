@@ -7,12 +7,15 @@
 using GainsProject.Application;
 using GainsProject.Domain.Interfaces;
 using System;
+using System.Linq;
+using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace GainsProject.UI
 {
     //---------------------------------------------------------------
-    //Displayes a list of games to play, switching between games
+    //Displays a list of games to play, switching between games
     // after a game has been selected by implementing ISelectGame
     //---------------------------------------------------------------
     public partial class SingleGamePage : UserControl, IGamePlaylist, IGameEnd
@@ -37,6 +40,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         private void CreateGameButtons()
         {
+            List<Button> btnList = new List<Button>();
             foreach (var game in manager.GetListOfGames())
             {
                 Button gameBtn = new Button
@@ -44,6 +48,8 @@ namespace GainsProject.UI
                     Name = game.Name,
                     Text = game.Name,
                     Anchor = AnchorStyles.None,
+                    Font = new Font("SansSerif", 20),
+                    //BackColor = Color.Tomato,
                     AutoSize = true,
                 };
                 gameBtn.Click += (sender, e) =>
@@ -51,8 +57,40 @@ namespace GainsProject.UI
                     selectedGame = game.GameControlCreator;
                     PlayGame();
                 };
+                // Add button to list of buttons
+                btnList.Add(gameBtn);
+                // Add button to GameSelector
                 GameSelector.Controls.Add(gameBtn);
             }
+
+            // Center the GameSelector horizontally and vertically
+            CenterControl(GameSelector);
+
+            // Find max width and make every button have that width
+            var maxWidth = btnList.Max(b => b.Width);
+            foreach (var btn in btnList)
+            {
+                btn.Width = maxWidth;
+            }
+        }
+
+        //---------------------------------------------------------------
+        //Centers the control on the screen horizontally and vertically
+        //---------------------------------------------------------------
+        private void CenterControl(Control ctrl)
+        {
+            // Compute center x
+            var pageWidth = Size.Width;
+            var ctrlWidth = ctrl.Size.Width;
+            var x = (pageWidth - ctrlWidth) / 2;
+
+            // Compute center y
+            var pageHeight = Size.Height;
+            var ctrlHeight = ctrl.Size.Height;
+            var y = (pageHeight - ctrlHeight) / 2;
+
+            // Senter control
+            ctrl.Location = new Point(x, y);
         }
 
         //---------------------------------------------------------------
