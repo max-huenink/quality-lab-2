@@ -127,6 +127,16 @@ namespace BigGainsTests
             Assert.AreEqual(-100, game.getScore());
         }
         //---------------------------------------------------------------
+        //Tests the scoring if the user reacts before the baseline
+        //---------------------------------------------------------------
+        public void ScoringMax()
+        {
+            ExampleGameManager game = new ExampleGameManager();
+            game.setTime(50);
+            game.calculateScore();
+            Assert.AreEqual(1000, game.getScore());
+        }
+        //---------------------------------------------------------------
         //Tests the stopwatch reset in the example game manager
         //---------------------------------------------------------------
         [TestMethod]

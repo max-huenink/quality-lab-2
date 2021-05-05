@@ -61,6 +61,18 @@ namespace BigGainsTests
             Assert.AreEqual(-50, game.getScore());
         }
         //---------------------------------------------------------------
+        //Tests the scoring floor
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void ScoringWrongAnswerFloor()
+        {
+            MentalMathGameManager game = new MentalMathGameManager();
+            game.setTime(-1);
+            game.setScore(-150);
+            game.calculateScore();
+            Assert.AreEqual(-100, game.getScore());
+        }
+        //---------------------------------------------------------------
         //Tests that the run game method works as intended
         //---------------------------------------------------------------
         [TestMethod]
