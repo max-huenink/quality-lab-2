@@ -24,7 +24,8 @@ namespace BigGainsTests
         [TestMethod]
         public void TestFillDescriptors1()
         {
-            SpotTheSceneryPictureDescriptor stspd = new SpotTheSceneryPictureDescriptor();
+            SpotTheSceneryPictureDescriptor stspd 
+                = new SpotTheSceneryPictureDescriptor();
             stspd.fillDescriptors();
             Assert.AreEqual(stspd.getDescriptors()["artic_bear"][0], "a bear");
         }
@@ -34,7 +35,8 @@ namespace BigGainsTests
         [TestMethod]
         public void TestFillDescriptors2()
         {
-            SpotTheSceneryPictureDescriptor stspd = new SpotTheSceneryPictureDescriptor();
+            SpotTheSceneryPictureDescriptor stspd 
+                = new SpotTheSceneryPictureDescriptor();
             Assert.AreEqual(stspd.getDescriptors().Count, 0);
         }
         //---------------------------------------------------------------
@@ -43,7 +45,8 @@ namespace BigGainsTests
         [TestMethod]
         public void TestFillPictureList1()
         {
-            SpotTheSceneryPictureDescriptor stspd = new SpotTheSceneryPictureDescriptor();
+            SpotTheSceneryPictureDescriptor stspd 
+                = new SpotTheSceneryPictureDescriptor();
             stspd.fillPictureList();
             Assert.AreNotEqual(stspd.getPictureList()[0], null);
         }
@@ -53,7 +56,8 @@ namespace BigGainsTests
         [TestMethod]
         public void TestFillPictureList2()
         {
-            SpotTheSceneryPictureDescriptor stspd = new SpotTheSceneryPictureDescriptor();
+            SpotTheSceneryPictureDescriptor stspd 
+                = new SpotTheSceneryPictureDescriptor();
             Assert.AreEqual(stspd.getPictureList().Count, 0);
         }
     }

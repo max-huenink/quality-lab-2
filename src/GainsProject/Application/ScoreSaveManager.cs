@@ -19,7 +19,8 @@ namespace GainsProject.Application
     //--------------------------------------------------------------------
     public class ScoreSaveManager
     {
-        //This object is static so everytime a class want it, it will be the same
+        //This object is static so everytime a class want it, it will be
+        //the same
         private static ScoreSaveManager scoreSaveManager;
         private List<ScoreSave> scoreSaveList;
         // game names

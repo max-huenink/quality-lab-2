@@ -18,9 +18,10 @@ namespace GainsProject.Application
     //--------------------------------------------------------------------
     public class ScoreSave
     {
-        string fileName;
+        private string fileName;
         private int numGames;
-        private int totalScore;                   //this exists to make avgGamePoints faster to
+        private int totalScore;                   //this exists to make avg
+                                                  //GamePoints faster to
                                                   //calculate
         private double avgGamePoints;
         private List<SaveData> saveDataList;      //a list of SaveData nodes
@@ -81,7 +82,8 @@ namespace GainsProject.Application
         //---------------------------------------------------------------
         public void addScore(int newScore, string newPlayerTag)
         {
-            SaveData newSave = new SaveData(newScore, DateTime.Now, newPlayerTag);
+            SaveData newSave = new SaveData(newScore, 
+                DateTime.Now, newPlayerTag);
             numGames++;
             totalScore += newScore;
             avgGamePoints = totalScore / numGames;

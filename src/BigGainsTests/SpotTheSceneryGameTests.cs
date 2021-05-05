@@ -28,7 +28,8 @@ namespace BigGainsTests
             game.setTime(SpotTheSceneryGameManager.PERFECT_TIME - 1);
             game.setNumRight(SpotTheSceneryGameManager.NUM_ROUNDS);
             game.calculateScore();
-            Assert.AreEqual(game.getScore(), SpotTheSceneryGameManager.PERFECT_SCORE);
+            Assert.AreEqual(game.getScore(), 
+                SpotTheSceneryGameManager.PERFECT_SCORE);
         }
         //---------------------------------------------------------------
         // this method tests the score calculation for better than a 
@@ -41,7 +42,8 @@ namespace BigGainsTests
             game.setTime(SpotTheSceneryGameManager.PERFECT_TIME - 1000);
             game.setNumRight(SpotTheSceneryGameManager.NUM_ROUNDS);
             game.calculateScore();
-            Assert.AreEqual(game.getScore(), SpotTheSceneryGameManager.PERFECT_SCORE);
+            Assert.AreEqual(game.getScore(), 
+                SpotTheSceneryGameManager.PERFECT_SCORE);
         }
         //---------------------------------------------------------------
         // this method tests the score calculation for a perfect time
@@ -53,7 +55,8 @@ namespace BigGainsTests
             game.setTime(SpotTheSceneryGameManager.PERFECT_TIME);
             game.setNumRight(SpotTheSceneryGameManager.NUM_ROUNDS);
             game.calculateScore();
-            Assert.AreEqual(game.getScore(), SpotTheSceneryGameManager.PERFECT_SCORE);
+            Assert.AreEqual(game.getScore(), 
+                SpotTheSceneryGameManager.PERFECT_SCORE);
         }
         //---------------------------------------------------------------
         // this method tests the score calculation for worse than a 
@@ -111,7 +114,8 @@ namespace BigGainsTests
             game.setNumRight(SpotTheSceneryGameManager.NUM_ROUNDS - 2);
             game.setNumWrong(2);
             game.calculateScore();
-            Assert.AreEqual(game.getScore(), (int)(SpotTheSceneryGameManager.PERFECT_SCORE * 
+            Assert.AreEqual(game.getScore(), 
+                (int)(SpotTheSceneryGameManager.PERFECT_SCORE * 
                 ((double)game.getNumRight() - (double)game.getNumWrong()) / 
                 (double)game.getNumRight()));
         }
@@ -126,7 +130,8 @@ namespace BigGainsTests
             game.setNumRight(SpotTheSceneryGameManager.NUM_ROUNDS - 1);
             game.setNumWrong(1);
             game.calculateScore();
-            Assert.AreEqual(game.getScore(), SpotTheSceneryGameManager.PERFECT_SCORE *
+            Assert.AreEqual(game.getScore(), 
+                SpotTheSceneryGameManager.PERFECT_SCORE *
                 ((double)game.getNumRight() - (double)game.getNumWrong()) /
                 (double)game.getNumRight());
         }
@@ -140,7 +145,8 @@ namespace BigGainsTests
             game.stopwatch.Start();
             game.runGame();
             Assert.IsFalse(game.stopwatch.IsRunning);
-            Assert.AreEqual(game.getTime(), game.stopwatch.ElapsedMilliseconds);
+            Assert.AreEqual(game.getTime(),
+                game.stopwatch.ElapsedMilliseconds);
         }
         //---------------------------------------------------------------
         // this method tests the random time function
@@ -164,10 +170,12 @@ namespace BigGainsTests
             while (game.hasNextRound())
             {
                 game.newRound();
-                Assert.AreNotEqual(game.getCurrDescriptor(), "notAreakDescriptor");
+                Assert.AreNotEqual(game.getCurrDescriptor(), 
+                    "notAreakDescriptor");
                 Assert.AreNotEqual(game.getCurrPictures()[0], null);
             }
-            Assert.AreEqual(game.getCurrRound(), SpotTheSceneryGameManager.NUM_ROUNDS);
+            Assert.AreEqual(game.getCurrRound(), 
+                SpotTheSceneryGameManager.NUM_ROUNDS);
             Assert.AreEqual(game.hasNextRound(), false);
         }
         //---------------------------------------------------------------

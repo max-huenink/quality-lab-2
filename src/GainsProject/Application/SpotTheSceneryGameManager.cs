@@ -32,7 +32,8 @@ namespace GainsProject.Application
         private int numWrong = 0;
         private List<Image> currPictures = new List<Image>();
         private List<string> currPicturesNames = new List<string>();
-        private SpotTheSceneryPictureDescriptor stspd = new SpotTheSceneryPictureDescriptor();
+        private SpotTheSceneryPictureDescriptor stspd = 
+            new SpotTheSceneryPictureDescriptor();
         //---------------------------------------------------------------
         // this method calcualtes the score for the performance taking
         // into account how long it took and how many were correct
@@ -43,7 +44,8 @@ namespace GainsProject.Application
             if (totalRunTime.ElapsedMilliseconds <= PERFECT_TIME)
                 score = PERFECT_SCORE;
             else
-                score = PERFECT_SCORE - ((totalRunTime.ElapsedMilliseconds - PERFECT_TIME) / SCORE_DECAY);
+                score = PERFECT_SCORE - ((totalRunTime.ElapsedMilliseconds 
+                    - PERFECT_TIME) / SCORE_DECAY);
             score *= ((double)numRight - (double)numWrong) / (double)numRight;
             if (score <= 0)
             {
@@ -77,7 +79,7 @@ namespace GainsProject.Application
             currPicturesNames.Clear();
             int numPictures = 0;
             List<Image> tempList = stspd.getPictureList();
-            while (numPictures < 4)
+            while (numPictures < NUM_PICTURES)
             {
                 //get a random number
                 int rand = random.Next(tempList.Count - 1);
@@ -86,7 +88,8 @@ namespace GainsProject.Application
                 //check if the image is in the currPictures
                 if (!currPictures.Contains(tempImage))
                 {
-                    //check if currPictures is big enough for the first go through
+                    //check if currPictures is big enough for the first go
+                    //through
                     if (numPictures >= currPictures.Count)
                     {
                         //add new element
@@ -96,8 +99,10 @@ namespace GainsProject.Application
                     numPictures++;
                 }
             }
-            List<string> tempDescriptors = stspd.getDescriptors()[currPicturesNames[random.Next(NUM_PICTURES - 1)]];
-            currDescriptor = tempDescriptors[random.Next(tempDescriptors.Count - 1)];
+            List<string> tempDescriptors = stspd.getDescriptors()[
+                currPicturesNames[random.Next(NUM_PICTURES - 1)]];
+            currDescriptor = 
+                tempDescriptors[random.Next(tempDescriptors.Count - 1)];
         }
         //---------------------------------------------------------------
         // checks if there are more rounds to be played

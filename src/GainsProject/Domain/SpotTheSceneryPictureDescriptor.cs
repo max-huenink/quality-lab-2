@@ -30,14 +30,17 @@ namespace GainsProject.Domain
         {
             string diName = "STSPictureDescriptors";
             //string diName = "PictureDrawingFolder";
-            string directory = System.IO.Directory.GetParent(System.IO.Directory.GetParent(
-                System.IO.Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+            string directory = System.IO.Directory.GetParent(System.IO
+                .Directory.GetParent(
+                    System.IO.Directory.GetParent(Environment
+                        .CurrentDirectory).ToString()).ToString()).ToString();
             directory += "/" + "GainsProject" + "/" + diName;
             DirectoryInfo di = new DirectoryInfo(directory);
             FileInfo[] dirFiles = di.GetFiles();
             for(int i = 0; i < dirFiles.Length; i++)
             {
-                StreamReader streamReader = new StreamReader(directory + "/" + dirFiles[i].Name);
+                StreamReader streamReader = new StreamReader(directory + 
+                    "/" + dirFiles[i].Name);
                 string line;
                 List<string> descriptorList = new List<string>();
                 string[] temp = dirFiles[i].Name.Split('.');
@@ -56,8 +59,10 @@ namespace GainsProject.Domain
         public void fillPictureList()
         {
             string diName = "SpotTheSceneryFolder";
-            string directory = System.IO.Directory.GetParent(System.IO.Directory.GetParent(
-                System.IO.Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+            string directory = System.IO.Directory.GetParent(System.IO.Directory
+                .GetParent(
+                    System.IO.Directory.GetParent(Environment
+                        .CurrentDirectory).ToString()).ToString()).ToString();
             directory += "/" + "GainsProject" + "/" + diName;
             DirectoryInfo di = new DirectoryInfo(directory);
             FileInfo[] dirFiles = di.GetFiles();

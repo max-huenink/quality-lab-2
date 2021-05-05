@@ -29,6 +29,9 @@ namespace GainsProject.Application
         public const int MINUS_SCORE = 25;
         private const string DEFAULT_TEXT = "Don't Click Me";
         private const string IS_IT_TEXT = "CLICK ME!";
+        private const int REVERSE_DIRECTION = -1;
+        private const int SHIFT_SPEED_RANGE = 2;
+        private const int BUTTON_OUT_OF_BOUNDS = -1;
         private bool isFinished;
         private readonly Color DEFAULT_BACK_COLOR = Color.FromName("White");
         private readonly Color IS_IT_BACK_COLOR = Color.FromName("Lime");
@@ -39,7 +42,7 @@ namespace GainsProject.Application
         private Stack<Button> toAdd;
         private Stack<Button> toDelete;
         private Button isIt;
-        Random random;
+        private Random random;
         private int score;
         private ScoreSave scoreSave;
         //---------------------------------------------------------------
@@ -92,8 +95,10 @@ namespace GainsProject.Application
         private void addNewButton()
         {
             Button button = new Button();
-            xMove.Add(random.Next(-1 * (SPEED_RANGE / 2), SPEED_RANGE / 2));
-            yMove.Add(random.Next(-1 * (SPEED_RANGE / 2), SPEED_RANGE / 2));
+            xMove.Add(random.Next(REVERSE_DIRECTION * (SPEED_RANGE / 
+                SHIFT_SPEED_RANGE), SPEED_RANGE / SHIFT_SPEED_RANGE));
+            yMove.Add(random.Next(REVERSE_DIRECTION * (SPEED_RANGE / 
+                SHIFT_SPEED_RANGE), SPEED_RANGE / SHIFT_SPEED_RANGE));
             setButtonDefaults(button);
             button.Location = new Point(random.Next(PAGE_WIDTH - BUTTON_WIDTH),
                 random.Next(PAGE_HEIGHT - BUTTON_HEIGHT));
@@ -136,7 +141,7 @@ namespace GainsProject.Application
                 if (score > GAME_LENGTH)
                     score = GAME_LENGTH;
                 int index = getButtonIndex(clickedButton);
-                if(index != -1)
+                if(index != BUTTON_OUT_OF_BOUNDS)
                 {
                     toDelete.Push(clickedButton);
                     buttonList.Remove(clickedButton);

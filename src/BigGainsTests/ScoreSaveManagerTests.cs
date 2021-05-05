@@ -27,8 +27,10 @@ namespace BigGainsTests
             ScoreSave scoreSave = new ScoreSave(gameNames[1]);
             ScoreSaveManager scoreSaveManager = 
                 ScoreSaveManager.getScoreSaveManager();
-            ScoreSave compareTooScoreSave = scoreSaveManager.getScoreSave(gameNames[1]);
-            Assert.AreEqual(scoreSave.getNumGames(), compareTooScoreSave.getNumGames());
+            ScoreSave compareTooScoreSave = 
+                scoreSaveManager.getScoreSave(gameNames[1]);
+            Assert.AreEqual(scoreSave.getNumGames(), 
+                compareTooScoreSave.getNumGames());
         }
         //--------------------------------------------------------------------
         //this method is the test getScoreSave
@@ -42,10 +44,13 @@ namespace BigGainsTests
             ScoreSave scoreSave = new ScoreSave(gameNames[0]);
             ScoreSaveManager scoreSaveManager =
                 ScoreSaveManager.getScoreSaveManager();
-            ScoreSave test = scoreSaveManager.getScoreSave("SpotTheScenery.txt");
-            ScoreSave compareTooScoreSave = scoreSaveManager.getScoreSave(gameNames[0]);
+            ScoreSave test = 
+                scoreSaveManager.getScoreSave("SpotTheScenery.txt");
+            ScoreSave compareTooScoreSave = 
+                scoreSaveManager.getScoreSave(gameNames[0]);
             compareTooScoreSave.addScore(5, "Nick");
-            Assert.AreNotEqual(scoreSave.getNumGames(), compareTooScoreSave.getNumGames());
+            Assert.AreNotEqual(scoreSave.getNumGames(), 
+                compareTooScoreSave.getNumGames());
         }
     }
 }

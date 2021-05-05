@@ -30,12 +30,12 @@ namespace BigGainsTests
             sd.setScoreSorted();
             sd.setTimeSorted();
             bool timeSorted = false;
-            if(scoreSave.getSaveDataList()[0].getDt() < 
-                scoreSave.getSaveDataList()[1].getDt())
+            if(sd.getTimeSortedList()[0].getDt() < 
+                sd.getTimeSortedList()[1].getDt())
             {
                 timeSorted = true;
             }
-            Assert.IsFalse(sd.reverseScore);
+            Assert.IsFalse(sd.getReverseScore());
             Assert.IsTrue(timeSorted);
         }
         //---------------------------------------------------------------
@@ -50,12 +50,12 @@ namespace BigGainsTests
             ScoreDisplay sd = new ScoreDisplay(scoreSave);
             sd.setTimeSorted();
             bool timeSorted = false;
-            if (scoreSave.getSaveDataList()[scoreSave.getSaveDataList().Count - 1].getDt() <
-                scoreSave.getSaveDataList()[1].getDt())
+            if (sd.getTimeSortedList()[sd.getTimeSortedList().Count - 1].getDt() <
+                sd.getTimeSortedList()[1].getDt())
             {
                 timeSorted = true;
             }
-            Assert.IsTrue(sd.reverseScore);
+            Assert.IsTrue(sd.getReverseScore());
             Assert.IsFalse(timeSorted);
         }
         //---------------------------------------------------------------
@@ -70,16 +70,16 @@ namespace BigGainsTests
             ScoreDisplay sd = new ScoreDisplay(scoreSave);
             sd.setTagSorted();
             bool tagSorted = false;
-            if(String.Compare(scoreSave.getSaveDataList()[0].getPlayerTag(), 
-                scoreSave.getSaveDataList()[1].getPlayerTag(), 
+            if(String.Compare(sd.getTagSortedList()[0].getPlayerTag(), 
+                sd.getTagSortedList()[1].getPlayerTag(), 
                 comparisonType: StringComparison.OrdinalIgnoreCase) == -1 ||
-                String.Compare(scoreSave.getSaveDataList()[0].getPlayerTag(),
-                scoreSave.getSaveDataList()[1].getPlayerTag(),
+                String.Compare(sd.getTagSortedList()[0].getPlayerTag(),
+                sd.getTagSortedList()[1].getPlayerTag(),
                 comparisonType: StringComparison.OrdinalIgnoreCase) == 0)
             {
                 tagSorted = true;
             }
-            Assert.IsFalse(sd.reverseScore);
+            Assert.IsFalse(sd.getReverseScore());
             Assert.IsTrue(tagSorted);
         }
         //---------------------------------------------------------------
@@ -95,16 +95,16 @@ namespace BigGainsTests
             sd.setTagSorted();
             sd.setTagSorted();
             bool tagSorted = false;
-            if (String.Compare(scoreSave.getSaveDataList()[0].getPlayerTag(),
-                scoreSave.getSaveDataList()[1].getPlayerTag(),
+            if (String.Compare(sd.getTagSortedList()[0].getPlayerTag(),
+                sd.getTagSortedList()[1].getPlayerTag(),
                 comparisonType: StringComparison.OrdinalIgnoreCase) == -1 ||
-                String.Compare(scoreSave.getSaveDataList()[0].getPlayerTag(),
-                scoreSave.getSaveDataList()[1].getPlayerTag(),
+                String.Compare(sd.getTagSortedList()[0].getPlayerTag(),
+                sd.getTagSortedList()[1].getPlayerTag(),
                 comparisonType: StringComparison.OrdinalIgnoreCase) == 0)
             {
                 tagSorted = true;
             }
-            Assert.IsTrue(sd.reverseScore);
+            Assert.IsTrue(sd.getReverseScore());
         }
         //---------------------------------------------------------------
         // this method tests the score sorted method
@@ -120,12 +120,12 @@ namespace BigGainsTests
             sd.setScoreSorted();
             sd.setScoreSorted();
             bool scoreSorted = false;
-            if (scoreSave.getSaveDataList()[0].getScore() <=
-                scoreSave.getSaveDataList()[1].getScore())
+            if (sd.getScoreSortedList()[0].getScore() <=
+                sd.getScoreSortedList()[1].getScore())
             {
                 scoreSorted = true;
             }
-            Assert.IsFalse(sd.reverseScore);
+            Assert.IsFalse(sd.getReverseScore());
             Assert.IsTrue(scoreSorted);
         }
         //---------------------------------------------------------------
@@ -141,12 +141,12 @@ namespace BigGainsTests
             sd.setScoreSorted();
             sd.setScoreSorted();
             bool scoreSorted = false;
-            if (scoreSave.getSaveDataList()[0].getScore() <
-                scoreSave.getSaveDataList()[1].getScore())
+            if (sd.getScoreSortedList()[0].getScore() <
+                sd.getScoreSortedList()[1].getScore())
             {
                 scoreSorted = true;
             }
-            Assert.IsTrue(sd.reverseScore);
+            Assert.IsTrue(sd.getReverseScore());
         }
         //---------------------------------------------------------------
         // this method tests the get score string method

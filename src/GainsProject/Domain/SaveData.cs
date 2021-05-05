@@ -12,9 +12,9 @@ namespace GainsProject.Domain
     //--------------------------------------------------------------------
     public struct SaveData
     {
-        int score;
-        DateTime dt;
-        string playerTag;
+        private int score;
+        private DateTime dt;
+        private string playerTag;
         //default constructor
         public SaveData(int newScore, DateTime newDt, string newPlayerTag)
         {

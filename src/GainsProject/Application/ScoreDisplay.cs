@@ -19,16 +19,21 @@ namespace GainsProject.Application
         private const int TIME_DISPLAY = 0;
         private const int TAG_DISPLAY = 1;
         private const int SCORE_DISPLAY = 2;
-        private const string SOMETHING_BROKE = "SOMETHING BROKE";   //this is fine because it 
-                                                                    //will never get used
+        //this is fine because it                                         
+        //will never get used
+        private const string SOMETHING_BROKE = "SOMETHING BROKE";   
         private int numGames;
         private int currDisplay = TIME_DISPLAY;     //0-time, 1-tag, 2-score
-        public bool reverseScore;                   //if the score is in reverse order or not
+        private bool reverseScore;                   //if the score is in
+                                                    //reverse order or not
         private int totalScore;
         private double avgGamePoints;
-        public List<SaveData> timeSorted;           //save a list for each right away so it does not have to be 
-        public List<SaveData> tagSorted;            //recalculated at each button press
-        public List<SaveData> scoreSorted;
+        private List<SaveData> timeSorted;           //save a list for each right
+                                                    //away so it does not
+                                                    //have to be 
+        private List<SaveData> tagSorted;            //recalculated at each
+                                                    //button press
+        private List<SaveData> scoreSorted;
         //---------------------------------------------------------------
         //this is a parameterized constructor that takes a SCORESAVE
         //object for displaying the information for a game
@@ -491,6 +496,26 @@ namespace GainsProject.Application
         public double getAvgGamePoints()
         {
             return avgGamePoints;
+        }
+        //gettter for timeSorted
+        public List<SaveData> getTimeSortedList()
+        {
+            return timeSorted;
+        }
+        //getter for tagSorted
+        public List<SaveData> getTagSortedList()
+        {
+            return tagSorted;
+        }
+        //getter for scoreSorted
+        public List<SaveData> getScoreSortedList()
+        {
+            return scoreSorted;
+        }
+        //getter for reverseScore
+        public bool getReverseScore()
+        {
+            return reverseScore;
         }
     }
 }

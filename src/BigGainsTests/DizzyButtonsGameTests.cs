@@ -27,7 +27,8 @@ namespace BigGainsTests
             List<Button> list = game.getButtonList();
             game.setButtonDefaults(list[0]);
             game.onButtonClick(list[0], new System.EventArgs());
-            Assert.AreEqual(game.getScore(), 0 - DizzyButtonsGameManager.MINUS_SCORE);
+            Assert.AreEqual(game.getScore(), 
+                0 - DizzyButtonsGameManager.MINUS_SCORE);
         }
         //---------------------------------------------------------------
         // this method tests button events work
@@ -73,7 +74,8 @@ namespace BigGainsTests
         {
             DizzyButtonsGameManager game = new DizzyButtonsGameManager();
             game.minusScore();
-            Assert.AreEqual(game.getScore(), 0 - DizzyButtonsGameManager.MINUS_SCORE);
+            Assert.AreEqual(game.getScore(), 
+                0 - DizzyButtonsGameManager.MINUS_SCORE);
         }
         //---------------------------------------------------------------
         // this method tests the minus score method
@@ -82,7 +84,8 @@ namespace BigGainsTests
         public void minusScoreTest2()
         {
             DizzyButtonsGameManager game = new DizzyButtonsGameManager();
-            Assert.AreNotEqual(game.getScore(), 0 - DizzyButtonsGameManager.MINUS_SCORE);
+            Assert.AreNotEqual(game.getScore(), 
+                0 - DizzyButtonsGameManager.MINUS_SCORE);
         }
         //---------------------------------------------------------------
         // this method tests that the calculate score method does nothing
@@ -91,7 +94,8 @@ namespace BigGainsTests
         public void addButtonTest()
         {
             DizzyButtonsGameManager game = new DizzyButtonsGameManager();
-            Assert.AreEqual(game.getButtonList().Count, DizzyButtonsGameManager.NUM_BUTTONS);
+            Assert.AreEqual(game.getButtonList()
+                .Count, DizzyButtonsGameManager.NUM_BUTTONS);
         }
         //---------------------------------------------------------------
         // this method tests that the game runs

@@ -22,7 +22,8 @@ namespace BigGainsTests
         public void TestConstructor()
         {
             ScoreSave scoreSave = new ScoreSave("GameScore.txt" );
-            Assert.AreEqual("Nick", scoreSave.getSaveDataListIndex(0).getPlayerTag());
+            Assert.AreEqual("Nick", 
+                scoreSave.getSaveDataListIndex(0).getPlayerTag());
         }
         //---------------------------------------------------------------
         //test the add score
@@ -33,7 +34,8 @@ namespace BigGainsTests
             ScoreSave scoreSave = new ScoreSave("GameScore.txt");
             int tempGames = scoreSave.getNumGames();
             scoreSave.addScore(13, "Ben");
-            Assert.AreEqual("Ben", scoreSave.getSaveDataList()[tempGames].getPlayerTag());
+            Assert.AreEqual("Ben", 
+                scoreSave.getSaveDataList()[tempGames].getPlayerTag());
             Assert.AreEqual(tempGames + 1, scoreSave.getNumGames());
             Assert.AreNotEqual(scoreSave.getAvgGamePoints(), 0);
             Assert.AreNotEqual(scoreSave.getTotalScore(), 0);
