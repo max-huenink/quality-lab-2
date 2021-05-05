@@ -72,6 +72,8 @@ namespace GainsProject.Application
             TimeSpan elapsedTime = DateTime.Now - startTime;
             long scoreSubtracter = Convert.ToInt64(elapsedTime.TotalSeconds) * SCORE_SUB_MULTIPLIER;
             setScore(1000 - scoreSubtracter - (incorrectPictures * 100));
+            if (getScore() < 0)
+                setScore(0);
         }
         //---------------------------------------------------------------
         //does not get used in this game
@@ -300,6 +302,17 @@ namespace GainsProject.Application
             }
             lastNum = randomFile;
             sr.Close();
+        }
+        //---------------------------------------------------------------
+        // returns the picture that needs to be copied.
+        //---------------------------------------------------------------
+        public int[,] getPictureArray()
+        {
+            return pictureArray;
+        }
+        public void fillDrawingArray(int[,] picture)
+        {
+            drawingArray = picture;
         }
     }
 }

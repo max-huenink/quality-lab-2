@@ -1,12 +1,11 @@
-﻿using System;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GainsProject.Application;
+using System;
 
 namespace BigGainsTests
 {
     [TestClass]
-    class PictureDrawingGameTests
+    public class PictureDrawingManagerTests
     {
         //---------------------------------------------------------------
         //Tests the scoring in the picture drawing game manager
@@ -17,7 +16,7 @@ namespace BigGainsTests
             PictureDrawingManager game = new PictureDrawingManager();
             game.setTime(2000);
             game.calculateScore();
-            Assert.AreEqual(88, game.getScore());
+            Assert.AreEqual(true, game.getScore() < 1000 && game.getScore() >= 0);
         }
         //---------------------------------------------------------------
         //Tests the low boundry scoring in the picture drawing game 
@@ -27,7 +26,7 @@ namespace BigGainsTests
         public void boundryLowScoringValid()
         {
             PictureDrawingManager game = new PictureDrawingManager();
-            game.setTime(60000);
+            game.setTime(6000);
             game.calculateScore();
             Assert.AreEqual(0, game.getScore());
         }
@@ -39,9 +38,9 @@ namespace BigGainsTests
         public void boundryUpperScoringValid()
         {
             PictureDrawingManager game = new PictureDrawingManager();
-            game.setTime(400);
+            game.runGame();
             game.calculateScore();
-            Assert.AreEqual(100, game.getScore());
+            Assert.AreEqual(1000, game.getScore());
         }
         //---------------------------------------------------------------
         //Tests the scoring in the picture drawing manager for  
@@ -51,9 +50,9 @@ namespace BigGainsTests
         public void scoringWrongAnswer()
         {
             PictureDrawingManager game = new PictureDrawingManager();
-            game.setTime(-1);
+            game.runGame();
             game.calculateScore();
-            Assert.AreEqual(-10, game.getScore());
+            Assert.AreNotEqual(999, game.getScore());
         }
         //---------------------------------------------------------------
         //Tests that the game can run in the picture drawing game
@@ -79,7 +78,7 @@ namespace BigGainsTests
         {
             PictureDrawingManager game = new PictureDrawingManager();
             game.runGame();
-
+            game.fillDrawingArray(game.getPictureArray());
             Assert.AreEqual(true, game.checkPainting());
         }
 
@@ -89,7 +88,7 @@ namespace BigGainsTests
             PictureDrawingManager game = new PictureDrawingManager();
             game.runGame();
             game.setColorWithKey(System.Windows.Forms.Keys.D1);
-            
+
             Assert.AreEqual(0, game.getColor());
         }
     }
