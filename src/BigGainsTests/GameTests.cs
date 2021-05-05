@@ -129,6 +129,7 @@ namespace BigGainsTests
         //---------------------------------------------------------------
         //Tests the scoring if the user reacts before the baseline
         //---------------------------------------------------------------
+        [TestMethod]
         public void ScoringMax()
         {
             ExampleGameManager game = new ExampleGameManager();
