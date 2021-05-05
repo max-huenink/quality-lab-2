@@ -35,6 +35,8 @@ namespace BigGainsTests
             scoreSave.addScore(13, "Ben");
             Assert.AreEqual("Ben", scoreSave.getSaveDataList()[tempGames].getPlayerTag());
             Assert.AreEqual(tempGames + 1, scoreSave.getNumGames());
+            Assert.AreNotEqual(scoreSave.getAvgGamePoints(), 0);
+            Assert.AreNotEqual(scoreSave.getTotalScore(), 0);
         }
     }
 }

@@ -5,11 +5,13 @@
 //---------------------------------------------------------------
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Drawing;
 using GainsProject.Application;
+using System.Threading;
 namespace BigGainsTests
 {
     //---------------------------------------------------------------
-    // this class tests the testable logic for the spot the scenery
+    // this class tests the logic for the spot the scenery
     // game
     //---------------------------------------------------------------
     [TestClass]
@@ -62,11 +64,11 @@ namespace BigGainsTests
         {
             SpotTheSceneryGameManager game = new SpotTheSceneryGameManager();
             game.setTime(SpotTheSceneryGameManager.PERFECT_TIME + 1);
+            game.totalRunTime.Start();
+            Thread.Sleep(SpotTheSceneryGameManager.PERFECT_TIME + 1000);
             game.setNumRight(SpotTheSceneryGameManager.NUM_ROUNDS);
             game.calculateScore();
-            Assert.AreEqual(game.getScore(), SpotTheSceneryGameManager.PERFECT_SCORE - 
-                (game.getTime() - SpotTheSceneryGameManager.PERFECT_TIME) / 
-                SpotTheSceneryGameManager.SCORE_DECAY);
+            Assert.AreEqual(game.getScore(), 980);
         }
         //---------------------------------------------------------------
         // this method tests the score calculation for worse than a 
@@ -82,8 +84,21 @@ namespace BigGainsTests
             double test = SpotTheSceneryGameManager.PERFECT_SCORE -
                 (game.getTime() - SpotTheSceneryGameManager.PERFECT_TIME) /
                 SpotTheSceneryGameManager.SCORE_DECAY;
-            Console.WriteLine(test);
             Assert.AreNotEqual(game.getScore(), test);
+        }
+        //---------------------------------------------------------------
+        // this method tests the score calculation for worse than a 
+        // perfect time
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void worstScoreTest()
+        {
+            SpotTheSceneryGameManager game = new SpotTheSceneryGameManager();
+            game.setTime(SpotTheSceneryGameManager.PERFECT_TIME);
+            game.setNumRight(0);
+            game.setNumWrong(SpotTheSceneryGameManager.NUM_ROUNDS);
+            game.calculateScore();
+            Assert.AreEqual(game.getScore(), 0);
         }
         //---------------------------------------------------------------
         // this method tests the score calculation for missed scenes
@@ -101,7 +116,7 @@ namespace BigGainsTests
                 (double)game.getNumRight()));
         }
         //---------------------------------------------------------------
-        // this method tests the score calculation for missed scenes
+        // This method tests for the worst possible score
         //---------------------------------------------------------------
         [TestMethod]
         public void missedScenesTest2()
@@ -126,6 +141,51 @@ namespace BigGainsTests
             game.runGame();
             Assert.IsFalse(game.stopwatch.IsRunning);
             Assert.AreEqual(game.getTime(), game.stopwatch.ElapsedMilliseconds);
+        }
+        //---------------------------------------------------------------
+        // this method tests the random time function
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void randomTimeTest()
+        {
+            SpotTheSceneryGameManager game = new SpotTheSceneryGameManager();
+            int time = game.randomTime();
+            Assert.AreNotEqual(time, -1);
+        }
+        //---------------------------------------------------------------
+        // this method tests the new round method
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void newRoundTest()
+        {
+            SpotTheSceneryGameManager game = new SpotTheSceneryGameManager();
+            game.fillPictureManager();
+            Assert.AreEqual(game.hasNextRound(), true);
+            while (game.hasNextRound())
+            {
+                game.newRound();
+                Assert.AreNotEqual(game.getCurrDescriptor(), "notAreakDescriptor");
+                Assert.AreNotEqual(game.getCurrPictures()[0], null);
+            }
+            Assert.AreEqual(game.getCurrRound(), SpotTheSceneryGameManager.NUM_ROUNDS);
+            Assert.AreEqual(game.hasNextRound(), false);
+        }
+        //---------------------------------------------------------------
+        // this method tests picture clicked
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void pictureClickedTest()
+        {
+            SpotTheSceneryGameManager game = new SpotTheSceneryGameManager();
+            game.fillPictureManager();
+            game.newRound();
+            while(game.getNumRight() == 0 || game.getNumWrong() == 0)
+            {
+                game.pictureClicked(1);
+                game.newRound();
+            }
+            Assert.AreNotEqual(game.getNumRight(), 0);
+            Assert.AreNotEqual(game.getNumWrong(), 0);
         }
     }
 }

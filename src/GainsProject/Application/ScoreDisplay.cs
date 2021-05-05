@@ -14,24 +14,25 @@ namespace GainsProject.Application
     //This is a class that will hold all of the data logic for displaying
     //scores on the PreviousScoresPage
     //--------------------------------------------------------------------
-    class ScoreDisplay
+    public class ScoreDisplay
     {
         private const int TIME_DISPLAY = 0;
         private const int TAG_DISPLAY = 1;
         private const int SCORE_DISPLAY = 2;
         private const string SOMETHING_BROKE = "SOMETHING BROKE";   //this is fine because it 
-                                                            //will never get used
+                                                                    //will never get used
         private int numGames;
-        private int currDisplay; //0-time, 1-tag, 2-score
-        private bool reverseScore; //if the score is in reverse order or not
+        private int currDisplay = TIME_DISPLAY;     //0-time, 1-tag, 2-score
+        public bool reverseScore;                   //if the score is in reverse order or not
         private int totalScore;
         private double avgGamePoints;
-        //save a list for each right away so it does not have to be 
-        //recalculated at each button press
-        private List<SaveData> timeSorted;
-        private List<SaveData> tagSorted;
-        private List<SaveData> scoreSorted;
-        //this is a parameterized constructor
+        public List<SaveData> timeSorted;           //save a list for each right away so it does not have to be 
+        public List<SaveData> tagSorted;            //recalculated at each button press
+        public List<SaveData> scoreSorted;
+        //---------------------------------------------------------------
+        //this is a parameterized constructor that takes a SCORESAVE
+        //object for displaying the information for a game
+        //---------------------------------------------------------------
         public ScoreDisplay(ScoreSave scoreSave)
         {
             currDisplay = 0;
@@ -135,18 +136,20 @@ namespace GainsProject.Application
         //---------------------------------------------------------------
         public string getTime()
         {
+            string rs = "";
             if (reverseScore == false)
             {
                 switch (currDisplay)
                 {
                     case TIME_DISPLAY:
-                        return getTimeSortedTimestamp();
+                        rs = getTimeSortedTimestamp();
+                        break;
                     case TAG_DISPLAY:
-                        return getTagSortedTimestamp();
+                        rs = getTagSortedTimestamp();
+                        break;
                     case SCORE_DISPLAY:
-                        return getScoreSortedTimestamp();
-                    default:
-                        return SOMETHING_BROKE;
+                        rs = getScoreSortedTimestamp();
+                        break;
                 }
             }
             else
@@ -154,33 +157,37 @@ namespace GainsProject.Application
                 switch (currDisplay)
                 {
                     case TIME_DISPLAY:
-                        return getReverseTimeSortedTimestamp();
+                        rs = getReverseTimeSortedTimestamp();
+                        break;
                     case TAG_DISPLAY:
-                        return getReverseTagSortedTimestamp();
+                        rs = getReverseTagSortedTimestamp();
+                        break;
                     case SCORE_DISPLAY:
-                        return getReverseScoreSortedTimestamp();
-                    default:
-                        return SOMETHING_BROKE;
+                        rs = getReverseScoreSortedTimestamp();
+                        break;
                 }
             }
+            return rs;
         }
         //---------------------------------------------------------------
         //get the correct string for tag
         //---------------------------------------------------------------
         public string getTag()
         {
+            string rs = "";
             if (reverseScore == false)
             {
                 switch (currDisplay)
                 {
                     case TIME_DISPLAY:
-                        return getTimeSortedTag();
+                        rs = getTimeSortedTag();
+                        break;
                     case TAG_DISPLAY:
-                        return getTagSortedTag();
+                        rs = getTagSortedTag();
+                        break;
                     case SCORE_DISPLAY:
-                        return getScoreSortedTag();
-                    default:
-                        return SOMETHING_BROKE;
+                        rs = getScoreSortedTag();
+                        break;
                 }
             }
             else
@@ -188,33 +195,37 @@ namespace GainsProject.Application
                 switch (currDisplay)
                 {
                     case TIME_DISPLAY:
-                        return getReverseTimeSortedTag();
+                        rs = getReverseTimeSortedTag();
+                        break;
                     case TAG_DISPLAY:
-                        return getReverseTagSortedTag();
+                        rs = getReverseTagSortedTag();
+                        break;
                     case SCORE_DISPLAY:
-                        return getReverseScoreSortedTag();
-                    default:
-                        return SOMETHING_BROKE;
+                        rs = getReverseScoreSortedTag();
+                        break;
                 }
             }
+            return rs;
         }
         //---------------------------------------------------------------
         //get the correct string for score
         //---------------------------------------------------------------
         public string getScore()
         {
+            string rs = "";
             if (reverseScore == false)
             {
                 switch (currDisplay)
                 {
                     case TIME_DISPLAY:
-                        return getTimeSortedScore();
+                        rs = getTimeSortedScore();
+                        break;
                     case TAG_DISPLAY:
-                        return getTagSortedScore();
+                        rs = getTagSortedScore();
+                        break;
                     case SCORE_DISPLAY:
-                        return getScoreSortedScore();
-                    default:
-                        return SOMETHING_BROKE;
+                        rs = getScoreSortedScore();
+                        break;
                 }
             }
             else
@@ -222,15 +233,17 @@ namespace GainsProject.Application
                 switch (currDisplay)
                 {
                     case TIME_DISPLAY:
-                        return getReverseTimeSortedScore();
+                        rs = getReverseTimeSortedScore();
+                        break;
                     case TAG_DISPLAY:
-                        return getReverseTagSortedScore();
+                        rs = getReverseTagSortedScore();
+                        break;
                     case SCORE_DISPLAY:
-                        return getReverseScoreSortedScore();
-                    default:
-                        return SOMETHING_BROKE;
+                        rs = getReverseScoreSortedScore();
+                        break;
                 }
             }
+            return rs;
         }
         //---------------------------------------------------------------
         //make the reverseScore the opposite of what it is

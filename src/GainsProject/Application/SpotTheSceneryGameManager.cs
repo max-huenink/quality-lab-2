@@ -43,9 +43,9 @@ namespace GainsProject.Application
             if (totalRunTime.ElapsedMilliseconds <= PERFECT_TIME)
                 score = PERFECT_SCORE;
             else
-                score = PERFECT_SCORE - ((totalRunTime.ElapsedMilliseconds - PERFECT_TIME)/ SCORE_DECAY);
+                score = PERFECT_SCORE - ((totalRunTime.ElapsedMilliseconds - PERFECT_TIME) / SCORE_DECAY);
             score *= ((double)numRight - (double)numWrong) / (double)numRight;
-            if (score < 0)
+            if (score <= 0)
             {
                 score = 0;
             }
@@ -87,17 +87,11 @@ namespace GainsProject.Application
                 if (!currPictures.Contains(tempImage))
                 {
                     //check if currPictures is big enough for the first go through
-                    if(numPictures >= currPictures.Count)
+                    if (numPictures >= currPictures.Count)
                     {
                         //add new element
                         currPictures.Add(tempImage);
                         currPicturesNames.Add(tempImageName);
-                    }
-                    else
-                    {
-                        //write over other element
-                        currPictures[numPictures] = tempImage;
-                        currPicturesNames[numPictures] = tempImageName;
                     }
                     numPictures++;
                 }
@@ -116,8 +110,8 @@ namespace GainsProject.Application
                 return false;
         }
         //---------------------------------------------------------------
-        // checks if the picture clicked has the same descriptor as the
-        // desired one
+        // checks if the picture in the list at index of PICTURENUMBER
+        // has the same descriptor as the desired one
         //---------------------------------------------------------------
         public void pictureClicked(int pictureNumber)
         {
@@ -182,6 +176,13 @@ namespace GainsProject.Application
         public void setNumWrong(int numWrong)
         {
             this.numWrong = numWrong;
+        }
+        //---------------------------------------------------------------
+        // getter for current round
+        //---------------------------------------------------------------
+        public int getCurrRound()
+        {
+            return currRound;
         }
     }
 }

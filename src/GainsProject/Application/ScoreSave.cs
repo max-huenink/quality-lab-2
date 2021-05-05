@@ -18,23 +18,16 @@ namespace GainsProject.Application
     //--------------------------------------------------------------------
     public class ScoreSave
     {
-        //placeholder until we have multiple games and their 
-        //name will be passed in the constructor
-
         string fileName;
         private int numGames;
-        private int totalScore; //this exists to make avgGamePoints faster to
-                                //calculate
+        private int totalScore;                   //this exists to make avgGamePoints faster to
+                                                  //calculate
         private double avgGamePoints;
-        //a list of SaveData nodes
-        private List<SaveData> saveDataList;
-        //default constructor
-        //public ScoreSave()
-        //{
-        //    saveDataList = new List<SaveData>();
-        //    readFile();
-        //}
-        //parameterized constructor
+        private List<SaveData> saveDataList;      //a list of SaveData nodes
+        //--------------------------------------------------------------------
+        //parameterized constructor that takes the FILENAME that will be read
+        //in
+        //--------------------------------------------------------------------
         public ScoreSave(string fileName)
         {
             this.fileName = fileName;
@@ -50,6 +43,10 @@ namespace GainsProject.Application
         //--------------------------------------------------------------------
         private void readFile()
         {
+            numGames = 0;
+            totalScore = 0;
+            avgGamePoints = 0;
+            saveDataList = new List<SaveData>();
             //if the file exists read it in
             if (File.Exists(fileName))
             {
@@ -70,14 +67,6 @@ namespace GainsProject.Application
                 }
                 sr.Close();
             }
-            else
-            {
-                //if the file does not exist initialize values to null/zero
-                numGames = 0;
-                totalScore = 0;
-                avgGamePoints = 0;
-                saveDataList = new List<SaveData>();
-            }
         }
         //---------------------------------------------------------------
         //save all the data stored into a txt file
@@ -87,7 +76,8 @@ namespace GainsProject.Application
             File.WriteAllText(fileName, getTextString());
         }
         //---------------------------------------------------------------
-        //add relevant data into SaveData node and add it tothe list
+        //add NEWSCORE and NEWPLAYERTAG into SaveData node and add it to
+        //the list
         //---------------------------------------------------------------
         public void addScore(int newScore, string newPlayerTag)
         {

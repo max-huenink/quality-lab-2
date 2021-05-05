@@ -62,25 +62,41 @@ namespace GainsProject.UI
         {
             gameplayView();
         }
+        //---------------------------------------------------------------
+        // a picture was clicked on and it will call the method with its
+        // number in the picture list
+        //---------------------------------------------------------------
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             pictureClicked(1);
         }
+        //---------------------------------------------------------------
+        // a picture was clicked on and it will call the method with its
+        // number in the picture list
+        //---------------------------------------------------------------
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             pictureClicked(4);
         }
+        //---------------------------------------------------------------
+        // a picture was clicked on and it will call the method with its
+        // number in the picture list
+        //---------------------------------------------------------------
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             pictureClicked(3);
         }
+        //---------------------------------------------------------------
+        // a picture was clicked on and it will call the method with its
+        // number in the picture list
+        //---------------------------------------------------------------
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             pictureClicked(2);
         }
         //---------------------------------------------------------------
         // called by pictureBox mouse click events to call logic in
-        // manager
+        // manager. It will send the PICNUMBER for what picture to check
         //---------------------------------------------------------------
         private void pictureClicked(int picNumber)
         {

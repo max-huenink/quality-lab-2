@@ -15,18 +15,18 @@ namespace GainsProject.Application
     //---------------------------------------------------------------
     // this class handles the logic for the dizzy buttons game
     //---------------------------------------------------------------
-    class DizzyButtonsGameManager : BaseGame
+    public class DizzyButtonsGameManager : BaseGame
     {
         private const string GAME_NAME = "DizzyButtons.txt";
         private const int GAME_LENGTH = 1000;
-        private const int NUM_BUTTONS = 20;
+        public const int NUM_BUTTONS = 20;
         private const int SPEED_RANGE = 15;
         private const int PAGE_HEIGHT = 686;
         private const int PAGE_WIDTH = 1060;
         private const int BUTTON_WIDTH = 88;
         private const int BUTTON_HEIGHT = 40;
-        private const int SCORE = 75;
-        private const int MINUS_SCORE = 25;
+        public const int SCORE = 75;
+        public const int MINUS_SCORE = 25;
         private const string DEFAULT_TEXT = "Don't Click Me";
         private const string IS_IT_TEXT = "CLICK ME!";
         private bool isFinished;
@@ -76,14 +76,14 @@ namespace GainsProject.Application
         //---------------------------------------------------------------
         public override void calculateScore()
         {
-            throw new NotImplementedException();
+            
         }
         //---------------------------------------------------------------
         // this method is to satisfy the abstract base class
         //---------------------------------------------------------------
         public override int randomTime()
         {
-            throw new NotImplementedException();
+            return 0;
         }
         //---------------------------------------------------------------
         // this method creates a button, formats it, and makes accompaning
@@ -107,7 +107,7 @@ namespace GainsProject.Application
         //---------------------------------------------------------------
         // set the default color and text message on a button
         //---------------------------------------------------------------
-        private void setButtonDefaults(Button button)
+        public void setButtonDefaults(Button button)
         {
             button.Text = DEFAULT_TEXT;
             button.BackColor = DEFAULT_BACK_COLOR;
@@ -116,7 +116,7 @@ namespace GainsProject.Application
         // Set the color to green and ask the user to click it. It also
         // makes the button on top so it can be seen over other buttons
         //---------------------------------------------------------------
-        private void setIsIt(Button button)
+        public void setIsIt(Button button)
         {
             isIt = button;
             button.Text = IS_IT_TEXT;
@@ -127,7 +127,7 @@ namespace GainsProject.Application
         // If a button was clicked on and it was the green one it will 
         // award points and delete it, otherwise it will minus points
         //---------------------------------------------------------------
-        private void onButtonClick(object sender, System.EventArgs e)
+        public void onButtonClick(object sender, System.EventArgs e)
         {
             Button clickedButton = sender as Button;
             if (clickedButton.BackColor == IS_IT_BACK_COLOR)
@@ -180,19 +180,21 @@ namespace GainsProject.Application
             tickCounter++;
         }
         //---------------------------------------------------------------
-        // gets the index of a button in the list for deleting it after
+        // gets the index for a BUTTON in the list for deleting it after
         // getting sent through the sender object in the event handler
         //---------------------------------------------------------------
         private int getButtonIndex(Button button)
         {
+            int count = -1;
             for(int i = 0; i < buttonList.Count; i++)
             {
                 if(buttonList[i].Equals(button))
                 {
-                    return i;
+                    count = i;
+                    break;
                 }
             }
-            return -1;
+            return count;
         }
         //getter for buttonList
         public List<Button> getButtonList()
@@ -211,6 +213,11 @@ namespace GainsProject.Application
         {
             return score;
         }
+        //setter for score
+        public void setScore(int score)
+        {
+            this.score = score;
+        }
         //getter for isFinished
         public bool getIsFinished()
         {
@@ -225,13 +232,6 @@ namespace GainsProject.Application
         public Stack<Button> getToDelete()
         {
             return toDelete;
-        }
-        //---------------------------------------------------------------
-        // a passthrough method for adding a score to the save list
-        //---------------------------------------------------------------
-        public void AddScore(string name)
-        {
-            scoreSave.addScore(score, name);
         }
     }
 }

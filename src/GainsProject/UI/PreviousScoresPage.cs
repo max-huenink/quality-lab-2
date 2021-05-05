@@ -27,6 +27,9 @@ namespace GainsProject.UI
             //Load all of the score relevant data onto the screen
             scorePageStart();
         }
+        //---------------------------------------------------------------
+        //updates the strings displaying scores and accompaning values
+        //---------------------------------------------------------------
         private void updateScorePage()
         {
             this.timeStampHere.Text = currScoreDisplay.getTime();
@@ -84,7 +87,9 @@ namespace GainsProject.UI
             currScoreDisplay.setScoreSorted();
             updateScorePage();
         }
-
+        //---------------------------------------------------------------
+        //An event for game select
+        //---------------------------------------------------------------
         private void selectGame_SelectedIndexChanged(object sender, EventArgs e)
         {
             currScoreDisplay = scoreDisplayList[this.selectGame.SelectedIndex];

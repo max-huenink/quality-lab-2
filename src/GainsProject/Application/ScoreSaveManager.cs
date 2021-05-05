@@ -26,7 +26,7 @@ namespace GainsProject.Application
         private static readonly string[] gameNames = { "testGame1.txt", 
             "SpotTheScenery.txt", "PictureDrawing.txt",
             "DizzyButtons.txt", "ChaseTheButton.txt", "ExampleGame.txt",
-            "MentalMathGame.txt", "ArrowKeyGame.txt", "SpotTheScenery.txt"};
+            "MentalMathGame.txt", "ArrowKeyGame.txt"};
         //private default constructor
         private ScoreSaveManager()
         {
@@ -47,11 +47,11 @@ namespace GainsProject.Application
             {
                 if(gameName == gameToGet)
                 {
-                    return scoreSaveList[count];
+                    break;
                 }
                 count++;
             }
-            return null;
+            return scoreSaveList[count];
         }
         //--------------------------------------------------------------------
         // This method makes a ScoreSaveManager object if it is null so it can 
