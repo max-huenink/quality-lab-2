@@ -357,6 +357,104 @@ namespace BigGainsTests
 
         #endregion
 
+        #region Constant Tests
+
+        //---------------------------------------------------------------
+        //Tests that the constant RANDOM_TIME_MIN is 500
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void RandomTimeMinTest()
+        {
+            ArrowKeyGameManager game = new ArrowKeyGameManager();
+            var randomMin = game.getRandomTimeMin();
+            Assert.AreEqual(500, randomMin);
+        }
+
+
+        //---------------------------------------------------------------
+        //Tests that the constant RANDOM_TIME_MAX is 2000
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void RandomTimeMaxTest()
+        {
+            ArrowKeyGameManager game = new ArrowKeyGameManager();
+            var randomMax = game.getRandomTimeMax();
+            Assert.AreEqual(2000, randomMax);
+        }
+
+
+        //---------------------------------------------------------------
+        //Tests that the constant MAX_TIME_TO_CLICK is 1200
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void MaxTimeToClickTest()
+        {
+            ArrowKeyGameManager game = new ArrowKeyGameManager();
+            var maxTime = game.getMaxTimeToClick();
+            Assert.AreEqual(1200, maxTime);
+        }
+
+        //---------------------------------------------------------------
+        //Tests that the constant MAX_CLICKS is 10
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void MaxClicksTest()
+        {
+            ArrowKeyGameManager game = new ArrowKeyGameManager();
+            var maxClicks = game.getMaxClicks();
+            Assert.AreEqual(10, maxClicks);
+        }
+
+        #endregion
+
+        #region GameIsLiveTests
+
+        //---------------------------------------------------------------
+        //Tests that the game is not over after less than MAX_CLICKS
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void GameNotOverMaxClicksTest()
+        {
+            ArrowKeyGameManager game = new ArrowKeyGameManager();
+            game.start();
+            game.runGame();
+
+            Assert.IsTrue(game.isGameLive());
+
+            var maxClicks = game.getMaxClicks() - 1;
+            for (var i = 0; i < maxClicks; i++)
+            {
+                game.calculateScore();
+            }
+
+            Assert.IsTrue(game.isGameLive());
+        }
+
+        //---------------------------------------------------------------
+        //Tests that the game is over after MAX_CLICKS
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void GameOverMaxClicksTest()
+        {
+            ArrowKeyGameManager game = new ArrowKeyGameManager();
+            game.start();
+            game.runGame();
+
+            Assert.IsTrue(game.isGameLive());
+
+            var maxClicks = game.getMaxClicks();
+            for (var i = 0; i < maxClicks; i++)
+            {
+                game.calculateScore();
+            }
+
+            Assert.IsFalse(game.isGameLive());
+        }
+
+
+        #endregion
+
+
         //---------------------------------------------------------------
         //Tests that the runGame method sets the time to the current
         // stopwatch value, and stops the stopwatch
@@ -368,7 +466,22 @@ namespace BigGainsTests
             game.stopwatch.Start();
             game.runGame();
             Assert.IsFalse(game.stopwatch.IsRunning);
-            Assert.AreEqual(game.getTime(), game.stopwatch.ElapsedMilliseconds);
+            Assert.AreEqual(game.getTime(),
+                            game.stopwatch.ElapsedMilliseconds);
+        }
+
+        //---------------------------------------------------------------
+        //Tests that the random time is within bounds
+        //---------------------------------------------------------------
+        [TestMethod]
+        public void RandomBetweenRange()
+        {
+            ArrowKeyGameManager game = new ArrowKeyGameManager();
+            var randomMin = game.getRandomTimeMin();
+            var randomMax = game.getRandomTimeMax();
+            var randTime = game.randomTime();
+            Assert.IsTrue(randomMin <= randTime);
+            Assert.IsTrue(randTime < randomMax);
         }
     }
 }

@@ -51,11 +51,35 @@ namespace GainsProject.Application
         }
 
         //---------------------------------------------------------------
+        //Gets the minimum random time
+        //---------------------------------------------------------------
+        public int getRandomTimeMin()
+        {
+            return RANDOM_TIME_MIN;
+        }
+
+        //---------------------------------------------------------------
+        //Gets the maximum random time
+        //---------------------------------------------------------------
+        public int getRandomTimeMax()
+        {
+            return RANDOM_TIME_MAX;
+        }
+
+        //---------------------------------------------------------------
         //Gets the max time until the user needs to click
         //---------------------------------------------------------------
         public int getMaxTimeToClick()
         {
             return MAX_TIME_TO_CLICK;
+        }
+
+        //---------------------------------------------------------------
+        //Gets the max number of clicks until the game ends
+        //---------------------------------------------------------------
+        public int getMaxClicks()
+        {
+            return MAX_CLICKS;
         }
 
         //---------------------------------------------------------------
