@@ -7,6 +7,8 @@ using GainsProject.Application;
 using GainsProject.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GainsProject.UI
@@ -72,6 +74,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         private void CreateGameButtons()
         {
+            List<Button> btnList = new List<Button>();
             foreach (var game in manager.GetListOfGames())
             {
                 Button gameBtn = new Button
@@ -113,10 +116,60 @@ namespace GainsProject.UI
                         }
                     }
                 };
-                    GameSelector.Controls.Add(gameBtn);
+                GameSelector.Controls.Add(gameBtn);
                 if (playlistManager.contains(game.Name))
                     GamePlaylist.Controls.Add(gameBtn);
+                btnList.Add(gameBtn);
             }
+            // Center the GameSelector horizontally and vertically
+            AlignGameSelector(GameSelector);
+
+            AlignGamePlaylist(GamePlaylist);
+
+            // Find max width and make every button have that width
+            var maxWidth = btnList.Max(b => b.Width);
+            foreach (var btn in btnList)
+            {
+                btn.Width = maxWidth;
+            }
+        }
+
+        //---------------------------------------------------------------
+        //Aligns the control on the screen horizontally and vertically
+        //---------------------------------------------------------------
+        private void AlignGameSelector(Control ctrl)
+        {
+            // Compute center x
+            var pageWidth = Size.Width;
+            var ctrlWidth = ctrl.Size.Width;
+            var x = (pageWidth - ctrlWidth) / 8;
+
+            // Compute center y
+            var pageHeight = Size.Height;
+            var ctrlHeight = ctrl.Size.Height;
+            var y = (pageHeight - ctrlHeight) / 3 * 2;
+
+            // Senter control
+            ctrl.Location = new Point(x, y);
+        }
+
+        //---------------------------------------------------------------
+        //Aligns the control on the screen horizontally and vertically
+        //---------------------------------------------------------------
+        private void AlignGamePlaylist(Control ctrl)
+        {
+            // Compute center x
+            var pageWidth = Size.Width;
+            var ctrlWidth = ctrl.Size.Width;
+            var x = (pageWidth - ctrlWidth) / 16 * 13;
+
+            // Compute center y
+            var pageHeight = Size.Height;
+            var ctrlHeight = ctrl.Size.Height;
+            var y = (pageHeight - ctrlHeight) / 20 * 9;
+
+            // Senter control
+            ctrl.Location = new Point(x, y);
         }
 
         //---------------------------------------------------------------
