@@ -17,7 +17,10 @@ namespace GainsProject.Application
     //---------------------------------------------------------------
     public class PictureDrawingManager : BaseGame
     {
+        public const int MAX_POINTS = 1000;
+        public const int POINT_LOSS_PER_PICTURE = 100;
         public const int UPPER_PICTURE_LIMIT = 8;
+        public const int DEFAULT_BOX_SIZE = 30;
         public const int COLOR_WHITE = 0;
         public const int COLOR_YELLOW = 1;
         public const int COLOR_ORANGE = 2;
@@ -39,7 +42,10 @@ namespace GainsProject.Application
         private int boxSize;
         private int incorrectPictures;
         private int lastNum;
-        
+
+        //---------------------------------------------------------------
+        // default constructor
+        //---------------------------------------------------------------
         public PictureDrawingManager()
         {
             random = new Random();
@@ -57,8 +63,8 @@ namespace GainsProject.Application
         //---------------------------------------------------------------
         public override void runGame()
         {
-            pictureArray = new int[8, 8];
-            drawingArray = new int[8, 8];
+            pictureArray = new int[UPPER_PICTURE_LIMIT, UPPER_PICTURE_LIMIT];
+            drawingArray = new int[UPPER_PICTURE_LIMIT, UPPER_PICTURE_LIMIT];
             incorrectPictures = 0;
             loadPicturePanel();
             startTime = DateTime.Now;
@@ -70,8 +76,10 @@ namespace GainsProject.Application
         public override void calculateScore()
         {
             TimeSpan elapsedTime = DateTime.Now - startTime;
-            long scoreSubtracter = Convert.ToInt64(elapsedTime.TotalSeconds) * SCORE_SUB_MULTIPLIER;
-            setScore(1000 - scoreSubtracter - (incorrectPictures * 100));
+            long scoreSubtracter = Convert.ToInt64(elapsedTime.TotalSeconds)
+                * SCORE_SUB_MULTIPLIER;
+            setScore(MAX_POINTS - scoreSubtracter - (incorrectPictures 
+                * POINT_LOSS_PER_PICTURE));
             if (getScore() < 0)
                 setScore(0);
         }
@@ -142,8 +150,10 @@ namespace GainsProject.Application
             {
                 for(int j = 0; j < UPPER_PICTURE_LIMIT; j++)
                 {
-                    Rectangle rect = new Rectangle(i * boxSize, j * boxSize, boxSize, boxSize);
-                    e.Graphics.FillRectangle(coloredBrush(drawingArray[i,j]), rect);
+                    Rectangle rect = new Rectangle(i * boxSize, j * boxSize
+                        , boxSize, boxSize);
+                    e.Graphics.FillRectangle(coloredBrush(drawingArray[i,j])
+                        , rect);
                 }
             }
         }
@@ -258,13 +268,15 @@ namespace GainsProject.Application
         //---------------------------------------------------------------
         public void fillPicturePanel(object sender, PaintEventArgs e)
         {
-            boxSize = 30;
+            boxSize = DEFAULT_BOX_SIZE;
             for (int i = 0; i < UPPER_PICTURE_LIMIT; i++)
             {
                 for (int j = 0; j < UPPER_PICTURE_LIMIT; j++)
                 {
-                    Rectangle rect = new Rectangle(i * boxSize, j * boxSize, boxSize, boxSize);
-                    e.Graphics.FillRectangle(coloredBrush(pictureArray[i, j]), rect);
+                    Rectangle rect = new Rectangle(i * boxSize, j 
+                        * boxSize, boxSize, boxSize);
+                    e.Graphics.FillRectangle(coloredBrush(pictureArray[i, j])
+                        , rect);
                 }
             }
         }
@@ -292,7 +304,8 @@ namespace GainsProject.Application
                     randomFile = random.Next(0, fileCount);
             }
             string randomFileName = dirFiles[randomFile].Name;
-            StreamReader sr = new StreamReader("PictureDrawingFolder/" + randomFileName);
+            StreamReader sr = new StreamReader("PictureDrawingFolder/" + 
+                randomFileName);
             for (int i = 0; i < UPPER_PICTURE_LIMIT; i++)
             {
                 for (int j = 0; j < UPPER_PICTURE_LIMIT; j++)
@@ -310,6 +323,11 @@ namespace GainsProject.Application
         {
             return pictureArray;
         }
+        //---------------------------------------------------------------
+        // fills the drawing array
+        // params:
+        // PICTURE of type int[,]
+        //---------------------------------------------------------------
         public void fillDrawingArray(int[,] picture)
         {
             drawingArray = picture;

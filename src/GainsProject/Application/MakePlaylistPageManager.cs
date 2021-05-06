@@ -19,7 +19,8 @@ namespace GainsProject.Application
     public class MakePlaylistPageManager
     {
         //Lists to hold the games
-        private List<(string Name, Func<Control> GameControlCreator)> playlist;
+        private List<(string Name, Func<Control> GameControlCreator)> 
+            playlist;
         List<string> startPlaylist;
 
         //--------------------------------------------------------------------
@@ -27,11 +28,14 @@ namespace GainsProject.Application
         //--------------------------------------------------------------------
         public MakePlaylistPageManager()
         {
-            playlist = new List<(string Name, Func<Control> GameControlCreator)>();
+            playlist = new List<(string Name
+                , Func<Control> GameControlCreator)>();
             startPlaylist = new List<string>();
         }
         //--------------------------------------------------------------------
         //Checks if the playlist contains a string
+        //params:
+        //g of type string
         //--------------------------------------------------------------------
         public bool contains(string g) 
         { 
@@ -51,15 +55,20 @@ namespace GainsProject.Application
         }
         //--------------------------------------------------------------------
         //Adds a game to the playlist
+        //params:
+        // GAME of type (string Name, Func<Control> GameControlCreator)
         //--------------------------------------------------------------------
-        public void add((string Name, Func<Control> GameControlCreator) game) 
+        public void add((string Name, Func<Control> GameControlCreator) game)
         {
-            playlist.Add(game); 
+            playlist.Add(game);
         }
         //--------------------------------------------------------------------
         //Removes a game from the playlist
+        //params:
+        // GAME of type (string Name, Func<Control> GameControlCreator)
         //--------------------------------------------------------------------
-        public void remove((string Name, Func<Control> GameControlCreator) game)
+        public void remove((string Name
+            , Func<Control> GameControlCreator) game)
         {
             playlist.Remove(game);
         }
@@ -72,6 +81,8 @@ namespace GainsProject.Application
         }
         //--------------------------------------------------------------------
         //saves the list after the start button was pressed
+        // params:
+        // GAMELIST of type GameSelectManager
         //--------------------------------------------------------------------
         public void validatePlaylist(GameSelectManager gamelist)
         {

@@ -13,8 +13,9 @@ namespace GainsProject.UI
     {
         //Game name and the score save manager to save scores
         private const string GAME_NAME = "PictureDrawing.txt";
-        ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
-        NameClass name = new NameClass();
+        private ScoreSaveManager scoreSaveManager 
+            = ScoreSaveManager.getScoreSaveManager();
+        private NameClass name = new NameClass();
         private static PictureDrawingManager pd = new PictureDrawingManager();
         public const int COLOR_WHITE = 0;
         public const int COLOR_YELLOW = 1;
@@ -65,7 +66,8 @@ namespace GainsProject.UI
         // if they are the same. It is also the button for starting the
         // game and playing more than one game.
         //---------------------------------------------------------------
-        private void checkScoreButton_MouseClick(object sender, MouseEventArgs e)
+        private void checkScoreButton_MouseClick(object sender
+            , MouseEventArgs e)
         {
             if(!pd.isGameLive()) //starts a game
             {
@@ -81,7 +83,8 @@ namespace GainsProject.UI
                 checkScoreButton.Text = "Check Picture";
                 checkScoreButton.BackColor = System.Drawing.Color.LimeGreen;
                 pd.runGame();
-                picturePanel.Paint += new PaintEventHandler(pd.fillPicturePanel);
+                picturePanel.Paint += 
+                    new PaintEventHandler(pd.fillPicturePanel);
                 picturePanel.Refresh();
                 timer1.Enabled = true;
                 label1.Visible = false;
@@ -94,28 +97,31 @@ namespace GainsProject.UI
             {
                 if(pd.checkPainting())
                 {
-                    timer1.Enabled = false;
+                    /*timer1.Enabled = false;
                     checkScoreButton.Text = "PLAY AGAIN";
-                    checkScoreButton.BackColor = System.Drawing.Color.Tomato;
+                    checkScoreButton.BackColor = 
+                        System.Drawing.Color.Tomato;
 
                     endTimeLabel.Text = "Time: " + pd.getElapsedTime();
-                    incorrectPictureLabel.Text = "Bad Pictures: " + pd.getIncorrectPictures();
+                    incorrectPictureLabel.Text = "Bad Pictures: " 
+                        + pd.getIncorrectPictures();
                     scoreLabel.Text = "Score: " + pd.getScore();
-                    ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
-                    scoreSave.addScore((int)pd.getScore(), name.getName());
+                    ScoreSave scoreSave = 
+                        scoreSaveManager.getScoreSave(GAME_NAME);
+                    scoreSave.addScore((int)pd.getScore()
+                        , name.getName());
                     dashedTimerLabel.Visible = false;
                     timerLabel.Visible = false;
                     dashedLineLabel.Visible = false;
                     endTimeLabel.Visible = true;
                     incorrectPictureLabel.Visible = true;
-                    scoreLabel.Visible = true;
+                    scoreLabel.Visible = true; */
+                    gameEnd?.GameFinished(name.getName(), pd.getScore()
+                        , pd.getGameRunTime());
                 }
                 else //subtracts points for wrong picture
                     pd.incorrectAnswer();
             }
-
-            //TODO Put this call somewhere, maybe a "next" button?
-            //gameEnd?.GameFinished(name.getName(), pd.getScore(), pd.getGameRunTime());
         }
         //---------------------------------------------------------------
         //colors one square in the picture.

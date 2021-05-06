@@ -14,7 +14,8 @@ namespace GainsProject.Domain
     //---------------------------------------------------------------
     public class GameSelectData
     {
-        private List<(string Name, Func<Control> GameControlCreator)> gameList;
+        private List<(string Name
+            , Func<Control> GameControlCreator)> gameList;
         private List<Func<Control>> gameCreatorsUsedThisSession;
 
         //---------------------------------------------------------------
@@ -55,7 +56,8 @@ namespace GainsProject.Domain
         //         Func<Control> gameControlCreator - A function that
         //          creates the game control
         //---------------------------------------------------------------
-        public void AddGameToList(string name, Func<Control> gameControlCreator)
+        public void AddGameToList(string name
+            , Func<Control> gameControlCreator)
         {
             gameList.Add((name, gameControlCreator));
         }

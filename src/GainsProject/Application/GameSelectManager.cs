@@ -62,7 +62,8 @@ namespace GainsProject.Application
         //         Func<Control> gameControlCreator - A function that
         //          creates the game control
         //---------------------------------------------------------------
-        public void AddGameToList(string name, Func<Control> gameControlCreator)
+        public void AddGameToList(string name
+            , Func<Control> gameControlCreator)
         {
             data.AddGameToList(name, gameControlCreator);
         }
@@ -144,7 +145,8 @@ namespace GainsProject.Application
         //Creates and returns a new game select manager with games
         // already populated, with an IGamePlaylist
         //---------------------------------------------------------------
-        public static GameSelectManager CreateAndPopulateManager(IGameEnd gameEnd)
+        public static GameSelectManager CreateAndPopulateManager(IGameEnd 
+            gameEnd)
         {
             var manager = new GameSelectManager();
             manager.AddGameToList("Example Game",

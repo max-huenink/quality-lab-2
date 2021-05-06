@@ -14,11 +14,19 @@ namespace GainsProject.UI
     //---------------------------------------------------------------
     //The UI to allow the user to create a playlist
     //---------------------------------------------------------------
-    public partial class MakePlaylistPage : UserControl, IGamePlaylist, IGameEnd
+    public partial class MakePlaylistPage : UserControl, IGamePlaylist
+        , IGameEnd
     {
-        MakePlaylistPageManager playlistManager;
-        bool listOver;
-        int round;
+        private MakePlaylistPageManager playlistManager;
+        private bool listOver;
+        private int round;
+        private readonly GameSelectManager manager;
+        private readonly GameSelectManager pManager;
+        private (string Name, Func<Control> GameControlCreator) selectedGame;
+        private Func<Control> sg;
+        //---------------------------------------------------------------
+        //default constructor
+        //---------------------------------------------------------------
         public MakePlaylistPage()
         {
             InitializeComponent();
@@ -59,11 +67,6 @@ namespace GainsProject.UI
             startButton.Text = "Start Round: " + round;
             Content.BackColor = System.Drawing.Color.Salmon;
         }
-
-        private readonly GameSelectManager manager;
-        private readonly GameSelectManager pManager;
-        private (string Name, Func<Control> GameControlCreator) selectedGame;
-        private Func<Control> sg;
         //---------------------------------------------------------------
         //Creates buttons for each game in the games list
         //---------------------------------------------------------------
@@ -87,16 +90,19 @@ namespace GainsProject.UI
                         if(playlistManager.isEmpty())
                             selectedGame = game;
                         playlistManager.add(game);
-                        pManager.AddGameToList(game.Name, game.GameControlCreator);
+                        pManager.AddGameToList(game.Name
+                            , game.GameControlCreator);
                     }
                     else
                     {
                         GameSelector.Controls.Add(gameBtn);
                         playlistManager.remove(game);
-                        pManager.RemoveGameFromList(game.Name, game.GameControlCreator);
+                        pManager.RemoveGameFromList(game.Name
+                            , game.GameControlCreator);
                         if(!playlistManager.isEmpty() && selectedGame == game)
                         {
-                            (string Name, Func<Control> GameControlCreator) temp = playlistManager.getFirstGame();
+                            (string Name, Func<Control> GameControlCreator) 
+                            temp = playlistManager.getFirstGame();
                             foreach(var g in pManager.GetListOfGames())
                             {
                                 if(temp == g)
@@ -165,7 +171,8 @@ namespace GainsProject.UI
 
             sg = pManager.GetFirstUnplayedGame();
             if (sg == null)
-                sg = () => new PlayAgainPage(playlistManager.getPlaylist(), ++ round);
+                sg = () => new PlayAgainPage(playlistManager.getPlaylist()
+                    , ++ round);
             else
             {
                 pManager.PlayedGame(sg);
