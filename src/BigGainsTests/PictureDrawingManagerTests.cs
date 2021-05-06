@@ -5,6 +5,7 @@ using GainsProject.Application;
 using GainsProject.Domain.Interfaces;
 using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace BigGainsTests
 {
@@ -104,10 +105,31 @@ namespace BigGainsTests
             game.runGame();
             game.randomTime();
             Panel drawingPanel = new Panel();
+            Graphics g = drawingPanel.CreateGraphics();
             game.setColor(0);
-            drawingPanel.Paint += new PaintEventHandler(game.colorSquare);
-            drawingPanel.Paint += new PaintEventHandler(game.fillPicturePanel);
-            drawingPanel.Paint += new PaintEventHandler(game.clearPanel);
+            PaintEventArgs paint = new PaintEventArgs(g, new Rectangle());
+            game.setPanelInfo(0, 0, 15);
+            game.colorSquare(drawingPanel, paint);
+            game.fillPicturePanel(drawingPanel, paint);
+            game.clearPanel(drawingPanel, paint);
+            game.coloredBrush(0);
+            game.coloredBrush(1);
+            game.coloredBrush(2);
+            game.coloredBrush(3);
+            game.coloredBrush(4);
+            game.coloredBrush(5);
+            game.coloredBrush(6);
+            game.coloredBrush(7);
+            game.coloredBrush(8);
+            game.setColorWithKey(System.Windows.Forms.Keys.D9);
+            game.setColorWithKey(System.Windows.Forms.Keys.D8);
+            game.setColorWithKey(System.Windows.Forms.Keys.D7);
+            game.setColorWithKey(System.Windows.Forms.Keys.D6);
+            game.setColorWithKey(System.Windows.Forms.Keys.D5);
+            game.setColorWithKey(System.Windows.Forms.Keys.D4);
+            game.setColorWithKey(System.Windows.Forms.Keys.D3);
+            game.setColorWithKey(System.Windows.Forms.Keys.D2);
+            game.setColorWithKey(System.Windows.Forms.Keys.A);
             game.setColorWithKey(System.Windows.Forms.Keys.D1);
 
             Assert.AreEqual(0, game.getColor());
