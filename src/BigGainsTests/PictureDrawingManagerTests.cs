@@ -1,6 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GainsProject.Application;
 using System;
+using GainsProject.Application;
+using GainsProject.Domain.Interfaces;
+using System;
+using System.Windows.Forms;
 
 namespace BigGainsTests
 {
@@ -52,6 +56,7 @@ namespace BigGainsTests
             PictureDrawingManager game = new PictureDrawingManager();
             game.runGame();
             game.calculateScore();
+            game.incorrectAnswer();
             Assert.AreNotEqual(999, game.getScore());
         }
         //---------------------------------------------------------------
@@ -64,6 +69,8 @@ namespace BigGainsTests
             game.stopwatch.Start();
             game.stopwatch.Stop();
             game.runGame();
+            game.loadPicturePanel();
+            game.setPanelInfo(0, 0, 15);
             Assert.AreEqual(0, game.stopwatch.ElapsedMilliseconds);
         }
         [TestMethod]
@@ -81,14 +88,47 @@ namespace BigGainsTests
             game.fillDrawingArray(game.getPictureArray());
             Assert.AreEqual(true, game.checkPainting());
         }
+        [TestMethod]
+        public void checkWrongPaintingsSame()
+        {
+            PictureDrawingManager game = new PictureDrawingManager();
+            game.runGame();
+            //game.fillDrawingArray(game.getPictureArray());
+            Assert.AreEqual(false, game.checkPainting());
+        }
 
         [TestMethod]
         public void useKeyToChangeColor()
         {
             PictureDrawingManager game = new PictureDrawingManager();
             game.runGame();
+            game.randomTime();
+            Panel drawingPanel = new Panel();
+            game.setColor(0);
+            drawingPanel.Paint += new PaintEventHandler(game.colorSquare);
+            drawingPanel.Paint += new PaintEventHandler(game.fillPicturePanel);
+            drawingPanel.Paint += new PaintEventHandler(game.clearPanel);
             game.setColorWithKey(System.Windows.Forms.Keys.D1);
 
+            Assert.AreEqual(0, game.getColor());
+        }
+        [TestMethod]
+        public void getElapsedTime()
+        {
+            PictureDrawingManager game = new PictureDrawingManager();
+            game.runGame();
+            Assert.AreEqual(true, game.getElapsedTime() is string);
+        }
+        public void getIncorrectPictures()
+        {
+            PictureDrawingManager game = new PictureDrawingManager();
+            game.runGame();
+            Assert.AreEqual(true, game.getIncorrectPictures() is string);
+        }
+        public void getColor()
+        {
+            PictureDrawingManager game = new PictureDrawingManager();
+            game.runGame();
             Assert.AreEqual(0, game.getColor());
         }
     }
