@@ -24,6 +24,7 @@ namespace GainsProject.Application
         private const int SCORE_DIVISOR = -6;
         //Seed the random number generator
         private Random rnd = new Random();
+
         //---------------------------------------------------------------
         //Sets the time then resets the stopwatch
         //---------------------------------------------------------------
@@ -32,6 +33,7 @@ namespace GainsProject.Application
             setTime(stopwatch.ElapsedMilliseconds);
             stopwatch.Reset();
         }
+
         //---------------------------------------------------------------
         //Gives a random number of cordinates from 10 - 900 for the xcord
         //---------------------------------------------------------------
@@ -40,6 +42,7 @@ namespace GainsProject.Application
             int time = rnd.Next(MIN_RANDOM_X, MAX_RANDOM_X);
             return time;
         }
+
         //---------------------------------------------------------------
         //Calculates the score based on the time
         //---------------------------------------------------------------
@@ -63,10 +66,11 @@ namespace GainsProject.Application
             //If it falls inbetween, calculate the score
             this.setScore((time - ZERO_SCORE_TIME) / SCORE_DIVISOR);
         }
+
         //---------------------------------------------------------------
         //Gives a random number of cordinates from 10-610 for the y cord
         //---------------------------------------------------------------
-        public  int randomY()
+        public int randomY()
         {
             int time = rnd.Next(MIN_RANDOM_Y, MAX_RANDOM_Y);
             return time;

@@ -23,6 +23,7 @@ namespace BigGainsTests
             game.calculateScore();
             Assert.AreEqual(true, game.getScore() < 1000 && game.getScore() >= 0);
         }
+
         //---------------------------------------------------------------
         //Tests the low boundry scoring in the picture drawing game 
         // manager
@@ -35,6 +36,7 @@ namespace BigGainsTests
             game.calculateScore();
             Assert.AreEqual(0, game.getScore());
         }
+
         //---------------------------------------------------------------
         //Tests the upper boundry scoring in the picture drawing game 
         //manager
@@ -47,6 +49,7 @@ namespace BigGainsTests
             game.calculateScore();
             Assert.AreEqual(1000, game.getScore());
         }
+
         //---------------------------------------------------------------
         //Tests the scoring in the picture drawing manager for  
         //incorrect paintings
@@ -60,6 +63,7 @@ namespace BigGainsTests
             game.incorrectAnswer();
             Assert.AreNotEqual(999, game.getScore());
         }
+
         //---------------------------------------------------------------
         //Tests that the game can run in the picture drawing game
         //---------------------------------------------------------------
@@ -74,6 +78,7 @@ namespace BigGainsTests
             game.setPanelInfo(0, 0, 15);
             Assert.AreEqual(0, game.stopwatch.ElapsedMilliseconds);
         }
+
         [TestMethod]
         public void incrementIncorrectAnswer()
         {
@@ -81,6 +86,7 @@ namespace BigGainsTests
             game.incorrectAnswer();
             Assert.AreEqual("1", game.getIncorrectPictures());
         }
+
         [TestMethod]
         public void checkPaintingsSame()
         {
@@ -89,6 +95,7 @@ namespace BigGainsTests
             game.fillDrawingArray(game.getPictureArray());
             Assert.AreEqual(true, game.checkPainting());
         }
+
         [TestMethod]
         public void checkWrongPaintingsSame()
         {
@@ -134,6 +141,7 @@ namespace BigGainsTests
 
             Assert.AreEqual(0, game.getColor());
         }
+
         [TestMethod]
         public void getElapsedTime()
         {
@@ -141,12 +149,14 @@ namespace BigGainsTests
             game.runGame();
             Assert.AreEqual(true, game.getElapsedTime() is string);
         }
+
         public void getIncorrectPictures()
         {
             PictureDrawingManager game = new PictureDrawingManager();
             game.runGame();
             Assert.AreEqual(true, game.getIncorrectPictures() is string);
         }
+
         public void getColor()
         {
             PictureDrawingManager game = new PictureDrawingManager();

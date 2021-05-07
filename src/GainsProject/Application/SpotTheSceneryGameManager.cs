@@ -32,8 +32,9 @@ namespace GainsProject.Application
         private int numWrong = 0;
         private List<Image> currPictures = new List<Image>();
         private List<string> currPicturesNames = new List<string>();
-        private SpotTheSceneryPictureDescriptor stspd = 
+        private SpotTheSceneryPictureDescriptor stspd =
             new SpotTheSceneryPictureDescriptor();
+
         //---------------------------------------------------------------
         // this method calcualtes the score for the performance taking
         // into account how long it took and how many were correct
@@ -44,7 +45,7 @@ namespace GainsProject.Application
             if (totalRunTime.ElapsedMilliseconds <= PERFECT_TIME)
                 score = PERFECT_SCORE;
             else
-                score = PERFECT_SCORE - ((totalRunTime.ElapsedMilliseconds 
+                score = PERFECT_SCORE - ((totalRunTime.ElapsedMilliseconds
                     - PERFECT_TIME) / SCORE_DECAY);
             score *= ((double)numRight - (double)numWrong) / (double)numRight;
             if (score <= 0)
@@ -53,6 +54,7 @@ namespace GainsProject.Application
             }
             setScore((long)score);
         }
+
         //---------------------------------------------------------------
         // this method starts the timer for the game
         //---------------------------------------------------------------
@@ -61,6 +63,7 @@ namespace GainsProject.Application
             setTime(stopwatch.ElapsedMilliseconds);
             stopwatch.Reset();
         }
+
         //---------------------------------------------------------------
         // this method returns a random time
         //---------------------------------------------------------------
@@ -68,6 +71,7 @@ namespace GainsProject.Application
         {
             return random.Next(RANDOM_TIME);
         }
+
         //---------------------------------------------------------------
         // this method gets 4 random pictures to be displayed and a
         // descriptor from one of them
@@ -101,9 +105,10 @@ namespace GainsProject.Application
             }
             List<string> tempDescriptors = stspd.getDescriptors()[
                 currPicturesNames[random.Next(NUM_PICTURES - 1)]];
-            currDescriptor = 
+            currDescriptor =
                 tempDescriptors[random.Next(tempDescriptors.Count - 1)];
         }
+
         //---------------------------------------------------------------
         // checks if there are more rounds to be played
         //---------------------------------------------------------------
@@ -114,6 +119,7 @@ namespace GainsProject.Application
             else
                 return false;
         }
+
         //---------------------------------------------------------------
         // checks if the picture in the list at index of PICTURENUMBER
         // has the same descriptor as the desired one
@@ -131,6 +137,7 @@ namespace GainsProject.Application
                 numWrong++;
             }
         }
+
         //---------------------------------------------------------------
         // getter for current pictures
         //---------------------------------------------------------------
@@ -138,6 +145,7 @@ namespace GainsProject.Application
         {
             return currPictures;
         }
+
         //---------------------------------------------------------------
         // getter for current descriptor
         //---------------------------------------------------------------
@@ -145,6 +153,7 @@ namespace GainsProject.Application
         {
             return currDescriptor;
         }
+
         //---------------------------------------------------------------
         // calls the fillDescirptors and fillPictureList from the picture
         // manager so they can be used later
@@ -154,6 +163,7 @@ namespace GainsProject.Application
             stspd.fillDescriptors();
             stspd.fillPictureList();
         }
+
         //---------------------------------------------------------------
         // getter for numRight, used for testing
         //---------------------------------------------------------------
@@ -161,6 +171,7 @@ namespace GainsProject.Application
         {
             return numRight;
         }
+
         //---------------------------------------------------------------
         // getter for numWrong, used for testing
         //---------------------------------------------------------------
@@ -168,6 +179,7 @@ namespace GainsProject.Application
         {
             return numWrong;
         }
+
         //---------------------------------------------------------------
         // setter for numRight, used for testing
         //---------------------------------------------------------------
@@ -175,6 +187,7 @@ namespace GainsProject.Application
         {
             this.numRight = numRight;
         }
+
         //---------------------------------------------------------------
         // setter for numWrong, used for testing
         //---------------------------------------------------------------
@@ -182,6 +195,7 @@ namespace GainsProject.Application
         {
             this.numWrong = numWrong;
         }
+
         //---------------------------------------------------------------
         // getter for current round
         //---------------------------------------------------------------

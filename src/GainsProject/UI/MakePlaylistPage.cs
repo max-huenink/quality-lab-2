@@ -20,12 +20,12 @@ namespace GainsProject.UI
         , IGameEnd
     {
         private MakePlaylistPageManager playlistManager;
-        private bool listOver;
         private int round;
         private readonly GameSelectManager manager;
         private readonly GameSelectManager pManager;
         private (string Name, Func<Control> GameControlCreator) selectedGame;
         private Func<Control> sg;
+
         //---------------------------------------------------------------
         //default constructor
         //---------------------------------------------------------------
@@ -33,14 +33,14 @@ namespace GainsProject.UI
         {
             InitializeComponent();
 
-            manager = GameSelectManager.CreateAndPopulateManager(this);
+            manager = GameSelectManager.createAndPopulateManager(this);
             playlistManager = new MakePlaylistPageManager();
             pManager = new GameSelectManager();
-            listOver = false;
-            CreateGameButtons();
+            createGameButtons();
             round = 1;
             Content.BackColor = System.Drawing.Color.Salmon;
         }
+
         //---------------------------------------------------------------
         //parameterized constructor for when the list gets replayed
         //---------------------------------------------------------------
@@ -48,34 +48,34 @@ namespace GainsProject.UI
         {
             InitializeComponent();
             round = count;
-            manager = GameSelectManager.CreateAndPopulateManager(this);
+            manager = GameSelectManager.createAndPopulateManager(this);
             playlistManager = new MakePlaylistPageManager();
             pManager = new GameSelectManager();
-            listOver = false;
-            pManager.RefreshGamesPlayed();
-            foreach (var g in manager.GetListOfGames())
+            pManager.refreshGamesPlayed();
+            foreach (var g in manager.getListOfGames())
             {
-                if(list.Contains(g.Name))
+                if (list.Contains(g.Name))
                 {
-                    pManager.AddGameToList(g.Name, g.GameControlCreator);
+                    pManager.addGameToList(g.Name, g.GameControlCreator);
                     playlistManager.add(g);
                 }
 
             }
             if (!playlistManager.isEmpty())
                 selectedGame = playlistManager.getFirstGame();
-            CreateGameButtons();
+            createGameButtons();
             label2.Text = "Current\nPlaylist: ";
             startButton.Text = "Start Round: " + round;
             Content.BackColor = System.Drawing.Color.Salmon;
         }
+
         //---------------------------------------------------------------
         //Creates buttons for each game in the games list
         //---------------------------------------------------------------
-        private void CreateGameButtons()
+        private void createGameButtons()
         {
             List<Button> btnList = new List<Button>();
-            foreach (var game in manager.GetListOfGames())
+            foreach (var game in manager.getListOfGames())
             {
                 Button gameBtn = new Button
                 {
@@ -87,28 +87,28 @@ namespace GainsProject.UI
                 };
                 gameBtn.Click += (sender, e) =>
                 {
-                    if(GameSelector.Contains(gameBtn))
+                    if (GameSelector.Contains(gameBtn))
                     {
                         GamePlaylist.Controls.Add(gameBtn);
-                        if(playlistManager.isEmpty())
+                        if (playlistManager.isEmpty())
                             selectedGame = game;
                         playlistManager.add(game);
-                        pManager.AddGameToList(game.Name
+                        pManager.addGameToList(game.Name
                             , game.GameControlCreator);
                     }
                     else
                     {
                         GameSelector.Controls.Add(gameBtn);
                         playlistManager.remove(game);
-                        pManager.RemoveGameFromList(game.Name
+                        pManager.removeGameFromList(game.Name
                             , game.GameControlCreator);
-                        if(!playlistManager.isEmpty() && selectedGame == game)
+                        if (!playlistManager.isEmpty() && selectedGame == game)
                         {
-                            (string Name, Func<Control> GameControlCreator) 
+                            (string Name, Func<Control> GameControlCreator)
                             temp = playlistManager.getFirstGame();
-                            foreach(var g in pManager.GetListOfGames())
+                            foreach (var g in pManager.getListOfGames())
                             {
-                                if(temp == g)
+                                if (temp == g)
                                 {
                                     selectedGame = g;
                                 }
@@ -122,9 +122,9 @@ namespace GainsProject.UI
                 btnList.Add(gameBtn);
             }
             // Center the GameSelector horizontally and vertically
-            AlignGameSelector(GameSelector);
+            alignGameSelector(GameSelector);
 
-            AlignGamePlaylist(GamePlaylist);
+            alignGamePlaylist(GamePlaylist);
 
             // Find max width and make every button have that width
             var maxWidth = btnList.Max(b => b.Width);
@@ -137,7 +137,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Aligns the control on the screen horizontally and vertically
         //---------------------------------------------------------------
-        private void AlignGameSelector(Control ctrl)
+        private void alignGameSelector(Control ctrl)
         {
             // Compute center x
             var pageWidth = Size.Width;
@@ -156,7 +156,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Aligns the control on the screen horizontally and vertically
         //---------------------------------------------------------------
-        private void AlignGamePlaylist(Control ctrl)
+        private void alignGamePlaylist(Control ctrl)
         {
             // Compute center x
             var pageWidth = Size.Width;
@@ -175,7 +175,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Displays the game end screen with the player's name and score
         //---------------------------------------------------------------
-        public void GameFinished(string name, long score, TimeSpan timeSpan)
+        public void gameFinished(string name, long score, TimeSpan timeSpan)
         {
             var gep = new GameEndPage(this);
             gep.setPlayerName(name);
@@ -187,16 +187,16 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Plays the selected game again
         //---------------------------------------------------------------
-        public void NextGame()
+        public void nextGame()
         {
-            PlayGame();
+            playGame();
         }
 
         //---------------------------------------------------------------
         //Stops playing the selected game and goes back to game selection
         // using a new SingleGameSelect
         //---------------------------------------------------------------
-        public void Exit()
+        public void exit()
         {
             showUserControl(new MakePlaylistPage());
         }
@@ -219,26 +219,27 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Plays the selected game
         //---------------------------------------------------------------
-        private void PlayGame()
+        private void playGame()
         {
 
-            sg = pManager.GetFirstUnplayedGame();
+            sg = pManager.getFirstUnplayedGame();
             if (sg == null)
                 sg = () => new PlayAgainPage(playlistManager.getPlaylist()
-                    , ++ round);
+                    , ++round);
             else
             {
-                pManager.PlayedGame(sg);
+                pManager.playedGame(sg);
             }
             showUserControl(sg?.Invoke());
         }
+
         //---------------------------------------------------------------
         //Method for when the start button is clicked
         //---------------------------------------------------------------
         private void startButton_Click(object sender, EventArgs e)
         {
             playlistManager.validatePlaylist(pManager);
-            PlayGame();
+            playGame();
         }
     }
 }

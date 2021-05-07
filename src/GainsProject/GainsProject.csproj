@@ -143,11 +143,11 @@
       <DependentUpon>SingleGamePage.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\Interfaces\IGamePlaylist.cs" />
-    <Compile Include="UI\LeaderboardPage.cs">
+    <Compile Include="UI\AboutUsPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\LeaderboardPage.Designer.cs">
-      <DependentUpon>LeaderboardPage.cs</DependentUpon>
+    <Compile Include="UI\AboutUsPage.Designer.cs">
+      <DependentUpon>AboutUsPage.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\MentalMathGame.cs">
       <SubType>UserControl</SubType>
@@ -216,8 +216,8 @@
     <EmbeddedResource Include="UI\SingleGamePage.resx">
       <DependentUpon>SingleGamePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\LeaderboardPage.resx">
-      <DependentUpon>LeaderboardPage.cs</DependentUpon>
+    <EmbeddedResource Include="UI\AboutUsPage.resx">
+      <DependentUpon>AboutUsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MentalMathGame.resx">
       <DependentUpon>MentalMathGame.cs</DependentUpon>

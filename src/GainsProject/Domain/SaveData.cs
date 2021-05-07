@@ -15,6 +15,7 @@ namespace GainsProject.Domain
         private int score;
         private DateTime dt;
         private string playerTag;
+
         //default constructor
         public SaveData(int newScore, DateTime newDt, string newPlayerTag)
         {
@@ -22,16 +23,19 @@ namespace GainsProject.Domain
             dt = newDt;
             playerTag = newPlayerTag;
         }
+
         //getter for score
         public int getScore()
         {
             return score;
         }
+
         //getting for dt
         public DateTime getDt()
         {
             return dt;
         }
+
         //getting for playerTag
         public string getPlayerTag()
         {

@@ -19,6 +19,7 @@ namespace GainsProject.UI
         private bool isPlaylist;
         private int counter;
         private List<string> playlist;
+
         //---------------------------------------------------------------
         //Default constructor that initializes the buttons
         //---------------------------------------------------------------
@@ -27,6 +28,12 @@ namespace GainsProject.UI
             InitializeComponent();
             isPlaylist = false;
         }
+
+        //---------------------------------------------------------------
+        //Parameterized constructor is used to save all the games in the
+        // playlist for the playlist page, so the playlist page is the
+        // same when it is recreated
+        //---------------------------------------------------------------
         public PlayAgainPage(List<string> list, int count)
         {
             InitializeComponent();
@@ -34,6 +41,7 @@ namespace GainsProject.UI
             isPlaylist = true;
             counter = count;
         }
+
         //---------------------------------------------------------------
         //Passes control from the play again page to the selected game
         // Params: Control control - the control to show

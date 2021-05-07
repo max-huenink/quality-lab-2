@@ -20,7 +20,7 @@ namespace BigGainsTests
         //Make sure the the constructor works as well as the getters
         //along with it.
         //---------------------------------------------------------------
-        public void TestConstructorAndGetters()
+        public void testConstructorAndGetters()
         {
             DateTime dt = DateTime.Now;
             SaveData saveData = new SaveData(5, dt, "Nick");

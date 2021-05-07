@@ -20,6 +20,7 @@ namespace GainsProject.Application
         private const int MAX_SCORE = 1000;
         private const int TOO_EARLY_SCORE = -100;
         private const int TIME_BUFFER = 20;
+
         //---------------------------------------------------------------
         //Sets the time then resets the stopwatch
         //---------------------------------------------------------------
@@ -28,6 +29,7 @@ namespace GainsProject.Application
             setTime(stopwatch.ElapsedMilliseconds);
             stopwatch.Reset();
         }
+
         //---------------------------------------------------------------
         //Gives a random number of milliseconds from 1000-10000
         //---------------------------------------------------------------
@@ -37,6 +39,7 @@ namespace GainsProject.Application
             int time = rnd.Next(RANDOM_TIME_MIN, RANDOM_TIME_MAX);
             return time;
         }
+
         //---------------------------------------------------------------
         //Calculates the score based on the time
         //---------------------------------------------------------------

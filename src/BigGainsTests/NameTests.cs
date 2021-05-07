@@ -11,22 +11,23 @@ namespace BigGainsTests
 {
     [TestClass]
     public class NameTests
-    {    
+    {
         //---------------------------------------------------------------
         //Method to test setter and getter
         //---------------------------------------------------------------
         [TestMethod]
-        public void NameTest()
+        public void nameTest()
         {
             NameClass nameTest = new NameClass();
             nameTest.setName("IAN");
             Assert.AreEqual("IAN", nameTest.getName());
         }
+
         //---------------------------------------------------------------
         //Method to test setter and getter
         //---------------------------------------------------------------
         [TestMethod]
-        public void SwitchNameTest()
+        public void switchNameTest()
         {
             NameClass nameTest = new NameClass();
             nameTest.setName("IAN");

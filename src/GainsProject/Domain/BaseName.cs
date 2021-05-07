@@ -13,6 +13,7 @@ namespace GainsProject.Domain
     {
         //Getter and setter for name
         public abstract void setName(string newName);
+
         public abstract string getName();
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace GainsProject.UI
 {
-    partial class LeaderboardPage
+    partial class AboutUsPage
     {
         /// <summary> 
         /// Required designer variable.

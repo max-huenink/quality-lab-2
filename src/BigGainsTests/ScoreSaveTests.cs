@@ -19,7 +19,7 @@ namespace BigGainsTests
         //Test the constructor and the getSaveDataListIndex method
         //---------------------------------------------------------------
         [TestMethod]
-        public void TestConstructor()
+        public void testConstructor()
         {
             ScoreSave scoreSave = new ScoreSave("GameScore.txt" );
             Assert.AreEqual("Nick", 
@@ -29,7 +29,7 @@ namespace BigGainsTests
         //test the add score
         //---------------------------------------------------------------
         [TestMethod]
-        public void TestAddScore()
+        public void testAddScore()
         {
             ScoreSave scoreSave = new ScoreSave("GameScore.txt");
             int tempGames = scoreSave.getNumGames();

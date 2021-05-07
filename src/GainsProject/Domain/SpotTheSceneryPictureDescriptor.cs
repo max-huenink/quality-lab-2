@@ -22,6 +22,7 @@ namespace GainsProject.Domain
         private Dictionary<string, List<string>> descriptors = new Dictionary<string, List<string>>();
         private List<Image> pictureList = new List<Image>();
         private List<string> pictureNameList = new List<string>();
+
         //---------------------------------------------------------------
         // this method fills the descriptor dictionary with all of the
         // pictures' descriptors with the picture name as the key
@@ -37,9 +38,9 @@ namespace GainsProject.Domain
             directory += "/" + "GainsProject" + "/" + diName;
             DirectoryInfo di = new DirectoryInfo(directory);
             FileInfo[] dirFiles = di.GetFiles();
-            for(int i = 0; i < dirFiles.Length; i++)
+            for (int i = 0; i < dirFiles.Length; i++)
             {
-                StreamReader streamReader = new StreamReader(directory + 
+                StreamReader streamReader = new StreamReader(directory +
                     "/" + dirFiles[i].Name);
                 string line;
                 List<string> descriptorList = new List<string>();
@@ -52,6 +53,7 @@ namespace GainsProject.Domain
                 streamReader.Close();
             }
         }
+
         //---------------------------------------------------------------
         // This method fills a list wih Image objects from the folder
         // that contains all of the scenes for the Spot the Scenery game
@@ -66,7 +68,7 @@ namespace GainsProject.Domain
             directory += "/" + "GainsProject" + "/" + diName;
             DirectoryInfo di = new DirectoryInfo(directory);
             FileInfo[] dirFiles = di.GetFiles();
-            for(int i = 0; i < dirFiles.Length; i++)
+            for (int i = 0; i < dirFiles.Length; i++)
             {
                 pictureList.Add(Image.FromFile(directory + "/" + dirFiles[i].Name));
                 string[] temp = dirFiles[i].Name.Split('.');
@@ -74,6 +76,7 @@ namespace GainsProject.Domain
                 pictureNameList.Add(temp[0]);
             }
         }
+
         //---------------------------------------------------------------
         // getter for pictureList
         //---------------------------------------------------------------
@@ -81,6 +84,7 @@ namespace GainsProject.Domain
         {
             return pictureList;
         }
+
         //---------------------------------------------------------------
         // getter for descriptors
         //---------------------------------------------------------------
@@ -88,6 +92,7 @@ namespace GainsProject.Domain
         {
             return descriptors;
         }
+
         //---------------------------------------------------------------
         // getter for picture name list
         //---------------------------------------------------------------

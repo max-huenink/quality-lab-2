@@ -23,7 +23,7 @@ namespace GainsProject.UI
         public GameEndPage(IGamePlaylist playlist)
         {
             InitializeComponent();
-            CenterLabelHorizontally(playAgainLbl);
+            centerLabelHorizontally(playAgainLbl);
             setupClickEvents(playlist);
         }
 
@@ -34,8 +34,8 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         private void setupClickEvents(IGamePlaylist playlist)
         {
-            nextGameBtn.Click += (sender, e) => playlist.NextGame();
-            exitBtn.Click += (sender, e) => playlist.Exit();
+            nextGameBtn.Click += (sender, e) => playlist.nextGame();
+            exitBtn.Click += (sender, e) => playlist.exit();
         }
 
         //---------------------------------------------------------------
@@ -44,7 +44,7 @@ namespace GainsProject.UI
         public void setPlayerName(string name)
         {
             nameLbl.Text = string.Format(nameLbl.Text, name);
-            CenterLabelHorizontally(nameLbl);
+            centerLabelHorizontally(nameLbl);
         }
 
         //---------------------------------------------------------------
@@ -53,7 +53,7 @@ namespace GainsProject.UI
         public void setPlayerScore(long score)
         {
             scoreLbl.Text = string.Format(scoreLbl.Text, $"{score:n0}");
-            CenterLabelHorizontally(scoreLbl);
+            centerLabelHorizontally(scoreLbl);
         }
 
         //---------------------------------------------------------------
@@ -63,7 +63,7 @@ namespace GainsProject.UI
         {
             gameTimeLbl.Text = string.Format(gameTimeLbl.Text,
                                              $@"{time:mm\:ss\.fff}");
-            CenterLabelHorizontally(gameTimeLbl);
+            centerLabelHorizontally(gameTimeLbl);
         }
 
         //---------------------------------------------------------------
@@ -78,9 +78,9 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Centers the label on the screen
         //---------------------------------------------------------------
-        private void CenterLabelHorizontally(Label lbl)
+        private void centerLabelHorizontally(Label lbl)
         {
-            int x = ComputeXCoordinateForCentering(lbl.Size.Width);
+            int x = computeXCoordinateForCentering(lbl.Size.Width);
             var loc = lbl.Location;
             lbl.Location = new Point(x, loc.Y);
         }
@@ -89,7 +89,7 @@ namespace GainsProject.UI
         //Returns the new x coordinate of the label based on half the
         // difference of the page width and the label's width
         //---------------------------------------------------------------
-        private int ComputeXCoordinateForCentering(int itemWidth)
+        private int computeXCoordinateForCentering(int itemWidth)
         {
             var pageWidth = Size.Width;
             return (pageWidth - itemWidth) / 2;

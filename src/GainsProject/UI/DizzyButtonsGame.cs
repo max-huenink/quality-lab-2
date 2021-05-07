@@ -19,14 +19,12 @@ namespace GainsProject.UI
     //---------------------------------------------------------------
     public partial class DizzyButtonsGame : UserControl
     {
-        private const string NO_SPECIAL_CHARS = "NO SPECIAL CHARACTERS!";
-        private const string SCORE_SUBMITTED = "SUBMITTED SCORE";
-        private bool scoreSubmitted;
         private DizzyButtonsGameManager dbGameManager;
         private const string GAME_NAME = "DizzyButtons.txt";
         ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
         NameClass name = new NameClass();
         private readonly IGameEnd gameEnd;
+
         //---------------------------------------------------------------
         // parameterized constructor for if the game is made with
         // a playlist
@@ -34,17 +32,10 @@ namespace GainsProject.UI
         public DizzyButtonsGame(IGameEnd gameEnd)
         {
             InitializeComponent();
-            initialization();
+            dbGameManager = new DizzyButtonsGameManager();
             this.gameEnd = gameEnd;
         }
-        //---------------------------------------------------------------
-        // initializes varaibles that are used in the constructor
-        //---------------------------------------------------------------
-        private void initialization()
-        {
-            scoreSubmitted = false;
-            dbGameManager = new DizzyButtonsGameManager();
-        }
+
         //---------------------------------------------------------------
         // makes the labels and start button at the begining invisible
         // and starts the timer
@@ -57,13 +48,14 @@ namespace GainsProject.UI
             startButton.Enabled = false;
             instructionsLabel.Visible = false;
         }
+
         //---------------------------------------------------------------
         // calls the tick method in the manager class, checks if the
         // game is done, and sets up the end of the game
         //---------------------------------------------------------------
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(dbGameManager.getIsFinished())
+            if (dbGameManager.getIsFinished())
             {
                 dbGameManager.endGame();
                 timer1.Enabled = false;
@@ -73,7 +65,7 @@ namespace GainsProject.UI
                 ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
                 scoreSave.addScore((int)dbGameManager.getScore(), name.getName());
 
-                gameEnd?.GameFinished(name.getName(), dbGameManager.getScore(), dbGameManager.getGameRunTime());
+                gameEnd?.gameFinished(name.getName(), dbGameManager.getScore(), dbGameManager.getGameRunTime());
             }
             for (int i = 0; i < dbGameManager.getToAdd().Count; i++)
             {
@@ -88,6 +80,7 @@ namespace GainsProject.UI
             dbGameManager.tick();
             scoreHere.Text = dbGameManager.getScore().ToString();
         }
+
         //---------------------------------------------------------------
         // if the player misses and clicks on the background they loose
         // points

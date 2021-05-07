@@ -57,6 +57,7 @@ namespace GainsProject.Application
             incorrectPictures = 0;
             lastNum = -1;
         }
+
         //---------------------------------------------------------------
         //runs the game, resets incorrect Pictures, startTime, gets a new
         // picture to copy.
@@ -70,6 +71,7 @@ namespace GainsProject.Application
             startTime = DateTime.Now;
             start();
         }
+
         //---------------------------------------------------------------
         //calculates the score
         //---------------------------------------------------------------
@@ -78,11 +80,12 @@ namespace GainsProject.Application
             TimeSpan elapsedTime = DateTime.Now - startTime;
             long scoreSubtracter = Convert.ToInt64(elapsedTime.TotalSeconds)
                 * SCORE_SUB_MULTIPLIER;
-            setScore(MAX_POINTS - scoreSubtracter - (incorrectPictures 
+            setScore(MAX_POINTS - scoreSubtracter - (incorrectPictures
                 * POINT_LOSS_PER_PICTURE));
             if (getScore() < 0)
                 setScore(0);
         }
+
         //---------------------------------------------------------------
         //does not get used in this game
         //---------------------------------------------------------------
@@ -90,6 +93,7 @@ namespace GainsProject.Application
         {
             return -1;
         }
+
         //---------------------------------------------------------------
         //returns the game time as a string that resembles a clock
         //---------------------------------------------------------------
@@ -102,6 +106,7 @@ namespace GainsProject.Application
                 elapsedTime.Seconds.ToString("00");
             return timeString;
         }
+
         //---------------------------------------------------------------
         //increments incorrectPictures
         //---------------------------------------------------------------
@@ -109,6 +114,7 @@ namespace GainsProject.Application
         {
             ++incorrectPictures;
         }
+
         //---------------------------------------------------------------
         // gets incorrectPictures
         //---------------------------------------------------------------
@@ -116,17 +122,18 @@ namespace GainsProject.Application
         {
             return "" + incorrectPictures;
         }
+
         //---------------------------------------------------------------
         //checks if the drawing is the same as the given picture
         //---------------------------------------------------------------
         public bool checkPainting()
         {
             bool isMatch = true;
-            for(int i = 0; i < UPPER_PICTURE_LIMIT; i ++)
+            for (int i = 0; i < UPPER_PICTURE_LIMIT; i++)
             {
-                for(int j = 0; j < UPPER_PICTURE_LIMIT; j++)
+                for (int j = 0; j < UPPER_PICTURE_LIMIT; j++)
                 {
-                    if(pictureArray[i,j] != drawingArray[i,j])
+                    if (pictureArray[i, j] != drawingArray[i, j])
                     {
                         isMatch = false;
                         return isMatch;
@@ -137,6 +144,7 @@ namespace GainsProject.Application
             endGame();
             return isMatch;
         }
+
         //---------------------------------------------------------------
         //colors the new square on the panel, and puts the color into the 
         //array to be compared later
@@ -146,25 +154,26 @@ namespace GainsProject.Application
             int xPos = xCoord / boxSize;
             int yPos = yCoord / boxSize;
             drawingArray[xPos, yPos] = color;
-            for(int i = 0; i < UPPER_PICTURE_LIMIT; i++)
+            for (int i = 0; i < UPPER_PICTURE_LIMIT; i++)
             {
-                for(int j = 0; j < UPPER_PICTURE_LIMIT; j++)
+                for (int j = 0; j < UPPER_PICTURE_LIMIT; j++)
                 {
                     Rectangle rect = new Rectangle(i * boxSize, j * boxSize
                         , boxSize, boxSize);
-                    e.Graphics.FillRectangle(coloredBrush(drawingArray[i,j])
+                    e.Graphics.FillRectangle(coloredBrush(drawingArray[i, j])
                         , rect);
                 }
             }
         }
+
         //---------------------------------------------------------------
         //returns a brush with a color for the given int
         //---------------------------------------------------------------
         public SolidBrush coloredBrush(int color)
         {
-            
+
             SolidBrush brush = new SolidBrush(Color.White);
-            if(color == COLOR_WHITE)
+            if (color == COLOR_WHITE)
             {
                 brush = new SolidBrush(Color.White);
             }
@@ -202,6 +211,7 @@ namespace GainsProject.Application
             }
             return brush;
         }
+
         //---------------------------------------------------------------
         //sets the color
         //---------------------------------------------------------------
@@ -209,6 +219,7 @@ namespace GainsProject.Application
         {
             this.color = color;
         }
+
         //---------------------------------------------------------------
         //sets color when a number is pressed instead of a button
         //---------------------------------------------------------------
@@ -247,6 +258,7 @@ namespace GainsProject.Application
                     break;
             }
         }
+
         //---------------------------------------------------------------
         //gets the color
         //---------------------------------------------------------------
@@ -254,6 +266,7 @@ namespace GainsProject.Application
         {
             return color;
         }
+
         //---------------------------------------------------------------
         //sets the cursor coordinates and size of panel squares
         //---------------------------------------------------------------
@@ -263,6 +276,7 @@ namespace GainsProject.Application
             yCoord = y;
             this.boxSize = boxSize;
         }
+
         //---------------------------------------------------------------
         //fills the picture panel 
         //---------------------------------------------------------------
@@ -273,13 +287,14 @@ namespace GainsProject.Application
             {
                 for (int j = 0; j < UPPER_PICTURE_LIMIT; j++)
                 {
-                    Rectangle rect = new Rectangle(i * boxSize, j 
+                    Rectangle rect = new Rectangle(i * boxSize, j
                         * boxSize, boxSize, boxSize);
                     e.Graphics.FillRectangle(coloredBrush(pictureArray[i, j])
                         , rect);
                 }
             }
         }
+
         //---------------------------------------------------------------
         //makes the whole drawing panel white
         //---------------------------------------------------------------
@@ -288,6 +303,7 @@ namespace GainsProject.Application
             Rectangle rect = new Rectangle(0, 0, boxSize, boxSize);
             e.Graphics.FillRectangle(new SolidBrush(Color.White), rect);
         }
+
         //---------------------------------------------------------------
         // picks a random file out of the folder of pictures, and loads
         //it into the picture panel
@@ -295,16 +311,16 @@ namespace GainsProject.Application
         public void loadPicturePanel()
         {
             DirectoryInfo di = new DirectoryInfo("PictureDrawingFolder");
-            FileInfo [] dirFiles = di.GetFiles();
+            FileInfo[] dirFiles = di.GetFiles();
             int fileCount = dirFiles.Length;
             int randomFile = random.Next(0, fileCount);
-            if(randomFile == lastNum)
+            if (randomFile == lastNum)
             {
-                while(randomFile == lastNum)
+                while (randomFile == lastNum)
                     randomFile = random.Next(0, fileCount);
             }
             string randomFileName = dirFiles[randomFile].Name;
-            StreamReader sr = new StreamReader("PictureDrawingFolder/" + 
+            StreamReader sr = new StreamReader("PictureDrawingFolder/" +
                 randomFileName);
             for (int i = 0; i < UPPER_PICTURE_LIMIT; i++)
             {
@@ -316,6 +332,7 @@ namespace GainsProject.Application
             lastNum = randomFile;
             sr.Close();
         }
+
         //---------------------------------------------------------------
         // returns the picture that needs to be copied.
         //---------------------------------------------------------------
@@ -323,6 +340,7 @@ namespace GainsProject.Application
         {
             return pictureArray;
         }
+
         //---------------------------------------------------------------
         // fills the drawing array
         // params:

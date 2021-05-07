@@ -25,10 +25,9 @@ namespace GainsProject.UI
         NameClass nameClass = new NameClass();
         //Game name and the score save manager to save scores
         private const string GAME_NAME = "ExampleGame.txt";
-        ScoreSaveManager scoreSaveManager = 
+        ScoreSaveManager scoreSaveManager =
             ScoreSaveManager.getScoreSaveManager();
         //Bool to see if the game has been saved
-        private bool gameSaved = false;
         private CancellationTokenSource cts;
 
         private readonly IGameEnd gameEnd;
@@ -59,12 +58,13 @@ namespace GainsProject.UI
             //Game is live!
             game.start();
             //Stay red for a random amount of time
-            await Task.Run(async () => await 
+            await Task.Run(async () => await
                 Task.Delay(game.randomTime()), cts.Token);
             this.BackColor = System.Drawing.Color.Green;
             //Start the timer
             game.stopwatch.Start();
         }
+
         //---------------------------------------------------------------
         //If the screen is clicked durring the game, the stopwatch is 
         //stopped, and the time diffrence is calculated. The score is
@@ -96,7 +96,7 @@ namespace GainsProject.UI
                 ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
                 scoreSave.addScore((int)game.getScore(), nameClass.getName());
                 game.endGame();
-                gameEnd?.GameFinished(nameClass.getName(), game.getScore(),
+                gameEnd?.gameFinished(nameClass.getName(), game.getScore(),
                     game.getGameRunTime());
             }
         }

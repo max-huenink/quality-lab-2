@@ -13,10 +13,15 @@ namespace GainsProject.UI
     //---------------------------------------------------------------
     public partial class GameModeSelect : UserControl
     {
+        public GameModeSelect()
+        {
+            InitializeComponent();
+        }
+
         //---------------------------------------------------------------
         //Hides compnents on the current page
         //---------------------------------------------------------------
-        public void HidePage()
+        public void hidePage()
         {
             SingleGame.Hide();
             Playlist.Hide();
@@ -24,10 +29,7 @@ namespace GainsProject.UI
             textBox1.Hide();
             this.BackColor = System.Drawing.Color.White;
         }
-        public GameModeSelect()
-        {
-            InitializeComponent();
-        }
+
         //---------------------------------------------------------------
         //Hides opened userControl and puts the one clicked on at the top.
         //---------------------------------------------------------------
@@ -48,7 +50,7 @@ namespace GainsProject.UI
         private void SingleGame_Click(object sender, EventArgs e)
         {
             //Hides the current elements
-            HidePage();
+            hidePage();
             SingleGamePage gameSelect = new SingleGamePage();
             showUserControl(gameSelect);
         }
@@ -59,15 +61,19 @@ namespace GainsProject.UI
         private void RandomGame_Click(object sender, EventArgs e)
         {
             //Hides the current elements
-            HidePage();
+            hidePage();
             var gameSelect = new RandomGamesPage();
             showUserControl(gameSelect);
         }
 
+        //---------------------------------------------------------------
+        //Allows the user to create a playlist of games that they want to
+        // play in a certain order
+        //---------------------------------------------------------------
         private void Playlist_Click(object sender, EventArgs e)
         {
             //Hides the current elements
-            HidePage();
+            hidePage();
             var makePlaylist = new MakePlaylistPage();
             showUserControl(makePlaylist);
         }

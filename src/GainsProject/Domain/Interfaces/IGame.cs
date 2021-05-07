@@ -19,10 +19,12 @@ namespace GainsProject.Domain.Interfaces
         //Gives a random number of milliseconds based on the game
         //---------------------------------------------------------------
         int randomTime();
+
         //---------------------------------------------------------------
         //Method for game-spesific features to be run in
         //---------------------------------------------------------------
         void runGame();
+
         //---------------------------------------------------------------
         //Calculates the score based on the time 
         //---------------------------------------------------------------

@@ -15,10 +15,11 @@ namespace GainsProject.UI
         {
             InitializeComponent();
         }
+
         //---------------------------------------------------------------
         //Hides all tutorial elements for the example game
         //---------------------------------------------------------------
-        public void HideElements()
+        public void hideElements()
         {
             label1.Hide();
             label2.Hide();
@@ -27,6 +28,7 @@ namespace GainsProject.UI
             label5.Hide();
             button1.Hide();
         }
+
         //---------------------------------------------------------------
         //Passes controll from the tutorial page to the example game
         //---------------------------------------------------------------
@@ -40,12 +42,13 @@ namespace GainsProject.UI
 
             Content.Controls.Add(control);
         }
+
         //---------------------------------------------------------------
         //Hides the elements then launches the example game
         //---------------------------------------------------------------
         private void button1_Click(object sender, EventArgs e)
         {
-            HideElements();
+            hideElements();
             ExampleGame ex = new ExampleGame(null);
             showUserControl(ex);
         }

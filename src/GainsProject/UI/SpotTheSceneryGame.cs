@@ -23,24 +23,18 @@ namespace GainsProject.UI
     //---------------------------------------------------------------
     public partial class SpotTheSceneryGame : UserControl
     {
-        private SpotTheSceneryGameManager stsgManager = 
+        private SpotTheSceneryGameManager stsgManager =
             new SpotTheSceneryGameManager();
         private const string GAME_NAME = "SpotTheScenery.txt";
         private const int FIRST_PICTURE = 1;
         private const int SECOND_PICTURE = 2;
         private const int THIRD_PICUTRE = 3;
         private const int FOURTH_PICTURE = 4;
-        private ScoreSaveManager scoreSaveManager = 
+        private ScoreSaveManager scoreSaveManager =
             ScoreSaveManager.getScoreSaveManager();
         private NameClass name = new NameClass();
         private readonly IGameEnd gameEnd;
-        //---------------------------------------------------------------
-        // default constructor
-        //---------------------------------------------------------------
-        public SpotTheSceneryGame()
-        {
-            InitializeComponent();
-        }
+
         //---------------------------------------------------------------
         // parameterized constructor
         //---------------------------------------------------------------
@@ -49,6 +43,7 @@ namespace GainsProject.UI
             InitializeComponent();
             this.gameEnd = gameEnd;
         }
+
         //---------------------------------------------------------------
         // event when the start button is clicked on the tutorial view
         //---------------------------------------------------------------
@@ -60,6 +55,7 @@ namespace GainsProject.UI
             stsgManager.fillPictureManager();
             intermediaryView();
         }
+
         //---------------------------------------------------------------
         // the event when the ok button is clicked when the game tells
         // the user wha descriptor to use
@@ -68,6 +64,7 @@ namespace GainsProject.UI
         {
             gameplayView();
         }
+
         //---------------------------------------------------------------
         // a picture was clicked on and it will call the method with its
         // number in the picture list
@@ -76,6 +73,7 @@ namespace GainsProject.UI
         {
             pictureClicked(FIRST_PICTURE);
         }
+
         //---------------------------------------------------------------
         // a picture was clicked on and it will call the method with its
         // number in the picture list
@@ -84,6 +82,7 @@ namespace GainsProject.UI
         {
             pictureClicked(FOURTH_PICTURE);
         }
+
         //---------------------------------------------------------------
         // a picture was clicked on and it will call the method with its
         // number in the picture list
@@ -92,6 +91,7 @@ namespace GainsProject.UI
         {
             pictureClicked(THIRD_PICUTRE);
         }
+
         //---------------------------------------------------------------
         // a picture was clicked on and it will call the method with its
         // number in the picture list
@@ -100,6 +100,7 @@ namespace GainsProject.UI
         {
             pictureClicked(SECOND_PICTURE);
         }
+
         //---------------------------------------------------------------
         // called by pictureBox mouse click events to call logic in
         // manager. It will send the PICNUMBER for what picture to check
@@ -113,6 +114,7 @@ namespace GainsProject.UI
             else
                 gameOver();
         }
+
         //---------------------------------------------------------------
         // contains logic for the start of a round and makes the
         // intermediary view visible
@@ -133,6 +135,7 @@ namespace GainsProject.UI
             pictureBox4.Image = stsgManager.getCurrPictures()[3];
             descriptorHere.Text = stsgManager.getCurrDescriptor();
         }
+
         //---------------------------------------------------------------
         // makes the gameplay view visible
         //---------------------------------------------------------------
@@ -146,6 +149,7 @@ namespace GainsProject.UI
             pictureBox3.Visible = true;
             pictureBox4.Visible = true;
         }
+
         //---------------------------------------------------------------
         // calls logic for end of game and to save the score
         //---------------------------------------------------------------
@@ -163,7 +167,7 @@ namespace GainsProject.UI
             scoreLabel.Visible = true;
             ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
             scoreSave.addScore((int)stsgManager.getScore(), name.getName());
-            gameEnd?.GameFinished(name.getName(), stsgManager.getScore(), 
+            gameEnd?.gameFinished(name.getName(), stsgManager.getScore(),
                 stsgManager.getGameRunTime());
         }
     }

@@ -15,12 +15,12 @@ namespace GainsProject.Domain.Interfaces
         //Indicates that current game is complete, the user wants to
         // play another game, and control can be passed to the next game
         //---------------------------------------------------------------
-        void NextGame();
+        void nextGame();
 
         //---------------------------------------------------------------
         //Indicates that current game is complete, the user does not want
         // to play another game, and control can be passed to the parent
         //---------------------------------------------------------------
-        void Exit();
+        void exit();
     }
 }

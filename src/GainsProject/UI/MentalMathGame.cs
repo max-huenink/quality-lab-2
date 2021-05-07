@@ -16,23 +16,23 @@ namespace GainsProject.UI
     public partial class MentalMathGame : UserControl
     {
         //Mental math game manager object
-        private static MentalMathGameManager mmgame = 
+        private static MentalMathGameManager mmgame =
             new MentalMathGameManager();
         //question counter
         private int questionNumber = 0;
         //Game name and the score save manager to save scores
         private const string GAME_NAME = "MentalMathGame.txt";
-        ScoreSaveManager scoreSaveManager = 
+        ScoreSaveManager scoreSaveManager =
             ScoreSaveManager.getScoreSaveManager();
         //Name object
         NameClass name = new NameClass();
         //Bool to see if the game has been saved
-        private bool gameSaved = false;
         private int random1 = mmgame.randomTime();
         private int random2 = mmgame.randomTime();
         //correct answer
         private int ans = 0;
         private readonly IGameEnd gameEnd;
+
         //---------------------------------------------------------------
         //Constructor that initializes gameEnd which shows the game end
         // screen when the game finishes
@@ -42,10 +42,11 @@ namespace GainsProject.UI
             InitializeComponent();
             this.gameEnd = gameEnd;
         }
+
         //---------------------------------------------------------------
         //GUI element logic when the start button is clicked
         //---------------------------------------------------------------
-        public void SwitchToGameState()
+        public void switchToGameState()
         {
             //Hide and show GUI elements
             StartButton.Hide();
@@ -56,6 +57,7 @@ namespace GainsProject.UI
             //Move control to the textbox
             this.ActiveControl = ansBox;
         }
+
         //---------------------------------------------------------------
         //GUI logic when the start button is clicked
         //---------------------------------------------------------------
@@ -63,7 +65,7 @@ namespace GainsProject.UI
         {
             //clear out prev score
             mmgame.setScore(0);
-            SwitchToGameState();
+            switchToGameState();
             //start the game!
             mmgame.start();
             //Show the calculation
@@ -72,11 +74,12 @@ namespace GainsProject.UI
             //start the stopwatch
             mmgame.stopwatch.Start();
         }
+
         //---------------------------------------------------------------
         //When an answer is submitted, calculate answer, and score
         //accordingly
         //---------------------------------------------------------------
-        public void SubmitAns()
+        public void submitAns()
         {
             //If the game is live, stop time
             mmgame.stopwatch.Stop();
@@ -126,10 +129,11 @@ namespace GainsProject.UI
                 SubmitButton.Hide();
                 ScoreBox.Hide();
 
-                gameEnd?.GameFinished(name.getName(), mmgame.getScore(),
+                gameEnd?.gameFinished(name.getName(), mmgame.getScore(),
                     mmgame.getGameRunTime());
             }
         }
+
         //---------------------------------------------------------------
         //When the submit button is clicked, calculate answer, and score
         //accordingly
@@ -137,12 +141,13 @@ namespace GainsProject.UI
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             //Make sure the game is live
-            if(!(mmgame.isGameLive()))
+            if (!(mmgame.isGameLive()))
             {
                 return;
             }
-            SubmitAns();
+            submitAns();
         }
+
         //---------------------------------------------------------------
         //When the enter button is clicked, calculate answer, and score
         //accordingly
@@ -160,8 +165,8 @@ namespace GainsProject.UI
             {
                 return;
             }
-            SubmitAns();
-            
+            submitAns();
+
         }
     }
 }

@@ -22,41 +22,44 @@ namespace BigGainsTests
         // This method tests that the descriptors gets filled
         //---------------------------------------------------------------
         [TestMethod]
-        public void TestFillDescriptors1()
+        public void testFillDescriptors1()
         {
-            SpotTheSceneryPictureDescriptor stspd 
+            SpotTheSceneryPictureDescriptor stspd
                 = new SpotTheSceneryPictureDescriptor();
             stspd.fillDescriptors();
             Assert.AreEqual(stspd.getDescriptors()["artic_bear"][0], "a bear");
         }
+
         //---------------------------------------------------------------
         // This method tests that the descriptors gets filled
         //---------------------------------------------------------------
         [TestMethod]
-        public void TestFillDescriptors2()
+        public void testFillDescriptors2()
         {
-            SpotTheSceneryPictureDescriptor stspd 
+            SpotTheSceneryPictureDescriptor stspd
                 = new SpotTheSceneryPictureDescriptor();
             Assert.AreEqual(stspd.getDescriptors().Count, 0);
         }
+
         //---------------------------------------------------------------
         // This method tests that the picture list gets filled
         //---------------------------------------------------------------
         [TestMethod]
-        public void TestFillPictureList1()
+        public void testFillPictureList1()
         {
-            SpotTheSceneryPictureDescriptor stspd 
+            SpotTheSceneryPictureDescriptor stspd
                 = new SpotTheSceneryPictureDescriptor();
             stspd.fillPictureList();
             Assert.AreNotEqual(stspd.getPictureList()[0], null);
         }
+
         //---------------------------------------------------------------
         // This method tests that the picture list gets filled
         //---------------------------------------------------------------
         [TestMethod]
-        public void TestFillPictureList2()
+        public void testFillPictureList2()
         {
-            SpotTheSceneryPictureDescriptor stspd 
+            SpotTheSceneryPictureDescriptor stspd
                 = new SpotTheSceneryPictureDescriptor();
             Assert.AreEqual(stspd.getPictureList().Count, 0);
         }
