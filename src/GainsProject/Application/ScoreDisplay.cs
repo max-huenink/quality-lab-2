@@ -42,7 +42,6 @@ namespace GainsProject.Application
             currDisplay = 0;
             reverseScore = false;
             numGames = scoreSave.getNumGames();
-            totalScore = scoreSave.getTotalScore();
             avgGamePoints = scoreSave.getAvgGamePoints();
             timeSorted = scoreSave.getSaveDataList();
             tagSort();

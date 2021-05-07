@@ -126,7 +126,6 @@ namespace GainsProject.Application
         //---------------------------------------------------------------
         public void setIsIt(Button button)
         {
-            isIt = button;
             button.Text = IS_IT_TEXT;
             button.BackColor = IS_IT_BACK_COLOR;
             button.BringToFront();
