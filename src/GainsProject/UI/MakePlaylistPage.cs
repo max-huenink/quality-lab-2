@@ -143,12 +143,12 @@ namespace GainsProject.UI
             // Compute center x
             var pageWidth = Size.Width;
             var ctrlWidth = ctrl.Size.Width;
-            var x = (pageWidth - ctrlWidth) / 8;
+            var x = (pageWidth - ctrlWidth) / 12;
 
             // Compute center y
             var pageHeight = Size.Height;
             var ctrlHeight = ctrl.Size.Height;
-            var y = (pageHeight - ctrlHeight) / 3 * 2;
+            var y = (pageHeight - ctrlHeight) / 9 * 7;
 
             // Senter control
             ctrl.Location = new Point(x, y);
@@ -162,7 +162,7 @@ namespace GainsProject.UI
             // Compute center x
             var pageWidth = Size.Width;
             var ctrlWidth = ctrl.Size.Width;
-            var x = (pageWidth - ctrlWidth) / 16 * 13;
+            var x = (pageWidth - ctrlWidth) / 64 * 47;
 
             // Compute center y
             var pageHeight = Size.Height;
