@@ -26,6 +26,10 @@ Make Playlist Page:
 	move the items to the right grid.
 	-Not enough time to fix
 
+Picture Drawing game:
+- You can not play the game after leaving the game and going back
+	- The game manager was marked static which prevented replay
+
 Design Deficiency:
 -None known
 

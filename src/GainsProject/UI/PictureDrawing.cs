@@ -26,14 +26,8 @@ namespace GainsProject.UI
         private ScoreSaveManager scoreSaveManager
             = ScoreSaveManager.getScoreSaveManager();
         private NameClass name = new NameClass();
-        private static PictureDrawingManager pd = new PictureDrawingManager();
+        private PictureDrawingManager pd = new PictureDrawingManager();
         private readonly IGameEnd gameEnd;
-
-
-        public PictureDrawing()
-        {
-            InitializeComponent();
-        }
 
         //---------------------------------------------------------------
         //Constructor that initializes gameEnd which shows the game end
@@ -200,25 +194,6 @@ namespace GainsProject.UI
         private void paintBlack_MouseClick(object sender, MouseEventArgs e)
         {
             pd.setColor(COLOR_BLACK);
-        }
-
-        //---------------------------------------------------------------
-        //resets the game when the exit button is pressed
-        // and resets all of the UI
-        //---------------------------------------------------------------
-        private void exitGameBtn_Click(object sender, EventArgs e)
-        {
-            pd.endGame();
-            timer1.Enabled = false;
-            checkScoreButton.Text = "START";
-            checkScoreButton.BackColor = System.Drawing.Color.Tomato;
-
-            dashedTimerLabel.Visible = true;
-            timerLabel.Visible = true;
-            dashedLineLabel.Visible = true;
-            endTimeLabel.Visible = false;
-            incorrectPictureLabel.Visible = false;
-            scoreLabel.Visible = false;
         }
 
         //---------------------------------------------------------------
