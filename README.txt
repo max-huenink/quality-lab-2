@@ -26,6 +26,10 @@ Make Playlist Page:
 	move the items to the right grid.
 	-Not enough time to fix
 
+Picture Drawing game:
+-You can not play the game after leaving the game and going back
+	-Not enough time to fix
+
 Design Deficiency:
 -None known
 
