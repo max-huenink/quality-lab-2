@@ -23,9 +23,15 @@ namespace GainsProject.UI
     //---------------------------------------------------------------
     public partial class SpotTheSceneryGame : UserControl
     {
-        private SpotTheSceneryGameManager stsgManager = new SpotTheSceneryGameManager();
+        private SpotTheSceneryGameManager stsgManager = 
+            new SpotTheSceneryGameManager();
         private const string GAME_NAME = "SpotTheScenery.txt";
-        private ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
+        private const int FIRST_PICTURE = 1;
+        private const int SECOND_PICTURE = 2;
+        private const int THIRD_PICUTRE = 3;
+        private const int FOURTH_PICTURE = 4;
+        private ScoreSaveManager scoreSaveManager = 
+            ScoreSaveManager.getScoreSaveManager();
         private NameClass name = new NameClass();
         private readonly IGameEnd gameEnd;
         //---------------------------------------------------------------
@@ -68,7 +74,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            pictureClicked(1);
+            pictureClicked(FIRST_PICTURE);
         }
         //---------------------------------------------------------------
         // a picture was clicked on and it will call the method with its
@@ -76,7 +82,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            pictureClicked(4);
+            pictureClicked(FOURTH_PICTURE);
         }
         //---------------------------------------------------------------
         // a picture was clicked on and it will call the method with its
@@ -84,7 +90,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            pictureClicked(3);
+            pictureClicked(THIRD_PICUTRE);
         }
         //---------------------------------------------------------------
         // a picture was clicked on and it will call the method with its
@@ -92,7 +98,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            pictureClicked(2);
+            pictureClicked(SECOND_PICTURE);
         }
         //---------------------------------------------------------------
         // called by pictureBox mouse click events to call logic in
@@ -157,7 +163,8 @@ namespace GainsProject.UI
             scoreLabel.Visible = true;
             ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
             scoreSave.addScore((int)stsgManager.getScore(), name.getName());
-            gameEnd?.GameFinished(name.getName(), stsgManager.getScore(), stsgManager.getGameRunTime());
+            gameEnd?.GameFinished(name.getName(), stsgManager.getScore(), 
+                stsgManager.getGameRunTime());
         }
     }
 }
