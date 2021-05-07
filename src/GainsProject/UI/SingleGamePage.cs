@@ -49,7 +49,7 @@ namespace GainsProject.UI
                     Text = game.Name,
                     Anchor = AnchorStyles.None,
                     Font = new Font("SansSerif", 20),
-                    //BackColor = Color.Tomato,
+                    BackColor = SystemColors.Control,
                     AutoSize = true,
                 };
                 gameBtn.Click += (sender, e) =>

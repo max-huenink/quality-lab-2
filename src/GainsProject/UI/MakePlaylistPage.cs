@@ -82,8 +82,9 @@ namespace GainsProject.UI
                     Name = game.Name,
                     Text = game.Name,
                     Anchor = AnchorStyles.None,
-                    AutoSize = true,
+                    Font = new Font("SansSerif", 20),
                     BackColor = System.Drawing.SystemColors.Control,
+                    AutoSize = true,
                 };
                 gameBtn.Click += (sender, e) =>
                 {
