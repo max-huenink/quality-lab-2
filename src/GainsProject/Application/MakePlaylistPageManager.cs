@@ -21,7 +21,7 @@ namespace GainsProject.Application
         //Lists to hold the games
         private List<(string Name, Func<Control> GameControlCreator)> 
             playlist;
-        List<string> startPlaylist;
+        private List<string> startPlaylist;
 
         //--------------------------------------------------------------------
         //Default constructor

@@ -90,7 +90,6 @@ namespace GainsProject.UI
             this.GamePlaylist.AutoSize = true;
             this.GamePlaylist.ColumnCount = 1;
             this.GamePlaylist.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.GamePlaylist.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.GamePlaylist.Location = new System.Drawing.Point(818, 294);
             this.GamePlaylist.Name = "GamePlaylist";
             this.GamePlaylist.RowCount = 1;
@@ -107,7 +106,6 @@ namespace GainsProject.UI
             this.GameSelector.AutoSize = true;
             this.GameSelector.ColumnCount = 1;
             this.GameSelector.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.GameSelector.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.GameSelector.Location = new System.Drawing.Point(138, 294);
             this.GameSelector.Name = "GameSelector";
             this.GameSelector.RowCount = 1;

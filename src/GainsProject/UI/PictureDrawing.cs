@@ -17,15 +17,15 @@ namespace GainsProject.UI
             = ScoreSaveManager.getScoreSaveManager();
         private NameClass name = new NameClass();
         private static PictureDrawingManager pd = new PictureDrawingManager();
-        public const int COLOR_WHITE = 0;
-        public const int COLOR_YELLOW = 1;
-        public const int COLOR_ORANGE = 2;
-        public const int COLOR_RED = 3;
-        public const int COLOR_PURPLE = 4;
-        public const int COLOR_BLUE = 5;
-        public const int COLOR_GREEN = 6;
-        public const int COLOR_BROWN = 7;
-        public const int COLOR_BLACK = 8;
+        private const int COLOR_WHITE = 0;
+        private const int COLOR_YELLOW = 1;
+        private const int COLOR_ORANGE = 2;
+        private const int COLOR_RED = 3;
+        private const int COLOR_PURPLE = 4;
+        private const int COLOR_BLUE = 5;
+        private const int COLOR_GREEN = 6;
+        private const int COLOR_BROWN = 7;
+        private const int COLOR_BLACK = 8;
         public PictureDrawing()
         {
             InitializeComponent();

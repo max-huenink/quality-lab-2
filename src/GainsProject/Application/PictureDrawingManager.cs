@@ -17,20 +17,20 @@ namespace GainsProject.Application
     //---------------------------------------------------------------
     public class PictureDrawingManager : BaseGame
     {
-        public const int MAX_POINTS = 1000;
-        public const int POINT_LOSS_PER_PICTURE = 100;
-        public const int UPPER_PICTURE_LIMIT = 8;
-        public const int DEFAULT_BOX_SIZE = 30;
-        public const int COLOR_WHITE = 0;
-        public const int COLOR_YELLOW = 1;
-        public const int COLOR_ORANGE = 2;
-        public const int COLOR_RED = 3;
-        public const int COLOR_PURPLE = 4;
-        public const int COLOR_BLUE = 5;
-        public const int COLOR_GREEN = 6;
-        public const int COLOR_BROWN = 7;
-        public const int COLOR_BLACK = 8;
-        public const int SCORE_SUB_MULTIPLIER = 5;
+        private const int MAX_POINTS = 1000;
+        private const int POINT_LOSS_PER_PICTURE = 100;
+        private const int UPPER_PICTURE_LIMIT = 8;
+        private const int DEFAULT_BOX_SIZE = 30;
+        private const int COLOR_WHITE = 0;
+        private const int COLOR_YELLOW = 1;
+        private const int COLOR_ORANGE = 2;
+        private const int COLOR_RED = 3;
+        private const int COLOR_PURPLE = 4;
+        private const int COLOR_BLUE = 5;
+        private const int COLOR_GREEN = 6;
+        private const int COLOR_BROWN = 7;
+        private const int COLOR_BLACK = 8;
+        private const int SCORE_SUB_MULTIPLIER = 5;
         //Seeded random
         private Random random;
         private DateTime startTime;
