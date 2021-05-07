@@ -67,7 +67,7 @@ namespace GainsProject.UI
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Rockwell", 27.75F);
-            this.label2.Location = new System.Drawing.Point(777, 197);
+            this.label2.Location = new System.Drawing.Point(791, 197);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(161, 42);
             this.label2.TabIndex = 3;
@@ -78,7 +78,7 @@ namespace GainsProject.UI
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Rockwell", 27.75F);
-            this.label1.Location = new System.Drawing.Point(3, 155);
+            this.label1.Location = new System.Drawing.Point(51, 155);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(355, 84);
             this.label1.TabIndex = 2;
