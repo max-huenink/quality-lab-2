@@ -16,8 +16,9 @@ namespace GainsProject.UI
     //---------------------------------------------------------------
     public partial class PlayAgainPage : UserControl
     {
-        bool isPlaylist;
-        int counter;
+        private bool isPlaylist;
+        private int counter;
+        private List<string> playlist;
         //---------------------------------------------------------------
         //Default constructor that initializes the buttons
         //---------------------------------------------------------------
@@ -26,8 +27,6 @@ namespace GainsProject.UI
             InitializeComponent();
             isPlaylist = false;
         }
-        //System.Collections.Generic.List<(string Name, Func<Control> GameControlCreator)> playlist;
-        List<string> playlist;
         public PlayAgainPage(List<string> list, int count)
         {
             InitializeComponent();

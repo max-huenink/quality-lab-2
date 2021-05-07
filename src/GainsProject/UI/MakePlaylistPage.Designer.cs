@@ -30,11 +30,11 @@ namespace GainsProject.UI
         private void InitializeComponent()
         {
             this.Content = new System.Windows.Forms.Panel();
+            this.startButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.GamePlaylist = new System.Windows.Forms.TableLayoutPanel();
             this.GameSelector = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.startButton = new System.Windows.Forms.Button();
             this.Content.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +50,28 @@ namespace GainsProject.UI
             this.Content.Name = "Content";
             this.Content.Size = new System.Drawing.Size(1063, 681);
             this.Content.TabIndex = 1;
+            // 
+            // startButton
+            // 
+            this.startButton.Font = new System.Drawing.Font("Rockwell", 27.75F);
+            this.startButton.Location = new System.Drawing.Point(421, 294);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(239, 154);
+            this.startButton.TabIndex = 4;
+            this.startButton.Text = "Start Playlist";
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 27.75F);
+            this.label2.Location = new System.Drawing.Point(777, 197);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(161, 42);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Playlist: ";
             // 
             // label1
             // 
@@ -68,6 +90,7 @@ namespace GainsProject.UI
             this.GamePlaylist.AutoSize = true;
             this.GamePlaylist.ColumnCount = 1;
             this.GamePlaylist.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.GamePlaylist.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.GamePlaylist.Location = new System.Drawing.Point(818, 294);
             this.GamePlaylist.Name = "GamePlaylist";
             this.GamePlaylist.RowCount = 1;
@@ -84,6 +107,7 @@ namespace GainsProject.UI
             this.GameSelector.AutoSize = true;
             this.GameSelector.ColumnCount = 1;
             this.GameSelector.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.GameSelector.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.GameSelector.Location = new System.Drawing.Point(138, 294);
             this.GameSelector.Name = "GameSelector";
             this.GameSelector.RowCount = 1;
@@ -91,30 +115,8 @@ namespace GainsProject.UI
             this.GameSelector.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.GameSelector.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.GameSelector.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.GameSelector.Size = new System.Drawing.Size(64, 44);
+            this.GameSelector.Size = new System.Drawing.Size(81, 44);
             this.GameSelector.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 27.75F);
-            this.label2.Location = new System.Drawing.Point(777, 197);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 42);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Playlist: ";
-            // 
-            // startButton
-            // 
-            this.startButton.Font = new System.Drawing.Font("Rockwell", 27.75F);
-            this.startButton.Location = new System.Drawing.Point(421, 294);
-            this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(239, 154);
-            this.startButton.TabIndex = 4;
-            this.startButton.Text = "Start Playlist";
-            this.startButton.UseVisualStyleBackColor = true;
-            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // MakePlaylistPage
             // 
