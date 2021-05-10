@@ -16,14 +16,14 @@ namespace GainsProject.UI
     //--------------------------------------------------------------------
     public partial class PreviousScoresPage : UserControl
     {
-        List<ScoreDisplay> scoreDisplayList;
-        ScoreDisplay currScoreDisplay;
+        List<ScoreDisplayManager> scoreDisplayList;
+        ScoreDisplayManager currScoreDisplay;
         private const int NUM_TEST_GAMES = 1;
 
         public PreviousScoresPage()
         {
             InitializeComponent();
-            scoreDisplayList = new List<ScoreDisplay>();
+            scoreDisplayList = new List<ScoreDisplayManager>();
             //Load all of the score relevant data onto the screen
             scorePageStart();
         }
@@ -58,7 +58,7 @@ namespace GainsProject.UI
                     this.selectGame.Text = rawName;
                 }
                 this.selectGame.Items.Add(rawName);
-                ScoreDisplay temp = new ScoreDisplay(scoreSaveManager
+                ScoreDisplayManager temp = new ScoreDisplayManager(scoreSaveManager
                     .getScoreSave(gameList[i]));
                 scoreDisplayList.Add(temp);
             }

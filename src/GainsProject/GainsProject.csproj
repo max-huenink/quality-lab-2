@@ -97,7 +97,7 @@
       <DependentUpon>GameModeSelect.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\SaveData.cs" />
-    <Compile Include="Application\ScoreDisplay.cs" />
+    <Compile Include="Application\ScoreDisplayManager.cs" />
     <Compile Include="Application\ScoreSave.cs" />
     <Compile Include="UI\ExampleGame.cs">
       <SubType>UserControl</SubType>

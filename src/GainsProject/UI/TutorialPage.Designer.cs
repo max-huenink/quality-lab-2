@@ -32,10 +32,10 @@ namespace GainsProject.UI
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.Content = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.Content.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,17 +69,6 @@ namespace GainsProject.UI
             this.label3.TabIndex = 2;
             this.label3.Text = "In order to see recent games played, click the \"Previous Results\" button";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(39, 523);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(768, 26);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "In order to see the all time best scores for each game, click the \"Leaderboard\" b" +
-    "utton";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -110,6 +99,16 @@ namespace GainsProject.UI
             this.Content.Size = new System.Drawing.Size(1063, 681);
             this.Content.TabIndex = 6;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(39, 523);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(518, 26);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "To learn more about the team click the \"About Us\" button";
+            // 
             // TutorialPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,9 +132,9 @@ namespace GainsProject.UI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel Content;
+        private System.Windows.Forms.Label label4;
     }
 }

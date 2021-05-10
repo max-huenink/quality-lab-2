@@ -26,7 +26,7 @@ namespace BigGainsTests
             ScoreSaveManager ssm = ScoreSaveManager.getScoreSaveManager();
             ScoreSave scoreSave = ssm.getScoreSave("testGame1.txt");
             addScores();
-            ScoreDisplay sd = new ScoreDisplay(scoreSave);
+            ScoreDisplayManager sd = new ScoreDisplayManager(scoreSave);
             sd.setScoreSorted();
             sd.setTimeSorted();
             bool timeSorted = false;
@@ -48,7 +48,7 @@ namespace BigGainsTests
             ScoreSaveManager ssm = ScoreSaveManager.getScoreSaveManager();
             ScoreSave scoreSave = ssm.getScoreSave("testGame1.txt");
             addScores();
-            ScoreDisplay sd = new ScoreDisplay(scoreSave);
+            ScoreDisplayManager sd = new ScoreDisplayManager(scoreSave);
             sd.setTimeSorted();
             bool timeSorted = false;
             if (sd.getTimeSortedList()[sd.getTimeSortedList().Count - 1].getDt() <
@@ -69,7 +69,7 @@ namespace BigGainsTests
             ScoreSaveManager ssm = ScoreSaveManager.getScoreSaveManager();
             ScoreSave scoreSave = ssm.getScoreSave("testGame1.txt");
             addScores();
-            ScoreDisplay sd = new ScoreDisplay(scoreSave);
+            ScoreDisplayManager sd = new ScoreDisplayManager(scoreSave);
             sd.setTagSorted();
             bool tagSorted = false;
             if (String.Compare(sd.getTagSortedList()[0].getPlayerTag(),
@@ -94,7 +94,7 @@ namespace BigGainsTests
             ScoreSaveManager ssm = ScoreSaveManager.getScoreSaveManager();
             ScoreSave scoreSave = ssm.getScoreSave("testGame1.txt");
             addScores();
-            ScoreDisplay sd = new ScoreDisplay(scoreSave);
+            ScoreDisplayManager sd = new ScoreDisplayManager(scoreSave);
             sd.setTagSorted();
             sd.setTagSorted();
             bool tagSorted = false;
@@ -119,7 +119,7 @@ namespace BigGainsTests
             ScoreSaveManager ssm = ScoreSaveManager.getScoreSaveManager();
             ScoreSave scoreSave = ssm.getScoreSave("testGame1.txt");
             addScores();
-            ScoreDisplay sd = new ScoreDisplay(scoreSave);
+            ScoreDisplayManager sd = new ScoreDisplayManager(scoreSave);
             sd.setScoreSorted();
             sd.setScoreSorted();
             sd.setScoreSorted();
@@ -142,7 +142,7 @@ namespace BigGainsTests
             ScoreSaveManager ssm = ScoreSaveManager.getScoreSaveManager();
             ScoreSave scoreSave = ssm.getScoreSave("testGame1.txt");
             addScores();
-            ScoreDisplay sd = new ScoreDisplay(scoreSave);
+            ScoreDisplayManager sd = new ScoreDisplayManager(scoreSave);
             sd.setScoreSorted();
             sd.setScoreSorted();
             bool scoreSorted = false;
@@ -163,7 +163,7 @@ namespace BigGainsTests
             ScoreSaveManager ssm = ScoreSaveManager.getScoreSaveManager();
             ScoreSave scoreSave = ssm.getScoreSave("testGame1.txt");
             addScores();
-            ScoreDisplay sd = new ScoreDisplay(scoreSave);
+            ScoreDisplayManager sd = new ScoreDisplayManager(scoreSave);
             string scoreString = sd.getScore();
             string dtString = sd.getTime();
             string tagString = sd.getTag();
@@ -204,7 +204,7 @@ namespace BigGainsTests
             ScoreSaveManager ssm = ScoreSaveManager.getScoreSaveManager();
             ScoreSave scoreSave = ssm.getScoreSave("testGame1.txt");
             addScores();
-            ScoreDisplay sd = new ScoreDisplay(scoreSave);
+            ScoreDisplayManager sd = new ScoreDisplayManager(scoreSave);
             Assert.AreNotEqual(0, sd.getNumGames());
         }
 
@@ -217,7 +217,7 @@ namespace BigGainsTests
             ScoreSaveManager ssm = ScoreSaveManager.getScoreSaveManager();
             ScoreSave scoreSave = ssm.getScoreSave("testGame1.txt");
             addScores();
-            ScoreDisplay sd = new ScoreDisplay(scoreSave);
+            ScoreDisplayManager sd = new ScoreDisplayManager(scoreSave);
             Assert.AreNotEqual(0, sd.getAvgGamePoints());
         }
 

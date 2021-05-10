@@ -14,7 +14,7 @@ namespace GainsProject.Application
     //This is a class that will hold all of the data logic for displaying
     //scores on the PreviousScoresPage
     //--------------------------------------------------------------------
-    public class ScoreDisplay
+    public class ScoreDisplayManager
     {
         private const int TIME_DISPLAY = 0;
         private const int TAG_DISPLAY = 1;
@@ -37,7 +37,7 @@ namespace GainsProject.Application
         //this is a parameterized constructor that takes a SCORESAVE
         //object for displaying the information for a game
         //---------------------------------------------------------------
-        public ScoreDisplay(ScoreSave scoreSave)
+        public ScoreDisplayManager(ScoreSave scoreSave)
         {
             currDisplay = 0;
             reverseScore = false;
@@ -82,8 +82,7 @@ namespace GainsProject.Application
             {
                 key = scoreSorted[i];
                 j = i - 1;
-                while (j >= 0 && string.Compare(
-                    scoreSorted[j].getPlayerTag(), key.getPlayerTag()) > 0)
+                while (j >= 0 && scoreSorted[j].getScore() < key.getScore())
                 {
                     scoreSorted[j + 1] = scoreSorted[j];
                     j--;
