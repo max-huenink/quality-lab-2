@@ -33,4 +33,8 @@ Picture Drawing game:
 Design Deficiency:
 -None known
 
+Make Playlist page:
+-When repeating a playlist the buttons get put in the wrong spot
+	-not enough time to finish it before turning it in
+
 Thank you for trying our program, and good luck with your gains.
