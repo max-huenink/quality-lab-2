@@ -8,8 +8,6 @@ using GainsProject.Domain.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace BigGainsTests
@@ -25,11 +23,11 @@ namespace BigGainsTests
         // IGameEnd, creates a not empty list of games
         //---------------------------------------------------------------
         [TestMethod]
-        public void CreateAndPopulateGameManager()
+        public void createAndPopulateGameManager()
         {
             Mock<IGameEnd> mock = new Mock<IGameEnd>();
-            var manager = GameSelectManager.CreateAndPopulateManager(mock.Object);
-            var gameList = manager.GetListOfGames();
+            var manager = GameSelectManager.createAndPopulateManager(mock.Object);
+            var gameList = manager.getListOfGames();
             Assert.IsNotNull(gameList);
             // List should not be empty because it was populated
             //  with list of games
@@ -41,10 +39,10 @@ namespace BigGainsTests
         // when the class is created
         //---------------------------------------------------------------
         [TestMethod]
-        public void GetEmptyListOfGamesTest()
+        public void getEmptyListOfGamesTest()
         {
             var manager = new GameSelectManager();
-            var gameList = manager.GetListOfGames();
+            var gameList = manager.getListOfGames();
             Assert.IsNotNull(gameList);
             Assert.AreEqual(0, gameList.Count);
         }
@@ -53,7 +51,7 @@ namespace BigGainsTests
         //Tests that the AddGameToList adds each item to the list
         //---------------------------------------------------------------
         [TestMethod]
-        public void AddToListOfGamesTest()
+        public void addToListOfGamesTest()
         {
             var manager = new GameSelectManager();
             // Items to add
@@ -61,12 +59,12 @@ namespace BigGainsTests
             (string, Func<Control>) test1 = ("TestGame1", () => new Control());
             (string, Func<Control>) test2 = ("TestGame2", () => new Control());
             // Add items
-            manager.AddGameToList(test0.Item1, test0.Item2);
-            manager.AddGameToList(test1.Item1, test1.Item2);
-            manager.AddGameToList(test2.Item1, test2.Item2);
+            manager.addGameToList(test0.Item1, test0.Item2);
+            manager.addGameToList(test1.Item1, test1.Item2);
+            manager.addGameToList(test2.Item1, test2.Item2);
 
             // List isn't null, contains 3 elements
-            var gameList = manager.GetListOfGames();
+            var gameList = manager.getListOfGames();
             Assert.IsNotNull(gameList);
             Assert.AreEqual(3, gameList.Count);
             // List contains each item
@@ -79,10 +77,10 @@ namespace BigGainsTests
         //Tests that the unplayed game from an empty games list is null
         //---------------------------------------------------------------
         [TestMethod]
-        public void GetUnplayedGameFromEmptyListTest()
+        public void getUnplayedGameFromEmptyListTest()
         {
             var manager = new GameSelectManager();
-            var game = manager.GetRandomUnplayedGame();
+            var game = manager.getRandomUnplayedGame();
             Assert.AreEqual(null, game);
         }
 
@@ -91,7 +89,7 @@ namespace BigGainsTests
         // games with one played, returns the only other unplayed game
         //---------------------------------------------------------------
         [TestMethod]
-        public void RandomUnplayedGameTest()
+        public void randomUnplayedGameTest()
         {
             var manager = new GameSelectManager();
             // Controls to add to game list
@@ -104,13 +102,13 @@ namespace BigGainsTests
                 Name = "test1"
             };
             // Add controls to game list
-            manager.AddGameToList("TestGame0", test0);
-            manager.AddGameToList("TestGame1", test1);
+            manager.addGameToList("TestGame0", test0);
+            manager.addGameToList("TestGame1", test1);
             // Play test1
-            manager.PlayedGame(test1);
+            manager.playedGame(test1);
             // The random unplayed game should not be test1
             // should be test0
-            var unplayed = manager.GetRandomUnplayedGame();
+            var unplayed = manager.getRandomUnplayedGame();
             Assert.AreNotEqual(test1, unplayed);
             Assert.AreEqual(test0, unplayed);
         }
@@ -120,7 +118,7 @@ namespace BigGainsTests
         // have been played
         //---------------------------------------------------------------
         [TestMethod]
-        public void AllGamesPlayedTest()
+        public void allGamesPlayedTest()
         {
             var manager = new GameSelectManager();
             // Controls to add
@@ -128,31 +126,19 @@ namespace BigGainsTests
             Func<Control> test1 = () => new Control();
             Func<Control> test2 = () => new Control();
             // Adds controls
-            manager.AddGameToList("TestGame0", test0);
-            manager.AddGameToList("TestGame1", test1);
-            manager.AddGameToList("TestGame2", test2);
+            manager.addGameToList("TestGame0", test0);
+            manager.addGameToList("TestGame1", test1);
+            manager.addGameToList("TestGame2", test2);
             // Plays all controls
-            manager.PlayedGame(test0);
-            manager.PlayedGame(test1);
-            manager.PlayedGame(test2);
+            manager.playedGame(test0);
+            manager.playedGame(test1);
+            manager.playedGame(test2);
             // The random unplayed game should be null, all games have been
             // played
-            var unplayed = manager.GetRandomUnplayedGame();
+            var unplayed = manager.getRandomUnplayedGame();
             Assert.AreEqual(null, unplayed);
         }
-        [TestMethod]
-        public void parameterizedConstructor()
-        {
-            List<(string Name, Func<Control> GameControlCreator)> gameList = new List<(string Name, Func<Control> GameControlCreator)>();
-            Func<Control> test0 = () => new Control();
-            Func<Control> test1 = () => new Control();
-            Func<Control> test2 = () => new Control();
-            gameList.Add(("TestGame0", test0));
-            gameList.Add(("TestGame1", test1));
-            gameList.Add(("TestGame2", test2));
-            var manager = new GameSelectManager(gameList);
-            Assert.AreNotEqual(null, manager);
-        }
+
         [TestMethod]
         public void removeGameFromList()
         {
@@ -162,12 +148,13 @@ namespace BigGainsTests
             Func<Control> test1 = () => new Control();
             Func<Control> test2 = () => new Control();
             // Adds controls
-            manager.AddGameToList("TestGame0", test0);
-            manager.AddGameToList("TestGame1", test1);
-            manager.AddGameToList("TestGame2", test2);
-            manager.RemoveGameFromList("TestGame2", test2);
-            Assert.AreEqual(2, manager.GetListOfGames().Count);
+            manager.addGameToList("TestGame0", test0);
+            manager.addGameToList("TestGame1", test1);
+            manager.addGameToList("TestGame2", test2);
+            manager.removeGameFromList("TestGame2", test2);
+            Assert.AreEqual(2, manager.getListOfGames().Count);
         }
+
         [TestMethod]
         public void refreshListOfPlayed()
         {
@@ -177,16 +164,17 @@ namespace BigGainsTests
             Func<Control> test1 = () => new Control();
             Func<Control> test2 = () => new Control();
             // Adds controls
-            manager.AddGameToList("TestGame0", test0);
-            manager.AddGameToList("TestGame1", test1);
-            manager.AddGameToList("TestGame2", test2);
-            manager.PlayedGame(test0);
-            manager.PlayedGame(test1);
-            manager.PlayedGame(test2);
-            manager.RefreshGamesPlayed();
-            var unplayed = manager.GetRandomUnplayedGame();
+            manager.addGameToList("TestGame0", test0);
+            manager.addGameToList("TestGame1", test1);
+            manager.addGameToList("TestGame2", test2);
+            manager.playedGame(test0);
+            manager.playedGame(test1);
+            manager.playedGame(test2);
+            manager.refreshGamesPlayed();
+            var unplayed = manager.getRandomUnplayedGame();
             Assert.AreNotEqual(null, unplayed);
         }
+
         [TestMethod]
         public void getFirstUnplayedGame()
         {
@@ -196,10 +184,10 @@ namespace BigGainsTests
             Func<Control> test1 = () => new Control();
             Func<Control> test2 = () => new Control();
             // Adds controls
-            manager.AddGameToList("TestGame0", test0);
-            manager.AddGameToList("TestGame1", test1);
-            manager.AddGameToList("TestGame2", test2);
-            Assert.AreEqual(test0, manager.GetFirstUnplayedGame());
+            manager.addGameToList("TestGame0", test0);
+            manager.addGameToList("TestGame1", test1);
+            manager.addGameToList("TestGame2", test2);
+            Assert.AreEqual(test0, manager.getFirstUnplayedGame());
         }
     }
 }

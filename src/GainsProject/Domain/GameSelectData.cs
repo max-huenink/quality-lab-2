@@ -30,13 +30,13 @@ namespace GainsProject.Domain
 
         // Getter for game list
         public List<(string Name, Func<Control> GameControlCreator)>
-            GetListOfGames()
+            getListOfGames()
         {
             return gameList;
         }
 
         // Getter for played game list
-        public List<Func<Control>> GetGamesPlayed()
+        public List<Func<Control>> getGamesPlayed()
         {
             return gameCreatorsUsedThisSession;
         }
@@ -56,7 +56,7 @@ namespace GainsProject.Domain
         //         Func<Control> gameControlCreator - A function that
         //          creates the game control
         //---------------------------------------------------------------
-        public void AddGameToList(string name
+        public void addGameToList(string name
             , Func<Control> gameControlCreator)
         {
             gameList.Add((name, gameControlCreator));
@@ -68,7 +68,7 @@ namespace GainsProject.Domain
         //         Func<Control> gameControlCreator - A function that
         //          creates the game control
         //---------------------------------------------------------------
-        public void RemoveGameFromList(string name,
+        public void removeGameFromList(string name,
                                        Func<Control> gameControlCreator)
         {
             gameList.Remove((name, gameControlCreator));
@@ -80,7 +80,7 @@ namespace GainsProject.Domain
         //         Func<Control> gameCreator - A function that creates
         //          the game control
         //---------------------------------------------------------------
-        public void PlayedGame(Func<Control> gameCreator)
+        public void playedGame(Func<Control> gameCreator)
         {
             gameCreatorsUsedThisSession.Add(gameCreator);
         }

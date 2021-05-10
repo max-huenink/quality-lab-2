@@ -31,6 +31,7 @@ namespace GainsProject.UI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BasePage));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.leaderboardButton = new System.Windows.Forms.Button();
             this.quitButton = new System.Windows.Forms.Button();
             this.previousResultsButton = new System.Windows.Forms.Button();
@@ -40,10 +41,9 @@ namespace GainsProject.UI
             this.EnterButton = new System.Windows.Forms.Button();
             this.NameBox = new System.Windows.Forms.TextBox();
             this.WelcomeLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.Content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -60,6 +60,18 @@ namespace GainsProject.UI
             this.panel1.Size = new System.Drawing.Size(204, 689);
             this.panel1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(196, 97);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.WaitOnLoad = true;
+            // 
             // leaderboardButton
             // 
             this.leaderboardButton.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -70,10 +82,10 @@ namespace GainsProject.UI
             this.leaderboardButton.Name = "leaderboardButton";
             this.leaderboardButton.Size = new System.Drawing.Size(201, 114);
             this.leaderboardButton.TabIndex = 4;
-            this.leaderboardButton.Text = "Leaderboards";
+            this.leaderboardButton.Text = "About Us";
             this.leaderboardButton.UseVisualStyleBackColor = true;
             this.leaderboardButton.Visible = false;
-            this.leaderboardButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.leaderboardButton_MouseClick);
+            this.leaderboardButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.aboutUsButton_MouseClick);
             // 
             // quitButton
             // 
@@ -159,7 +171,7 @@ namespace GainsProject.UI
             this.EnterButton.TabIndex = 2;
             this.EnterButton.Text = "Enter";
             this.EnterButton.UseVisualStyleBackColor = false;
-            this.EnterButton.Click += new System.EventHandler(this.EnterButton_Click);
+            this.EnterButton.Click += new System.EventHandler(this.enterButton_Click);
             // 
             // NameBox
             // 
@@ -179,18 +191,6 @@ namespace GainsProject.UI
             this.WelcomeLabel.Text = "Welcome to the \r\nXxBigger_GainsxX \r\nReaction game!\r\nPlease enter your name.";
             this.WelcomeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(196, 97);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.WaitOnLoad = true;
-            // 
             // BasePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,9 +202,9 @@ namespace GainsProject.UI
             this.Name = "BasePage";
             this.Text = "Reaction Games";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Content.ResumeLayout(false);
             this.Content.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

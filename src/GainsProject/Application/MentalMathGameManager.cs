@@ -25,6 +25,7 @@ namespace GainsProject.Application
         private const int LOWEST_SCORE = -100;
         //Seeded random
         Random rnd = new Random();
+
         //---------------------------------------------------------------
         //Sets the time then resets the stopwatch
         //---------------------------------------------------------------
@@ -33,6 +34,7 @@ namespace GainsProject.Application
             setTime(stopwatch.ElapsedMilliseconds);
             stopwatch.Reset();
         }
+
         //---------------------------------------------------------------
         //Calculates the score based on the time. Then adds the current 
         //score to the new calculation so multiple problems can be done
@@ -50,7 +52,7 @@ namespace GainsProject.Application
                 return;
             }
             //Lower than the max score time
-            if(time <= MAX_SCORE_TIME)
+            if (time <= MAX_SCORE_TIME)
             {
                 setScore(MAX_SCORE + getScore());
                 return;
@@ -60,8 +62,9 @@ namespace GainsProject.Application
                 return;
             //If the time was not worth 100, or 0 points, invert the time
             long inverse = time - ZERO_SCORE_TIME;
-            setScore((inverse / SCORE_DIVISOR) + getScore()); 
+            setScore((inverse / SCORE_DIVISOR) + getScore());
         }
+
         //---------------------------------------------------------------
         //Gives a random number for the math problems from 2-9
         //---------------------------------------------------------------

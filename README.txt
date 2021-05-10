@@ -27,8 +27,8 @@ Make Playlist Page:
 	-Not enough time to fix
 
 Picture Drawing game:
--You can not play the game after leaving the game and going back
-	-Not enough time to fix
+- You can not play the game after leaving the game and going back
+	- The game manager was marked static which prevented replay
 
 Design Deficiency:
 -None known

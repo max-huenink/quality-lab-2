@@ -24,10 +24,11 @@ namespace GainsProject.Application
         private static ScoreSaveManager scoreSaveManager;
         private List<ScoreSave> scoreSaveList;
         // game names
-        private static readonly string[] gameNames = { "testGame1.txt", 
+        private static readonly string[] gameNames = { "testGame1.txt",
             "SpotTheScenery.txt", "PictureDrawing.txt",
             "DizzyButtons.txt", "ChaseTheButton.txt", "ExampleGame.txt",
             "MentalMathGame.txt", "ArrowKeyGame.txt"};
+
         //private default constructor
         private ScoreSaveManager()
         {
@@ -37,6 +38,7 @@ namespace GainsProject.Application
                 scoreSaveList.Add(new ScoreSave(gameName));
             }
         }
+
         //--------------------------------------------------------------------
         // This method gets the ScoreSave that matches with the name of the
         // game that is requesting it
@@ -46,7 +48,7 @@ namespace GainsProject.Application
             int count = 0;
             foreach (string gameName in gameNames)
             {
-                if(gameName == gameToGet)
+                if (gameName == gameToGet)
                 {
                     break;
                 }
@@ -54,6 +56,7 @@ namespace GainsProject.Application
             }
             return scoreSaveList[count];
         }
+
         //--------------------------------------------------------------------
         // This method makes a ScoreSaveManager object if it is null so it can 
         // only be created once, then it returns the scoreSaveManager
@@ -61,12 +64,13 @@ namespace GainsProject.Application
         //--------------------------------------------------------------------
         public static ScoreSaveManager getScoreSaveManager()
         {
-            if(scoreSaveManager == null)
+            if (scoreSaveManager == null)
             {
                 scoreSaveManager = new ScoreSaveManager();
             }
             return scoreSaveManager;
         }
+
         //--------------------------------------------------------------------
         //This is a getter for game names.
         //--------------------------------------------------------------------

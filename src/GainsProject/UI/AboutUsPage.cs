@@ -2,9 +2,9 @@
 
 namespace GainsProject.UI
 {
-    public partial class LeaderboardPage : UserControl
+    public partial class AboutUsPage : UserControl
     {
-        public LeaderboardPage()
+        public AboutUsPage()
         {
             InitializeComponent();
         }

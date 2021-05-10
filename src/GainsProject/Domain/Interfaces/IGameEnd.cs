@@ -17,6 +17,6 @@ namespace GainsProject.Domain.Interfaces
         //Indicates the game played by name is over with a score of
         // score and a time of timeSpan
         //---------------------------------------------------------------
-        void GameFinished(string name, long score, TimeSpan timeSpan);
+        void gameFinished(string name, long score, TimeSpan timeSpan);
     }
 }

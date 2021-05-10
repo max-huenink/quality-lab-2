@@ -23,7 +23,7 @@ namespace BigGainsTests
         //So 401ms before arrow flashes, score should be 0
         //---------------------------------------------------------------
         [TestMethod]
-        public void NegativeScoreCalculationLowBoundaryTest()
+        public void negativeScoreCalculationLowBoundaryTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -40,7 +40,7 @@ namespace BigGainsTests
         //So 300ms before arrow flashes, score should be 25
         //---------------------------------------------------------------
         [TestMethod]
-        public void NegativeScoreCalculationLowBoundaryTest2()
+        public void negativeScoreCalculationLowBoundaryTest2()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -57,7 +57,7 @@ namespace BigGainsTests
         //So 200ms before arrow flashes, score should be 50
         //---------------------------------------------------------------
         [TestMethod]
-        public void NegativeScoreCalculationLowBoundaryTest3()
+        public void negativeScoreCalculationLowBoundaryTest3()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -74,7 +74,7 @@ namespace BigGainsTests
         //So 100ms before arrow flashes, score should be 75
         //---------------------------------------------------------------
         [TestMethod]
-        public void NegativeScoreCalculationLowBoundaryTest4()
+        public void negativeScoreCalculationLowBoundaryTest4()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -91,7 +91,7 @@ namespace BigGainsTests
         //So 1ms before arrow flashes, score should be 75
         //---------------------------------------------------------------
         [TestMethod]
-        public void NegativeScoreCalculationHighBoundaryTest()
+        public void negativeScoreCalculationHighBoundaryTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -111,7 +111,7 @@ namespace BigGainsTests
         // 200ms buffer for perfect score
         //---------------------------------------------------------------
         [TestMethod]
-        public void PerfectScoreCalculationLowBoundaryTest()
+        public void perfectScoreCalculationLowBoundaryTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -127,7 +127,7 @@ namespace BigGainsTests
         // 200ms buffer for perfect score
         //---------------------------------------------------------------
         [TestMethod]
-        public void PerfectScoreCalculationMiddleBoundaryTest()
+        public void perfectScoreCalculationMiddleBoundaryTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -143,7 +143,7 @@ namespace BigGainsTests
         // 200ms buffer for perfect score
         //---------------------------------------------------------------
         [TestMethod]
-        public void PerfectScoreCalculationHighBoundaryTest()
+        public void perfectScoreCalculationHighBoundaryTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -165,7 +165,7 @@ namespace BigGainsTests
         //Perfect is within 200ms, so 201ms should be perfect-1
         //---------------------------------------------------------------
         [TestMethod]
-        public void ScoreCalculationLowBoundaryTest()
+        public void scoreCalculationLowBoundaryTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -183,7 +183,7 @@ namespace BigGainsTests
         //Perfect is within 200ms, so 210ms should still be perfect-1
         //---------------------------------------------------------------
         [TestMethod]
-        public void ScoreCalculationLowBoundaryTest2()
+        public void scoreCalculationLowBoundaryTest2()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -201,7 +201,7 @@ namespace BigGainsTests
         //Perfect is within 200ms, so 1700ms should be perfect-50
         //---------------------------------------------------------------
         [TestMethod]
-        public void ScoreCalculationMiddleBoundaryTest()
+        public void scoreCalculationMiddleBoundaryTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -219,7 +219,7 @@ namespace BigGainsTests
         //Perfect is 200ms, so 2190 should be perfect-99
         //---------------------------------------------------------------
         [TestMethod]
-        public void ScoreCalculationHighBoundaryTest()
+        public void scoreCalculationHighBoundaryTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -237,7 +237,7 @@ namespace BigGainsTests
         //Perfect is 200ms, so 2191 should be perfect-perfect
         //---------------------------------------------------------------
         [TestMethod]
-        public void ScoreCalculationHighBoundaryTest2()
+        public void scoreCalculationHighBoundaryTest2()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -257,7 +257,7 @@ namespace BigGainsTests
         //Score should be -50 no matter when the wrong button is pressed
         //---------------------------------------------------------------
         [TestMethod]
-        public void ScoreCalculationWrongButtonBeforeTest()
+        public void scoreCalculationWrongButtonBeforeTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -273,7 +273,7 @@ namespace BigGainsTests
         //Score should be -50 no matter when the wrong button is pressed
         //---------------------------------------------------------------
         [TestMethod]
-        public void ScoreCalculationWrongButtonTest()
+        public void scoreCalculationWrongButtonTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -289,7 +289,7 @@ namespace BigGainsTests
         //Score should be -50 no matter when the wrong button is pressed
         //---------------------------------------------------------------
         [TestMethod]
-        public void ScoreCalculationWrongButtonAfterTest()
+        public void scoreCalculationWrongButtonAfterTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -308,7 +308,7 @@ namespace BigGainsTests
         //Tests updating the total score from its initial state
         //---------------------------------------------------------------
         [TestMethod]
-        public void TotalScoreOneUpdateTest()
+        public void totalScoreOneUpdateTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.updateTotalScore(100);
@@ -320,7 +320,7 @@ namespace BigGainsTests
         // times. Total should be cumulative score
         //---------------------------------------------------------------
         [TestMethod]
-        public void TotalScoreThreeUpdateTest()
+        public void totalScoreThreeUpdateTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.updateTotalScore(100);
@@ -334,7 +334,7 @@ namespace BigGainsTests
         //Calculating score should set the score and update total score
         //---------------------------------------------------------------
         [TestMethod]
-        public void TotalScoreCalculateTest()
+        public void totalScoreCalculateTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.setTimeUntilClick(1000);
@@ -363,7 +363,7 @@ namespace BigGainsTests
         //Tests that the constant RANDOM_TIME_MIN is 500
         //---------------------------------------------------------------
         [TestMethod]
-        public void RandomTimeMinTest()
+        public void randomTimeMinTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             var randomMin = game.getRandomTimeMin();
@@ -375,7 +375,7 @@ namespace BigGainsTests
         //Tests that the constant RANDOM_TIME_MAX is 2000
         //---------------------------------------------------------------
         [TestMethod]
-        public void RandomTimeMaxTest()
+        public void randomTimeMaxTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             var randomMax = game.getRandomTimeMax();
@@ -387,7 +387,7 @@ namespace BigGainsTests
         //Tests that the constant MAX_TIME_TO_CLICK is 1200
         //---------------------------------------------------------------
         [TestMethod]
-        public void MaxTimeToClickTest()
+        public void maxTimeToClickTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             var maxTime = game.getMaxTimeToClick();
@@ -398,7 +398,7 @@ namespace BigGainsTests
         //Tests that the constant MAX_CLICKS is 10
         //---------------------------------------------------------------
         [TestMethod]
-        public void MaxClicksTest()
+        public void maxClicksTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             var maxClicks = game.getMaxClicks();
@@ -413,7 +413,7 @@ namespace BigGainsTests
         //Tests that the game is not over after less than MAX_CLICKS
         //---------------------------------------------------------------
         [TestMethod]
-        public void GameNotOverMaxClicksTest()
+        public void gameNotOverMaxClicksTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.start();
@@ -434,7 +434,7 @@ namespace BigGainsTests
         //Tests that the game is over after MAX_CLICKS
         //---------------------------------------------------------------
         [TestMethod]
-        public void GameOverMaxClicksTest()
+        public void gameOverMaxClicksTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.start();
@@ -460,7 +460,7 @@ namespace BigGainsTests
         // stopwatch value, and stops the stopwatch
         //---------------------------------------------------------------
         [TestMethod]
-        public void RunGameTest()
+        public void runGameTest()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             game.stopwatch.Start();
@@ -474,7 +474,7 @@ namespace BigGainsTests
         //Tests that the random time is within bounds
         //---------------------------------------------------------------
         [TestMethod]
-        public void RandomBetweenRange()
+        public void randomBetweenRange()
         {
             ArrowKeyGameManager game = new ArrowKeyGameManager();
             var randomMin = game.getRandomTimeMin();

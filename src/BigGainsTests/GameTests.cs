@@ -23,7 +23,7 @@ namespace BigGainsTests
         //Tests the default constructor of the base game class
         //---------------------------------------------------------------
         [TestMethod]
-        public void DefaultConstructortest()
+        public void defaultConstructortest()
         {
             ExampleGameManager game = new ExampleGameManager();
             //There are three tests to test the default constructor
@@ -31,47 +31,52 @@ namespace BigGainsTests
             Assert.AreEqual(-1, game.getTime());
             Assert.AreEqual(false, game.isGameLive());
         }
+
         //---------------------------------------------------------------
         //Tests the getter and setter of score in the base game class
         //---------------------------------------------------------------
         [TestMethod]
-        public void Score()
+        public void score()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.setScore(45);
             Assert.AreEqual(45, game.getScore());
         }
+
         //---------------------------------------------------------------
         //Tests the getter and setter of isLive in the base game class
         //---------------------------------------------------------------
         [TestMethod]
-        public void IsLiveTestTrue()
+        public void isLiveTestTrue()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.start();
             Assert.AreEqual(true, game.isGameLive());
         }
+
         //---------------------------------------------------------------
         //Tests the getter and setter of is live in the base game class
         //---------------------------------------------------------------
         [TestMethod]
-        public void IsLiveTestFalse()
+        public void isLiveTestFalse()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.start();
             game.endGame();
             Assert.AreEqual(false, game.isGameLive());
         }
+
         //---------------------------------------------------------------
         //Tests the getter and setter of time in the base game class
         //---------------------------------------------------------------
         [TestMethod]
-        public void TimeTest()
+        public void timeTest()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.setTime(843);
             Assert.AreEqual(843, game.getTime());
         }
+
         //---------------------------------------------------------------
         //Tests total runtime of the game
         //---------------------------------------------------------------
@@ -85,8 +90,8 @@ namespace BigGainsTests
             var sw = game.getTotalRunTimeStopwatch();
             Assert.AreEqual(sw.Elapsed, game.getGameRunTime());
         }
-
     }
+
     //---------------------------------------------------------------
     //Test the Example game manager class
     //---------------------------------------------------------------
@@ -97,51 +102,55 @@ namespace BigGainsTests
         //Tests the scoring in the example game manager
         //---------------------------------------------------------------
         [TestMethod]
-        public void ScoringValid()
+        public void scoringValid()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.setTime(500);
             game.calculateScore();
             Assert.AreEqual(700, game.getScore());
         }
+
         //---------------------------------------------------------------
         //Tests the scoring in the example game manager if taken too long
         //---------------------------------------------------------------
         [TestMethod]
-        public void ScoringZeroPoints()
+        public void scoringZeroPoints()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.setTime(50000);
             game.calculateScore();
             Assert.AreEqual(0, game.getScore());
         }
+
         //---------------------------------------------------------------
         //Tests the scoring in the example game manager if time is zero
         //---------------------------------------------------------------
         [TestMethod]
-        public void ScoringTooEarly()
+        public void scoringTooEarly()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.setTime(0);
             game.calculateScore();
             Assert.AreEqual(-100, game.getScore());
         }
+
         //---------------------------------------------------------------
         //Tests the scoring if the user reacts before the baseline
         //---------------------------------------------------------------
         [TestMethod]
-        public void ScoringMax()
+        public void scoringMax()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.setTime(50);
             game.calculateScore();
             Assert.AreEqual(1000, game.getScore());
         }
+
         //---------------------------------------------------------------
         //Tests the stopwatch reset in the example game manager
         //---------------------------------------------------------------
         [TestMethod]
-        public void RunGame()
+        public void runGame()
         {
             ExampleGameManager game = new ExampleGameManager();
             game.stopwatch.Start();
@@ -149,20 +158,22 @@ namespace BigGainsTests
             game.runGame();
             Assert.AreEqual(0, game.stopwatch.ElapsedMilliseconds);
         }
+
         //---------------------------------------------------------------
         //Tests the random method returning a value
         //---------------------------------------------------------------
         [TestMethod]
-        public void RandomTimeValueReturn()
+        public void randomTimeValueReturn()
         {
             ExampleGameManager game = new ExampleGameManager();
             Assert.AreNotEqual(null, game.randomTime());
         }
+
         //---------------------------------------------------------------
         //Tests the random method returning a value inbetween the range
         //---------------------------------------------------------------
         [TestMethod]
-        public void RandomTimeRange()
+        public void randomTimeRange()
         {
             ExampleGameManager game = new ExampleGameManager();
             long test = game.randomTime();

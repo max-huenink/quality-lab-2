@@ -65,7 +65,7 @@ namespace GainsProject.UI
             this.EasyDifficultyBtn.TabIndex = 7;
             this.EasyDifficultyBtn.Text = "Easy";
             this.EasyDifficultyBtn.UseVisualStyleBackColor = false;
-            this.EasyDifficultyBtn.Click += new System.EventHandler(this.EasyDifficultyBtn_Click);
+            this.EasyDifficultyBtn.Click += new System.EventHandler(this.easyDifficultyBtn_Click);
             // 
             // MediumDifficultyBtn
             // 
@@ -78,7 +78,7 @@ namespace GainsProject.UI
             this.MediumDifficultyBtn.TabIndex = 11;
             this.MediumDifficultyBtn.Text = "Medium";
             this.MediumDifficultyBtn.UseVisualStyleBackColor = false;
-            this.MediumDifficultyBtn.Click += new System.EventHandler(this.MediumDifficultyBtn_Click);
+            this.MediumDifficultyBtn.Click += new System.EventHandler(this.mediumDifficultyBtn_Click);
             // 
             // HardDifficultBtn
             // 
@@ -91,7 +91,7 @@ namespace GainsProject.UI
             this.HardDifficultBtn.TabIndex = 12;
             this.HardDifficultBtn.Text = "Hard";
             this.HardDifficultBtn.UseVisualStyleBackColor = false;
-            this.HardDifficultBtn.Click += new System.EventHandler(this.HardDifficultBtn_Click);
+            this.HardDifficultBtn.Click += new System.EventHandler(this.hardDifficultBtn_Click);
             // 
             // LeftArrowLbl
             // 

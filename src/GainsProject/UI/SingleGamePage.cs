@@ -31,17 +31,17 @@ namespace GainsProject.UI
         {
             InitializeComponent();
 
-            manager = GameSelectManager.CreateAndPopulateManager(this);
-            CreateGameButtons();
+            manager = GameSelectManager.createAndPopulateManager(this);
+            createGameButtons();
         }
 
         //---------------------------------------------------------------
         //Creates buttons for each game in the games list
         //---------------------------------------------------------------
-        private void CreateGameButtons()
+        private void createGameButtons()
         {
             List<Button> btnList = new List<Button>();
-            foreach (var game in manager.GetListOfGames())
+            foreach (var game in manager.getListOfGames())
             {
                 Button gameBtn = new Button
                 {
@@ -49,13 +49,13 @@ namespace GainsProject.UI
                     Text = game.Name,
                     Anchor = AnchorStyles.None,
                     Font = new Font("SansSerif", 20),
-                    //BackColor = Color.Tomato,
+                    BackColor = SystemColors.Control,
                     AutoSize = true,
                 };
                 gameBtn.Click += (sender, e) =>
                 {
                     selectedGame = game.GameControlCreator;
-                    PlayGame();
+                    playGame();
                 };
                 // Add button to list of buttons
                 btnList.Add(gameBtn);
@@ -64,7 +64,7 @@ namespace GainsProject.UI
             }
 
             // Center the GameSelector horizontally and vertically
-            CenterControl(GameSelector);
+            centerControl(GameSelector);
 
             // Find max width and make every button have that width
             var maxWidth = btnList.Max(b => b.Width);
@@ -77,7 +77,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Centers the control on the screen horizontally and vertically
         //---------------------------------------------------------------
-        private void CenterControl(Control ctrl)
+        private void centerControl(Control ctrl)
         {
             // Compute center x
             var pageWidth = Size.Width;
@@ -96,7 +96,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Displays the game end screen with the player's name and score
         //---------------------------------------------------------------
-        public void GameFinished(string name, long score, TimeSpan timeSpan)
+        public void gameFinished(string name, long score, TimeSpan timeSpan)
         {
             var gep = new GameEndPage(this);
             gep.setPlayerName(name);
@@ -109,19 +109,19 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Plays the selected game again
         //---------------------------------------------------------------
-        public void NextGame()
+        public void nextGame()
         {
-            PlayGame();
+            playGame();
         }
 
         //---------------------------------------------------------------
         //Stops playing the selected game and goes back to game selection
         // using a new SingleGameSelect
         //---------------------------------------------------------------
-        public void Exit()
+        public void exit()
         {
             selectedGame = () => new SingleGamePage();
-            PlayGame();
+            playGame();
         }
 
         //---------------------------------------------------------------
@@ -142,7 +142,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Plays the selected game
         //---------------------------------------------------------------
-        private void PlayGame()
+        private void playGame()
         {
             showUserControl(selectedGame?.Invoke());
         }

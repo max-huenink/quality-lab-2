@@ -22,12 +22,12 @@ namespace BigGainsTests
         //Checks to see if the manager gets filled.
         //---------------------------------------------------------------
         [TestMethod]
-        public void FillManagerWithGames()
+        public void fillManagerWithGames()
         {
             MakePlaylistPageManager playlistManager = new MakePlaylistPageManager();
             Mock<IGameEnd> mock = new Mock<IGameEnd>();
-            var manager = GameSelectManager.CreateAndPopulateManager(mock.Object);
-            foreach (var g in manager.GetListOfGames())
+            var manager = GameSelectManager.createAndPopulateManager(mock.Object);
+            foreach (var g in manager.getListOfGames())
             {
                 playlistManager.add(g);
             }
@@ -38,12 +38,12 @@ namespace BigGainsTests
         //Checks to see if the manager contains a string in the list
         //---------------------------------------------------------------
         [TestMethod]
-        public void CheckIfAnItemIsPresent()
+        public void checkIfAnItemIsPresent()
         {
             MakePlaylistPageManager playlistManager = new MakePlaylistPageManager();
             Mock<IGameEnd> mock = new Mock<IGameEnd>();
-            var manager = GameSelectManager.CreateAndPopulateManager(mock.Object);
-            foreach (var g in manager.GetListOfGames())
+            var manager = GameSelectManager.createAndPopulateManager(mock.Object);
+            foreach (var g in manager.getListOfGames())
             {
                 playlistManager.add(g);
             }
@@ -54,12 +54,12 @@ namespace BigGainsTests
         //Checks to see if the manager contains something not in the list
         //---------------------------------------------------------------
         [TestMethod]
-        public void CheckIfAnItemIsNotPresent()
+        public void checkIfAnItemIsNotPresent()
         {
             MakePlaylistPageManager playlistManager = new MakePlaylistPageManager();
             Mock<IGameEnd> mock = new Mock<IGameEnd>();
-            var manager = GameSelectManager.CreateAndPopulateManager(mock.Object);
-            foreach (var g in manager.GetListOfGames())
+            var manager = GameSelectManager.createAndPopulateManager(mock.Object);
+            foreach (var g in manager.getListOfGames())
             {
                 playlistManager.add(g);
             }
@@ -70,12 +70,12 @@ namespace BigGainsTests
         //Checks to see if the First Item is correct
         //---------------------------------------------------------------
         [TestMethod]
-        public void CheckForCorrectFirstGame()
+        public void checkForCorrectFirstGame()
         {
             MakePlaylistPageManager playlistManager = new MakePlaylistPageManager();
             Mock<IGameEnd> mock = new Mock<IGameEnd>();
-            var manager = GameSelectManager.CreateAndPopulateManager(mock.Object);
-            foreach (var g in manager.GetListOfGames())
+            var manager = GameSelectManager.createAndPopulateManager(mock.Object);
+            foreach (var g in manager.getListOfGames())
             {
                 playlistManager.add(g);
             }
@@ -86,12 +86,12 @@ namespace BigGainsTests
         //Checks to see if a different game is first
         //---------------------------------------------------------------
         [TestMethod]
-        public void CheckForIncorrectFirstGame()
+        public void checkForIncorrectFirstGame()
         {
             MakePlaylistPageManager playlistManager = new MakePlaylistPageManager();
             Mock<IGameEnd> mock = new Mock<IGameEnd>();
-            var manager = GameSelectManager.CreateAndPopulateManager(mock.Object);
-            foreach (var g in manager.GetListOfGames())
+            var manager = GameSelectManager.createAndPopulateManager(mock.Object);
+            foreach (var g in manager.getListOfGames())
             {
                 playlistManager.add(g);
             }
@@ -102,12 +102,12 @@ namespace BigGainsTests
         //Checks to see if the remove method works
         //---------------------------------------------------------------
         [TestMethod]
-        public void DoesRemoveWork()
+        public void doesRemoveWork()
         {
             MakePlaylistPageManager playlistManager = new MakePlaylistPageManager();
             Mock<IGameEnd> mock = new Mock<IGameEnd>();
-            var manager = GameSelectManager.CreateAndPopulateManager(mock.Object);
-            foreach (var g in manager.GetListOfGames())
+            var manager = GameSelectManager.createAndPopulateManager(mock.Object);
+            foreach (var g in manager.getListOfGames())
             {
                 playlistManager.add(g);
                 if (g.Name == "Example Game")
@@ -120,11 +120,11 @@ namespace BigGainsTests
         //Checks to see if the save list feature, and getter works
         //---------------------------------------------------------------
         [TestMethod]
-        public void ValidateAndGetList()
+        public void validateAndGetList()
         {
             MakePlaylistPageManager playlistManager = new MakePlaylistPageManager();
             Mock<IGameEnd> mock = new Mock<IGameEnd>();
-            var manager = GameSelectManager.CreateAndPopulateManager(mock.Object);
+            var manager = GameSelectManager.createAndPopulateManager(mock.Object);
             playlistManager.validatePlaylist(manager);
             Assert.AreEqual("Example Game", playlistManager.getPlaylist()[0]);
         }

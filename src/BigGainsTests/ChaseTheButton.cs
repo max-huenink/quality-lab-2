@@ -19,35 +19,38 @@ namespace BigGainsTests
         //Tests the scoring in the mental math game manager
         //---------------------------------------------------------------
         [TestMethod]
-        public void ScoringValid()
+        public void scoringValid()
         {
             ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
             game.setTime(3000);
             game.calculateScore();
             Assert.AreEqual(833, game.getScore());
         }
+
         //---------------------------------------------------------------
         //Tests the lower bound scoring in the mental math game manager
         //---------------------------------------------------------------
         [TestMethod]
-        public void LowerScoreTest()
+        public void lowerScoreTest()
         {
             ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
             game.setTime(20000);
             game.calculateScore();
             Assert.AreEqual(0, game.getScore());
         }
+
         //---------------------------------------------------------------
         //Tests the upper bound scoring in the mental math game manager
         //---------------------------------------------------------------
         [TestMethod]
-        public void UpperScoreTest()
+        public void upperScoreTest()
         {
             ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
             game.setTime(1000);
             game.calculateScore();
             Assert.AreEqual(1000, game.getScore());
         }
+
         //---------------------------------------------------------------
         //Tests that the run game method works as intended
         //---------------------------------------------------------------
@@ -60,40 +63,44 @@ namespace BigGainsTests
             game.runGame();
             Assert.AreEqual(0, game.stopwatch.ElapsedMilliseconds);
         }
+
         //---------------------------------------------------------------
         //Tests the random x cord method returning a value
         //---------------------------------------------------------------
         [TestMethod]
-        public void RandomXValueReturn()
+        public void randomXValueReturn()
         {
             ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
             Assert.AreNotEqual(null, game.randomTime());
         }
+
         //---------------------------------------------------------------
         //Tests the random x method returning a value inbetween the range
         //---------------------------------------------------------------
         [TestMethod]
-        public void RandomXRange()
+        public void randomXRange()
         {
             ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
             long test = game.randomTime();
             bool range = (test >= 10 || test <= 900);
             Assert.IsTrue(range);
         }
+
         //---------------------------------------------------------------
         //Tests the random y cord method returning a value
         //---------------------------------------------------------------
         [TestMethod]
-        public void RandomYValueReturn()
+        public void randomYValueReturn()
         {
             ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
             Assert.AreNotEqual(null, game.randomY());
         }
+
         //---------------------------------------------------------------
         //Tests the random y method returning a value inbetween the range
         //---------------------------------------------------------------
         [TestMethod]
-        public void RandomYRange()
+        public void randomYRange()
         {
             ChaseTheButtonGameManager game = new ChaseTheButtonGameManager();
             long test = game.randomY();

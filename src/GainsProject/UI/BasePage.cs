@@ -17,10 +17,12 @@ namespace GainsProject.UI
     {
         //Name object to store the name
         NameClass nameStorage = new NameClass();
+
         public BasePage()
         {
             InitializeComponent();
         }
+
         //---------------------------------------------------------------
         //Opens the tutorial page.
         //---------------------------------------------------------------
@@ -29,6 +31,7 @@ namespace GainsProject.UI
             TutorialPage tp = new TutorialPage();
             showUserControl(tp);
         }
+
         //---------------------------------------------------------------
         //Hides opened userControl and puts the one clicked on at the top.
         //---------------------------------------------------------------
@@ -42,43 +45,48 @@ namespace GainsProject.UI
 
             Content.Controls.Add(control);
         }
+
         //---------------------------------------------------------------
         //Shows the navigation buttons once the user has entered their
         //  name
         //---------------------------------------------------------------
-        public void ShowSideButtons()
+        public void showSideButtons()
         {
             playButton.Show();
             tutorialButton.Show();
             previousResultsButton.Show();
             leaderboardButton.Show();
         }
+
         //---------------------------------------------------------------
         //Takes the user to the game selection of the program
         //---------------------------------------------------------------
         private void playButton_MouseClick(object sender, MouseEventArgs e)
         {
-            GameModeSelect gsp = new GameModeSelect ();
+            GameModeSelect gsp = new GameModeSelect();
             showUserControl(gsp);
         }
+
         //---------------------------------------------------------------
         //Takes user to the page that shows previous scores in games
         //---------------------------------------------------------------
-        private void previousResultsButton_MouseClick(object sender, 
+        private void previousResultsButton_MouseClick(object sender,
             MouseEventArgs e)
         {
             PreviousScoresPage psp = new PreviousScoresPage();
             showUserControl(psp);
         }
+
         //---------------------------------------------------------------
         //Takes user to the page that shows the top scores in each game
         //---------------------------------------------------------------
-        private void leaderboardButton_MouseClick(object sender, 
+        private void aboutUsButton_MouseClick(object sender,
             MouseEventArgs e)
         {
-            LeaderboardPage lp = new LeaderboardPage();
-            showUserControl(lp);
+            AboutUsPage au = new AboutUsPage();
+            showUserControl(au);
         }
+
         //---------------------------------------------------------------
         //Closes the application 
         //---------------------------------------------------------------
@@ -86,10 +94,11 @@ namespace GainsProject.UI
         {
             this.Close();
         }
+
         //---------------------------------------------------------------
         //Method to save the user's name once a button is clicked
         //---------------------------------------------------------------
-        private void EnterButton_Click(object sender, EventArgs e)
+        private void enterButton_Click(object sender, EventArgs e)
         {
             string specialChar = " \\|!#$%&/()=?»«@£§€{}.-;'<>_,";
             bool hasSpecial = false;
@@ -111,14 +120,14 @@ namespace GainsProject.UI
                 WelcomeLabel.Text = "No Special Chars";
                 return;
             }
-            else 
+            else
             {
                 nameStorage.setName(NameBox.Text);
-                WelcomeLabel.Text = "Welcome " + nameStorage.getName() + 
+                WelcomeLabel.Text = "Welcome " + nameStorage.getName() +
                     "\n Click on one of the side buttons to begin!";
                 NameBox.Hide();
                 EnterButton.Hide();
-                ShowSideButtons();
+                showSideButtons();
             }
         }
     }

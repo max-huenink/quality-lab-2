@@ -18,8 +18,8 @@ namespace GainsProject.UI
     {
         List<ScoreDisplay> scoreDisplayList;
         ScoreDisplay currScoreDisplay;
-        ScoreSave scoreSave;
         private const int NUM_TEST_GAMES = 1;
+
         public PreviousScoresPage()
         {
             InitializeComponent();
@@ -27,6 +27,7 @@ namespace GainsProject.UI
             //Load all of the score relevant data onto the screen
             scorePageStart();
         }
+
         //---------------------------------------------------------------
         //updates the strings displaying scores and accompaning values
         //---------------------------------------------------------------
@@ -38,6 +39,7 @@ namespace GainsProject.UI
             this.totalGamesHere.Text = currScoreDisplay.getNumGames().ToString();
             this.avgScoreHere.Text = currScoreDisplay.getAvgGamePoints().ToString();
         }
+
         //---------------------------------------------------------------
         //fill the combobox, fill the list of scoreDisplays
         //---------------------------------------------------------------
@@ -45,13 +47,13 @@ namespace GainsProject.UI
         {
             string[] gameList = ScoreSaveManager.getGameNames();
             ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
-            for(int i = NUM_TEST_GAMES; i < gameList.Length; i++)
+            for (int i = NUM_TEST_GAMES; i < gameList.Length; i++)
             {
                 string rawName = gameList[i];
                 rawName = rawName.Substring(0, rawName.Length - 4);
-                rawName = string.Concat(rawName.Select(x => Char.IsUpper(x) ? " " 
+                rawName = string.Concat(rawName.Select(x => Char.IsUpper(x) ? " "
                 + x : x.ToString())).TrimStart(' ');
-                if(i == NUM_TEST_GAMES)
+                if (i == NUM_TEST_GAMES)
                 {
                     this.selectGame.Text = rawName;
                 }
@@ -63,6 +65,7 @@ namespace GainsProject.UI
             currScoreDisplay = scoreDisplayList[0];
             updateScorePage();
         }
+
         //---------------------------------------------------------------
         //let the scoreDisplay know what label was clicked
         //---------------------------------------------------------------
@@ -71,6 +74,7 @@ namespace GainsProject.UI
             currScoreDisplay.setTimeSorted();
             updateScorePage();
         }
+
         //---------------------------------------------------------------
         //let the scoreDisplay know what label was clicked
         //---------------------------------------------------------------
@@ -79,6 +83,7 @@ namespace GainsProject.UI
             currScoreDisplay.setTagSorted();
             updateScorePage();
         }
+
         //---------------------------------------------------------------
         //let the scoreDisplay know what label was clicked
         //---------------------------------------------------------------
@@ -87,6 +92,7 @@ namespace GainsProject.UI
             currScoreDisplay.setScoreSorted();
             updateScorePage();
         }
+
         //---------------------------------------------------------------
         //An event for game select
         //---------------------------------------------------------------

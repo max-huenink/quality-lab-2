@@ -30,7 +30,7 @@ namespace BigGainsTests
             sd.setScoreSorted();
             sd.setTimeSorted();
             bool timeSorted = false;
-            if(sd.getTimeSortedList()[0].getDt() < 
+            if (sd.getTimeSortedList()[0].getDt() <
                 sd.getTimeSortedList()[1].getDt())
             {
                 timeSorted = true;
@@ -38,6 +38,7 @@ namespace BigGainsTests
             Assert.IsFalse(sd.getReverseScore());
             Assert.IsTrue(timeSorted);
         }
+
         //---------------------------------------------------------------
         // this method tests the time sorted method
         //---------------------------------------------------------------
@@ -58,6 +59,7 @@ namespace BigGainsTests
             Assert.IsTrue(sd.getReverseScore());
             Assert.IsFalse(timeSorted);
         }
+
         //---------------------------------------------------------------
         // this method tests the tag sorted method
         //---------------------------------------------------------------
@@ -70,8 +72,8 @@ namespace BigGainsTests
             ScoreDisplay sd = new ScoreDisplay(scoreSave);
             sd.setTagSorted();
             bool tagSorted = false;
-            if(String.Compare(sd.getTagSortedList()[0].getPlayerTag(), 
-                sd.getTagSortedList()[1].getPlayerTag(), 
+            if (String.Compare(sd.getTagSortedList()[0].getPlayerTag(),
+                sd.getTagSortedList()[1].getPlayerTag(),
                 comparisonType: StringComparison.OrdinalIgnoreCase) == -1 ||
                 String.Compare(sd.getTagSortedList()[0].getPlayerTag(),
                 sd.getTagSortedList()[1].getPlayerTag(),
@@ -82,6 +84,7 @@ namespace BigGainsTests
             Assert.IsFalse(sd.getReverseScore());
             Assert.IsTrue(tagSorted);
         }
+
         //---------------------------------------------------------------
         // this method tests the tag sorted method
         //---------------------------------------------------------------
@@ -106,6 +109,7 @@ namespace BigGainsTests
             }
             Assert.IsTrue(sd.getReverseScore());
         }
+
         //---------------------------------------------------------------
         // this method tests the score sorted method
         //---------------------------------------------------------------
@@ -128,6 +132,7 @@ namespace BigGainsTests
             Assert.IsFalse(sd.getReverseScore());
             Assert.IsTrue(scoreSorted);
         }
+
         //---------------------------------------------------------------
         // this method tests the score sorted method
         //---------------------------------------------------------------
@@ -148,6 +153,7 @@ namespace BigGainsTests
             }
             Assert.IsTrue(sd.getReverseScore());
         }
+
         //---------------------------------------------------------------
         // this method tests the get score string method
         //---------------------------------------------------------------
@@ -188,6 +194,7 @@ namespace BigGainsTests
             tagString = sd.getTag();
             Assert.AreNotEqual(scoreString, null);
         }
+
         //---------------------------------------------------------------
         // this method tests get num games
         //---------------------------------------------------------------
@@ -200,6 +207,7 @@ namespace BigGainsTests
             ScoreDisplay sd = new ScoreDisplay(scoreSave);
             Assert.AreNotEqual(0, sd.getNumGames());
         }
+
         //---------------------------------------------------------------
         // this method tests avg points
         //---------------------------------------------------------------
@@ -212,6 +220,7 @@ namespace BigGainsTests
             ScoreDisplay sd = new ScoreDisplay(scoreSave);
             Assert.AreNotEqual(0, sd.getAvgGamePoints());
         }
+
         //---------------------------------------------------------------
         // this method makes sure there are at least 5 save data points
         // for the test methods
@@ -223,7 +232,7 @@ namespace BigGainsTests
             if (scoreSave.getNumGames() < 5)
             {
                 Random random = new Random();
-                for(int i = 0; i < 5; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     scoreSave.addScore(random.Next(0, 1000), ("Test" + i));
                     Thread.Sleep(1000);

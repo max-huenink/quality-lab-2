@@ -11,12 +11,6 @@ namespace GainsProject.UI
 {
     public partial class PictureDrawing : UserControl
     {
-        //Game name and the score save manager to save scores
-        private const string GAME_NAME = "PictureDrawing.txt";
-        private ScoreSaveManager scoreSaveManager 
-            = ScoreSaveManager.getScoreSaveManager();
-        private NameClass name = new NameClass();
-        private static PictureDrawingManager pd = new PictureDrawingManager();
         private const int COLOR_WHITE = 0;
         private const int COLOR_YELLOW = 1;
         private const int COLOR_ORANGE = 2;
@@ -26,11 +20,15 @@ namespace GainsProject.UI
         private const int COLOR_GREEN = 6;
         private const int COLOR_BROWN = 7;
         private const int COLOR_BLACK = 8;
-        public PictureDrawing()
-        {
-            InitializeComponent();
-        }
+
+        //Game name and the score save manager to save scores
+        private const string GAME_NAME = "PictureDrawing.txt";
+        private ScoreSaveManager scoreSaveManager
+            = ScoreSaveManager.getScoreSaveManager();
+        private NameClass name = new NameClass();
+        private PictureDrawingManager pd = new PictureDrawingManager();
         private readonly IGameEnd gameEnd;
+
         //---------------------------------------------------------------
         //Constructor that initializes gameEnd which shows the game end
         // screen when the game finishes
@@ -40,6 +38,7 @@ namespace GainsProject.UI
             InitializeComponent();
             this.gameEnd = gameEnd;
         }
+
         //---------------------------------------------------------------
         //updates the timer
         //---------------------------------------------------------------
@@ -47,6 +46,7 @@ namespace GainsProject.UI
         {
             timerLabel.Text = pd.getElapsedTime();
         }
+
         //---------------------------------------------------------------
         //changes the color of the button when a cursor is hovering over
         //---------------------------------------------------------------
@@ -54,6 +54,7 @@ namespace GainsProject.UI
         {
             checkScoreButton.BackColor = System.Drawing.Color.LimeGreen;
         }
+
         //---------------------------------------------------------------
         //changes the color of the button when the cursor leaves button
         //---------------------------------------------------------------
@@ -61,6 +62,7 @@ namespace GainsProject.UI
         {
             checkScoreButton.BackColor = System.Drawing.Color.Tomato;
         }
+
         //---------------------------------------------------------------
         //checks whether the pictures are the same, updates UI 
         // if they are the same. It is also the button for starting the
@@ -69,7 +71,7 @@ namespace GainsProject.UI
         private void checkScoreButton_MouseClick(object sender
             , MouseEventArgs e)
         {
-            if(!pd.isGameLive()) //starts a game
+            if (!pd.isGameLive()) //starts a game
             {
                 pd.setPanelInfo(0, 0, 360);
                 drawingPanel.Paint += new PaintEventHandler(pd.clearPanel);
@@ -83,7 +85,7 @@ namespace GainsProject.UI
                 checkScoreButton.Text = "Check Picture";
                 checkScoreButton.BackColor = System.Drawing.Color.LimeGreen;
                 pd.runGame();
-                picturePanel.Paint += 
+                picturePanel.Paint +=
                     new PaintEventHandler(pd.fillPicturePanel);
                 picturePanel.Refresh();
                 timer1.Enabled = true;
@@ -91,38 +93,24 @@ namespace GainsProject.UI
                 label3.Visible = false;
                 label12.Visible = false;
                 label13.Visible = false;
-                
+
             }
             else //ends a game
             {
-                if(pd.checkPainting())
+                if (pd.checkPainting())
                 {
-                    /*timer1.Enabled = false;
-                    checkScoreButton.Text = "PLAY AGAIN";
-                    checkScoreButton.BackColor = 
-                        System.Drawing.Color.Tomato;
-
-                    endTimeLabel.Text = "Time: " + pd.getElapsedTime();
-                    incorrectPictureLabel.Text = "Bad Pictures: " 
-                        + pd.getIncorrectPictures();
-                    scoreLabel.Text = "Score: " + pd.getScore();
-                    ScoreSave scoreSave = 
+                    ScoreSave scoreSave =
                         scoreSaveManager.getScoreSave(GAME_NAME);
-                    scoreSave.addScore((int)pd.getScore()
-                        , name.getName());
-                    dashedTimerLabel.Visible = false;
-                    timerLabel.Visible = false;
-                    dashedLineLabel.Visible = false;
-                    endTimeLabel.Visible = true;
-                    incorrectPictureLabel.Visible = true;
-                    scoreLabel.Visible = true; */
-                    gameEnd?.GameFinished(name.getName(), pd.getScore()
+                    scoreSave.addScore((int)pd.getScore(), name.getName());
+
+                    gameEnd?.gameFinished(name.getName(), pd.getScore()
                         , pd.getGameRunTime());
                 }
                 else //subtracts points for wrong picture
                     pd.incorrectAnswer();
             }
         }
+
         //---------------------------------------------------------------
         //colors one square in the picture.
         //---------------------------------------------------------------
@@ -135,6 +123,7 @@ namespace GainsProject.UI
                 drawingPanel.Refresh();
             }
         }
+
         //---------------------------------------------------------------
         //changes the color to white
         //---------------------------------------------------------------
@@ -142,6 +131,7 @@ namespace GainsProject.UI
         {
             pd.setColor(COLOR_WHITE);
         }
+
         //---------------------------------------------------------------
         //changes the color to yellow
         //---------------------------------------------------------------
@@ -149,6 +139,7 @@ namespace GainsProject.UI
         {
             pd.setColor(COLOR_YELLOW);
         }
+
         //---------------------------------------------------------------
         //changes the color to orange
         //---------------------------------------------------------------
@@ -156,6 +147,7 @@ namespace GainsProject.UI
         {
             pd.setColor(COLOR_ORANGE);
         }
+
         //---------------------------------------------------------------
         //changes the color to red
         //---------------------------------------------------------------
@@ -163,6 +155,7 @@ namespace GainsProject.UI
         {
             pd.setColor(COLOR_RED);
         }
+
         //---------------------------------------------------------------
         //changes the color to purple
         //---------------------------------------------------------------
@@ -170,6 +163,7 @@ namespace GainsProject.UI
         {
             pd.setColor(COLOR_PURPLE);
         }
+
         //---------------------------------------------------------------
         //changes the color to blue
         //---------------------------------------------------------------
@@ -177,6 +171,7 @@ namespace GainsProject.UI
         {
             pd.setColor(COLOR_BLUE);
         }
+
         //---------------------------------------------------------------
         //changes the color to green
         //---------------------------------------------------------------
@@ -184,6 +179,7 @@ namespace GainsProject.UI
         {
             pd.setColor(COLOR_GREEN);
         }
+
         //---------------------------------------------------------------
         //changes the color to brown
         //---------------------------------------------------------------
@@ -191,6 +187,7 @@ namespace GainsProject.UI
         {
             pd.setColor(COLOR_BROWN);
         }
+
         //---------------------------------------------------------------
         //changes the color to black
         //---------------------------------------------------------------
@@ -198,24 +195,7 @@ namespace GainsProject.UI
         {
             pd.setColor(COLOR_BLACK);
         }
-        //---------------------------------------------------------------
-        //resets the game when the exit button is pressed
-        // and resets all of the UI
-        //---------------------------------------------------------------
-        private void exitGameBtn_Click(object sender, EventArgs e)
-        {
-            pd.endGame();
-            timer1.Enabled = false;
-            checkScoreButton.Text = "START";
-            checkScoreButton.BackColor = System.Drawing.Color.Tomato;
 
-            dashedTimerLabel.Visible = true;
-            timerLabel.Visible = true;
-            dashedLineLabel.Visible = true;
-            endTimeLabel.Visible = false;
-            incorrectPictureLabel.Visible = false;
-            scoreLabel.Visible = false;
-        }
         //---------------------------------------------------------------
         //changes the color based on the key input pressed.
         //---------------------------------------------------------------

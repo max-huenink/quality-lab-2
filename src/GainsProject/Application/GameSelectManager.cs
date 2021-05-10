@@ -29,31 +29,12 @@ namespace GainsProject.Application
             rnd = new Random();
             data = new GameSelectData();
         }
-        //---------------------------------------------------------------
-        //Parameterized contructor, takes a list of the games list to 
-        //initialize the GameSelectManager to one that was already used.
-        //        // Params: a list that contains
-        //          string name - the name of the game
-        //         Func<Control> gameControlCreator - A function that
-        //          creates the game control
-        //---------------------------------------------------------------
-        public GameSelectManager(List<(string Name,
-                                       Func<Control> GameControlCreator)
-                                     > gamelist)
-        {
-            rnd = new Random();
-            data = new GameSelectData();
-            foreach (var g in gamelist)
-            {
-                data.AddGameToList(g.Name, g.GameControlCreator);
-            }
-        }
 
         // Getter for game list
         public List<(string Name, Func<Control> GameControlCreator)>
-            GetListOfGames()
+            getListOfGames()
         {
-            return data.GetListOfGames();
+            return data.getListOfGames();
         }
 
         //---------------------------------------------------------------
@@ -62,10 +43,10 @@ namespace GainsProject.Application
         //         Func<Control> gameControlCreator - A function that
         //          creates the game control
         //---------------------------------------------------------------
-        public void AddGameToList(string name
+        public void addGameToList(string name
             , Func<Control> gameControlCreator)
         {
-            data.AddGameToList(name, gameControlCreator);
+            data.addGameToList(name, gameControlCreator);
         }
 
         //---------------------------------------------------------------
@@ -74,15 +55,15 @@ namespace GainsProject.Application
         //         Func<Control> gameControlCreator - A function that
         //          creates the game control
         //---------------------------------------------------------------
-        public void RemoveGameFromList(string name,
+        public void removeGameFromList(string name,
                                        Func<Control> gameControlCreator)
         {
-            data.RemoveGameFromList(name, gameControlCreator);
+            data.removeGameFromList(name, gameControlCreator);
         }
         //---------------------------------------------------------------
         // Resets the list for games that have been played
         //---------------------------------------------------------------
-        public void RefreshGamesPlayed()
+        public void refreshGamesPlayed()
         {
             data.refreshPlayedGames();
         }
@@ -93,16 +74,16 @@ namespace GainsProject.Application
         // Params: Func<Control> gameCreator - A function that creates
         //          the game control
         //---------------------------------------------------------------
-        public void PlayedGame(Func<Control> gameCreator)
+        public void playedGame(Func<Control> gameCreator)
         {
-            data.PlayedGame(gameCreator);
+            data.playedGame(gameCreator);
         }
 
         //---------------------------------------------------------------
         //Gets a random game that hasn't been played yet
         // Returns a Func<Control>
         //---------------------------------------------------------------
-        public Func<Control> GetRandomUnplayedGame()
+        public Func<Control> getRandomUnplayedGame()
         {
             Func<Control> gameCreator = null;
             var unplayedGames = getUnplayedGameControls();
@@ -118,7 +99,7 @@ namespace GainsProject.Application
         // Gets the first index of the list that has not been played
         //Returns a Func<Control>
         //---------------------------------------------------------------
-        public Func<Control> GetFirstUnplayedGame()
+        public Func<Control> getFirstUnplayedGame()
         {
             var unplayedGames = getUnplayedGameControls();
             Func<Control> gameCreator = null;
@@ -135,9 +116,9 @@ namespace GainsProject.Application
         private Func<Control>[] getUnplayedGameControls()
         {
             return data
-                .GetListOfGames()
+                .getListOfGames()
                 .Select(g => g.GameControlCreator)
-                .Where(c => !data.GetGamesPlayed().Contains(c))
+                .Where(c => !data.getGamesPlayed().Contains(c))
                 .ToArray();
         }
 
@@ -145,23 +126,23 @@ namespace GainsProject.Application
         //Creates and returns a new game select manager with games
         // already populated, with an IGamePlaylist
         //---------------------------------------------------------------
-        public static GameSelectManager CreateAndPopulateManager(IGameEnd 
+        public static GameSelectManager createAndPopulateManager(IGameEnd
             gameEnd)
         {
             var manager = new GameSelectManager();
-            manager.AddGameToList("Example Game",
+            manager.addGameToList("Example Game",
                                   () => new ExampleGame(gameEnd));
-            manager.AddGameToList("Arrow Key Game",
+            manager.addGameToList("Arrow Key Game",
                                   () => new ArrowKeyGame(gameEnd));
-            manager.AddGameToList("Mental Math Game",
+            manager.addGameToList("Mental Math Game",
                                   () => new MentalMathGame(gameEnd));
-            manager.AddGameToList("Picture Drawing Game",
+            manager.addGameToList("Picture Drawing Game",
                                   () => new PictureDrawing(gameEnd));
-            manager.AddGameToList("Chase the button",
+            manager.addGameToList("Chase the button",
                                   () => new ChaseTheButton(gameEnd));
-            manager.AddGameToList("Dizzy Buttons",
+            manager.addGameToList("Dizzy Buttons",
                                   () => new DizzyButtonsGame(gameEnd));
-            manager.AddGameToList("Spot The Scenery",
+            manager.addGameToList("Spot The Scenery",
                                   () => new SpotTheSceneryGame(gameEnd));
             return manager;
         }

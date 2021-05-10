@@ -41,17 +41,14 @@ namespace GainsProject.Application
         private List<int> yMove;
         private Stack<Button> toAdd;
         private Stack<Button> toDelete;
-        private Button isIt;
         private Random random;
         private int score;
-        private ScoreSave scoreSave;
+
         //---------------------------------------------------------------
         // default constructor
         //---------------------------------------------------------------
         public DizzyButtonsGameManager()
         {
-            ScoreSaveManager scoreSaveManager = ScoreSaveManager.getScoreSaveManager();
-            scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
             toAdd = new Stack<Button>();
             toDelete = new Stack<Button>();
             isFinished = false;
@@ -67,6 +64,7 @@ namespace GainsProject.Application
             }
             setIsIt(buttonList[random.Next(NUM_BUTTONS)]);
         }
+
         //---------------------------------------------------------------
         // this method is to satisfy the abstract base class
         //---------------------------------------------------------------
@@ -74,13 +72,15 @@ namespace GainsProject.Application
         {
             start();
         }
+
         //---------------------------------------------------------------
         // this method is to satisfy the abstract base class
         //---------------------------------------------------------------
         public override void calculateScore()
         {
-            
+
         }
+
         //---------------------------------------------------------------
         // this method is to satisfy the abstract base class
         //---------------------------------------------------------------
@@ -88,6 +88,7 @@ namespace GainsProject.Application
         {
             return 0;
         }
+
         //---------------------------------------------------------------
         // this method creates a button, formats it, and makes accompaning
         // movement lists
@@ -95,9 +96,9 @@ namespace GainsProject.Application
         private void addNewButton()
         {
             Button button = new Button();
-            xMove.Add(random.Next(REVERSE_DIRECTION * (SPEED_RANGE / 
+            xMove.Add(random.Next(REVERSE_DIRECTION * (SPEED_RANGE /
                 SHIFT_SPEED_RANGE), SPEED_RANGE / SHIFT_SPEED_RANGE));
-            yMove.Add(random.Next(REVERSE_DIRECTION * (SPEED_RANGE / 
+            yMove.Add(random.Next(REVERSE_DIRECTION * (SPEED_RANGE /
                 SHIFT_SPEED_RANGE), SPEED_RANGE / SHIFT_SPEED_RANGE));
             setButtonDefaults(button);
             button.Location = new Point(random.Next(PAGE_WIDTH - BUTTON_WIDTH),
@@ -109,6 +110,7 @@ namespace GainsProject.Application
             buttonList.Add(button);
             toAdd.Push(button);
         }
+
         //---------------------------------------------------------------
         // set the default color and text message on a button
         //---------------------------------------------------------------
@@ -117,17 +119,18 @@ namespace GainsProject.Application
             button.Text = DEFAULT_TEXT;
             button.BackColor = DEFAULT_BACK_COLOR;
         }
+
         //---------------------------------------------------------------
         // Set the color to green and ask the user to click it. It also
         // makes the button on top so it can be seen over other buttons
         //---------------------------------------------------------------
         public void setIsIt(Button button)
         {
-            isIt = button;
             button.Text = IS_IT_TEXT;
             button.BackColor = IS_IT_BACK_COLOR;
             button.BringToFront();
         }
+
         //---------------------------------------------------------------
         // If a button was clicked on and it was the green one it will 
         // award points and delete it, otherwise it will minus points
@@ -141,7 +144,7 @@ namespace GainsProject.Application
                 if (score > GAME_LENGTH)
                     score = GAME_LENGTH;
                 int index = getButtonIndex(clickedButton);
-                if(index != BUTTON_OUT_OF_BOUNDS)
+                if (index != BUTTON_OUT_OF_BOUNDS)
                 {
                     toDelete.Push(clickedButton);
                     buttonList.Remove(clickedButton);
@@ -156,13 +159,14 @@ namespace GainsProject.Application
                 score -= MINUS_SCORE;
             }
         }
+
         //---------------------------------------------------------------
         // this method is called by the timer in the ui page every tick
         // it moves the buttons and counts until the end of the game
         //---------------------------------------------------------------
         public void tick()
         {
-            if(tickCounter == GAME_LENGTH)
+            if (tickCounter == GAME_LENGTH)
             {
                 isFinished = true;
             }
@@ -184,6 +188,7 @@ namespace GainsProject.Application
             }
             tickCounter++;
         }
+
         //---------------------------------------------------------------
         // gets the index for a BUTTON in the list for deleting it after
         // getting sent through the sender object in the event handler
@@ -191,9 +196,9 @@ namespace GainsProject.Application
         private int getButtonIndex(Button button)
         {
             int count = -1;
-            for(int i = 0; i < buttonList.Count; i++)
+            for (int i = 0; i < buttonList.Count; i++)
             {
-                if(buttonList[i].Equals(button))
+                if (buttonList[i].Equals(button))
                 {
                     count = i;
                     break;
@@ -201,11 +206,13 @@ namespace GainsProject.Application
             }
             return count;
         }
+
         //getter for buttonList
         public List<Button> getButtonList()
         {
             return buttonList;
         }
+
         //---------------------------------------------------------------
         // decrement the score by the set amount
         //---------------------------------------------------------------
@@ -213,26 +220,31 @@ namespace GainsProject.Application
         {
             score -= MINUS_SCORE;
         }
+
         //getter for score
         public int getScore()
         {
             return score;
         }
+
         //setter for score
         public void setScore(int score)
         {
             this.score = score;
         }
+
         //getter for isFinished
         public bool getIsFinished()
         {
             return isFinished;
         }
+
         //getter for toAdd
         public Stack<Button> getToAdd()
         {
             return toAdd;
         }
+
         //getter for toDelete
         public Stack<Button> getToDelete()
         {

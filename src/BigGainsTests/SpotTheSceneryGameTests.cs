@@ -28,9 +28,10 @@ namespace BigGainsTests
             game.setTime(SpotTheSceneryGameManager.PERFECT_TIME - 1);
             game.setNumRight(SpotTheSceneryGameManager.NUM_ROUNDS);
             game.calculateScore();
-            Assert.AreEqual(game.getScore(), 
+            Assert.AreEqual(game.getScore(),
                 SpotTheSceneryGameManager.PERFECT_SCORE);
         }
+
         //---------------------------------------------------------------
         // this method tests the score calculation for better than a 
         // perfect time
@@ -42,9 +43,10 @@ namespace BigGainsTests
             game.setTime(SpotTheSceneryGameManager.PERFECT_TIME - 1000);
             game.setNumRight(SpotTheSceneryGameManager.NUM_ROUNDS);
             game.calculateScore();
-            Assert.AreEqual(game.getScore(), 
+            Assert.AreEqual(game.getScore(),
                 SpotTheSceneryGameManager.PERFECT_SCORE);
         }
+
         //---------------------------------------------------------------
         // this method tests the score calculation for a perfect time
         //---------------------------------------------------------------
@@ -55,9 +57,10 @@ namespace BigGainsTests
             game.setTime(SpotTheSceneryGameManager.PERFECT_TIME);
             game.setNumRight(SpotTheSceneryGameManager.NUM_ROUNDS);
             game.calculateScore();
-            Assert.AreEqual(game.getScore(), 
+            Assert.AreEqual(game.getScore(),
                 SpotTheSceneryGameManager.PERFECT_SCORE);
         }
+
         //---------------------------------------------------------------
         // this method tests the score calculation for worse than a 
         // perfect time
@@ -73,6 +76,7 @@ namespace BigGainsTests
             game.calculateScore();
             Assert.AreEqual(game.getScore(), 980);
         }
+
         //---------------------------------------------------------------
         // this method tests the score calculation for worse than a 
         // perfect time
@@ -89,6 +93,7 @@ namespace BigGainsTests
                 SpotTheSceneryGameManager.SCORE_DECAY;
             Assert.AreNotEqual(game.getScore(), test);
         }
+
         //---------------------------------------------------------------
         // this method tests the score calculation for worse than a 
         // perfect time
@@ -103,6 +108,7 @@ namespace BigGainsTests
             game.calculateScore();
             Assert.AreEqual(game.getScore(), 0);
         }
+
         //---------------------------------------------------------------
         // this method tests the score calculation for missed scenes
         //---------------------------------------------------------------
@@ -114,11 +120,12 @@ namespace BigGainsTests
             game.setNumRight(SpotTheSceneryGameManager.NUM_ROUNDS - 2);
             game.setNumWrong(2);
             game.calculateScore();
-            Assert.AreEqual(game.getScore(), 
-                (int)(SpotTheSceneryGameManager.PERFECT_SCORE * 
-                ((double)game.getNumRight() - (double)game.getNumWrong()) / 
+            Assert.AreEqual(game.getScore(),
+                (int)(SpotTheSceneryGameManager.PERFECT_SCORE *
+                ((double)game.getNumRight() - (double)game.getNumWrong()) /
                 (double)game.getNumRight()));
         }
+
         //---------------------------------------------------------------
         // This method tests for the worst possible score
         //---------------------------------------------------------------
@@ -130,16 +137,17 @@ namespace BigGainsTests
             game.setNumRight(SpotTheSceneryGameManager.NUM_ROUNDS - 1);
             game.setNumWrong(1);
             game.calculateScore();
-            Assert.AreEqual(game.getScore(), 
+            Assert.AreEqual(game.getScore(),
                 SpotTheSceneryGameManager.PERFECT_SCORE *
                 ((double)game.getNumRight() - (double)game.getNumWrong()) /
                 (double)game.getNumRight());
         }
+
         //---------------------------------------------------------------
         // this method tests that the game runs
         //---------------------------------------------------------------
         [TestMethod]
-        public void RunGameTest()
+        public void runGameTest()
         {
             SpotTheSceneryGameManager game = new SpotTheSceneryGameManager();
             game.stopwatch.Start();
@@ -148,6 +156,7 @@ namespace BigGainsTests
             Assert.AreEqual(game.getTime(),
                 game.stopwatch.ElapsedMilliseconds);
         }
+
         //---------------------------------------------------------------
         // this method tests the random time function
         //---------------------------------------------------------------
@@ -158,6 +167,7 @@ namespace BigGainsTests
             int time = game.randomTime();
             Assert.AreNotEqual(time, -1);
         }
+
         //---------------------------------------------------------------
         // this method tests the new round method
         //---------------------------------------------------------------
@@ -170,14 +180,15 @@ namespace BigGainsTests
             while (game.hasNextRound())
             {
                 game.newRound();
-                Assert.AreNotEqual(game.getCurrDescriptor(), 
+                Assert.AreNotEqual(game.getCurrDescriptor(),
                     "notAreakDescriptor");
                 Assert.AreNotEqual(game.getCurrPictures()[0], null);
             }
-            Assert.AreEqual(game.getCurrRound(), 
+            Assert.AreEqual(game.getCurrRound(),
                 SpotTheSceneryGameManager.NUM_ROUNDS);
             Assert.AreEqual(game.hasNextRound(), false);
         }
+
         //---------------------------------------------------------------
         // this method tests picture clicked
         //---------------------------------------------------------------
@@ -187,7 +198,7 @@ namespace BigGainsTests
             SpotTheSceneryGameManager game = new SpotTheSceneryGameManager();
             game.fillPictureManager();
             game.newRound();
-            while(game.getNumRight() == 0 || game.getNumWrong() == 0)
+            while (game.getNumRight() == 0 || game.getNumWrong() == 0)
             {
                 game.pictureClicked(1);
                 game.newRound();

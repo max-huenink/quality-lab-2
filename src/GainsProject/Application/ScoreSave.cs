@@ -25,6 +25,7 @@ namespace GainsProject.Application
                                                   //calculate
         private double avgGamePoints;
         private List<SaveData> saveDataList;      //a list of SaveData nodes
+
         //--------------------------------------------------------------------
         //parameterized constructor that takes the FILENAME that will be read
         //in
@@ -35,10 +36,12 @@ namespace GainsProject.Application
             saveDataList = new List<SaveData>();
             readFile();
         }
+
         ~ScoreSave()
         {
             writeFile();
         }
+
         //--------------------------------------------------------------------
         //This method reads scores from a txt file into attributes
         //--------------------------------------------------------------------
@@ -69,6 +72,7 @@ namespace GainsProject.Application
                 sr.Close();
             }
         }
+
         //---------------------------------------------------------------
         //save all the data stored into a txt file
         //---------------------------------------------------------------
@@ -76,44 +80,51 @@ namespace GainsProject.Application
         {
             File.WriteAllText(fileName, getTextString());
         }
+
         //---------------------------------------------------------------
         //add NEWSCORE and NEWPLAYERTAG into SaveData node and add it to
         //the list
         //---------------------------------------------------------------
         public void addScore(int newScore, string newPlayerTag)
         {
-            SaveData newSave = new SaveData(newScore, 
+            SaveData newSave = new SaveData(newScore,
                 DateTime.Now, newPlayerTag);
             numGames++;
             totalScore += newScore;
             avgGamePoints = totalScore / numGames;
             saveDataList.Add(newSave);
         }
+
         //getter for saveDataList
         public List<SaveData> getSaveDataList()
         {
             return saveDataList;
         }
+
         //getter for SaveDataList nodes
         public SaveData getSaveDataListIndex(int index)
         {
             return saveDataList[index];
         }
+
         //getter for numGames
         public int getNumGames()
         {
             return numGames;
         }
+
         //getter for totalScore
         public int getTotalScore()
         {
             return totalScore;
         }
+
         //getter for avgGamePoints
         public double getAvgGamePoints()
         {
             return avgGamePoints;
         }
+
         //--------------------------------------------------------------------
         //This method returns a string in the format to save all of the score
         //data.

@@ -143,11 +143,11 @@
       <DependentUpon>SingleGamePage.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\Interfaces\IGamePlaylist.cs" />
-    <Compile Include="UI\LeaderboardPage.cs">
+    <Compile Include="UI\AboutUsPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\LeaderboardPage.Designer.cs">
-      <DependentUpon>LeaderboardPage.cs</DependentUpon>
+    <Compile Include="UI\AboutUsPage.Designer.cs">
+      <DependentUpon>AboutUsPage.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\MentalMathGame.cs">
       <SubType>UserControl</SubType>
@@ -216,8 +216,8 @@
     <EmbeddedResource Include="UI\SingleGamePage.resx">
       <DependentUpon>SingleGamePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\LeaderboardPage.resx">
-      <DependentUpon>LeaderboardPage.cs</DependentUpon>
+    <EmbeddedResource Include="UI\AboutUsPage.resx">
+      <DependentUpon>AboutUsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MentalMathGame.resx">
       <DependentUpon>MentalMathGame.cs</DependentUpon>
@@ -256,45 +256,93 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PictureDrawingFolder\bluePikmen.txt">
+    <EmbeddedResource Include="PictureDrawingFolder\bluePikmen.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="PictureDrawingFolder\personRunning.txt">
+    </EmbeddedResource>
+    <EmbeddedResource Include="PictureDrawingFolder\personRunning.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="PictureDrawingFolder\pineapple.txt">
+    </EmbeddedResource>
+    <EmbeddedResource Include="PictureDrawingFolder\pineapple.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="PictureDrawingFolder\smilieFace.txt">
+    </EmbeddedResource>
+    <EmbeddedResource Include="PictureDrawingFolder\smilieFace.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="PictureDrawingFolder\weirdMario.txt">
+    </EmbeddedResource>
+    <EmbeddedResource Include="PictureDrawingFolder\weirdMario.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SpotTheSceneryFolder\artic_bear.jpg" />
-    <Content Include="SpotTheSceneryFolder\beach.jpg" />
-    <Content Include="SpotTheSceneryFolder\big_house.jpg" />
-    <Content Include="SpotTheSceneryFolder\city.jpg" />
-    <Content Include="SpotTheSceneryFolder\desert.jpg" />
-    <Content Include="SpotTheSceneryFolder\forest.jpg" />
-    <Content Include="SpotTheSceneryFolder\grasslands.jpg" />
-    <Content Include="SpotTheSceneryFolder\minecraft.jpg" />
-    <Content Include="SpotTheSceneryFolder\mountain.jpg" />
-    <Content Include="SpotTheSceneryFolder\ocean.jpg" />
-    <Content Include="SpotTheSceneryFolder\rocky.jpg" />
-    <Content Include="SpotTheSceneryFolder\winter.jpg" />
-    <Content Include="STSPictureDescriptors\artic_bear.txt" />
-    <Content Include="STSPictureDescriptors\beach.txt" />
-    <Content Include="STSPictureDescriptors\big_house.txt" />
-    <Content Include="STSPictureDescriptors\city.txt" />
-    <Content Include="STSPictureDescriptors\desert.txt" />
-    <Content Include="STSPictureDescriptors\forest.txt" />
-    <Content Include="STSPictureDescriptors\grasslands.txt" />
-    <Content Include="STSPictureDescriptors\minecraft.txt" />
-    <Content Include="STSPictureDescriptors\mountain.txt" />
-    <Content Include="STSPictureDescriptors\ocean.txt" />
-    <Content Include="STSPictureDescriptors\rocky.txt" />
-    <Content Include="STSPictureDescriptors\winter.txt" />
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpotTheSceneryFolder\artic_bear.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpotTheSceneryFolder\beach.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpotTheSceneryFolder\big_house.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpotTheSceneryFolder\city.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpotTheSceneryFolder\desert.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpotTheSceneryFolder\forest.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpotTheSceneryFolder\grasslands.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpotTheSceneryFolder\minecraft.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpotTheSceneryFolder\mountain.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpotTheSceneryFolder\ocean.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpotTheSceneryFolder\rocky.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpotTheSceneryFolder\winter.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STSPictureDescriptors\artic_bear.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STSPictureDescriptors\beach.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STSPictureDescriptors\big_house.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STSPictureDescriptors\city.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STSPictureDescriptors\desert.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STSPictureDescriptors\forest.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STSPictureDescriptors\grasslands.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STSPictureDescriptors\minecraft.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STSPictureDescriptors\mountain.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STSPictureDescriptors\ocean.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STSPictureDescriptors\rocky.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STSPictureDescriptors\winter.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GameScore.txt">

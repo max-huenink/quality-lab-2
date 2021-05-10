@@ -60,7 +60,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Hides the instruction controls
         //---------------------------------------------------------------
-        private void HideInstructions()
+        private void hideInstructions()
         {
             InstructionsLbl.Hide();
             EasyDifficultyBtn.Hide();
@@ -69,33 +69,9 @@ namespace GainsProject.UI
         }
 
         //---------------------------------------------------------------
-        //Shows the instruction controls
-        //---------------------------------------------------------------
-        private void ShowInstructions()
-        {
-            InstructionsLbl.Show();
-            EasyDifficultyBtn.Show();
-            MediumDifficultyBtn.Show();
-            HardDifficultBtn.Show();
-        }
-
-        //---------------------------------------------------------------
-        //Hides the game controls
-        //---------------------------------------------------------------
-        private void HideGame()
-        {
-            LeftArrowLbl.Hide();
-            UpArrowLbl.Hide();
-            RightArrowLbl.Hide();
-            DownArrowLbl.Hide();
-            ScoreLbl.Hide();
-            TotalScoreLbl.Hide();
-        }
-
-        //---------------------------------------------------------------
         //Shows the game controls
         //---------------------------------------------------------------
-        private void ShowGame()
+        private void showGame()
         {
             LeftArrowLbl.Show();
             UpArrowLbl.Show();
@@ -112,28 +88,28 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Starts the game with easy difficulty
         //---------------------------------------------------------------
-        private void EasyDifficultyBtn_Click(object sender, EventArgs e)
+        private void easyDifficultyBtn_Click(object sender, EventArgs e)
         {
             difficulty = Difficulties.Easy;
-            GameStart();
+            gameStart();
         }
 
         //---------------------------------------------------------------
         //Starts the game with medium difficulty
         //---------------------------------------------------------------
-        private void MediumDifficultyBtn_Click(object sender, EventArgs e)
+        private void mediumDifficultyBtn_Click(object sender, EventArgs e)
         {
             difficulty = Difficulties.Medium;
-            GameStart();
+            gameStart();
         }
 
         //---------------------------------------------------------------
         //Starts the game with hard difficulty
         //---------------------------------------------------------------
-        private void HardDifficultBtn_Click(object sender, EventArgs e)
+        private void hardDifficultBtn_Click(object sender, EventArgs e)
         {
             difficulty = Difficulties.Hard;
-            GameStart();
+            gameStart();
         }
 
         #endregion
@@ -144,10 +120,10 @@ namespace GainsProject.UI
         //Runs the UI portion of the game
         //Sets and flashes random arrows, moving around per difficulty
         //---------------------------------------------------------------
-        private async void GameStart()
+        private async void gameStart()
         {
-            HideInstructions();
-            ShowGame();
+            hideInstructions();
+            showGame();
             game.start();
             var keys = new Keys[]
             {
@@ -160,7 +136,7 @@ namespace GainsProject.UI
                 var randomTime = game.randomTime();
                 game.setButtonToClick(buttonToClick);
                 game.setTimeUntilClick(randomTime);
-                Label arrow = GetArrowLabel(buttonToClick);
+                Label arrow = getArrowLabel(buttonToClick);
                 await Task.Run(async () =>
                 {
                     game.stopwatch.Start();
@@ -169,13 +145,13 @@ namespace GainsProject.UI
                     await Task.Delay(game.getMaxTimeToClick());
                 }, cts.Token);
                 arrow.ForeColor = Color.Black;
-                ShuffleArrowPositions();
+                shuffleArrowPositions();
             }
             ScoreSave scoreSave = scoreSaveManager.getScoreSave(GAME_NAME);
             scoreSave.addScore((int)game.getTotalScore(), name.getName());
 
             // Call gameFinished if gameEnd is not null
-            gameEnd?.GameFinished(name.getName(),
+            gameEnd?.gameFinished(name.getName(),
                                   game.getTotalScore(),
                                   game.getGameRunTime());
         }
@@ -183,7 +159,7 @@ namespace GainsProject.UI
         //---------------------------------------------------------------
         //Gets the Arrow label for the given key
         //---------------------------------------------------------------
-        private Label GetArrowLabel(Keys key)
+        private Label getArrowLabel(Keys key)
         {
             Label arrow = null;
             if (key.HasFlag(Keys.Left))
@@ -211,7 +187,7 @@ namespace GainsProject.UI
         //Medium - arrows swap positions
         //Hard - arrows move around the entire screen
         //---------------------------------------------------------------
-        private void ShuffleArrowPositions()
+        private void shuffleArrowPositions()
         {
             List<Point> arrowLocations = new List<Point>();
             Label[] labels = new Label[]

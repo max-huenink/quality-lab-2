@@ -21,19 +21,18 @@ namespace GainsProject.Application
         private const int SCORE_DISPLAY = 2;
         //this is fine because it                                         
         //will never get used
-        private const string SOMETHING_BROKE = "SOMETHING BROKE";   
         private int numGames;
         private int currDisplay = TIME_DISPLAY;     //0-time, 1-tag, 2-score
         private bool reverseScore;                   //if the score is in
-                                                    //reverse order or not
-        private int totalScore;
+                                                     //reverse order or not
         private double avgGamePoints;
         private List<SaveData> timeSorted;           //save a list for each right
-                                                    //away so it does not
-                                                    //have to be 
+                                                     //away so it does not
+                                                     //have to be 
         private List<SaveData> tagSorted;            //recalculated at each
-                                                    //button press
+                                                     //button press
         private List<SaveData> scoreSorted;
+
         //---------------------------------------------------------------
         //this is a parameterized constructor that takes a SCORESAVE
         //object for displaying the information for a game
@@ -43,12 +42,12 @@ namespace GainsProject.Application
             currDisplay = 0;
             reverseScore = false;
             numGames = scoreSave.getNumGames();
-            totalScore = scoreSave.getTotalScore();
             avgGamePoints = scoreSave.getAvgGamePoints();
             timeSorted = scoreSave.getSaveDataList();
             tagSort();
             scoreSort();
         }
+
         //---------------------------------------------------------------
         //sort a list in order of the tags using insert sort
         //---------------------------------------------------------------
@@ -70,6 +69,7 @@ namespace GainsProject.Application
                 tagSorted[j + 1] = key;
             }
         }
+
         //---------------------------------------------------------------
         //sort a list in order of the score using insert sort
         //---------------------------------------------------------------
@@ -91,6 +91,7 @@ namespace GainsProject.Application
                 scoreSorted[j + 1] = key;
             }
         }
+
         //---------------------------------------------------------------
         //sort a list in order of the timestamps using insert sort
         //---------------------------------------------------------------
@@ -106,6 +107,7 @@ namespace GainsProject.Application
                 reverseScore = false;
             }
         }
+
         //---------------------------------------------------------------
         //set the currDisplay and/or change reverseScore
         //---------------------------------------------------------------
@@ -121,6 +123,7 @@ namespace GainsProject.Application
                 reverseScore = false;
             }
         }
+
         //---------------------------------------------------------------
         //set the currDisplay and/or change reverseScore
         //---------------------------------------------------------------
@@ -136,6 +139,7 @@ namespace GainsProject.Application
                 reverseScore = false;
             }
         }
+
         //---------------------------------------------------------------
         //get the correct string for time
         //---------------------------------------------------------------
@@ -174,6 +178,7 @@ namespace GainsProject.Application
             }
             return rs;
         }
+
         //---------------------------------------------------------------
         //get the correct string for tag
         //---------------------------------------------------------------
@@ -212,6 +217,7 @@ namespace GainsProject.Application
             }
             return rs;
         }
+
         //---------------------------------------------------------------
         //get the correct string for score
         //---------------------------------------------------------------
@@ -250,6 +256,7 @@ namespace GainsProject.Application
             }
             return rs;
         }
+
         //---------------------------------------------------------------
         //make the reverseScore the opposite of what it is
         //---------------------------------------------------------------
@@ -264,6 +271,7 @@ namespace GainsProject.Application
                 reverseScore = false;
             }
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -276,6 +284,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -288,6 +297,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -300,6 +310,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -312,6 +323,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -324,6 +336,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -336,6 +349,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -349,6 +363,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -362,6 +377,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -375,6 +391,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -388,6 +405,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -401,6 +419,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -414,6 +433,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -426,6 +446,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -438,6 +459,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -450,6 +472,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -462,6 +485,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -474,6 +498,7 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //---------------------------------------------------------------
         //return the correct sorted and reversed string
         //---------------------------------------------------------------
@@ -487,31 +512,37 @@ namespace GainsProject.Application
             }
             return returnString;
         }
+
         //getter for numGames
         public int getNumGames()
         {
             return numGames;
         }
+
         //getter for avgGamePoints
         public double getAvgGamePoints()
         {
             return avgGamePoints;
         }
+
         //gettter for timeSorted
         public List<SaveData> getTimeSortedList()
         {
             return timeSorted;
         }
+
         //getter for tagSorted
         public List<SaveData> getTagSortedList()
         {
             return tagSorted;
         }
+
         //getter for scoreSorted
         public List<SaveData> getScoreSortedList()
         {
             return scoreSorted;
         }
+
         //getter for reverseScore
         public bool getReverseScore()
         {

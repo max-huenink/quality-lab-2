@@ -148,7 +148,7 @@ namespace GainsProject.Application
             if (buttonClicks <= MAX_CLICKS)
             {
                 var clickedAt = getTime();
-                var score = scoreCalculator(clickedAt -timeUntilClick);
+                var score = scoreCalculator(clickedAt - timeUntilClick);
                 updateTotalScore(score);
                 setScore(score);
 

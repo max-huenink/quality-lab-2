@@ -26,14 +26,14 @@ namespace GainsProject.UI
         {
             InitializeComponent();
 
-            manager = GameSelectManager.CreateAndPopulateManager(this);
-            NextGame();
+            manager = GameSelectManager.createAndPopulateManager(this);
+            nextGame();
         }
 
         //---------------------------------------------------------------
         //Displays the game end screen with the player's name and score
         //---------------------------------------------------------------
-        public void GameFinished(string name, long score, TimeSpan timeSpan)
+        public void gameFinished(string name, long score, TimeSpan timeSpan)
         {
             var gep = new GameEndPage(this);
             gep.setPlayerName(name);
@@ -46,20 +46,20 @@ namespace GainsProject.UI
         //Goes to a random unplayed game when the current game calls this
         // method, through ISelectGame
         //---------------------------------------------------------------
-        public void NextGame()
+        public void nextGame()
         {
-            var game = manager.GetRandomUnplayedGame();
+            var game = manager.getRandomUnplayedGame();
             // If all games have been played, recreate the game manager
-            PlayGame(game);
+            playGame(game);
         }
 
         //---------------------------------------------------------------
         //Stops going through the random playlist, goes to a blank screen
         //---------------------------------------------------------------
-        public void Exit()
+        public void exit()
         {
             Func<Control> gameModeSelectCreator = () => new GameModeSelect();
-            PlayGame(gameModeSelectCreator);
+            playGame(gameModeSelectCreator);
         }
 
         //---------------------------------------------------------------
@@ -87,7 +87,7 @@ namespace GainsProject.UI
         //         Func<Control> gameControlCreator - A function that
         //          creates the game control
         //---------------------------------------------------------------
-        private void PlayGame(Func<Control> gameControlCreator)
+        private void playGame(Func<Control> gameControlCreator)
         {
             if (gameControlCreator == null)
             {
@@ -97,7 +97,7 @@ namespace GainsProject.UI
             else
             {
                 // There is a game to play, mark it as played
-                manager.PlayedGame(gameControlCreator);
+                manager.playedGame(gameControlCreator);
             }
 
             showUserControl(gameControlCreator?.Invoke());
