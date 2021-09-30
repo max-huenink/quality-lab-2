@@ -8,7 +8,7 @@ namespace GainsProject
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        /// Comment Update
+        /// Comment Update 2
         [STAThread]
         static void Main()
         {
