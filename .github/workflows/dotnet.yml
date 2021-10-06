@@ -22,8 +22,8 @@ jobs:
       with:
         dotnet-version: 5.x
     - name: Restore dependencies nuget
-      run: nuget restore ./src/GainProject.sln
+      run: nuget restore ./src/GainsProject.sln
     - name: Build
-      run: dotnet build --no-restore ./src/GainProject.sln
+      run: dotnet build --no-restore ./src/GainsProject.sln
     - name: Test
       run: dotnet test --no-build --verbosity normal ./src/GainsProject.sln
