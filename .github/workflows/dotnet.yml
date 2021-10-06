@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -17,10 +17,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.x
-    - name: Setup .NET core 4.7
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 4.7.x
     - name: Restore dependencies
       run: dotnet restore ./src/GainsProject.sln
     - name: Build
