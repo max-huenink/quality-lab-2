@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 3.1.x
     - name: Restore dependencies
-      run: dotnet restore ./Homework 1/Homework1.sln
+      run: dotnet restore "./Homework 1/Homework1.sln"
     - name: Build
-      run: dotnet build --no-restore ./Homework 1/Homework1.sln
+      run: dotnet build --no-restore "./Homework 1/Homework1.sln"
     - name: Test
-      run: dotnet test --no-build --verbosity normal ./Homework 1/Homework1.sln
+      run: dotnet test --no-build --verbosity normal "./Homework 1/Homework1.sln"
