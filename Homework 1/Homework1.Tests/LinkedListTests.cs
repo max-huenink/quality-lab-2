@@ -9,7 +9,7 @@ namespace Homework1.Tests
         public  void IsEmptyTest1()
         {
             LinkedList<int> testList = new LinkedList<int>();
-            Assert.IsTrue(testList.IsEmpty());
+            Assert.IsFalse(testList.IsEmpty());
         }
 
         [TestMethod]
